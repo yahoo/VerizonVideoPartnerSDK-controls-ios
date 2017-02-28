@@ -32,6 +32,15 @@ public final class AdVideoControls: UIViewController {
         }
     }
     
+    public init() {
+        super.init(nibName: "AdVideoControls",
+                   bundle: Bundle(for: type(of: self)))
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
