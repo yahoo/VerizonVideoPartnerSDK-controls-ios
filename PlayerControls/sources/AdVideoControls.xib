@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdVideoControls" customModule="OneMobileSDK" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="qIL-ei-EYl" id="L12-FM-W5p"/>
+                <outlet property="loadingImageView" destination="EKe-z8-rXd" id="eHq-Ft-TPG"/>
+                <outlet property="pauseButton" destination="vqW-yt-m6i" id="vhJ-RC-RJ4"/>
+                <outlet property="playButton" destination="ZdZ-pr-J12" id="mDx-rg-za2"/>
+                <outlet property="remainingPlayTimeLabel" destination="8JH-hm-H4n" id="bPJ-YQ-afD"/>
+                <outlet property="seekerView" destination="OkK-Gw-Woe" id="yMm-3u-3MF"/>
+                <outlet property="skipButton" destination="5ug-VD-17T" id="ygd-HP-dn9"/>
+                <outlet property="titleLabel" destination="unl-Sw-N45" id="dWD-6h-eAd"/>
+                <outlet property="view" destination="GG0-Gw-iIe" id="udv-Yi-jiW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="GG0-Gw-iIe">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-ei-EYl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view alpha="0.5" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xUJ-hB-tQp" userLabel="Shadow View">
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unl-Sw-N45">
+                    <rect key="frame" x="50" y="648" width="77" height="14"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=regular">
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-hm-H4n">
+                    <rect key="frame" x="358" y="649" width="7" height="12"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
+                    <color key="textColor" red="1" green="0.77647058823529413" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=regular">
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                    </variation>
+                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="1000" image="ad-icon-loading" translatesAutoresizingMaskIntoConstraints="NO" id="EKe-z8-rXd">
+                    <rect key="frame" x="10" y="632" width="30" height="30"/>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-VD-17T">
+                    <rect key="frame" x="305" y="10" width="60" height="27"/>
+                    <color key="backgroundColor" red="0.11372549019607843" green="0.10196078431372549" blue="0.12549019607843137" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="IeC-Cy-8jB"/>
+                        <constraint firstAttribute="width" constant="60" id="NLN-Jv-k5o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Skip" image="ad-icon-skip"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="13"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IeC-Cy-8jB"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="IeC-Cy-8jB"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <mask key="constraints">
+                            <include reference="IeC-Cy-8jB"/>
+                        </mask>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdZ-pr-J12" userLabel="Play">
+                    <rect key="frame" x="10" y="632" width="30" height="30"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="ad-icon-play"/>
+                    <connections>
+                        <action selector="highlightButton:" destination="-1" eventType="touchDown" id="wDn-ph-jfn"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpOutside" id="MPD-bb-RTU"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpInside" id="ZF2-nC-ynw"/>
+                        <action selector="playButtonTouched" destination="-1" eventType="touchUpInside" id="ZdC-eQ-Lpm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqW-yt-m6i" userLabel="Pause">
+                    <rect key="frame" x="10" y="632" width="30" height="30"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="ad-icon-pause"/>
+                    <connections>
+                        <action selector="highlightButton:" destination="-1" eventType="touchDown" id="7mJ-ze-hYr"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpOutside" id="1IR-Rf-5uf"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpInside" id="D8o-4v-2Qf"/>
+                        <action selector="pauseButtonTouched" destination="-1" eventType="touchUpInside" id="rzB-K6-R0g"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-Gw-Woe" customClass="SeekerControlView" customModule="OneMobileSDK" customModuleProvider="target">
+                    <rect key="frame" x="50" y="631" width="315" height="15"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Ijc-gl-cVa">
+                            <variation key="widthClass=compact" constant="15"/>
+                        </constraint>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="draggingEnabled" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Ijc-gl-cVa"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Ijc-gl-cVa"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="Ijc-gl-cVa"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qIL-ei-EYl" secondAttribute="trailing" id="3hW-FM-9ca"/>
+                <constraint firstItem="unl-Sw-N45" firstAttribute="top" secondItem="xUJ-hB-tQp" secondAttribute="bottom" constant="-19" id="9Ib-35-9LD"/>
+                <constraint firstItem="unl-Sw-N45" firstAttribute="top" secondItem="OkK-Gw-Woe" secondAttribute="bottom" constant="2" id="Chg-Un-fBY"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="centerY" secondItem="xUJ-hB-tQp" secondAttribute="centerY" id="JtB-W4-hFr"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="top" secondItem="ZdZ-pr-J12" secondAttribute="top" id="KQl-9o-ngN"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="top" secondItem="EKe-z8-rXd" secondAttribute="top" id="LMh-OI-TJ1"/>
+                <constraint firstItem="5ug-VD-17T" firstAttribute="top" secondItem="GG0-Gw-iIe" secondAttribute="top" constant="10" id="MkK-de-rXB"/>
+                <constraint firstItem="OkK-Gw-Woe" firstAttribute="trailing" secondItem="8JH-hm-H4n" secondAttribute="trailing" id="RuL-dw-0cG"/>
+                <constraint firstItem="qIL-ei-EYl" firstAttribute="leading" secondItem="GG0-Gw-iIe" secondAttribute="leading" id="Wt0-et-CRA"/>
+                <constraint firstAttribute="bottom" secondItem="xUJ-hB-tQp" secondAttribute="bottom" id="Yjf-s7-2VR"/>
+                <constraint firstItem="xUJ-hB-tQp" firstAttribute="leading" secondItem="GG0-Gw-iIe" secondAttribute="leading" id="Yzx-vs-hdT"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="bottom" secondItem="unl-Sw-N45" secondAttribute="bottom" id="bm1-gl-GKq"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="leading" secondItem="EKe-z8-rXd" secondAttribute="leading" id="bxH-ZT-O0p"/>
+                <constraint firstItem="qIL-ei-EYl" firstAttribute="top" secondItem="GG0-Gw-iIe" secondAttribute="top" id="fFk-p9-gZW"/>
+                <constraint firstItem="OkK-Gw-Woe" firstAttribute="leading" secondItem="unl-Sw-N45" secondAttribute="leading" id="iU0-rh-ErI"/>
+                <constraint firstAttribute="trailing" secondItem="OkK-Gw-Woe" secondAttribute="trailing" constant="10" id="loR-ZW-HCb"/>
+                <constraint firstItem="8JH-hm-H4n" firstAttribute="centerY" secondItem="unl-Sw-N45" secondAttribute="centerY" id="mxg-x4-MZQ"/>
+                <constraint firstItem="OkK-Gw-Woe" firstAttribute="leading" secondItem="vqW-yt-m6i" secondAttribute="trailing" constant="10" id="p4q-dj-Rdq"/>
+                <constraint firstAttribute="trailing" secondItem="xUJ-hB-tQp" secondAttribute="trailing" id="p8T-PK-L6E"/>
+                <constraint firstItem="OkK-Gw-Woe" firstAttribute="leading" secondItem="GG0-Gw-iIe" secondAttribute="leading" constant="50" id="pU9-4L-FS3"/>
+                <constraint firstItem="vqW-yt-m6i" firstAttribute="leading" secondItem="ZdZ-pr-J12" secondAttribute="leading" id="pWu-Go-ZY7"/>
+                <constraint firstItem="OkK-Gw-Woe" firstAttribute="trailing" secondItem="5ug-VD-17T" secondAttribute="trailing" id="sIZ-cG-PLs"/>
+                <constraint firstItem="xUJ-hB-tQp" firstAttribute="top" secondItem="qIL-ei-EYl" secondAttribute="bottom" id="y1r-bj-6QR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <edgeInsets key="layoutMargins" top="60" left="8" bottom="8" right="8"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="d0R-AA-BiQ" appends="YES" id="enl-Ej-F3H"/>
+            </connections>
+            <point key="canvasLocation" x="69.5" y="419.5"/>
+        </view>
+        <tapGestureRecognizer id="d0R-AA-BiQ">
+            <connections>
+                <action selector="viewTouched" destination="-1" id="HVX-lt-XKl"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="ad-icon-loading" width="30" height="30"/>
+        <image name="ad-icon-pause" width="30" height="30"/>
+        <image name="ad-icon-play" width="30" height="30"/>
+        <image name="ad-icon-skip" width="12" height="12"/>
+    </resources>
+</document>
