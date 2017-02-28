@@ -1,0 +1,66 @@
+{
+  "images" : [
+    {
+      "alignment-insets" : {
+        "top" : 2,
+        "left" : 2,
+        "bottom" : 2,
+        "right" : 2
+      },
+      "idiom" : "iphone",
+      "filename" : "sm-icon-handle.png",
+      "scale" : "1x"
+    },
+    {
+      "alignment-insets" : {
+        "top" : 5,
+        "left" : 10,
+        "bottom" : 5,
+        "right" : 10
+      },
+      "idiom" : "iphone",
+      "filename" : "sm-icon-handle@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "alignment-insets" : {
+        "top" : 10,
+        "left" : 15,
+        "bottom" : 10,
+        "right" : 15
+      },
+      "idiom" : "iphone",
+      "filename" : "sm-icon-handle@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "alignment-insets" : {
+        "top" : 0,
+        "left" : 4,
+        "bottom" : 0,
+        "right" : 4
+      },
+      "idiom" : "ipad",
+      "filename" : "icon-handle.png",
+      "scale" : "1x"
+    },
+    {
+      "alignment-insets" : {
+        "top" : 10,
+        "left" : 10,
+        "bottom" : 10,
+        "right" : 9
+      },
+      "idiom" : "ipad",
+      "filename" : "icon-handle@2x.png",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}
