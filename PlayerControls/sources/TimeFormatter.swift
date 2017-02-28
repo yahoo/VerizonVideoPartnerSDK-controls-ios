@@ -3,7 +3,7 @@
 /// Current time of played video.
 public enum CurrentTimeControl {}
 
-enum TimeFormatter {
+public enum TimeFormatter {
     static let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 2
@@ -11,7 +11,7 @@ enum TimeFormatter {
         return formatter
     }()
     
-    static func string(from value: UInt) -> String {
+    public static func string(from value: UInt) -> String {
         let hours = value / 3600
         let minutes = value / 60 % 60
         let seconds = value % 60

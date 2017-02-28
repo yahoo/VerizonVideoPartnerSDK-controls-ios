@@ -89,6 +89,11 @@ public class ContentControlsViewController: UIViewController {
                             self.stop = stop
                         }
                     }
+                    
+                    public init(seekTo: Action<Seconds>?, state: State) {
+                        self.seekTo = seekTo
+                        self.state = state
+                    }
                 }
             }
             
@@ -99,10 +104,10 @@ public class ContentControlsViewController: UIViewController {
                 public struct Angles {
                     
                     /// zero - center, positive - right part, negatve - left part.
-                    var horizontal: Float
+                    public var horizontal: Float
                     
                     /// zero - horizon, positive - above horizon, negative - below
-                    var vertical: Float
+                    public var vertical: Float
                     
                     public init(horizontal: Float, vertical: Float) {
                         self.horizontal = horizontal
@@ -130,8 +135,13 @@ public class ContentControlsViewController: UIViewController {
             
             public var error: Error?
             public struct Error {
-                var message: String
-                var retryAction: Action<Void>?
+                public var message: String
+                public var retryAction: Action<Void>?
+                
+                public init(message: String, retryAction: Action<Void>?) {
+                    self.message = message
+                    self.retryAction = retryAction
+                }
             }
             
             public init(title: String,

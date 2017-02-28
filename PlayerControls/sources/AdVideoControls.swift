@@ -20,12 +20,12 @@ public final class AdVideoControls: UIViewController {
     /// Skip button. Not yet implemented, hidden by default.
     @IBOutlet private var skipButton: UIButton!
     
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet public weak var containerView: UIView!
     
-    var props: Props = Props(mainAction: .play({ }),
-                             seeker: nil,
-                             tapAction: nil,
-                             isLoading: true) {
+    public var props: Props = Props(mainAction: .play { },
+                                    seeker: nil,
+                                    tapAction: nil,
+                                    isLoading: true) {
         didSet {
             guard isViewLoaded else { return }
             view.setNeedsLayout()
@@ -52,24 +52,38 @@ public final class AdVideoControls: UIViewController {
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
     }
     
-    struct Props {
-        static let `default` = Props(mainAction: .play({ }),
-                                     seeker: nil,
-                                     tapAction: nil,
-                                     isLoading: true)
-        let mainAction: MainAction
-        let seeker: Seeker?
-        let tapAction: Action<Void>?
-        let isLoading: Bool
+    public struct Props {
+        public static let `default` = Props(mainAction: .play { },
+                                            seeker: nil,
+                                            tapAction: nil,
+                                            isLoading: true)
+        public let mainAction: MainAction
+        public let seeker: Seeker?
+        public let tapAction: Action<Void>?
+        public let isLoading: Bool
         
-        enum MainAction {
+        public enum MainAction {
             case play(Action<Void>)
             case pause(Action<Void>)
         }
         
-        struct Seeker {
-            let remainingPlayTime: String
-            let currentValue: Double
+        public struct Seeker {
+            public let remainingPlayTime: String
+            public let currentValue: Double
+            public init(remainingPlayTime: String, currentValue: Double) {
+                self.remainingPlayTime = remainingPlayTime
+                self.currentValue = currentValue
+            }
+        }
+        
+        public init(mainAction: MainAction,
+                    seeker: Seeker?,
+                    tapAction: Action<Void>?,
+                    isLoading: Bool) {
+            self.mainAction = mainAction
+            self.seeker = seeker
+            self.tapAction = tapAction
+            self.isLoading = isLoading
         }
     }
     
