@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 
-@testable import OneMobileSDK
+@testable import PlayerControls
 
 class FormatterTests: QuickSpec {
     override func spec() {

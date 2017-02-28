@@ -23,7 +23,24 @@
 		50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F871E65CBE600B18908 /* ControlsVisibilityController.swift */; };
 		50582F8C1E65CBE600B18908 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F891E65CBE600B18908 /* Timer.swift */; };
 		50582F971E65D1BA00B18908 /* PlayerControls.h in Headers */ = {isa = PBXBuildFile; fileRef = 50582F961E65D1BA00B18908 /* PlayerControls.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50582FA31E65D78C00B18908 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582F5B1E65C41900B18908 /* PlayerControls.framework */; };
+		50582FA91E65DC1600B18908 /* ControlsVisibilityControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F881E65CBE600B18908 /* ControlsVisibilityControllerTests.swift */; };
+		50582FAA1E65DC1600B18908 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F831E65CA5F00B18908 /* FormatterTests.swift */; };
+		50582FAB1E65DC1600B18908 /* SideBarViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F761E65C8CC00B18908 /* SideBarViewTests.swift */; };
+		50582FAF1E65DDBA00B18908 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAD1E65DDBA00B18908 /* Nimble.framework */; };
+		50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAE1E65DDBA00B18908 /* Quick.framework */; };
+		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50582FA41E65D78C00B18908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50582F521E65C41900B18908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50582F5A1E65C41900B18908;
+			remoteInfo = PlayerControls;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		50582F5B1E65C41900B18908 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +64,11 @@
 		50582F881E65CBE600B18908 /* ControlsVisibilityControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlsVisibilityControllerTests.swift; path = ../tests/ControlsVisibilityControllerTests.swift; sourceTree = "<group>"; };
 		50582F891E65CBE600B18908 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		50582F961E65D1BA00B18908 /* PlayerControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerControls.h; sourceTree = SOURCE_ROOT; };
+		50582F9E1E65D78C00B18908 /* PlayerControlsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerControlsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50582FA21E65D78C00B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		50582FAD1E65DDBA00B18908 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		50582FAE1E65DDBA00B18908 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50582F9B1E65D78C00B18908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50582FAF1E65DDBA00B18908 /* Nimble.framework in Frameworks */,
+				50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */,
+				50582FA31E65D78C00B18908 /* PlayerControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +97,7 @@
 			children = (
 				50582F5D1E65C41900B18908 /* PlayerControls */,
 				50582F5C1E65C41900B18908 /* Products */,
+				50582FAC1E65DDBA00B18908 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				50582F5B1E65C41900B18908 /* PlayerControls.framework */,
+				50582F9E1E65D78C00B18908 /* PlayerControlsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,8 +115,7 @@
 			children = (
 				50582F711E65C69C00B18908 /* PlayerUIControls.xcassets */,
 				50582F661E65C64B00B18908 /* sources */,
-				50582F5F1E65C41900B18908 /* Info.plist */,
-				50582F961E65D1BA00B18908 /* PlayerControls.h */,
+				50582F991E65D55F00B18908 /* support */,
 			);
 			path = PlayerControls;
 			sourceTree = "<group>";
@@ -90,10 +123,10 @@
 		50582F661E65C64B00B18908 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				50582FB31E65E5B900B18908 /* utils */,
 				50582F8E1E65CD5300B18908 /* visibility controller */,
 				50582F8D1E65CD4100B18908 /* time formatter */,
 				50582F8F1E65CD6700B18908 /* ad controls */,
-				50582F731E65C79D00B18908 /* Utils.swift */,
 				50582F901E65CD7300B18908 /* content controls */,
 			);
 			path = sources;
@@ -167,6 +200,34 @@
 			name = "seeker control view";
 			sourceTree = "<group>";
 		};
+		50582F991E65D55F00B18908 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				50582FA21E65D78C00B18908 /* Info.plist */,
+				50582F5F1E65C41900B18908 /* Info.plist */,
+				50582F961E65D1BA00B18908 /* PlayerControls.h */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		50582FAC1E65DDBA00B18908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50582FAD1E65DDBA00B18908 /* Nimble.framework */,
+				50582FAE1E65DDBA00B18908 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50582FB31E65E5B900B18908 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				50582F731E65C79D00B18908 /* Utils.swift */,
+				50582FB11E65DEF800B18908 /* Recorder.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -199,16 +260,40 @@
 			productReference = 50582F5B1E65C41900B18908 /* PlayerControls.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		50582F9D1E65D78C00B18908 /* PlayerControlsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50582FA61E65D78C00B18908 /* Build configuration list for PBXNativeTarget "PlayerControlsTests" */;
+			buildPhases = (
+				50582F9A1E65D78C00B18908 /* Sources */,
+				50582F9B1E65D78C00B18908 /* Frameworks */,
+				50582F9C1E65D78C00B18908 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50582FA51E65D78C00B18908 /* PBXTargetDependency */,
+			);
+			name = PlayerControlsTests;
+			productName = PlayerControlsTests;
+			productReference = 50582F9E1E65D78C00B18908 /* PlayerControlsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		50582F521E65C41900B18908 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "One by AOL : Publishers";
 				TargetAttributes = {
 					50582F5A1E65C41900B18908 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7FCMSU478D;
+						ProvisioningStyle = Automatic;
+					};
+					50582F9D1E65D78C00B18908 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7FCMSU478D;
 						ProvisioningStyle = Automatic;
@@ -228,6 +313,7 @@
 			projectRoot = "";
 			targets = (
 				50582F5A1E65C41900B18908 /* PlayerControls */,
+				50582F9D1E65D78C00B18908 /* PlayerControlsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,6 +327,13 @@
 				50582F721E65C69C00B18908 /* PlayerUIControls.xcassets in Resources */,
 				50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */,
 				50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50582F9C1E65D78C00B18908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +358,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50582F9A1E65D78C00B18908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50582FAB1E65DC1600B18908 /* SideBarViewTests.swift in Sources */,
+				50582FAA1E65DC1600B18908 /* FormatterTests.swift in Sources */,
+				50582FA91E65DC1600B18908 /* ControlsVisibilityControllerTests.swift in Sources */,
+				50582FB21E65DEF800B18908 /* Recorder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50582FA51E65D78C00B18908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50582F5A1E65C41900B18908 /* PlayerControls */;
+			targetProxy = 50582FA41E65D78C00B18908 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		50582F611E65C41900B18908 /* Debug */ = {
@@ -378,6 +490,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,10 +510,43 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		50582FA71E65D78C00B18908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7FCMSU478D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControlsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		50582FA81E65D78C00B18908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7FCMSU478D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControlsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -425,6 +571,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		50582FA61E65D78C00B18908 /* Build configuration list for PBXNativeTarget "PlayerControlsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50582FA71E65D78C00B18908 /* Debug */,
+				50582FA81E65D78C00B18908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

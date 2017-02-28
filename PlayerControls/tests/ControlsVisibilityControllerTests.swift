@@ -1,7 +1,7 @@
 //  Copyright © 2016 One by Aol : Publishers. All rights reserved.
 
 import Quick
-@testable import OneMobileSDK
+@testable import PlayerControls
 
 class ControlsVisibilityControllerTests: QuickSpec {
     override func spec() { //swiftlint:disable:this function_body_length

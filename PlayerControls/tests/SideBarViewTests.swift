@@ -3,7 +3,7 @@
 import XCTest
 import UIKit
 import Nimble
-@testable import OneMobileSDK
+@testable import PlayerControls
 
 class SideBarViewTests: XCTestCase {
     func testNoButtons() {
