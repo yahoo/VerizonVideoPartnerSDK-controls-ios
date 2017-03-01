@@ -17,10 +17,10 @@ public class ContentControlsViewController: UIViewController {
         
         case playback(Controls)
         public struct Controls {
-            public var title: String
-            public var loading: Bool
+            public var title = ""
+            public var loading = false
             
-            public var playbackAction: Playback
+            public var playbackAction: Playback = .none
             public enum Playback {
                 case none
                 case play(Action<Void>)
@@ -32,14 +32,9 @@ public class ContentControlsViewController: UIViewController {
             public struct Playlist {
                 public var next: Action<Void>?
                 public var prev: Action<Void>?
-                
-                public init(next: Action<Void>?, prev: Action<Void>?) {
-                    self.next = next
-                    self.prev = prev
-                }
             }
             
-            public var subtitles: Subtitles
+            public var subtitles: Subtitles = .none
             public enum Subtitles {
                 case none
                 case unavailable
@@ -54,45 +49,21 @@ public class ContentControlsViewController: UIViewController {
                 public typealias Seconds = UInt
                 public typealias Progress = Double
                 
-                public var duration: Seconds
-                public var currentTime: Seconds
-                public var progress: Progress
-                public var buffered: Progress
+                public var duration: Seconds = 0
+                public var currentTime: Seconds = 0
+                public var progress: Progress = 0.0
+                public var buffered: Progress = 0.0
                 
-                public var seeker: Seeker
-                
-                public init(duration: Seconds,
-                            currentTime: Seconds,
-                            progress: Progress,
-                            buffered: Progress,
-                            seeker: Seeker) {
-                    self.duration = duration
-                    self.currentTime = currentTime
-                    self.progress = progress
-                    self.buffered = buffered
-                    self.seeker = seeker
-                }
+                public var seeker = Seeker()
                 
                 public struct Seeker {
                     public var seekTo: Action<Seconds>?
                     
-                    public var state: State
+                    public var state = State()
                     public struct State {
-                        let start: Action<Progress>
-                        let update: Action<Progress>
-                        let stop: Action<Progress>
-                        public init(start: @escaping Action<Progress>,
-                                    update: @escaping Action<Progress>,
-                                    stop: @escaping Action<Progress>) {
-                            self.start = start
-                            self.update = update
-                            self.stop = stop
-                        }
-                    }
-                    
-                    public init(seekTo: Action<Seconds>?, state: State) {
-                        self.seekTo = seekTo
-                        self.state = state
+                        public var start: Action<Progress> = nop
+                        public var update: Action<Progress> = nop
+                        public var stop: Action<Progress> = nop
                     }
                 }
             }
@@ -104,24 +75,14 @@ public class ContentControlsViewController: UIViewController {
                 public struct Angles {
                     
                     /// zero - center, positive - right part, negatve - left part.
-                    public var horizontal: Float
+                    public var horizontal: Float = 0.0
                     
                     /// zero - horizon, positive - above horizon, negative - below
-                    public var vertical: Float
-                    
-                    public init(horizontal: Float, vertical: Float) {
-                        self.horizontal = horizontal
-                        self.vertical = vertical
-                    }
+                    public var vertical: Float = 0.0
                 }
                 
-                public var angles: Angles
-                public var moveTo: Action<Angles>
-                
-                public init(angles: Angles, moveTo: @escaping Action<Angles>) {
-                    self.angles = angles
-                    self.moveTo = moveTo
-                }
+                public var angles = Angles()
+                public var moveTo: Action<Angles> = nop
             }
             
             /// URL or UIImage for the thumbnail.
@@ -131,40 +92,22 @@ public class ContentControlsViewController: UIViewController {
                 case image(UIImage)
             }
             
-            public var sideBarViewHidden: Bool
+            public var sideBarViewHidden = true 
             
             public var error: Error?
             public struct Error {
-                public var message: String
+                public var message = ""
                 public var retryAction: Action<Void>?
-                
-                public init(message: String, retryAction: Action<Void>?) {
-                    self.message = message
-                    self.retryAction = retryAction
-                }
-            }
-            
-            public init(title: String,
-                        loading: Bool,
-                        playbackAction: Playback,
-                        playlist: Playlist?,
-                        subtitles: Subtitles,
-                        seekbar: Seekbar?,
-                        camera: Camera?,
-                        thumbnail: Thumbnail?,
-                        sideBarViewHidden: Bool,
-                        error: Error?) {
-                self.title = title
-                self.loading = loading
-                self.playbackAction = playbackAction
-                self.playlist = playlist
-                self.subtitles = subtitles
-                self.seekbar = seekbar
-                self.camera = camera
-                self.thumbnail = thumbnail
-                self.sideBarViewHidden = sideBarViewHidden
-                self.error = error
             }
         }
     }
 }
+
+extension ContentControlsViewController.Props.Controls.Playlist: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Seekbar: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Seekbar.Seeker: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Seekbar.Seeker.State: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Camera: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Camera.Angles: Defaultable { }
+extension ContentControlsViewController.Props.Controls.Error: Defaultable { }
+extension ContentControlsViewController.Props.Controls: Defaultable { }

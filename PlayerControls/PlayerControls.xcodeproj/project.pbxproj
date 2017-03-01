@@ -30,6 +30,7 @@
 		50582FAF1E65DDBA00B18908 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAD1E65DDBA00B18908 /* Nimble.framework */; };
 		50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAE1E65DDBA00B18908 /* Quick.framework */; };
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
+		50582FC41E67086000B18908 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FC31E67086000B18908 /* Defaultable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		50582FAD1E65DDBA00B18908 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		50582FAE1E65DDBA00B18908 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
+		50582FC31E67086000B18908 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			children = (
 				50582F731E65C79D00B18908 /* Utils.swift */,
 				50582FB11E65DEF800B18908 /* Recorder.swift */,
+				50582FC31E67086000B18908 /* Defaultable.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
+				50582FC41E67086000B18908 /* Defaultable.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
 			);
@@ -579,6 +583,7 @@
 				50582FA81E65D78C00B18908 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
