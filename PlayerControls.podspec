@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   }
 
   s.source           =  { :git => 'https://github.com/vidible/OneMobileSDK-controls-ios.git', :tag => '1.0' }
-  s.source_files     = "PlayerControls/sources/*"
+  s.source_files     = "PlayerControls/sources/*.swift"
+  s.ios.resource_bundle  = { "PlayerControls" => ["PlayerControls/sources/*.xib", "PlayerControls/PlayerUIControls.xcassets"] }
 
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
