@@ -23,10 +23,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
-    deinit {
-        print("Destroyed: \(self)")
-    }
-    
     @IBOutlet private var thumbnailImageView: UIImageView!
     @IBOutlet private var controlsView: UIView!
     @IBOutlet private var shadowView: UIView!
