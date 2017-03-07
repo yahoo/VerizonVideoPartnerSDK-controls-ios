@@ -92,7 +92,7 @@ public class ContentControlsViewController: UIViewController {
                 case image(UIImage)
             }
             
-            public var sideBarViewHidden = true 
+            public var sideBarViewHidden = true
             
             public var error: Error?
             public struct Error {
@@ -102,12 +102,3 @@ public class ContentControlsViewController: UIViewController {
         }
     }
 }
-
-extension ContentControlsViewController.Props.Controls.Playlist: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar.Seeker: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar.Seeker.State: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Camera: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Camera.Angles: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Error: Defaultable { }
-extension ContentControlsViewController.Props.Controls: Defaultable { }
