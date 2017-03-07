@@ -32,6 +32,7 @@ public class ContentControlsViewController: UIViewController {
             public struct Playlist {
                 public var next: Action<Void>?
                 public var prev: Action<Void>?
+                public init() { }
             }
             
             public var subtitles: Subtitles = .none
@@ -64,8 +65,11 @@ public class ContentControlsViewController: UIViewController {
                         public var start: Action<Progress> = nop
                         public var update: Action<Progress> = nop
                         public var stop: Action<Progress> = nop
+                        public init() { }
                     }
+                    public init() { }
                 }
+                public init() { }
             }
             
             /// This field will be available only when 360 video is active
@@ -79,10 +83,12 @@ public class ContentControlsViewController: UIViewController {
                     
                     /// zero - horizon, positive - above horizon, negative - below
                     public var vertical: Float = 0.0
+                    public init() { }
                 }
                 
                 public var angles = Angles()
                 public var moveTo: Action<Angles> = nop
+                public init() { }
             }
             
             /// URL or UIImage for the thumbnail.
@@ -98,7 +104,10 @@ public class ContentControlsViewController: UIViewController {
             public struct Error {
                 public var message = ""
                 public var retryAction: Action<Void>?
+                public init() { }
             }
+            
+            public init() { }
         }
     }
 }

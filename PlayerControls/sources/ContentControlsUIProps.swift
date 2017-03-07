@@ -270,7 +270,7 @@ extension DefaultControlsViewController {
                 guard case .playback(let props) = props else { return nop }
                 guard let camera = props.camera else { return nop }
                 return { translation in
-                    camera.moveTo(.init(horizontal: 0, vertical: 0))
+                    camera.moveTo(.init())
                 }
             }()
             
