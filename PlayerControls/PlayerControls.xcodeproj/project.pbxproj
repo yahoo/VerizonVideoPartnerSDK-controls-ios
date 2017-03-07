@@ -11,7 +11,6 @@
 		50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F691E65C64B00B18908 /* ContentControlsViewController.swift */; };
 		50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F6A1E65C64B00B18908 /* DefaultControlsViewController.swift */; };
 		50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50582F6B1E65C64B00B18908 /* DefaultControlsViewController.xib */; };
-		50582F721E65C69C00B18908 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50582F711E65C69C00B18908 /* PlayerUIControls.xcassets */; };
 		50582F741E65C79D00B18908 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F731E65C79D00B18908 /* Utils.swift */; };
 		50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F751E65C8CC00B18908 /* SideBarView.swift */; };
 		50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50582F791E65C93400B18908 /* SeekerControlPlayground.xib */; };
@@ -31,6 +30,7 @@
 		50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAE1E65DDBA00B18908 /* Quick.framework */; };
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
 		50582FC41E67086000B18908 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FC31E67086000B18908 /* Defaultable.swift */; };
+		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,16 +49,15 @@
 		50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentControlsUIProps.swift; sourceTree = "<group>"; };
 		50582F691E65C64B00B18908 /* ContentControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentControlsViewController.swift; sourceTree = "<group>"; };
 		50582F6A1E65C64B00B18908 /* DefaultControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultControlsViewController.swift; sourceTree = "<group>"; };
-		50582F6B1E65C64B00B18908 /* DefaultControlsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultControlsViewController.xib; sourceTree = "<group>"; };
-		50582F711E65C69C00B18908 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
+		50582F6B1E65C64B00B18908 /* DefaultControlsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DefaultControlsViewController.xib; path = ../resources/DefaultControlsViewController.xib; sourceTree = "<group>"; };
 		50582F731E65C79D00B18908 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		50582F751E65C8CC00B18908 /* SideBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		50582F761E65C8CC00B18908 /* SideBarViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarViewTests.swift; path = ../tests/SideBarViewTests.swift; sourceTree = "<group>"; };
-		50582F791E65C93400B18908 /* SeekerControlPlayground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeekerControlPlayground.xib; sourceTree = "<group>"; };
+		50582F791E65C93400B18908 /* SeekerControlPlayground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeekerControlPlayground.xib; path = ../resources/SeekerControlPlayground.xib; sourceTree = "<group>"; };
 		50582F7A1E65C93400B18908 /* SeekerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekerControlView.swift; sourceTree = "<group>"; };
 		50582F7D1E65C96100B18908 /* SeekGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekGestureRecognizer.swift; sourceTree = "<group>"; };
 		50582F7F1E65CA0F00B18908 /* AdVideoControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdVideoControls.swift; sourceTree = "<group>"; };
-		50582F801E65CA0F00B18908 /* AdVideoControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdVideoControls.xib; sourceTree = "<group>"; };
+		50582F801E65CA0F00B18908 /* AdVideoControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdVideoControls.xib; path = ../resources/AdVideoControls.xib; sourceTree = "<group>"; };
 		50582F831E65CA5F00B18908 /* FormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatterTests.swift; path = ../tests/FormatterTests.swift; sourceTree = "<group>"; };
 		50582F841E65CA5F00B18908 /* TimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		50582F871E65CBE600B18908 /* ControlsVisibilityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsVisibilityController.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		50582FAE1E65DDBA00B18908 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
 		50582FC31E67086000B18908 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
+		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 		50582F5D1E65C41900B18908 /* PlayerControls */ = {
 			isa = PBXGroup;
 			children = (
-				50582F711E65C69C00B18908 /* PlayerUIControls.xcassets */,
+				50A5A5B61E6F13B300C15E12 /* resources */,
 				50582F661E65C64B00B18908 /* sources */,
 				50582F991E65D55F00B18908 /* support */,
 			);
@@ -231,6 +231,14 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
+		50A5A5B61E6F13B300C15E12 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -326,8 +334,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */,
 				50582F821E65CA0F00B18908 /* AdVideoControls.xib in Resources */,
-				50582F721E65C69C00B18908 /* PlayerUIControls.xcassets in Resources */,
 				50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */,
 				50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */,
 			);
