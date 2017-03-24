@@ -12,7 +12,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(nibName: "DefaultControlsViewController",
+                   bundle: Bundle(for: type(of: self)))
         setupVisibilityController()
     }
     
