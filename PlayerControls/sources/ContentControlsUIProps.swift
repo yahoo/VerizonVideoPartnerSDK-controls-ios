@@ -116,8 +116,11 @@ extension DefaultControlsViewController {
             }()
             
             nextButtonEnabled = {
-                guard case .playback(let props) = props else { return false }
-                return props.playlist?.next != nil
+                switch props {
+                case .playback(let props): return props.playlist?.next != nil
+                case .unavailableItem(let props): return props.playlist?.next != nil
+                case .noPlayer: return false
+                }
             }()
             
             nextButtonAction = {
@@ -127,6 +130,12 @@ extension DefaultControlsViewController {
             }()
             
             prevButtonEnabled = {
+                switch props {
+                case .playback(let props): return props.playlist?.prev != nil
+                case .unavailableItem(let props): return props.playlist?.prev != nil
+                case .noPlayer: return false
+                }
+
                 guard case .playback(let props) = props else { return false }
                 return props.playlist?.prev != nil
             }()

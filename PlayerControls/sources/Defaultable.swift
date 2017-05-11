@@ -19,3 +19,6 @@ extension ContentControlsViewController.Props.Controls.Camera: Defaultable { }
 extension ContentControlsViewController.Props.Controls.Camera.Angles: Defaultable { }
 extension ContentControlsViewController.Props.Controls.Error: Defaultable { }
 extension ContentControlsViewController.Props.Controls: Defaultable { }
+
+extension ContentControlsViewController.Props.UnavailableItem: Defaultable { }
+extension ContentControlsViewController.Props.UnavailableItem.Playlist: Defaultable { }

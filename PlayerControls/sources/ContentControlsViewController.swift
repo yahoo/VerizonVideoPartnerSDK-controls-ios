@@ -15,6 +15,18 @@ public class ContentControlsViewController: UIViewController {
     public enum Props {
         case noPlayer
         
+        case unavailableItem(UnavailableItem)
+        public struct UnavailableItem {
+            public var reason = ""
+            public var playlist: Playlist?
+            public struct Playlist {
+                public var next: Action<Void>?
+                public var prev: Action<Void>?
+                public init() { }
+            }
+            public init() { }
+        }
+        
         case playback(Controls)
         public struct Controls {
             public var title = ""
