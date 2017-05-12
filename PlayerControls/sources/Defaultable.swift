@@ -11,14 +11,12 @@ extension Defaultable {
     }
 }
 
-extension ContentControlsViewController.Props.Controls.Playlist: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar.Seeker: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Seekbar.Seeker.State: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Camera: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Camera.Angles: Defaultable { }
-extension ContentControlsViewController.Props.Controls.Error: Defaultable { }
-extension ContentControlsViewController.Props.Controls: Defaultable { }
-
-extension ContentControlsViewController.Props.UnavailableItem: Defaultable { }
-extension ContentControlsViewController.Props.UnavailableItem.Playlist: Defaultable { }
+extension ContentControlsViewController.Props.Player: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar.Seeker: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar.Seeker.State: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Camera: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Camera.Angles: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Error: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls: Defaultable { }
+extension ContentControlsViewController.Props.Player.Playlist: Defaultable { }
