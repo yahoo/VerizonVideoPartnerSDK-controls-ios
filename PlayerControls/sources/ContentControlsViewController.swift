@@ -14,100 +14,113 @@ public class ContentControlsViewController: UIViewController {
     
     public enum Props {
         case noPlayer
+
+        case player(Player)
         
-        case playback(Controls)
-        public struct Controls {
-            public var title = ""
-            public var loading = false
-            
-            public var playbackAction: Playback = .none
-            public enum Playback {
-                case none
-                case play(Action<Void>)
-                case pause(Action<Void>)
-                case replay(Action<Void>)
-            }
-            
+        public struct Player {
             public var playlist: Playlist?
             public struct Playlist {
                 public var next: Action<Void>?
                 public var prev: Action<Void>?
                 public init() { }
             }
-            
-            public var subtitles: Subtitles = .none
-            public enum Subtitles {
-                case none
-                case unavailable
-                case available(toggle: Action<Void>, state: State)
-                public enum State {
-                    case active(text: String?), loading, inactive, error
-                }
-            }
-            
-            public var seekbar: Seekbar?
-            public struct Seekbar {
-                public typealias Seconds = UInt
-                public typealias Progress = Double
-                
-                public var duration: Seconds = 0
-                public var currentTime: Seconds = 0
-                public var progress: Progress = 0.0
-                public var buffered: Progress = 0.0
-                
-                public var seeker = Seeker()
-                
-                public struct Seeker {
-                    public var seekTo: Action<Seconds>?
-                    
-                    public var state = State()
-                    public struct State {
-                        public var start: Action<Progress> = nop
-                        public var update: Action<Progress> = nop
-                        public var stop: Action<Progress> = nop
-                        public init() { }
-                    }
-                    public init() { }
-                }
-                public init() { }
-            }
-            
-            /// This field will be available only when 360 video is active
-            public var camera: Camera?
-            public struct Camera {
-                /// Angles of current camera position - measured in radians.
-                public struct Angles {
-                    
-                    /// zero - center, positive - right part, negatve - left part.
-                    public var horizontal: Float = 0.0
-                    
-                    /// zero - horizon, positive - above horizon, negative - below
-                    public var vertical: Float = 0.0
-                    public init() { }
-                }
-                
-                public var angles = Angles()
-                public var moveTo: Action<Angles> = nop
-                public init() { }
-            }
-            
-            /// URL or UIImage for the thumbnail.
-            public var thumbnail: Thumbnail?
-            public enum Thumbnail {
-                case url(URL) //swiftlint:disable:this type_name
-                case image(UIImage)
-            }
-            
-            public var sideBarViewHidden = true
-            
-            public var error: Error?
-            public struct Error {
-                public var message = ""
-                public var retryAction: Action<Void>?
-                public init() { }
+
+            public var item = Item.nonplayable("")
+            public enum Item {
+                case playable(Controls)
+                case nonplayable(String)
             }
             
             public init() { }
         }
+    }
+}
+
+extension ContentControlsViewController.Props.Player.Item {
+    public struct Controls {
+        public var title = ""
+        public var loading = false
+        
+        public var playbackAction: Playback = .none
+        public enum Playback {
+            case none
+            case play(Action<Void>)
+            case pause(Action<Void>)
+            case replay(Action<Void>)
+        }
+        
+        public var subtitles: Subtitles = .none
+        public enum Subtitles {
+            case none
+            case unavailable
+            case available(toggle: Action<Void>, state: State)
+            public enum State {
+                case active(text: String?), loading, inactive, error
+            }
+        }
+        
+        public var seekbar: Seekbar?
+        public struct Seekbar {
+            public typealias Seconds = UInt
+            public typealias Progress = Double
+            
+            public var duration: Seconds = 0
+            public var currentTime: Seconds = 0
+            public var progress: Progress = 0.0
+            public var buffered: Progress = 0.0
+            
+            public var seeker = Seeker()
+            
+            public struct Seeker {
+                public var seekTo: Action<Seconds>?
+                
+                public var state = State()
+                public struct State {
+                    public var start: Action<Progress> = nop
+                    public var update: Action<Progress> = nop
+                    public var stop: Action<Progress> = nop
+                    public init() { }
+                }
+                public init() { }
+            }
+            public init() { }
+        }
+        
+        /// This field will be available only when 360 video is active
+        public var camera: Camera?
+        public struct Camera {
+            /// Angles of current camera position - measured in radians.
+            public struct Angles {
+                
+                /// zero - center, positive - right part, negative - left part.
+                public var horizontal: Float = 0.0
+                
+                /// zero - horizon, positive - above horizon, negative - below
+                public var vertical: Float = 0.0
+                public init() { }
+            }
+            
+            public var angles = Angles()
+            public var moveTo: Action<Angles> = nop
+            public init() { }
+        }
+        
+        /// URL or UIImage for the thumbnail.
+        public var thumbnail: Thumbnail?
+        public enum Thumbnail {
+            case url(URL) //swiftlint:disable:this type_name
+            case image(UIImage)
+        }
+        
+        public var sideBarViewHidden = true
+        
+        public var error: Error?
+        public struct Error {
+            public var message = ""
+            public var retryAction: Action<Void>?
+            public init() { }
+        }
+        
+        public init() { }
     }
 }

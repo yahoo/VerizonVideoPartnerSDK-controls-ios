@@ -70,65 +70,76 @@ extension DefaultControlsViewController {
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
             controlsViewHidden = {
-                guard case .playback = props else { return true }
+                guard case .player = props else { return true }
                 return !controlsViewVisible
             }()
             
             loading = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return false }
+                guard case .playable(let props) = player.item else { return false }
                 return props.loading
             }()
             
             playButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .play = props.playbackAction else { return true }
                 return false
             }()
             
             playButtonAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard case .play(let action) = props.playbackAction else { return nop }
                 return action
             }()
             
             pauseButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .pause = props.playbackAction else { return true }
                 return false
             }()
             
             pauseButtonAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard case .pause(let action) = props.playbackAction else { return nop }
                 return action
             }()
             
             replayButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .replay = props.playbackAction else { return true }
                 return false
             }()
             
             replayButtonAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard case .replay(let action) = props.playbackAction else { return nop }
                 return action
             }()
             
             nextButtonEnabled = {
-                guard case .playback(let props) = props else { return false }
-                return props.playlist?.next != nil
+                guard case .player(let player) = props else { return false }
+                return player.playlist?.next != nil
             }()
             
             nextButtonAction = {
-                guard case .playback(let props) = props else { return nop }
-                guard let action = props.playlist?.next else { return nop }
-                return action
+                guard case .player(let player) = props else { return nop }
+                return player.playlist?.next ?? nop
             }()
             
             prevButtonEnabled = {
-                guard case .playback(let props) = props else { return false }
-                return props.playlist?.prev != nil
+                guard case .player(let player) = props else { return false }
+                return player.playlist?.prev != nil
+            }()
+            
+            prevButtonAction = {
+                guard case .player(let player) = props else { return nop }
+                return player.playlist?.prev ?? nop
             }()
             
             let nextButtonDisabled = !nextButtonEnabled
@@ -142,83 +153,90 @@ extension DefaultControlsViewController {
                 return nextButtonDisabled && prevButtonDisabled
             }()
             
-            prevButtonAction = {
-                guard case .playback(let props) = props else { return nop }
-                guard let action = props.playlist?.prev else { return nop }
-                return action
-            }()
-            
             seekerViewHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return props.seekbar == nil
             }()
             
             durationTextLabelText = {
-                guard case .playback(let props) = props else { return "" }
+                guard case .player(let player) = props else { return "" }
+                guard case .playable(let props) = player.item else { return "" }
                 guard let seekbar = props.seekbar else { return "" }
                 return TimeFormatter.string(from: seekbar.duration)
             }()
             
             seekBackButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return props.seekbar?.seeker.seekTo == nil
             }()
             
             seekForwardButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return props.seekbar?.seeker.seekTo == nil
             }()
             
             seekToSecondsAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let action = props.seekbar?.seeker.seekTo else { return nop }
                 return action
             }()
             
             startSeekAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let seekbar = props.seekbar else { return nop }
                 return seekbar.seeker.state.start
             }()
             
             updateSeekAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let seekbar = props.seekbar else { return nop }
                 return seekbar.seeker.state.update
             }()
             
             stopSeekAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let seekbar = props.seekbar else { return nop }
                 return seekbar.seeker.state.stop
             }()
             
             seekerViewCurrentTimeText = {
-                guard case .playback(let props) = props else { return "" }
+                guard case .player(let player) = props else { return "" }
+                guard case .playable(let props) = player.item else { return "" }
                 guard let seekbar = props.seekbar else { return "" }
                 return TimeFormatter.string(from: seekbar.currentTime)
             }()
             
             seekerViewCurrentTime = {
-                guard case .playback(let props) = props else { return 0 }
+                guard case .player(let player) = props else { return 0 }
+                guard case .playable(let props) = player.item else { return 0 }
                 guard let seekbar = props.seekbar else { return 0 }
                 return seekbar.currentTime
             }()
             
             seekerViewProgress = {
-                guard case .playback(let props) = props else { return 0 }
+                guard case .player(let player) = props else { return 0 }
+                guard case .playable(let props) = player.item else { return 0 }
                 guard let seekbar = props.seekbar else { return 0 }
                 return CGFloat(seekbar.progress)
             }()
             
             seekerViewBuffered = {
-                guard case .playback(let props) = props else { return 0 }
+                guard case .player(let player) = props else { return 0 }
+                guard case .playable(let props) = player.item else { return 0 }
                 guard let seekbar = props.seekbar else { return 0 }
                 return CGFloat(seekbar.buffered)
             }()
             
             seekbarPositionedAtBottom = {
-                guard case .playback(let props) = props else { return false }
+                guard case .player(let player) = props else { return false }
+                guard case .playable(let props) = player.item else { return false }
                 let hasNoTitle = props.title.characters.count == 0
                 let hasNoSubtitles: Bool = {
                     if case .none = props.subtitles {
@@ -232,30 +250,35 @@ extension DefaultControlsViewController {
             }()
             
             sideBarViewHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return props.sideBarViewHidden
             }()
             
             compasBodyViewHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard props.camera != nil else { return true }
                 return false
             }()
             
             compasDirectionViewHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard props.camera != nil else { return true }
                 return false
             }()
             
             compasDirectionViewTransform = {
-                guard case .playback(let props) = props else { return CGAffineTransform.identity }
+                guard case .player(let player) = props else { return CGAffineTransform.identity }
+                guard case .playable(let props) = player.item else { return CGAffineTransform.identity }
                 guard let camera = props.camera else { return CGAffineTransform.identity }
                 return CGAffineTransform(rotationAngle: .init(-camera.angles.horizontal))
             }()
             
             updateCameraAngles = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let camera = props.camera else { return nop }
                 return { translation in
                     var angles = camera.angles
@@ -267,49 +290,55 @@ extension DefaultControlsViewController {
             }()
             
             resetCameraAngles = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard let camera = props.camera else { return nop }
-                return { translation in
-                    camera.moveTo(.init())
-                }
+                return { camera.moveTo(.init()) }
             }()
             
             cameraPanGestureIsEnabled = {
-                guard case .playback(let props) = props else { return false }
+                guard case .player(let player) = props else { return false }
+                guard case .playable(let props) = player.item else { return false }
                 return props.camera != nil
             }()
             
             videoTitleLabelHidden = {
-                guard case .playback = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable = player.item else { return true }
                 return false
             }()
             
             videoTitleLabelText = {
-                guard case .playback(let props) = props else { return "" }
+                guard case .player(let player) = props else { return "" }
+                guard case .playable(let props) = player.item else { return "" }
                 return props.title 
             }()
             
             subtitlesButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .none = props.subtitles else { return false }
                 return true
             }()
             
             subtitlesButtonEnabled = {
-                guard case .playback(let props) = props else { return false }
+                guard case .player(let player) = props else { return false }
+                guard case .playable(let props) = player.item else { return false }
                 guard case .available = props.subtitles else { return false }
                 return true
             }()
             
             subtitlesButtonSelected = {
-                guard case .playback(let props) = props else { return false }
+                guard case .player(let player) = props else { return false }
+                guard case .playable(let props) = player.item else { return false }
                 guard case .available(let subtitlesProps) = props.subtitles else { return false }
                 guard case .inactive = subtitlesProps.state else { return true }
                 return false
             }()
             
             subtitlesTextLabelText = {
-                guard case .playback(let props) = props else { return "" }
+                guard case .player(let player) = props else { return "" }
+                guard case .playable(let props) = player.item else { return "" }
                 guard case .available(let subtitlesProps) = props.subtitles else { return "" }
                 switch subtitlesProps.state {
                 case .inactive: return ""
@@ -320,49 +349,61 @@ extension DefaultControlsViewController {
             }()
             
             subtitlesTextLabelHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .available(let subtitlesProps) = props.subtitles else { return true }
                 guard case .inactive = subtitlesProps.state else { return false }
                 return true
             }()
             
             subtitlesToggleAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 guard case .available(let subtitlesProps) = props.subtitles else { return nop }
                 return subtitlesProps.toggle
             }()
             
             thumbnailImageViewHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 guard case .some(.url) = props.thumbnail else { return
                     true }
                 return false
             }()
             
             thumbnailImageUrl = {
-                guard case .playback(let props) = props else { return nil }
+                guard case .player(let player) = props else { return nil }
+                guard case .playable(let props) = player.item else { return nil }
                 guard case .some(.url(let url)) = props.thumbnail else { return
                     nil }
                 return url
             }()
             
             errorLabelText = {
-                guard case .playback(let props) = props else { return "" }
-                return props.error?.message ?? ""
+                guard case .player(let player) = props else { return "" }
+                switch player.item {
+                case .playable(let props): return props.error?.message ?? ""
+                case .nonplayable(let reason): return reason
+                }
             }()
             
             errorLabelHidden = {
-                guard case .playback(let props) = props else { return true }
-                return props.error == nil
+                guard case .player(let player) = props else { return true }
+                switch player.item {
+                case .playable(let props): return props.error == nil
+                case .nonplayable: return false
+                }
             }()
             
             retryButtonHidden = {
-                guard case .playback(let props) = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return props.error == nil
             }()
             
             retryButtonAction = {
-                guard case .playback(let props) = props else { return nop }
+                guard case .player(let player) = props else { return nop }
+                guard case .playable(let props) = player.item else { return nop }
                 return props.error?.retryAction ?? nop
             }()
         }

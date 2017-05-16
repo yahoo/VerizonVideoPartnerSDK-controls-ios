@@ -199,7 +199,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
              to new: ContentControlsViewController.Props) {
         
         func isVideoPlaying(for props: ContentControlsViewController.Props) -> Bool {
-            guard case let .playback(contentProps) = props else { return false }
+            guard case .player(let player) = props else { return false }
+            guard case .playable(let contentProps) = player.item else { return false }
             guard case .pause = contentProps.playbackAction else { return false }
             return true
         }
