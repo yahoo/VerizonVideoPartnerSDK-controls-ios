@@ -121,6 +121,12 @@ extension ContentControlsViewController.Props.Player.Item {
             public init() { }
         }
         
+        public var pictureInPicture: PictureInPicture = .unsupported
+        public enum PictureInPicture {
+            case unsupported
+            case active
+            case inactive(toggle: Action<Void>)
+        }
         public init() { }
     }
 }
