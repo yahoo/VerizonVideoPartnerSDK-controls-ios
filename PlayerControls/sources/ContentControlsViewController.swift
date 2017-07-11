@@ -17,6 +17,8 @@ open class ContentControlsViewController: UIViewController {
 
         case player(Player)
         
+        case pictureInPicture
+        
         public struct Player {
             public var playlist: Playlist?
             public struct Playlist {
@@ -120,13 +122,8 @@ extension ContentControlsViewController.Props.Player.Item {
             public var retryAction: Action<Void>?
             public init() { }
         }
-        
-        public var pictureInPicture: PictureInPicture = .unsupported
-        public enum PictureInPicture {
-            case unsupported
-            case active
-            case inactive(toggle: Action<Void>)
-        }
         public init() { }
+        
+        public var pictureInPictureToggle: Action<Void>?
     }
 }

@@ -74,11 +74,8 @@ extension DefaultControlsViewController {
         init(props: Props, controlsViewVisible: Bool) {
             controlsViewHidden = {
                 guard case .player(let player) = props else { return true }
-                guard
-                    case .playable(let props) = player.item,
-                    case .active = props.pictureInPicture else { return !controlsViewVisible }
-                
-                return true
+                guard case .playable(let props) = player.item else { return true }
+                return !controlsViewVisible
             }()
             
             loading = {
@@ -358,8 +355,6 @@ extension DefaultControlsViewController {
             subtitlesTextLabelHidden = {
                 guard case .player(let player) = props else { return true }
                 guard case .playable(let props) = player.item else { return true }
-                if case .active = props.pictureInPicture { return true }
-                
                 guard case .available(let subtitlesProps) = props.subtitles else { return true }
                 guard case .inactive = subtitlesProps.state else { return false }
                 return true
@@ -420,7 +415,7 @@ extension DefaultControlsViewController {
                 guard
                     case .player(let player) = props,
                     case .playable(let props) = player.item,
-                    case .inactive = props.pictureInPicture else { return true }
+                    props.pictureInPictureToggle != nil else { return true }
                 return false
             }()
             
@@ -428,7 +423,7 @@ extension DefaultControlsViewController {
                 guard
                     case .player(let player) = props,
                     case .playable(let props) = player.item,
-                    case .inactive(let action) = props.pictureInPicture else { return nop }
+                    let action = props.pictureInPictureToggle else { return nop }
                 return action
             }()
         }
