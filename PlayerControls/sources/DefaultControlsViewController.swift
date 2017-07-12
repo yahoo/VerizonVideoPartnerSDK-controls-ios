@@ -46,6 +46,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
+    @IBOutlet private var pipButton: UIButton!
     
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
@@ -169,6 +170,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         retryButton.isHidden = uiProps.retryButtonHidden
         errorLabel.isHidden = uiProps.errorLabelHidden
         errorLabel.text = uiProps.errorLabelText
+        
+        pipButton.isHidden = uiProps.pipButtonHidden
     }
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
@@ -312,5 +315,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func retry() {
         uiProps.retryButtonAction()
+    }
+    
+    @IBAction private func pipButtonTouched() {
+        uiProps.pipButtonAction()
     }
 }

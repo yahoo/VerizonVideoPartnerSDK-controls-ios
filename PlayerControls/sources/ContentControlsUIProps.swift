@@ -66,11 +66,15 @@ extension DefaultControlsViewController {
         var retryButtonHidden: Bool
         var retryButtonAction: Action<Void>
         
+        var pipButtonHidden: Bool
+        var pipButtonAction: Action<Void>
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
             controlsViewHidden = {
-                guard case .player = props else { return true }
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
                 return !controlsViewVisible
             }()
             
@@ -405,6 +409,22 @@ extension DefaultControlsViewController {
                 guard case .player(let player) = props else { return nop }
                 guard case .playable(let props) = player.item else { return nop }
                 return props.error?.retryAction ?? nop
+            }()
+            
+            pipButtonHidden = {
+                guard
+                    case .player(let player) = props,
+                    case .playable(let props) = player.item,
+                    props.pictureInPictureToggle != nil else { return true }
+                return false
+            }()
+            
+            pipButtonAction = {
+                guard
+                    case .player(let player) = props,
+                    case .playable(let props) = player.item,
+                    let action = props.pictureInPictureToggle else { return nop }
+                return action
             }()
         }
     }
