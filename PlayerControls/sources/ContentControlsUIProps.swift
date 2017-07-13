@@ -67,6 +67,7 @@ extension DefaultControlsViewController {
         var retryButtonAction: Action<Void>
         
         var pipButtonHidden: Bool
+        var pipButtonEnabled: Bool
         var pipButtonAction: Action<Void>
         
         //swiftlint:disable function_body_length
@@ -412,18 +413,24 @@ extension DefaultControlsViewController {
             }()
             
             pipButtonHidden = {
+                guard case .player(let player) = props, case .playable(let props) = player.item else { return true }
+                guard case .unsupported = props.pictureInPictureControl else { return false }
+                return true
+            }()
+            
+            pipButtonEnabled = {
                 guard
                     case .player(let player) = props,
                     case .playable(let props) = player.item,
-                    props.pictureInPictureToggle != nil else { return true }
-                return false
+                    case .possible = props.pictureInPictureControl else { return false }
+                return true
             }()
             
             pipButtonAction = {
                 guard
                     case .player(let player) = props,
                     case .playable(let props) = player.item,
-                    let action = props.pictureInPictureToggle else { return nop }
+                    case .possible(let action) = props.pictureInPictureControl else { return nop }
                 return action
             }()
         }

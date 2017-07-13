@@ -172,6 +172,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         errorLabel.text = uiProps.errorLabelText
         
         pipButton.isHidden = uiProps.pipButtonHidden
+        pipButton.isEnabled = uiProps.pipButtonEnabled
     }
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
