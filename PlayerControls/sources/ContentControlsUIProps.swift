@@ -49,6 +49,7 @@ extension DefaultControlsViewController {
         var videoTitleLabelHidden: Bool
         var videoTitleLabelText: String
         
+        var durationTextHidden: Bool
         var durationTextLabelText: String
         
         var subtitlesButtonHidden: Bool
@@ -159,6 +160,12 @@ extension DefaultControlsViewController {
             }()
             
             seekerViewHidden = {
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
+                return props.seekbar == nil
+            }()
+            
+            durationTextHidden = {
                 guard case .player(let player) = props else { return true }
                 guard case .playable(let props) = player.item else { return true }
                 return props.seekbar == nil
