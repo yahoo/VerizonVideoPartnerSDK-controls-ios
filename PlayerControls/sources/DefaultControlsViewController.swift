@@ -126,6 +126,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         videoTitleLabel.text = uiProps.videoTitleLabelText
         
         durationTextLabel.text = uiProps.durationTextLabelText
+        durationTextLabel.isHidden = uiProps.durationTextHidden
         
         ccButton.isHidden = uiProps.subtitlesButtonHidden
         ccButton.isSelected = uiProps.subtitlesButtonSelected
