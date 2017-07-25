@@ -76,7 +76,7 @@ extension DefaultControlsViewController {
         init(props: Props, controlsViewVisible: Bool) {
             controlsViewHidden = {
                 guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
+                guard case .playable = player.item else { return true }
                 return !controlsViewVisible
             }()
             
