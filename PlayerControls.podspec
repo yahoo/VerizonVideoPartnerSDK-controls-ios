@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "PlayerControls"
-  s.version          = "1.3"
+  s.version          = "1.4"
   s.summary          = "Data-driven player controls for content and advertisement videos."
   s.license          = { :type => 'MIT', :file => "LICENSE"}
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     "Alexey Demedetskiy" => "alexey.demedetskiy@teamaol.com"
   }
 
-  s.source           =  { :git => 'https://github.com/aol-public/OneMobileSDK-controls-ios.git', :tag => '1.3' }
+  s.source           =  { :git => 'https://github.com/aol-public/OneMobileSDK-controls-ios.git', :tag => '1.4' }
   s.source_files     = "PlayerControls/sources/*"
   s.resource         = "PlayerControls/resources/*"
 
