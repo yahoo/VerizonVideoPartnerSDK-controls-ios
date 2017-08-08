@@ -75,8 +75,7 @@ extension DefaultControlsViewController {
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
             controlsViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable = player.item else { return true }
+                guard case .player = props else { return true }
                 return !controlsViewVisible
             }()
             
