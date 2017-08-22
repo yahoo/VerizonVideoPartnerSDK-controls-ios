@@ -133,24 +133,3 @@ extension ContentControlsViewController.Props.Player.Item {
         public init() { }
     }
 }
-
-extension ContentControlsViewController.Props {
-    public var player: Player? {
-        guard case let .player(player) = self else { return nil }
-        return player
-    }
-}
-
-extension ContentControlsViewController.Props.Player.Item {
-    public var contorls: Controls? {
-        guard case let .playable(controls) = self else { return nil }
-        return controls
-    }
-}
-
-extension ContentControlsViewController.Props.Player.Item.Controls.Playback {
-    public var pause: Action<Void>? {
-        guard case let .pause(pause) = self else { return nil }
-        return pause
-    }
-}
