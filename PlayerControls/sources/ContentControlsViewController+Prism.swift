@@ -5,119 +5,245 @@ import Foundation
 /// Prism extension for custom content video controls
 public extension ContentControlsViewController.Props {
     public var noPlayer: Bool {
-        guard case .noPlayer = self else { return false }
-        return true
+        get {
+            guard case .noPlayer = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .noPlayer
+        }
     }
     
     public var player: Player? {
-        guard case let .player(player) = self else { return nil }
-        return player
+        get {
+            guard case let .player(player) = self else { return nil }
+            return player
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .player(newValue)
+        }
     }
     
     public var pictureInPicture: Bool {
-        guard case .pictureInPicture = self else { return false }
-        return true
+        get {
+            guard case .pictureInPicture = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .pictureInPicture
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item {
     public var contorls: Controls? {
-        guard case let .playable(controls) = self else { return nil }
-        return controls
+        get {
+            guard case let .playable(controls) = self else { return nil }
+            return controls
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .playable(newValue)
+        }
     }
     
     public var nonplayableReason: String? {
-        guard case let .nonplayable(nonplayableReason) = self else { return nil }
-        return nonplayableReason
+        get {
+            guard case let .nonplayable(nonplayableReason) = self else { return nil }
+            return nonplayableReason
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .nonplayable(newValue)
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Playback {
     public var none: Bool {
-        guard case .none = self else { return false }
-        return true
+        get {
+            guard case .none = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .none
+        }
     }
     
     public var play: Action<Void>? {
-        guard case let .play(play) = self else { return nil }
-        return play
+        get {
+            guard case let .play(play) = self else { return nil }
+            return play
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .play(newValue)
+        }
     }
     
     public var pause: Action<Void>? {
-        guard case let .pause(pause) = self else { return nil }
-        return pause
+        get {
+            guard case let .pause(pause) = self else { return nil }
+            return pause
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .pause(newValue)
+        }
     }
     
     public var replay: Action<Void>? {
-        guard case let .replay(replay) = self else { return nil }
-        return replay
+        get {
+            guard case let .replay(replay) = self else { return nil }
+            return replay
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .replay(newValue)
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Subtitles {
     public var none: Bool {
-        guard case .none = self else { return false }
-        return true
+        get {
+            guard case .none = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .none
+        }
     }
     
     public var unavailable: Bool {
-        guard case .unavailable = self else { return false }
-        return true
+        get {
+            guard case .unavailable = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .unavailable
+        }
     }
     
     public var available: (toggle: Action<Void>, state: State)? {
-        guard case let .available(available) = self else { return nil }
-        return available
+        get {
+            guard case let .available(available) = self else { return nil }
+            return available
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .available(toggle: newValue.toggle, state: newValue.state)
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Subtitles.State {
     public var active: String? {
-        guard case let .active(active) = self else { return nil }
-        return active
+        get {
+            guard case let .active(active) = self else { return nil }
+            return active
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .active(text: newValue)
+        }
     }
     
     public var loading: Bool {
-        guard case .loading = self else { return false }
-        return true
+        get {
+            guard case .loading = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .loading
+        }
     }
     
     public var inactive: Bool {
-        guard case .loading = self else { return false }
-        return true
+        get {
+            guard case .inactive = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .inactive
+        }
     }
     
     public var error: Bool {
-        guard case .loading = self else { return false }
-        return true
+        get {
+            guard case .error = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .error
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Thumbnail {
     public var url: URL? {
-        guard case let .url(url) = self else { return nil }
-        return url
+        get {
+            guard case let .url(url) = self else { return nil }
+            return url
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .url(newValue)
+        }
     }
     
     public var image: UIImage? {
-        guard case let .image(image) = self else { return nil }
-        return image
+        get {
+            guard case let .image(image) = self else { return nil }
+            return image
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .image(newValue)
+        }
     }
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.PictureInPictureControl {
     public var unsupported: Bool {
-        guard case .unsupported = self else { return false }
-        return true
+        get {
+            guard case .unsupported = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .unsupported
+        }
     }
     
     public var impossible: Bool {
-        guard case .impossible = self else { return false }
-        return true
+        get {
+            guard case .impossible = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .impossible
+        }
     }
     
     public var possible: Action<Void>? {
-        guard case let .possible(possible) = self else { return nil }
-        return possible
+        get {
+            guard case let .possible(possible) = self else { return nil }
+            return possible
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .possible(newValue)
+        }
     }
 }
