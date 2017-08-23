@@ -4,7 +4,7 @@ import Foundation
 
 /// Prism extension for custom content video controls
 public extension ContentControlsViewController.Props {
-    public var noPlayer: Bool {
+    public var isNoPlayer: Bool {
         get {
             guard case .noPlayer = self else { return false }
             return true
@@ -26,7 +26,7 @@ public extension ContentControlsViewController.Props {
         }
     }
     
-    public var pictureInPicture: Bool {
+    public var isPictureInPicture: Bool {
         get {
             guard case .pictureInPicture = self else { return false }
             return true
@@ -63,7 +63,7 @@ public extension ContentControlsViewController.Props.Player.Item {
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Playback {
-    public var none: Bool {
+    public var isNone: Bool {
         get {
             guard case .none = self else { return false }
             return true
@@ -109,7 +109,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Playba
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.Subtitles {
-    public var none: Bool {
+    public var isNone: Bool {
         get {
             guard case .none = self else { return false }
             return true
@@ -120,7 +120,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Subtit
         }
     }
     
-    public var unavailable: Bool {
+    public var isUnavailable: Bool {
         get {
             guard case .unavailable = self else { return false }
             return true
@@ -155,7 +155,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Subtit
         }
     }
     
-    public var loading: Bool {
+    public var isLoading: Bool {
         get {
             guard case .loading = self else { return false }
             return true
@@ -166,7 +166,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Subtit
         }
     }
     
-    public var inactive: Bool {
+    public var isInactive: Bool {
         get {
             guard case .inactive = self else { return false }
             return true
@@ -177,7 +177,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Subtit
         }
     }
     
-    public var error: Bool {
+    public var isError: Bool {
         get {
             guard case .error = self else { return false }
             return true
@@ -214,7 +214,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Thumbn
 }
 
 public extension ContentControlsViewController.Props.Player.Item.Controls.PictureInPictureControl {
-    public var unsupported: Bool {
+    public var isUnsupported: Bool {
         get {
             guard case .unsupported = self else { return false }
             return true
@@ -225,7 +225,7 @@ public extension ContentControlsViewController.Props.Player.Item.Controls.Pictur
         }
     }
     
-    public var impossible: Bool {
+    public var isImpossible: Bool {
         get {
             guard case .impossible = self else { return false }
             return true

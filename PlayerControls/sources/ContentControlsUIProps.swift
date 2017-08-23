@@ -190,7 +190,7 @@ extension DefaultControlsViewController {
             seekbarPositionedAtBottom = {
                 guard let controls = props.player?.item.contorls else { return false }
                 let hasNoTitle = controls.title.characters.count == 0
-                let hasNoSubtitles = controls.subtitles.none
+                let hasNoSubtitles = controls.subtitles.isNone
                 return hasNoTitle && hasNoSubtitles
             }()
             
@@ -240,7 +240,7 @@ extension DefaultControlsViewController {
             }()
             
             subtitlesButtonHidden = {
-                return props.player?.item.contorls?.subtitles.none ?? true
+                return props.player?.item.contorls?.subtitles.isNone ?? true
             }()
             
             subtitlesButtonEnabled = {
@@ -249,7 +249,7 @@ extension DefaultControlsViewController {
             
             subtitlesButtonSelected = {
                 guard let state = props.player?.item.contorls?.subtitles.available?.state else { return false }
-                return !state.inactive
+                return !state.isInactive
             }()
             
             subtitlesTextLabelText = {
@@ -263,7 +263,7 @@ extension DefaultControlsViewController {
             }()
             
             subtitlesTextLabelHidden = {
-                return props.player?.item.contorls?.subtitles.available?.state.inactive ?? false
+                return props.player?.item.contorls?.subtitles.available?.state.isInactive ?? false
             }()
             
             subtitlesToggleAction = {
@@ -297,7 +297,7 @@ extension DefaultControlsViewController {
             }()
             
             pipButtonHidden = {
-                return props.player?.item.contorls?.pictureInPictureControl.unsupported ?? true
+                return props.player?.item.contorls?.pictureInPictureControl.isUnsupported ?? true
             }()
             
             pipButtonEnabled = {
