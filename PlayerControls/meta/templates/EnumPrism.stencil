@@ -1,0 +1,53 @@
+import Foundation
+
+{% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{{ associatedValue.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %})?{% endmacro %}
+
+{% macro associatedValueVarUnitType case %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{{ case.associatedValues.first.typeName }}{% if not case.associatedValues.first.typeName.isOptional %}?{% endif %}{% endmacro %}
+
+{% macro associatedValueVarMultiSet case newValue %}{% for associatedValue in case.associatedValues %}{{ associatedValue.localName }}: newValue.{{ associatedValue.localName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
+
+{% macro associatedValueVarUnitSet case newValue %}{% if case.associatedValues.first.localName != nil %}{{ case.associatedValues.first.localName }}: {% endif %}newValue{% endmacro %}
+
+{% macro associatedValueVar case %}
+    public var {{case.name}}: {% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType case %}{% else %}{% call associatedValueVarUnitType case %}{% endif %} {
+        get {
+            guard case let .{{ case.name }}({{ case.name }}) = self else { return nil }
+            return {{case.name}}
+        }
+        set {
+            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
+            self = .{{ case.name }}({% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiSet case newValue %}{% else %}{% call associatedValueVarUnitSet case newValue %}{% endif %})
+        }
+    }
+{% endmacro %}
+
+{% macro simpleVar case %}
+    public var is{{ case.name|upperFirst }}: Bool {
+        get {
+            guard case .{{ case.name }} = self else { return false }
+            return true
+        }
+        set {
+            guard newValue else { fatalError("Setting false value forbidden") }
+            self = .{{ case.name }}
+        }
+    }
+{% endmacro %}
+
+{% for enum in types.enums where enum.cases.all.count > 0 %}
+public extension {{ enum.name }} {
+{% for case in enum.cases %}
+  {% if case.hasAssociatedValue %}
+    {% call associatedValueVar case %}
+  {% else %}
+    {% call simpleVar case %}
+  {% endif %}
+  {% if not forloop.last %}
+
+  {% endif %}
+{% endfor %}
+}
+{% if not forloop.last %}
+
+{% endif %}
+{% endfor %}

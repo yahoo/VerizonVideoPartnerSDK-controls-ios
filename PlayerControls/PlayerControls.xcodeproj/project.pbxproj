@@ -290,6 +290,7 @@
 				50582F571E65C41900B18908 /* Frameworks */,
 				50582F581E65C41900B18908 /* Headers */,
 				50582F591E65C41900B18908 /* Resources */,
+				DAA142F21F4D8B4700CF6D20 /* Sourcery */,
 			);
 			buildRules = (
 			);
@@ -381,6 +382,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DAA142F21F4D8B4700CF6D20 /* Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Sourcery;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = meta/generator/sourcery;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50582F561E65C41900B18908 /* Sources */ = {

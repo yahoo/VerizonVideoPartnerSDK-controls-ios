@@ -1,0 +1,6 @@
+sources:
+  - sources
+templates:
+  - meta/templates
+output:
+  meta/output
