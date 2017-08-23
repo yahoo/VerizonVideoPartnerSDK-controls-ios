@@ -31,6 +31,8 @@
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
 		50582FC41E67086000B18908 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FC31E67086000B18908 /* Defaultable.swift */; };
 		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
+		DAB444921F4C57560049CDC1 /* ContentControlsViewController+Prism.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB444911F4C57560049CDC1 /* ContentControlsViewController+Prism.swift */; };
+		DAB444941F4C71D90049CDC1 /* AdVideoControls+Prism.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB444931F4C71D90049CDC1 /* AdVideoControls+Prism.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
 		50582FC31E67086000B18908 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
+		DAB444911F4C57560049CDC1 /* ContentControlsViewController+Prism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentControlsViewController+Prism.swift"; sourceTree = "<group>"; };
+		DAB444931F4C71D90049CDC1 /* AdVideoControls+Prism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdVideoControls+Prism.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				50582F7F1E65CA0F00B18908 /* AdVideoControls.swift */,
+				DAB444931F4C71D90049CDC1 /* AdVideoControls+Prism.swift */,
 				50582F801E65CA0F00B18908 /* AdVideoControls.xib */,
 			);
 			name = "ad controls";
@@ -169,6 +174,7 @@
 				50582F921E65CD8500B18908 /* side bar */,
 				50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */,
 				50582F691E65C64B00B18908 /* ContentControlsViewController.swift */,
+				DAB444911F4C57560049CDC1 /* ContentControlsViewController+Prism.swift */,
 				50582F911E65CD7B00B18908 /* default */,
 			);
 			name = "content controls";
@@ -357,6 +363,7 @@
 			files = (
 				50582F811E65CA0F00B18908 /* AdVideoControls.swift in Sources */,
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
+				DAB444941F4C71D90049CDC1 /* AdVideoControls+Prism.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
 				50582F861E65CA5F00B18908 /* TimeFormatter.swift in Sources */,
@@ -367,6 +374,7 @@
 				50582FC41E67086000B18908 /* Defaultable.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
+				DAB444921F4C57560049CDC1 /* ContentControlsViewController+Prism.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

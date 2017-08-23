@@ -17,9 +17,9 @@ func props() -> Props {
                 seekbar.progress = 0.25
                 seekbar.seeker = Props.Player.Item.Controls.Seekbar.Seeker()
             }
-            controls.playbackAction = Props.Player.Item.Controls.Playback.pause(nop)
+            controls.playbackAction.pause = nop
             controls.camera = Props.Player.Item.Controls.Camera()
-            controls.subtitles = .available(
+            controls.subtitles.available = (
                 toggle: nop,
                 state: .active(text: "This is how subtitles will look")
             )
