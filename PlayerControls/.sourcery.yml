@@ -3,4 +3,4 @@ sources:
 templates:
   - meta/templates
 output:
-  meta/output
+  meta/output/Generated.swift

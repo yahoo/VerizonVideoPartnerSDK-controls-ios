@@ -14,6 +14,7 @@ func props() -> Props {
             controls.playbackAction = Props.Player.Item.Controls.Playback.pause(nop)
             controls.camera = Props.Player.Item.Controls.Camera()
             controls.settings = .hidden
+            controls.legible = .`internal`(nil)
         })
     })
 }

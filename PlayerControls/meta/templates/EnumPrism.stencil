@@ -1,8 +1,8 @@
-import Foundation
+{% include "Imports.stencil" %}
 
-{% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{{ associatedValue.typeName }}{% if not forloop.last %}, {% endif %}{% endfor %})?{% endmacro %}
+{% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{% if associatedValue.type.name != nil %}{{ associatedValue.type.name }}{% else %}{{ associatedValue.typeName }}{% endif %}{% if associatedValue.isOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})?{% endmacro %}
 
-{% macro associatedValueVarUnitType case %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{{ case.associatedValues.first.typeName }}{% if not case.associatedValues.first.typeName.isOptional %}?{% endif %}{% endmacro %}
+{% macro associatedValueVarUnitType case %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{% if case.associatedValues.first.type.name != nil %}{{ case.associatedValues.first.type.name }}{% else %}{{ case.associatedValues.first.typeName }}{% endif %}?{% endmacro %}
 
 {% macro associatedValueVarMultiSet case newValue %}{% for associatedValue in case.associatedValues %}{{ associatedValue.localName }}: newValue.{{ associatedValue.localName }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endmacro %}
 
@@ -34,7 +34,7 @@ import Foundation
     }
 {% endmacro %}
 
-{% for enum in types.enums where enum.cases.all.count > 0 %}
+{% for enum in types.enums where enum.cases.all.count > 0 and not enum.accessLevel == 'private' %}
 public extension {{ enum.name }} {
 {% for case in enum.cases %}
   {% if case.hasAssociatedValue %}
