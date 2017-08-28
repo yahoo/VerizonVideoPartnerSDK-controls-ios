@@ -321,6 +321,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50582F631E65C41900B18908 /* Build configuration list for PBXNativeTarget "PlayerControls" */;
 			buildPhases = (
+				DAB9AEE01F541BF20050B940 /* Check Sourcery output dir */,
 				50582F561E65C41900B18908 /* Sources */,
 				50582F571E65C41900B18908 /* Frameworks */,
 				50582F581E65C41900B18908 /* Headers */,
@@ -417,6 +418,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DAB9AEE01F541BF20050B940 /* Check Sourcery output dir */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Sourcery output dir";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ! -d \"meta/output\" ]; then\n    mkdir meta/output\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50582F561E65C41900B18908 /* Sources */ = {
