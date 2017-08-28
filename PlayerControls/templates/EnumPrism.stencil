@@ -1,4 +1,4 @@
-{% include "Imports.stencil" %}
+import Foundation
 
 {% macro associatedValueVarMultiType case %}({% for associatedValue in case.associatedValues %}{% if associatedValue.localName != nil %}{{ associatedValue.localName }}: {% endif %}{% if associatedValue.type.name != nil %}{{ associatedValue.type.name }}{% else %}{{ associatedValue.typeName }}{% endif %}{% if associatedValue.isOptional %}?{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})?{% endmacro %}
 

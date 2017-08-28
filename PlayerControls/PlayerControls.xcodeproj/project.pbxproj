@@ -38,7 +38,7 @@
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
 		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
-		DACA28F11F504F0A001CF764 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DACA28E91F5042FA001CF764 /* EnumPrism.stencil */; };
+		DAB9AEEA1F542C460050B940 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DACA28E91F5042FA001CF764 /* EnumPrism.stencil */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -49,9 +49,9 @@
 			fileType = pattern.proxy;
 			isEditable = 1;
 			outputFiles = (
-				"$(SRCROOT)/meta/output/Generated.swift",
+				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE).generated.swift",
 			);
-			script = "set -e\n\nif ! which sourcery > /dev/null; then\n    echo \"error: Sourcery is missing. Make brew install sourcery.\"\n    exit 1\nfi\n\nsourcery";
+			script = "set -e\n\nif ! which sourcery > /dev/null; then\n    echo \"error: Sourcery is missing. Make brew install sourcery.\"\n    exit 1\nfi\n\nsourcery --sources sources --templates $INPUT_FILE_DIR/$INPUT_FILE_NAME --output $DERIVED_SOURCES_DIR/$INPUT_FILE_BASE.generated.swift";
 		};
 /* End PBXBuildRule section */
 
@@ -100,8 +100,7 @@
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
-        DACA28E91F5042FA001CF764 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EnumPrism.stencil; sourceTree = "<group>"; };
-        DACA28F51F508927001CF764 /* Imports.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Imports.stencil; sourceTree = "<group>"; };
+        DAB9AEEA1F542C460050B940 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EnumPrism.stencil; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +145,7 @@
 		50582F5D1E65C41900B18908 /* PlayerControls */ = {
 			isa = PBXGroup;
 			children = (
-				DACA28E21F5042FA001CF764 /* meta */,
+				DAB9AEEA1F542C460050B940 /* templates */,
 				50A5A5B61E6F13B300C15E12 /* resources */,
 				50582F661E65C64B00B18908 /* sources */,
 				50582F991E65D55F00B18908 /* support */,
@@ -286,18 +285,9 @@
             name = settings;
             sourceTree = "<group>";
         };
-		DACA28E21F5042FA001CF764 /* meta */ = {
+		DAB9AEEA1F542C460050B940 /* templates */ = {
 			isa = PBXGroup;
 			children = (
-				DACA28E81F5042FA001CF764 /* templates */,
-			);
-			path = meta;
-			sourceTree = SOURCE_ROOT;
-		};
-		DACA28E81F5042FA001CF764 /* templates */ = {
-			isa = PBXGroup;
-			children = (
-				DACA28F51F508927001CF764 /* Imports.stencil */,
 				DACA28E91F5042FA001CF764 /* EnumPrism.stencil */,
 			);
 			path = templates;
@@ -321,7 +311,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50582F631E65C41900B18908 /* Build configuration list for PBXNativeTarget "PlayerControls" */;
 			buildPhases = (
-				DAB9AEE01F541BF20050B940 /* Check Sourcery output dir */,
 				50582F561E65C41900B18908 /* Sources */,
 				50582F571E65C41900B18908 /* Frameworks */,
 				50582F581E65C41900B18908 /* Headers */,
@@ -419,29 +408,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		DAB9AEE01F541BF20050B940 /* Check Sourcery output dir */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Sourcery output dir";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ ! -d \"meta/output\" ]; then\n    mkdir meta/output\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		50582F561E65C41900B18908 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACA28F11F504F0A001CF764 /* EnumPrism.stencil in Sources */,
+				DACA28E91F5042FA001CF764 /* EnumPrism.stencil in Sources */,
 				50582F811E65CA0F00B18908 /* AdVideoControls.swift in Sources */,
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
