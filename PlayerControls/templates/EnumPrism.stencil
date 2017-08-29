@@ -9,6 +9,7 @@ import Foundation
 {% macro associatedValueVarUnitSet case newValue %}{% if case.associatedValues.first.localName != nil %}{{ case.associatedValues.first.localName }}: {% endif %}newValue{% endmacro %}
 
 {% macro associatedValueVar case %}
+    {% if case.associatedValues.all.count == 1 and case.associatedValues.first.isOptional%}@available(*, unavailable, message:"Optional associated value is not supported yet"){%endif%}
     public var {{case.name}}: {% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType case %}{% else %}{% call associatedValueVarUnitType case %}{% endif %} {
         get {
             guard case let .{{ case.name }}({{ case.name }}) = self else { return nil }
