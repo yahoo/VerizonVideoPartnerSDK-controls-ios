@@ -130,6 +130,21 @@ extension ContentControlsViewController.Props.Player.Item {
             case possible(Action<Void>)
         }
         
+        public struct MediaGroupControl {
+            public var options: [Option] = []
+            public var selected = nil as Option?
+            public struct Option {
+                public var name = ""
+                public var select: Action<Void> = nop
+                public init() { }
+            }
+            
+            public init() { }
+        }
+        
+        public var audible: MediaGroupControl?
+        public var legible: MediaGroupControl?
+        
         public init() { }
     }
 }
