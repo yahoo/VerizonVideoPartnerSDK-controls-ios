@@ -47,6 +47,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var retryButton: UIButton!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var pipButton: UIButton!
+    @IBOutlet private var settingsButton: UIButton!
     
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
@@ -174,6 +175,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         pipButton.isHidden = uiProps.pipButtonHidden
         pipButton.isEnabled = uiProps.pipButtonEnabled
+        
+        settingsButton.isHidden = uiProps.settingsButtonHidden
     }
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
@@ -321,5 +324,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func pipButtonTouched() {
         uiProps.pipButtonAction()
+    }
+    
+    @IBAction private func settingsButtonTouched() {
+        uiProps.settingsButtonAction()
     }
 }

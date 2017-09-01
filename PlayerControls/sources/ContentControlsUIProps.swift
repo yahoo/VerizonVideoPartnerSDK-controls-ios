@@ -71,6 +71,9 @@ extension DefaultControlsViewController {
         var pipButtonEnabled: Bool
         var pipButtonAction: Action<Void>
         
+        var settingsButtonHidden: Bool
+        var settingsButtonAction: Action<Void>
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
@@ -322,7 +325,7 @@ extension DefaultControlsViewController {
             videoTitleLabelText = {
                 guard case .player(let player) = props else { return "" }
                 guard case .playable(let props) = player.item else { return "" }
-                return props.title 
+                return props.title
             }()
             
             subtitlesButtonHidden = {
@@ -437,6 +440,21 @@ extension DefaultControlsViewController {
                     case .player(let player) = props,
                     case .playable(let props) = player.item,
                     case .possible(let action) = props.pictureInPictureControl else { return nop }
+                return action
+            }()
+            
+            settingsButtonHidden = {
+                guard
+                    case .player(let player) = props,
+                    case .playable(let props) = player.item else { return true }
+                return props.settingsButtonAction == nil
+            }()
+            
+            settingsButtonAction = {
+                guard
+                    case .player(let player) = props,
+                    case .playable(let props) = player.item,
+                    let action = props.settingsButtonAction else { return nop }
                 return action
             }()
         }

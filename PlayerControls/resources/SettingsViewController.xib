@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="PlayerControls" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="Wen-p6-NZy" id="P0M-RQ-N6k"/>
+                <outlet property="view" destination="G9y-Vz-gY0" id="nbM-rs-Fqf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="G9y-Vz-gY0">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-p6-NZy">
+                    <rect key="frame" x="0.0" y="48" width="375" height="619"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="fAg-zs-O8f"/>
+                        <outlet property="delegate" destination="-1" id="56P-5K-JOE"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-cW-aje">
+                    <rect key="frame" x="322" y="10" width="37" height="30"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="doneButtonTouched" destination="-1" eventType="touchUpInside" id="BHc-vg-e99"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pJp-cW-aje" firstAttribute="top" secondItem="G9y-Vz-gY0" secondAttribute="top" constant="10" id="5xI-qm-QMC"/>
+                <constraint firstAttribute="trailing" secondItem="Wen-p6-NZy" secondAttribute="trailing" id="DTp-RX-8q2"/>
+                <constraint firstAttribute="bottom" secondItem="Wen-p6-NZy" secondAttribute="bottom" id="E8a-jo-Bmb"/>
+                <constraint firstItem="Wen-p6-NZy" firstAttribute="top" secondItem="G9y-Vz-gY0" secondAttribute="top" constant="48" id="Gek-No-wTt"/>
+                <constraint firstItem="Wen-p6-NZy" firstAttribute="leading" secondItem="G9y-Vz-gY0" secondAttribute="leading" id="MG8-JR-b5y"/>
+                <constraint firstAttribute="trailing" secondItem="pJp-cW-aje" secondAttribute="trailing" constant="16" id="PS1-PL-gff"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="-816.5" y="738.5"/>
+        </view>
+    </objects>
+</document>

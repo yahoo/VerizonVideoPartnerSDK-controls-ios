@@ -5,9 +5,11 @@ import Foundation
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
+    public var settingsViewController: SettingsViewController?
     public var props: Props = .noPlayer {
         didSet {
             guard isViewLoaded else { return }
+            settingsViewController?.props = ContentControlsViewController.settingProps(from: props)
             view.setNeedsLayout()
         }
     }
@@ -132,9 +134,9 @@ extension ContentControlsViewController.Props.Player.Item {
         
         public struct MediaGroupControl {
             public var options: [Option] = []
-            public var selected = nil as Option?
             public struct Option {
                 public var name = ""
+                public var selected = false
                 public var select: Action<Void> = nop
                 public init() { }
             }
@@ -144,6 +146,8 @@ extension ContentControlsViewController.Props.Player.Item {
         
         public var audible: MediaGroupControl?
         public var legible: MediaGroupControl?
+        
+        public var settingsButtonAction: Action<Void>?
         
         public init() { }
     }

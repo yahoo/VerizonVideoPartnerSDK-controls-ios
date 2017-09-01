@@ -31,6 +31,11 @@
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
 		50582FC41E67086000B18908 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FC31E67086000B18908 /* Defaultable.swift */; };
 		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
+		50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471341F5958E900C35AEF /* SettingsViewController.swift */; };
+		50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F471361F59590B00C35AEF /* SettingsViewController.xib */; };
+		50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */; };
+		50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4713A1F5980A000C35AEF /* SettingCell.swift */; };
+		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
 		50582FC31E67086000B18908 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
+		50F471341F5958E900C35AEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		50F471361F59590B00C35AEF /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = resources/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
+		50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+TableView.swift"; sourceTree = "<group>"; };
+		50F4713A1F5980A000C35AEF /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +175,7 @@
 		50582F901E65CD7300B18908 /* content controls */ = {
 			isa = PBXGroup;
 			children = (
+				50F471331F5958D300C35AEF /* settings */,
 				50582F931E65CD8D00B18908 /* seeker control view */,
 				50582F921E65CD8500B18908 /* side bar */,
 				50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */,
@@ -237,6 +248,18 @@
 				50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */,
 			);
 			name = resources;
+			sourceTree = "<group>";
+		};
+		50F471331F5958D300C35AEF /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				50F471341F5958E900C35AEF /* SettingsViewController.swift */,
+				50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */,
+				50F471361F59590B00C35AEF /* SettingsViewController.xib */,
+				50F4713A1F5980A000C35AEF /* SettingCell.swift */,
+				50F4713C1F5981E800C35AEF /* SettingCell.xib */,
+			);
+			name = settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +361,8 @@
 				50582F821E65CA0F00B18908 /* AdVideoControls.xib in Resources */,
 				50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */,
 				50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */,
+				50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */,
+				50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +388,10 @@
 				50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */,
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
+				50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
+				50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */,
+				50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */,
 				50582FC41E67086000B18908 /* Defaultable.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
