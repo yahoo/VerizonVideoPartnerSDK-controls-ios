@@ -54,7 +54,6 @@ extension DefaultControlsViewController {
         
         var subtitlesTextLabelHidden: Bool
         var subtitlesTextLabelText: String
-        var subtitlesToggleAction: Action<Void>
         
         var thumbnailImageViewHidden: Bool
         var thumbnailImageUrl: URL?
@@ -250,7 +249,8 @@ extension DefaultControlsViewController {
                 guard case .playable(let props) = player.item else { return false }
                 let hasNoTitle = props.title.characters.count == 0
                 let hasNoSubtitles: Bool = {
-                    if case .none = props.subtitles {
+                    guard case .external(let external, _) = props.legible else { return true }
+                    if case .none = external {
                         return true
                     } else {
                         return false
@@ -328,8 +328,9 @@ extension DefaultControlsViewController {
             subtitlesTextLabelText = {
                 guard case .player(let player) = props else { return "" }
                 guard case .playable(let props) = player.item else { return "" }
-                guard case .available(let subtitlesProps) = props.subtitles else { return "" }
-                switch subtitlesProps.state {
+                guard case .external(let external, _) = props.legible else { return "" }
+                guard case .available(let state) = external else { return "" }
+                switch state {
                 case .inactive: return ""
                 case .loading: return "Loading..."
                 case .active(let text): return text ?? ""
@@ -340,16 +341,11 @@ extension DefaultControlsViewController {
             subtitlesTextLabelHidden = {
                 guard case .player(let player) = props else { return true }
                 guard case .playable(let props) = player.item else { return true }
-                guard case .available(let subtitlesProps) = props.subtitles else { return true }
-                guard case .inactive = subtitlesProps.state else { return false }
+                guard case .external(let external, _) = props.legible else { return true }
+                guard case .available(let state) = external else { return true }
+                guard case .inactive = state else { return false }
+
                 return true
-            }()
-            
-            subtitlesToggleAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard case .available(let subtitlesProps) = props.subtitles else { return nop }
-                return subtitlesProps.toggle
             }()
             
             thumbnailImageViewHidden = {

@@ -53,16 +53,6 @@ extension ContentControlsViewController.Props.Player.Item {
             case replay(Action<Void>)
         }
         
-        public var subtitles: Subtitles = .none
-        public enum Subtitles {
-            case none
-            case unavailable
-            case available(toggle: Action<Void>, state: State)
-            public enum State {
-                case active(text: String?), loading, inactive, error
-            }
-        }
-        
         public var seekbar: Seekbar?
         public struct Seekbar {
             public typealias Seconds = UInt
@@ -132,6 +122,20 @@ extension ContentControlsViewController.Props.Player.Item {
             case possible(Action<Void>)
         }
         
+        public enum Subtitles {
+            case `internal`(MediaGroupControl?)
+            case external(External, MediaGroupControl?)
+            
+            public enum External {
+                case none
+                case unavailable
+                case available(state: State)
+                public enum State {
+                    case active(text: String?), loading, inactive, error
+                }
+            }
+        }
+        
         public struct MediaGroupControl {
             public var options: [Option] = []
             public struct Option {
@@ -144,8 +148,8 @@ extension ContentControlsViewController.Props.Player.Item {
             public init() { }
         }
         
+        public var legible: Subtitles = .`internal`(nil)
         public var audible: MediaGroupControl?
-        public var legible: MediaGroupControl?
         
         public var settingsButtonAction: Action<Void>?
         

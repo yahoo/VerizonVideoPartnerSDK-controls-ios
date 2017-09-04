@@ -52,28 +52,29 @@ extension ContentControlsViewController {
         guard let toggleSettings = controls.settingsButtonAction else { return nil }
         
         var sections: [SettingsViewController.Props.Section] = []
-        if let audible = controls.audible, audible.options.count > 0 {
+    
+        func appendSection(with title: String,
+                           group: Props.Player.Item.Controls.MediaGroupControl?) {
+            guard let group = group else { return }
+            guard group.options.count > 0 else { return }
             sections.append(
                 SettingsViewController.Props.Section(
-                title: "AUDIO",
-                cells: audible.options.map {
-                    SettingsViewController.Props.Cell(
-                        title: $0.name,
-                        selected: $0.selected,
-                        select: $0.select)
-                }))
-        }
-        
-        if let legible = controls.legible, legible.options.count > 0 {
-            sections.append(
-                SettingsViewController.Props.Section(
-                    title: "SUBTITLES",
-                    cells: legible.options.map {
+                    title: title,
+                    cells: group.options.map {
                         SettingsViewController.Props.Cell(
                             title: $0.name,
                             selected: $0.selected,
                             select: $0.select)
                 }))
+        }
+        
+        if let audible = controls.audible {
+            appendSection(with: "AUDIO", group: audible)
+        }
+
+        switch controls.legible {
+        case .external(_ , let group), .`internal`(let group):
+            appendSection(with: "SUBTITLES", group: group)
         }
         
         return SettingsViewController.Props(
