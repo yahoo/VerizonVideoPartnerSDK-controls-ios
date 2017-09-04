@@ -12,6 +12,7 @@ extension SettingsViewController: UITableViewDataSource {
         tableView.register(UINib(nibName: "SettingHeaderView",
                                  bundle: Bundle(for: type(of: self))),
                            forHeaderFooterViewReuseIdentifier: "SettingHeaderView")
+        preferredContentSize = CGSize(width: 200, height: 200)
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,5 +64,13 @@ extension SettingsViewController: UITableViewDelegate {
         }
         
         cell.select()
+    }
+}
+
+extension SettingsViewController: UIGestureRecognizerDelegate {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard gestureRecognizer === dimmedAreaTouchRecognizer else { return true }
+        guard touch.view === view else { return false }
+        return true
     }
 }

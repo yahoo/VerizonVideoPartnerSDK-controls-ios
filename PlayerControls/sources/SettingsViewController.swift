@@ -4,6 +4,7 @@ import Foundation
 
 public class SettingsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var dimmedAreaTouchRecognizer: UITapGestureRecognizer!
     
     @IBAction func closeButtonTouched(_ sender: Any) {
         props?.dismissAction()

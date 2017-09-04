@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW5-au-g1E">
-                        <rect key="frame" x="46" y="12.5" width="30" height="19"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <rect key="frame" x="46" y="13.333333333333336" width="30" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -28,6 +28,7 @@
                         <rect key="frame" x="16" y="15" width="14" height="14"/>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OW5-au-g1E" secondAttribute="trailing" constant="15" id="4VP-cY-PnJ"/>
                     <constraint firstItem="OW5-au-g1E" firstAttribute="leading" secondItem="imk-3I-6ka" secondAttribute="trailing" constant="16" id="AU6-Zz-bGq"/>
@@ -36,6 +37,7 @@
                     <constraint firstItem="imk-3I-6ka" firstAttribute="leading" secondItem="xP9-mK-hKS" secondAttribute="leading" constant="16" id="vJm-s4-hji"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="nameLabel" destination="OW5-au-g1E" id="JR5-nO-8fc"/>
                 <outlet property="selectionImage" destination="imk-3I-6ka" id="jdB-RD-vuY"/>
