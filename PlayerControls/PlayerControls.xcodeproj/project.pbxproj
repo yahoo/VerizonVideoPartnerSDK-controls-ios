@@ -36,6 +36,8 @@
 		50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */; };
 		50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4713A1F5980A000C35AEF /* SettingCell.swift */; };
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
+		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
+		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+TableView.swift"; sourceTree = "<group>"; };
 		50F4713A1F5980A000C35AEF /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
+		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
+		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +260,8 @@
 				50F471341F5958E900C35AEF /* SettingsViewController.swift */,
 				50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */,
 				50F471361F59590B00C35AEF /* SettingsViewController.xib */,
+				50F471581F5D763500C35AEF /* SettingHeaderView.swift */,
+				50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */,
 				50F4713A1F5980A000C35AEF /* SettingCell.swift */,
 				50F4713C1F5981E800C35AEF /* SettingCell.xib */,
 			);
@@ -362,6 +368,7 @@
 				50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */,
 				50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */,
 				50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */,
+				50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */,
 				50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +391,7 @@
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
+				50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */,
 				50582F861E65CA5F00B18908 /* TimeFormatter.swift in Sources */,
 				50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */,
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,

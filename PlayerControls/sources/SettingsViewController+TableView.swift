@@ -9,6 +9,9 @@ extension SettingsViewController: UITableViewDataSource {
         tableView.register(UINib(nibName: "SettingCell",
                                  bundle: Bundle(for: type(of: self))),
                            forCellReuseIdentifier: "SettingCell")
+        tableView.register(UINib(nibName: "SettingHeaderView",
+                                 bundle: Bundle(for: type(of: self))),
+                           forHeaderFooterViewReuseIdentifier: "SettingHeaderView")
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -18,7 +21,6 @@ extension SettingsViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return props?.sections[section].cells.count ?? 0
     }
-    
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell") as? SettingCell else {
@@ -30,8 +32,17 @@ extension SettingsViewController: UITableViewDataSource {
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return props?.sections[section].title
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SettingHeaderView") as? SettingHeaderView else {
+            fatalError("Unknown header view!")
+        }
+        view.nameLabel.text = props?.sections[section].title
+        
+        return view
+    }
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 34.0
     }
 }
 

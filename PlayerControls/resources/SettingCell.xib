@@ -19,21 +19,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW5-au-g1E">
-                        <rect key="frame" x="39" y="11" width="34" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="46" y="12.5" width="30" height="19"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="imk-3I-6ka">
-                        <rect key="frame" x="8" y="14" width="14" height="14"/>
+                        <rect key="frame" x="16" y="15" width="14" height="14"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OW5-au-g1E" secondAttribute="trailing" constant="15" id="4VP-cY-PnJ"/>
-                    <constraint firstItem="OW5-au-g1E" firstAttribute="leading" secondItem="imk-3I-6ka" secondAttribute="trailing" constant="17" id="AU6-Zz-bGq"/>
+                    <constraint firstItem="OW5-au-g1E" firstAttribute="leading" secondItem="imk-3I-6ka" secondAttribute="trailing" constant="16" id="AU6-Zz-bGq"/>
                     <constraint firstItem="imk-3I-6ka" firstAttribute="centerY" secondItem="OW5-au-g1E" secondAttribute="centerY" id="auR-YZ-iud"/>
                     <constraint firstItem="OW5-au-g1E" firstAttribute="centerY" secondItem="xP9-mK-hKS" secondAttribute="centerY" id="ugp-Ga-62J"/>
-                    <constraint firstItem="imk-3I-6ka" firstAttribute="leading" secondItem="xP9-mK-hKS" secondAttribute="leading" constant="8" id="vJm-s4-hji"/>
+                    <constraint firstItem="imk-3I-6ka" firstAttribute="leading" secondItem="xP9-mK-hKS" secondAttribute="leading" constant="16" id="vJm-s4-hji"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

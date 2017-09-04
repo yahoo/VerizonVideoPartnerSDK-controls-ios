@@ -3,6 +3,12 @@
 import Foundation
 
 public class SettingsViewController: UIViewController {
+    @IBOutlet var tableView: UITableView!
+    
+    @IBAction func closeButtonTouched(_ sender: Any) {
+        props?.dismissAction()
+    }
+    
     public init() {
         super.init(nibName: "SettingsViewController",
                    bundle: Bundle(for: type(of: self)))
@@ -11,12 +17,6 @@ public class SettingsViewController: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    @IBAction func doneButtonTouched() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBOutlet var tableView: UITableView!
     
     var props: Props? {
         didSet {
@@ -48,12 +48,13 @@ extension ContentControlsViewController {
     static func settingProps(from props: Props) -> SettingsViewController.Props? {
         guard case .player(let player) = props else { return nil }
         guard case .playable(let controls) = player.item else { return nil }
+        guard let toggleSettings = controls.settingsButtonAction else { return nil }
         
         var sections: [SettingsViewController.Props.Section] = []
         if let audible = controls.audible, audible.options.count > 0 {
             sections.append(
                 SettingsViewController.Props.Section(
-                title: "Audio Tracks",
+                title: "AUDIO",
                 cells: audible.options.map {
                     SettingsViewController.Props.Cell(
                         title: $0.name,
@@ -65,7 +66,7 @@ extension ContentControlsViewController {
         if let legible = controls.legible, legible.options.count > 0 {
             sections.append(
                 SettingsViewController.Props.Section(
-                    title: "Subtitles Languages",
+                    title: "SUBTITLES",
                     cells: legible.options.map {
                         SettingsViewController.Props.Cell(
                             title: $0.name,
@@ -76,6 +77,6 @@ extension ContentControlsViewController {
         
         return SettingsViewController.Props(
             sections: sections,
-            dismissAction: {})
+            dismissAction: toggleSettings)
     }
 }

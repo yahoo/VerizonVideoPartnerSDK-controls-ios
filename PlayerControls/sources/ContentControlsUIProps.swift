@@ -52,9 +52,6 @@ extension DefaultControlsViewController {
         var durationTextHidden: Bool
         var durationTextLabelText: String
         
-        var subtitlesButtonHidden: Bool
-        var subtitlesButtonEnabled: Bool
-        var subtitlesButtonSelected: Bool
         var subtitlesTextLabelHidden: Bool
         var subtitlesTextLabelText: String
         var subtitlesToggleAction: Action<Void>
@@ -326,28 +323,6 @@ extension DefaultControlsViewController {
                 guard case .player(let player) = props else { return "" }
                 guard case .playable(let props) = player.item else { return "" }
                 return props.title
-            }()
-            
-            subtitlesButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .none = props.subtitles else { return false }
-                return true
-            }()
-            
-            subtitlesButtonEnabled = {
-                guard case .player(let player) = props else { return false }
-                guard case .playable(let props) = player.item else { return false }
-                guard case .available = props.subtitles else { return false }
-                return true
-            }()
-            
-            subtitlesButtonSelected = {
-                guard case .player(let player) = props else { return false }
-                guard case .playable(let props) = player.item else { return false }
-                guard case .available(let subtitlesProps) = props.subtitles else { return false }
-                guard case .inactive = subtitlesProps.state else { return true }
-                return false
             }()
             
             subtitlesTextLabelText = {
