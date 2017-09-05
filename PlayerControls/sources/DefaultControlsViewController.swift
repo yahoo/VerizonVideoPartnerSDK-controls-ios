@@ -29,7 +29,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var shadowView: UIView!
     @IBOutlet private var compasDirectionView: UIView!
     @IBOutlet private var compasBodyView: UIView!
-    @IBOutlet private var ccButton: UIButton!
     @IBOutlet private var ccTextLabel: UILabel!
     @IBOutlet private var playButton: UIButton!
     @IBOutlet private var pauseButton: UIButton!
@@ -47,6 +46,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var retryButton: UIButton!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var pipButton: UIButton!
+    @IBOutlet private var settingsButton: UIButton!
     
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
@@ -128,12 +128,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         durationTextLabel.text = uiProps.durationTextLabelText
         durationTextLabel.isHidden = uiProps.durationTextHidden
         
-        ccButton.isHidden = uiProps.subtitlesButtonHidden
-        ccButton.isSelected = uiProps.subtitlesButtonSelected
-        ccButton.isEnabled = uiProps.subtitlesButtonEnabled
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText
-        ccButton.tintColor = uiProps.subtitlesButtonSelected ? view.tintColor : UIColor.white
+
         visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 86.5
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
@@ -174,6 +171,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         pipButton.isHidden = uiProps.pipButtonHidden
         pipButton.isEnabled = uiProps.pipButtonEnabled
+        
+        settingsButton.isHidden = uiProps.settingsButtonHidden
     }
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
@@ -269,11 +268,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         onUserInteraction?()
     }
     
-    @IBAction private func ccButtonTouched() {
-        uiProps.subtitlesToggleAction()
-        onUserInteraction?()
-    }
-    
     private func startSeek(from progress: CGFloat) {
         uiProps.startSeekAction(.init(progress))
 		onUserInteraction?()
@@ -321,5 +315,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func pipButtonTouched() {
         uiProps.pipButtonAction()
+    }
+    
+    @IBAction private func settingsButtonTouched() {
+        uiProps.settingsButtonAction()
     }
 }

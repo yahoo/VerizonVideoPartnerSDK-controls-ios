@@ -19,4 +19,6 @@ extension ContentControlsViewController.Props.Player.Item.Controls.Camera: Defau
 extension ContentControlsViewController.Props.Player.Item.Controls.Camera.Angles: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Error: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.MediaGroupControl: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.MediaGroupControl.Option: Defaultable { }
 extension ContentControlsViewController.Props.Player.Playlist: Defaultable { }

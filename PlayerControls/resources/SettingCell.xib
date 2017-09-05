@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="LDe-8b-Nk6" customClass="SettingCell" customModule="PlayerControls" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LDe-8b-Nk6" id="xP9-mK-hKS">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW5-au-g1E">
+                        <rect key="frame" x="46" y="13.333333333333336" width="30" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="imk-3I-6ka">
+                        <rect key="frame" x="16" y="15" width="14" height="14"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OW5-au-g1E" secondAttribute="trailing" constant="15" id="4VP-cY-PnJ"/>
+                    <constraint firstItem="OW5-au-g1E" firstAttribute="leading" secondItem="imk-3I-6ka" secondAttribute="trailing" constant="16" id="AU6-Zz-bGq"/>
+                    <constraint firstItem="imk-3I-6ka" firstAttribute="centerY" secondItem="OW5-au-g1E" secondAttribute="centerY" id="auR-YZ-iud"/>
+                    <constraint firstItem="OW5-au-g1E" firstAttribute="centerY" secondItem="xP9-mK-hKS" secondAttribute="centerY" id="ugp-Ga-62J"/>
+                    <constraint firstItem="imk-3I-6ka" firstAttribute="leading" secondItem="xP9-mK-hKS" secondAttribute="leading" constant="16" id="vJm-s4-hji"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="nameLabel" destination="OW5-au-g1E" id="JR5-nO-8fc"/>
+                <outlet property="selectionImage" destination="imk-3I-6ka" id="jdB-RD-vuY"/>
+            </connections>
+            <point key="canvasLocation" x="-105" y="58"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icCheckmark" width="14" height="14"/>
+    </resources>
+</document>

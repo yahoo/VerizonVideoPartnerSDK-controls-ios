@@ -5,9 +5,11 @@ import Foundation
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
+    public weak var settingsViewController: SettingsViewController?
     public var props: Props = .noPlayer {
         didSet {
             guard isViewLoaded else { return }
+            settingsViewController?.props = ContentControlsViewController.settingProps(from: props)
             view.setNeedsLayout()
         }
     }
@@ -49,16 +51,6 @@ extension ContentControlsViewController.Props.Player.Item {
             case play(Action<Void>)
             case pause(Action<Void>)
             case replay(Action<Void>)
-        }
-        
-        public var subtitles: Subtitles = .none
-        public enum Subtitles {
-            case none
-            case unavailable
-            case available(toggle: Action<Void>, state: State)
-            public enum State {
-                case active(text: String?), loading, inactive, error
-            }
         }
         
         public var seekbar: Seekbar?
@@ -129,6 +121,37 @@ extension ContentControlsViewController.Props.Player.Item {
             case impossible
             case possible(Action<Void>)
         }
+        
+        public enum Subtitles {
+            case `internal`(MediaGroupControl?)
+            case external(External, MediaGroupControl?)
+            
+            public enum External {
+                case none
+                case unavailable
+                case available(state: State)
+                public enum State {
+                    case active(text: String?), loading, inactive, error
+                }
+            }
+        }
+        
+        public struct MediaGroupControl {
+            public var options: [Option] = []
+            public struct Option {
+                public var name = ""
+                public var selected = false
+                public var select: Action<Void> = nop
+                public init() { }
+            }
+            
+            public init() { }
+        }
+        
+        public var legible: Subtitles = .`internal`(nil)
+        public var audible: MediaGroupControl?
+        
+        public var settingsButtonAction: Action<Void>?
         
         public init() { }
     }
