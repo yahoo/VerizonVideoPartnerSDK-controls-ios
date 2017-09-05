@@ -70,6 +70,8 @@ extension DefaultControlsViewController {
         var settingsButtonHidden: Bool
         var settingsButtonAction: Action<Void>
         
+        var liveIndicationViewIsHidden: Bool
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
@@ -427,6 +429,13 @@ extension DefaultControlsViewController {
                     case .playable(let props) = player.item,
                     let action = props.settingsButtonAction else { return nop }
                 return action
+            }()
+            
+            liveIndicationViewIsHidden = {
+                guard case .player(let player) = props else { return true }
+                guard case .playable(let props) = player.item else { return true }
+                
+                return props.isLive == false
             }()
         }
     }
