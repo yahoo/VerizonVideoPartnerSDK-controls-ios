@@ -48,6 +48,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var pipButton: UIButton!
     @IBOutlet private var settingsButton: UIButton!
     
+    @IBOutlet private var liveIndicationView: UIView!
+    @IBOutlet private var liveIndicationViewTitleConstraint: NSLayoutConstraint!
+    
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomSeekBarConstraint: NSLayoutConstraint!
@@ -173,6 +176,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         pipButton.isEnabled = uiProps.pipButtonEnabled
         
         settingsButton.isHidden = uiProps.settingsButtonHidden
+        
+        liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
+        liveIndicationViewTitleConstraint.isActive = !uiProps.liveIndicationViewIsHidden
     }
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
@@ -307,14 +313,17 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func resetCamera() {
         uiProps.resetCameraAngles()
+        onUserInteraction?()
     }
     
     @IBAction private func retry() {
         uiProps.retryButtonAction()
+        onUserInteraction?()
     }
     
     @IBAction private func pipButtonTouched() {
         uiProps.pipButtonAction()
+        onUserInteraction?()
     }
     
     @IBAction private func settingsButtonTouched() {

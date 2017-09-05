@@ -53,6 +53,7 @@ extension ContentControlsViewController.Props.Player.Item {
             case replay(Action<Void>)
         }
         
+        public var isLive: Bool = false
         public var seekbar: Seekbar?
         public struct Seekbar {
             public typealias Seconds = UInt
