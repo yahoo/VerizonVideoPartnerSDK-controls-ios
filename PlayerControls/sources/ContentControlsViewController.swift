@@ -5,7 +5,7 @@ import Foundation
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
-    public var settingsViewController: SettingsViewController?
+    public weak var settingsViewController: SettingsViewController?
     public var props: Props = .noPlayer {
         didSet {
             guard isViewLoaded else { return }

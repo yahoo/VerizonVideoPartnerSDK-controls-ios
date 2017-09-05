@@ -19,7 +19,7 @@ public class SettingsViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    var props: Props? {
+    public var props: Props? {
         didSet {
             guard isViewLoaded else { return }
             tableView.reloadData()
@@ -28,25 +28,25 @@ public class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController {
-    struct Props {
-        struct Section {
-            let title: String
-            let cells: [Cell]
+    public struct Props {
+        public struct Section {
+            public let title: String
+            public let cells: [Cell]
         }
         
-        struct Cell {
-            let title: String
-            let selected: Bool
-            let select: Action<Void>
+        public struct Cell {
+            public let title: String
+            public let selected: Bool
+            public let select: Action<Void>
         }
         
-        let sections: [Section]
-        let dismissAction: Action<Void>
+        public let sections: [Section]
+        public let dismissAction: Action<Void>
     }
 }
 
 extension ContentControlsViewController {
-    static func settingProps(from props: Props) -> SettingsViewController.Props? {
+    public static func settingProps(from props: Props) -> SettingsViewController.Props? {        
         guard case .player(let player) = props else { return nil }
         guard case .playable(let controls) = player.item else { return nil }
         guard let toggleSettings = controls.settingsButtonAction else { return nil }
