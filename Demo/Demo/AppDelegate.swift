@@ -9,8 +9,8 @@ typealias Props = ContentControlsViewController.Props
 func props() -> Props {
     return Props.player(Props.Player { player in
         player.item = Props.Player.Item.playable(Props.Player.Item.Controls { controls in
-            controls.title = "Some title"
-            //controls.isLive = true
+            controls.title = "Some title very very very very very very very very very long"
+            controls.isLive = true
             controls.playbackAction = Props.Player.Item.Controls.Playback.pause(nop)
             controls.camera = Props.Player.Item.Controls.Camera()
             controls.subtitles = .available(
