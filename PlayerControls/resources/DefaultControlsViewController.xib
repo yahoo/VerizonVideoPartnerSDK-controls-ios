@@ -289,7 +289,7 @@ Title</string>
                         </constraint>
                         <constraint firstItem="6eW-2a-aeL" firstAttribute="centerY" secondItem="l0O-oR-0Rg" secondAttribute="centerY" id="v65-Bl-Csa"/>
                         <constraint firstItem="98K-SA-Pdv" firstAttribute="top" secondItem="aUE-Db-Ht9" secondAttribute="top" id="vN8-Hr-CY2"/>
-                        <constraint firstItem="98K-SA-Pdv" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" priority="999" constant="75" id="w88-zY-fND"/>
+                        <constraint firstItem="98K-SA-Pdv" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" priority="999" constant="10" id="w88-zY-fND"/>
                         <constraint firstItem="wVE-Q8-zOG" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="xAL-Mr-aiA"/>
                         <constraint firstItem="Ddy-Jb-aVD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="98K-SA-Pdv" secondAttribute="trailing" constant="15" id="xAh-I1-hXp"/>
                         <constraint firstItem="tGV-rG-prj" firstAttribute="top" secondItem="98K-SA-Pdv" secondAttribute="top" id="y7v-Ub-19m"/>
@@ -315,30 +315,30 @@ Title</string>
                             <exclude reference="HWP-bD-q7I"/>
                             <exclude reference="MDB-2d-aWk"/>
                             <exclude reference="sZA-Tb-Cie"/>
-                            <exclude reference="g57-te-Fqp"/>
-                            <exclude reference="hHz-DU-eUK"/>
+                            <exclude reference="EEn-7U-jDF"/>
+                            <exclude reference="OYY-c7-642"/>
+                            <exclude reference="SFG-A0-7XF"/>
+                            <exclude reference="put-WR-Szd"/>
                             <exclude reference="2EN-h1-ldw"/>
                             <exclude reference="Bug-m8-Fqm"/>
                             <exclude reference="1RA-jh-Xfd"/>
                             <exclude reference="sPA-I1-YzI"/>
                             <exclude reference="y9t-79-v13"/>
+                            <exclude reference="g57-te-Fqp"/>
+                            <exclude reference="hHz-DU-eUK"/>
                             <exclude reference="xAL-Mr-aiA"/>
                             <exclude reference="zsd-wr-B4P"/>
                             <exclude reference="3f9-SO-RA2"/>
                             <exclude reference="XTw-G3-EcR"/>
                             <exclude reference="fv1-Ls-gs3"/>
                             <exclude reference="iTM-by-B9G"/>
-                            <exclude reference="DWa-IY-lCj"/>
-                            <exclude reference="Pzo-A9-BH0"/>
-                            <exclude reference="eTt-xT-Hay"/>
                             <exclude reference="79p-mr-0NO"/>
                             <exclude reference="pG8-cM-rpN"/>
                             <exclude reference="F2z-D3-yET"/>
                             <exclude reference="iww-Ws-dSP"/>
-                            <exclude reference="EEn-7U-jDF"/>
-                            <exclude reference="OYY-c7-642"/>
-                            <exclude reference="SFG-A0-7XF"/>
-                            <exclude reference="put-WR-Szd"/>
+                            <exclude reference="DWa-IY-lCj"/>
+                            <exclude reference="Pzo-A9-BH0"/>
+                            <exclude reference="eTt-xT-Hay"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -357,30 +357,30 @@ Title</string>
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
-                            <include reference="g57-te-Fqp"/>
-                            <include reference="hHz-DU-eUK"/>
+                            <include reference="EEn-7U-jDF"/>
+                            <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
                             <include reference="2EN-h1-ldw"/>
                             <include reference="Bug-m8-Fqm"/>
                             <include reference="1RA-jh-Xfd"/>
                             <include reference="sPA-I1-YzI"/>
                             <include reference="y9t-79-v13"/>
+                            <include reference="g57-te-Fqp"/>
+                            <include reference="hHz-DU-eUK"/>
                             <include reference="xAL-Mr-aiA"/>
                             <include reference="zsd-wr-B4P"/>
                             <include reference="3f9-SO-RA2"/>
                             <include reference="XTw-G3-EcR"/>
                             <include reference="fv1-Ls-gs3"/>
                             <include reference="iTM-by-B9G"/>
-                            <include reference="DWa-IY-lCj"/>
-                            <include reference="Pzo-A9-BH0"/>
-                            <include reference="eTt-xT-Hay"/>
                             <include reference="79p-mr-0NO"/>
                             <include reference="pG8-cM-rpN"/>
                             <include reference="F2z-D3-yET"/>
                             <include reference="iww-Ws-dSP"/>
-                            <include reference="EEn-7U-jDF"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
+                            <include reference="DWa-IY-lCj"/>
+                            <include reference="Pzo-A9-BH0"/>
+                            <include reference="eTt-xT-Hay"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=regular">
@@ -399,30 +399,30 @@ Title</string>
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
-                            <include reference="g57-te-Fqp"/>
-                            <include reference="hHz-DU-eUK"/>
+                            <include reference="EEn-7U-jDF"/>
+                            <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
                             <include reference="2EN-h1-ldw"/>
                             <include reference="Bug-m8-Fqm"/>
                             <include reference="1RA-jh-Xfd"/>
                             <include reference="sPA-I1-YzI"/>
                             <include reference="y9t-79-v13"/>
+                            <include reference="g57-te-Fqp"/>
+                            <include reference="hHz-DU-eUK"/>
                             <include reference="xAL-Mr-aiA"/>
                             <include reference="zsd-wr-B4P"/>
                             <include reference="3f9-SO-RA2"/>
                             <include reference="XTw-G3-EcR"/>
                             <include reference="fv1-Ls-gs3"/>
                             <include reference="iTM-by-B9G"/>
-                            <include reference="DWa-IY-lCj"/>
-                            <include reference="Pzo-A9-BH0"/>
-                            <include reference="eTt-xT-Hay"/>
                             <include reference="79p-mr-0NO"/>
                             <include reference="pG8-cM-rpN"/>
                             <include reference="F2z-D3-yET"/>
                             <include reference="iww-Ws-dSP"/>
-                            <include reference="EEn-7U-jDF"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
+                            <include reference="DWa-IY-lCj"/>
+                            <include reference="Pzo-A9-BH0"/>
+                            <include reference="eTt-xT-Hay"/>
                         </mask>
                     </variation>
                 </view>
@@ -464,6 +464,7 @@ Title</string>
                 <outletCollection property="gestureRecognizers" destination="ydI-nT-cAb" appends="YES" id="w9x-Nr-aVL"/>
                 <outletCollection property="gestureRecognizers" destination="ZiF-3w-BsH" appends="YES" id="gz4-El-Rax"/>
             </connections>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ZiF-3w-BsH">
             <connections>

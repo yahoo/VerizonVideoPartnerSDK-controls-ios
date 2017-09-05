@@ -67,7 +67,7 @@ extension DefaultControlsViewController {
         var pipButtonEnabled: Bool
         var pipButtonAction: Action<Void>
         
-        var settingsButtonHidden: Bool
+        var settingsButtonEnabled: Bool
         var settingsButtonAction: Action<Void>
         
         var liveIndicationViewIsHidden: Bool
@@ -416,11 +416,11 @@ extension DefaultControlsViewController {
                 return action
             }()
             
-            settingsButtonHidden = {
+            settingsButtonEnabled = {
                 guard
                     case .player(let player) = props,
-                    case .playable(let props) = player.item else { return true }
-                return props.settingsButtonAction == nil
+                    case .playable(let props) = player.item else { return false }
+                return props.settingsButtonAction != nil
             }()
             
             settingsButtonAction = {
