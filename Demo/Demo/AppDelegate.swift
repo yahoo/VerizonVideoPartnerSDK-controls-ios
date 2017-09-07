@@ -13,10 +13,7 @@ func props() -> Props {
             controls.isLive = true
             controls.playbackAction = Props.Player.Item.Controls.Playback.pause(nop)
             controls.camera = Props.Player.Item.Controls.Camera()
-            controls.subtitles = .available(
-                toggle: nop,
-                state: .active(text: "This is how subtitles will look")
-            )
+            controls.settings = .hidden
         })
     })
 }
