@@ -152,7 +152,12 @@ extension ContentControlsViewController.Props.Player.Item {
         public var legible: Subtitles = .`internal`(nil)
         public var audible: MediaGroupControl?
         
-        public var settingsButtonAction: Action<Void>?
+        public enum Settings {
+            case hidden
+            case disabled
+            case enabled(Action<Void>)
+        }
+        public var settings: Settings = .disabled
         
         public init() { }
     }

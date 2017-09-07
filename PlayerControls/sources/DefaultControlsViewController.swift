@@ -175,6 +175,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         pipButton.isHidden = uiProps.pipButtonHidden
         pipButton.isEnabled = uiProps.pipButtonEnabled
         
+        settingsButton.isHidden = uiProps.settingsButtonHidden
         settingsButton.isEnabled = uiProps.settingsButtonEnabled
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden

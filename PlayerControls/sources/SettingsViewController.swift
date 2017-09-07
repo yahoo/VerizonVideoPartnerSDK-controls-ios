@@ -49,7 +49,7 @@ extension ContentControlsViewController {
     public static func settingProps(from props: Props) -> SettingsViewController.Props? {        
         guard case .player(let player) = props else { return nil }
         guard case .playable(let controls) = player.item else { return nil }
-        guard let toggleSettings = controls.settingsButtonAction else { return nil }
+        guard case .enabled(let action) = controls.settings else { return nil }
         
         var sections: [SettingsViewController.Props.Section] = []
     
@@ -79,6 +79,6 @@ extension ContentControlsViewController {
         
         return SettingsViewController.Props(
             sections: sections,
-            dismissAction: toggleSettings)
+            dismissAction: action)
     }
 }
