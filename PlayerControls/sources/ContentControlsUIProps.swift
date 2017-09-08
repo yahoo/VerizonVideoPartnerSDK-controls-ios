@@ -251,16 +251,16 @@ extension DefaultControlsViewController {
                 guard case .player(let player) = props else { return false }
                 guard case .playable(let props) = player.item else { return false }
                 let hasNoTitle = props.title.characters.count == 0
-                let hasNoSubtitles: Bool = {
-                    guard case .external(let external, _) = props.legible else { return true }
-                    if case .none = external {
-                        return true
-                    } else {
-                        return false
-                    }
+                let hasNoSettings: Bool = {
+                    guard case .hidden = props.settings else { return false }
+                    return true
+                }()
+                let hasNoPictureInPicture: Bool = {
+                    guard case .possible = props.pictureInPictureControl else { return true }
+                    return false
                 }()
                 
-                return hasNoTitle && hasNoSubtitles
+                return hasNoTitle && hasNoSettings && hasNoPictureInPicture
             }()
             
             sideBarViewHidden = {
