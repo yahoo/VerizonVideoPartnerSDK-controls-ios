@@ -209,9 +209,13 @@ extension DefaultControlsViewController {
             
             pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? nop
             
-            settingsButtonHidden = props.player?.item.playable?.settingsButtonAction == nil
+            settingsButtonHidden = props.player?.item.playable?.settings.isHidden ?? true
             
-            settingsButtonAction = props.player?.item.playable?.settingsButtonAction ?? nop
+            settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
+            
+            settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
+            
+            liveIndicationViewIsHidden = props.player?.item.playable?.isLive ?? true
         }
     }
 }
