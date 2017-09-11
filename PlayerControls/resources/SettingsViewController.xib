@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,21 +12,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="PlayerControls" customModuleProvider="target">
             <connections>
+                <outlet property="closeButtonView" destination="vQ6-Rg-gOq" id="Mi6-ZA-ZTY"/>
                 <outlet property="dimmedAreaTouchRecognizer" destination="fAs-Eb-fCZ" id="FEe-JN-aCn"/>
                 <outlet property="tableView" destination="Wen-p6-NZy" id="P0M-RQ-N6k"/>
+                <outlet property="tableViewHeightConstraint" destination="ntU-Qd-zPR" id="RPQ-v9-6hs"/>
                 <outlet property="view" destination="G9y-Vz-gY0" id="nbM-rs-Fqf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="G9y-Vz-gY0">
-            <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="G9y-Vz-gY0">
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="vQ6-Rg-gOq" userLabel="Close Button">
-                    <rect key="frame" x="184.33333333333337" y="327" width="368" height="56"/>
+                    <rect key="frame" x="0.0" y="319" width="667" height="56"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE2-CP-J4a">
-                            <rect key="frame" x="46" y="19.333333333333314" width="38.666666666666657" height="18"/>
+                            <rect key="frame" x="46" y="19.5" width="39" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -35,7 +37,7 @@
                             <rect key="frame" x="16" y="21" width="14" height="14"/>
                         </imageView>
                         <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9N-9y-XAi" userLabel="top border">
-                            <rect key="frame" x="0.0" y="0.0" width="368" height="1"/>
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="1"/>
                             <color key="backgroundColor" red="0.69019607843137254" green="0.69019607843137254" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="jAf-oY-2ut"/>
@@ -60,8 +62,11 @@
                     </connections>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-p6-NZy">
-                    <rect key="frame" x="184.33333333333337" y="30" width="368" height="297"/>
+                    <rect key="frame" x="0.0" y="319" width="667" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="ntU-Qd-zPR"/>
+                    </constraints>
                     <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -78,10 +83,6 @@
                 <constraint firstItem="Wen-p6-NZy" firstAttribute="centerX" secondItem="G9y-Vz-gY0" secondAttribute="centerX" id="Elw-9j-5Hd"/>
                 <constraint firstItem="Wen-p6-NZy" firstAttribute="width" secondItem="G9y-Vz-gY0" secondAttribute="width" multiplier="0.5" id="Gdz-kp-xIZ"/>
                 <constraint firstAttribute="bottom" secondItem="vQ6-Rg-gOq" secondAttribute="bottom" id="JUe-uq-jNG"/>
-                <constraint firstItem="Wen-p6-NZy" firstAttribute="height" secondItem="G9y-Vz-gY0" secondAttribute="height" multiplier="0.25" id="Jwa-gc-VPf"/>
-                <constraint firstItem="Wen-p6-NZy" firstAttribute="height" secondItem="G9y-Vz-gY0" secondAttribute="height" multiplier="0.5" id="Lmn-Pq-Kel">
-                    <variation key="heightClass=compact-widthClass=regular" constant="90"/>
-                </constraint>
                 <constraint firstItem="vQ6-Rg-gOq" firstAttribute="trailing" secondItem="Wen-p6-NZy" secondAttribute="trailing" id="MTJ-Rl-zwO"/>
                 <constraint firstAttribute="trailing" secondItem="vQ6-Rg-gOq" secondAttribute="trailing" id="OHv-2U-8H3"/>
                 <constraint firstItem="vQ6-Rg-gOq" firstAttribute="leading" secondItem="G9y-Vz-gY0" secondAttribute="leading" id="X94-IM-ivw"/>
@@ -95,8 +96,6 @@
                 <mask key="constraints">
                     <exclude reference="DPy-WM-rFn"/>
                     <exclude reference="Gdz-kp-xIZ"/>
-                    <exclude reference="Jwa-gc-VPf"/>
-                    <exclude reference="Lmn-Pq-Kel"/>
                     <exclude reference="XuP-zA-nBh"/>
                     <exclude reference="JUe-uq-jNG"/>
                     <exclude reference="MTJ-Rl-zwO"/>
@@ -109,7 +108,6 @@
             <variation key="widthClass=compact">
                 <mask key="constraints">
                     <include reference="DPy-WM-rFn"/>
-                    <include reference="Lmn-Pq-Kel"/>
                     <include reference="JUe-uq-jNG"/>
                     <include reference="OHv-2U-8H3"/>
                     <include reference="X94-IM-ivw"/>
@@ -119,7 +117,6 @@
                 <mask key="constraints">
                     <include reference="DPy-WM-rFn"/>
                     <include reference="Gdz-kp-xIZ"/>
-                    <include reference="Lmn-Pq-Kel"/>
                     <include reference="XuP-zA-nBh"/>
                     <include reference="MTJ-Rl-zwO"/>
                     <include reference="xt7-We-oSi"/>
@@ -128,7 +125,6 @@
             <variation key="heightClass=regular-widthClass=regular">
                 <mask key="constraints">
                     <include reference="Gdz-kp-xIZ"/>
-                    <include reference="Jwa-gc-VPf"/>
                     <include reference="XuP-zA-nBh"/>
                     <include reference="MTJ-Rl-zwO"/>
                     <include reference="xt7-We-oSi"/>

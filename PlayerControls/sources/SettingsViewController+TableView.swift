@@ -3,6 +3,26 @@
 import Foundation
 
 extension SettingsViewController: UITableViewDataSource {
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        let constant: CGFloat = {
+            let contentHeight = self.tableView.contentSize.height
+            let emptyHeight = self.view.frame.size.height
+                - self.closeButtonView.frame.size.height
+                - UIApplication.shared.statusBarFrame.size.height
+            if contentHeight < emptyHeight {
+                return contentHeight
+            } else {
+                return emptyHeight
+            }
+        }()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.tableViewHeightConstraint.constant = constant
+        })
+    }
+    
     override public func loadView() {
         super.loadView()
         
@@ -12,7 +32,6 @@ extension SettingsViewController: UITableViewDataSource {
         tableView.register(UINib(nibName: "SettingHeaderView",
                                  bundle: Bundle(for: type(of: self))),
                            forHeaderFooterViewReuseIdentifier: "SettingHeaderView")
-        preferredContentSize = CGSize(width: 200, height: 200)
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,7 +52,6 @@ extension SettingsViewController: UITableViewDataSource {
         return cell
     }
     
-    
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SettingHeaderView") as? SettingHeaderView else {
             fatalError("Unknown header view!")
@@ -42,6 +60,7 @@ extension SettingsViewController: UITableViewDataSource {
         
         return view
     }
+    
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 34.0
     }
