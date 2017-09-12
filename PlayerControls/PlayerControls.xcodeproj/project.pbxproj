@@ -51,7 +51,7 @@
 			outputFiles = (
 				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE).generated.swift",
 			);
-			script = "set -e\n\nif ! which sourcery > /dev/null; then\n    echo \"error: Sourcery is missing. Make brew install sourcery.\"\n    exit 1\nfi\n\nsourcery --sources sources --templates $INPUT_FILE_DIR/$INPUT_FILE_NAME --output $DERIVED_SOURCES_DIR/$INPUT_FILE_BASE.generated.swift";
+			script = "sh sources/stencil.sh \"${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\" \"${DERIVED_SOURCES_DIR}/${INPUT_FILE_BASE}.generated.swift\"";
 		};
 /* End PBXBuildRule section */
 

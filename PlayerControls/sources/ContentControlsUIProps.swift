@@ -143,8 +143,10 @@ extension DefaultControlsViewController {
             seekbarPositionedAtBottom = {
                 guard let playable = props.player?.item.playable else { return false }
                 let hasNoTitle = playable.title.characters.count == 0
-                let hasNoSubtitles = playable.legible.external?.external.isNone ?? true
-                return hasNoTitle && hasNoSubtitles
+                let hasNoSettings = playable.settings.isHidden
+                let hasNoLiveLabel = playable.live.isHidden
+                let hasNoPipButton = playable.pictureInPictureControl.isUnsupported
+                return hasNoTitle && hasNoSettings && hasNoLiveLabel && hasNoPipButton
             }()
             
             sideBarViewHidden = props.player?.item.playable?.sideBarViewHidden ?? true
