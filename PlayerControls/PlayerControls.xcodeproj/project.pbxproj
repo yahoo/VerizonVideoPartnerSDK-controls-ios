@@ -38,7 +38,22 @@
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
 		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
+		DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		DACA28EE1F504371001CF764 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.stencil";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE).generated.swift",
+			);
+			script = "set -e\n\nif ! which sourcery > /dev/null; then\n    echo \"error: Sourcery is missing. Make brew install sourcery.\"\n    exit 1\nfi\n\nsourcery --sources sources --templates $INPUT_FILE_DIR/$INPUT_FILE_NAME --output $DERIVED_SOURCES_DIR/$INPUT_FILE_BASE.generated.swift";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		50582FA41E65D78C00B18908 /* PBXContainerItemProxy */ = {
@@ -85,6 +100,7 @@
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EnumPrism.stencil; path = templates/EnumPrism.stencil; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +145,7 @@
 		50582F5D1E65C41900B18908 /* PlayerControls */ = {
 			isa = PBXGroup;
 			children = (
+				DAB9AEEA1F542C460050B940 /* templates */,
 				50A5A5B61E6F13B300C15E12 /* resources */,
 				50582F661E65C64B00B18908 /* sources */,
 				50582F991E65D55F00B18908 /* support */,
@@ -268,6 +285,14 @@
 			name = settings;
 			sourceTree = "<group>";
 		};
+		DAB9AEEA1F542C460050B940 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -292,6 +317,7 @@
 				50582F591E65C41900B18908 /* Resources */,
 			);
 			buildRules = (
+				DACA28EE1F504371001CF764 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -387,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */,
 				50582F811E65CA0F00B18908 /* AdVideoControls.swift in Sources */,
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,

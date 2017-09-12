@@ -11,9 +11,10 @@ func props() -> Props {
         player.item = Props.Player.Item.playable(Props.Player.Item.Controls { controls in
             controls.title = "Some title very very very very very very very very very long"
             controls.isLive = true
-            controls.playbackAction = Props.Player.Item.Controls.Playback.pause(nop)
+            controls.playbackAction.pause = nop
             controls.camera = Props.Player.Item.Controls.Camera()
             controls.settings = .hidden
+            controls.legible = .`internal`(nil)
         })
     })
 }

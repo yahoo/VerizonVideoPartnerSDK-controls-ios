@@ -44,10 +44,7 @@ public final class AdVideoControls: UIViewController {
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        playButton.isHidden = {
-            guard case .pause = props.mainAction else { return false }
-            return true
-        }()
+        playButton.isHidden = props.mainAction.pause != nil
         
         pauseButton.isHidden = !playButton.isHidden
         
@@ -107,14 +104,12 @@ public final class AdVideoControls: UIViewController {
     
     /// Play video button action. Replace if you need custom behavior.
     @IBAction private func playButtonTouched() {
-        guard case .play(let action) = props.mainAction else { return }
-        action()
+        props.mainAction.play?()
     }
     
     /// Pause video button action. Replace if you need custom behavior.
     @IBAction private func pauseButtonTouched() {
-        guard case .pause(let action) = props.mainAction else { return }
-        action()
+        props.mainAction.pause?()
     }
     
     @IBAction private func viewTouched() { props.tapAction?() }

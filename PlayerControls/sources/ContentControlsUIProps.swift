@@ -76,224 +76,89 @@ extension DefaultControlsViewController {
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
-            controlsViewHidden = {
-                guard case .player = props else { return true }
-                return !controlsViewVisible
-            }()
+            controlsViewHidden = props.player == nil || !controlsViewVisible
             
-            loading = {
-                guard case .player(let player) = props else { return false }
-                guard case .playable(let props) = player.item else { return false }
-                return props.loading
-            }()
+            loading = props.player?.item.playable?.loading ?? false
             
-            playButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .play = props.playbackAction else { return true }
-                return false
-            }()
+            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil
             
-            playButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard case .play(let action) = props.playbackAction else { return nop }
-                return action
-            }()
+            playButtonAction = props.player?.item.playable?.playbackAction.play ?? nop
             
-            pauseButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .pause = props.playbackAction else { return true }
-                return false
-            }()
+            pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil
             
-            pauseButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard case .pause(let action) = props.playbackAction else { return nop }
-                return action
-            }()
+            pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? nop
             
-            replayButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .replay = props.playbackAction else { return true }
-                return false
-            }()
+            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
             
-            replayButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard case .replay(let action) = props.playbackAction else { return nop }
-                return action
-            }()
+            replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? nop
             
-            nextButtonEnabled = {
-                guard case .player(let player) = props else { return false }
-                return player.playlist?.next != nil
-            }()
+            nextButtonEnabled = props.player?.playlist?.next != nil
             
-            nextButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                return player.playlist?.next ?? nop
-            }()
+            nextButtonAction = props.player?.playlist?.next ?? nop
             
-            prevButtonEnabled = {
-                guard case .player(let player) = props else { return false }
-                return player.playlist?.prev != nil
-            }()
+            prevButtonEnabled = props.player?.playlist?.prev != nil
             
-            prevButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                return player.playlist?.prev ?? nop
-            }()
+            prevButtonAction = props.player?.playlist?.prev ?? nop
             
             let nextButtonDisabled = !nextButtonEnabled
             let prevButtonDisabled = !prevButtonEnabled
             
-            prevButtonHidden = {
-                return nextButtonDisabled && prevButtonDisabled
-            }()
+            prevButtonHidden = nextButtonDisabled && prevButtonDisabled
             
-            nextButtonHidden = {
-                return nextButtonDisabled && prevButtonDisabled
-            }()
+            nextButtonHidden = nextButtonDisabled && prevButtonDisabled
             
-            seekerViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.seekbar == nil
-            }()
+            seekerViewHidden = props.player?.item.playable?.seekbar == nil
             
-            durationTextHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.seekbar == nil
-            }()
+            durationTextHidden = props.player?.item.playable?.seekbar == nil
             
             durationTextLabelText = {
-                guard case .player(let player) = props else { return "" }
-                guard case .playable(let props) = player.item else { return "" }
-                guard let seekbar = props.seekbar else { return "" }
+                guard let seekbar = props.player?.item.playable?.seekbar else { return "" }
                 return TimeFormatter.string(from: seekbar.duration)
             }()
             
-            seekBackButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.seekbar?.seeker.seekTo == nil
-            }()
+            seekBackButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
             
-            seekForwardButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.seekbar?.seeker.seekTo == nil
-            }()
+            seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
             
-            seekToSecondsAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let action = props.seekbar?.seeker.seekTo else { return nop }
-                return action
-            }()
+            seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? nop
             
-            startSeekAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let seekbar = props.seekbar else { return nop }
-                return seekbar.seeker.state.start
-            }()
+            startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? nop
             
-            updateSeekAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let seekbar = props.seekbar else { return nop }
-                return seekbar.seeker.state.update
-            }()
+            updateSeekAction = props.player?.item.playable?.seekbar?.seeker.state.update ?? nop
             
-            stopSeekAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let seekbar = props.seekbar else { return nop }
-                return seekbar.seeker.state.stop
-            }()
+            stopSeekAction = props.player?.item.playable?.seekbar?.seeker.state.stop ?? nop
             
             seekerViewCurrentTimeText = {
-                guard case .player(let player) = props else { return "" }
-                guard case .playable(let props) = player.item else { return "" }
-                guard let seekbar = props.seekbar else { return "" }
+                guard let seekbar = props.player?.item.playable?.seekbar else { return "" }
                 return TimeFormatter.string(from: seekbar.currentTime)
             }()
             
-            seekerViewCurrentTime = {
-                guard case .player(let player) = props else { return 0 }
-                guard case .playable(let props) = player.item else { return 0 }
-                guard let seekbar = props.seekbar else { return 0 }
-                return seekbar.currentTime
-            }()
+            seekerViewCurrentTime = props.player?.item.playable?.seekbar?.currentTime ?? 0
             
-            seekerViewProgress = {
-                guard case .player(let player) = props else { return 0 }
-                guard case .playable(let props) = player.item else { return 0 }
-                guard let seekbar = props.seekbar else { return 0 }
-                return CGFloat(seekbar.progress)
-            }()
+            seekerViewProgress = CGFloat(props.player?.item.playable?.seekbar?.progress ?? 0)
             
-            seekerViewBuffered = {
-                guard case .player(let player) = props else { return 0 }
-                guard case .playable(let props) = player.item else { return 0 }
-                guard let seekbar = props.seekbar else { return 0 }
-                return CGFloat(seekbar.buffered)
-            }()
+            seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered ?? 0)
             
             seekbarPositionedAtBottom = {
-                guard case .player(let player) = props else { return false }
-                guard case .playable(let props) = player.item else { return false }
-                let hasNoTitle = props.title.characters.count == 0
-                let hasNoSettings: Bool = {
-                    guard case .hidden = props.settings else { return false }
-                    return true
-                }()
-                let hasNoPictureInPicture: Bool = {
-                    guard case .possible = props.pictureInPictureControl else { return true }
-                    return false
-                }()
-                
-                return hasNoTitle && hasNoSettings && hasNoPictureInPicture
+                guard let playable = props.player?.item.playable else { return false }
+                let hasNoTitle = playable.title.characters.count == 0
+                let hasNoSubtitles = playable.legible.external?.external.isNone ?? true
+                return hasNoTitle && hasNoSubtitles
             }()
             
-            sideBarViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.sideBarViewHidden
-            }()
+            sideBarViewHidden = props.player?.item.playable?.sideBarViewHidden ?? true
             
-            compasBodyViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard props.camera != nil else { return true }
-                return false
-            }()
+            compasBodyViewHidden = props.player?.item.playable?.camera == nil
             
-            compasDirectionViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard props.camera != nil else { return true }
-                return false
-            }()
+            compasDirectionViewHidden = props.player?.item.playable?.camera == nil
             
             compasDirectionViewTransform = {
-                guard case .player(let player) = props else { return CGAffineTransform.identity }
-                guard case .playable(let props) = player.item else { return CGAffineTransform.identity }
-                guard let camera = props.camera else { return CGAffineTransform.identity }
+                guard let camera = props.player?.item.playable?.camera else { return CGAffineTransform.identity }
                 return CGAffineTransform(rotationAngle: .init(-camera.angles.horizontal))
             }()
             
             updateCameraAngles = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let camera = props.camera else { return nop }
+                guard let camera = props.player?.item.playable?.camera else { return nop }
                 return { translation in
                     var angles = camera.angles
                     angles.horizontal += Float(translation.x) * 0.01
@@ -304,35 +169,18 @@ extension DefaultControlsViewController {
             }()
             
             resetCameraAngles = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                guard let camera = props.camera else { return nop }
+                guard let camera = props.player?.item.playable?.camera else { return nop }
                 return { camera.moveTo(.init()) }
             }()
             
-            cameraPanGestureIsEnabled = {
-                guard case .player(let player) = props else { return false }
-                guard case .playable(let props) = player.item else { return false }
-                return props.camera != nil
-            }()
+            cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil
             
-            videoTitleLabelHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable = player.item else { return true }
-                return false
-            }()
+            videoTitleLabelHidden = props.player?.item.playable == nil
             
-            videoTitleLabelText = {
-                guard case .player(let player) = props else { return "" }
-                guard case .playable(let props) = player.item else { return "" }
-                return props.title
-            }()
+            videoTitleLabelText = props.player?.item.playable?.title ?? ""
             
             subtitlesTextLabelText = {
-                guard case .player(let player) = props else { return "" }
-                guard case .playable(let props) = player.item else { return "" }
-                guard case .external(let external, _) = props.legible else { return "" }
-                guard case .available(let state) = external else { return "" }
+                guard let state = props.player?.item.playable?.legible.external?.external.available  else { return "" }
                 switch state {
                 case .inactive: return ""
                 case .loading: return "Loading..."
@@ -341,112 +189,33 @@ extension DefaultControlsViewController {
                 }
             }()
             
-            subtitlesTextLabelHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .external(let external, _) = props.legible else { return true }
-                guard case .available(let state) = external else { return true }
-                guard case .inactive = state else { return false }
-
-                return true
-            }()
+            subtitlesTextLabelHidden = props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false
             
-            thumbnailImageViewHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                guard case .some(.url) = props.thumbnail else { return
-                    true }
-                return false
-            }()
+            thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil
             
-            thumbnailImageUrl = {
-                guard case .player(let player) = props else { return nil }
-                guard case .playable(let props) = player.item else { return nil }
-                guard case .some(.url(let url)) = props.thumbnail else { return
-                    nil }
-                return url
-            }()
+            thumbnailImageUrl = props.player?.item.playable?.thumbnail?.url
             
-            errorLabelText = {
-                guard case .player(let player) = props else { return "" }
-                switch player.item {
-                case .playable(let props): return props.error?.message ?? ""
-                case .nonplayable(let reason): return reason
-                }
-            }()
+            errorLabelText = props.player?.item.nonplayable ?? props.player?.item.playable?.error?.message ?? ""
             
-            errorLabelHidden = {
-                guard case .player(let player) = props else { return true }
-                switch player.item {
-                case .playable(let props): return props.error == nil
-                case .nonplayable: return false
-                }
-            }()
+            errorLabelHidden = (props.player?.item.nonplayable == nil) && (props.player?.item.playable?.error == nil)
             
-            retryButtonHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                return props.error == nil
-            }()
+            retryButtonHidden = props.player?.item.playable?.error == nil
             
-            retryButtonAction = {
-                guard case .player(let player) = props else { return nop }
-                guard case .playable(let props) = player.item else { return nop }
-                return props.error?.retryAction ?? nop
-            }()
+            retryButtonAction = props.player?.item.playable?.error?.retryAction ?? nop
             
-            pipButtonHidden = {
-                guard case .player(let player) = props, case .playable(let props) = player.item else { return true }
-                guard case .unsupported = props.pictureInPictureControl else { return false }
-                return true
-            }()
+            pipButtonHidden = props.player?.item.playable?.pictureInPictureControl.isUnsupported ?? true
             
-            pipButtonEnabled = {
-                guard
-                    case .player(let player) = props,
-                    case .playable(let props) = player.item,
-                    case .possible = props.pictureInPictureControl else { return false }
-                return true
-            }()
+            pipButtonEnabled = props.player?.item.playable?.pictureInPictureControl.possible != nil
             
-            pipButtonAction = {
-                guard
-                    case .player(let player) = props,
-                    case .playable(let props) = player.item,
-                    case .possible(let action) = props.pictureInPictureControl else { return nop }
-                return action
-            }()
+            pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? nop
             
-            settingsButtonHidden = {
-                guard
-                    case .player(let player) = props,
-                    case .playable(let props) = player.item else { return true }
-                guard case .hidden = props.settings else { return false }
-                return true
-            }()
+            settingsButtonHidden = props.player?.item.playable?.settings.isHidden ?? true
             
-            settingsButtonEnabled = {
-                guard
-                    case .player(let player) = props,
-                    case .playable(let props) = player.item,
-                    case .enabled = props.settings else { return false }
-                return true
-            }()
+            settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
             
-            settingsButtonAction = {
-                guard
-                    case .player(let player) = props,
-                    case .playable(let props) = player.item,
-                    case .enabled(let action) = props.settings else { return nop }
-                return action
-            }()
+            settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
             
-            liveIndicationViewIsHidden = {
-                guard case .player(let player) = props else { return true }
-                guard case .playable(let props) = player.item else { return true }
-                
-                return props.isLive == false
-            }()
+            liveIndicationViewIsHidden = props.player?.item.playable?.isLive ?? true
         }
     }
 }
