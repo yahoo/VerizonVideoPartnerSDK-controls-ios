@@ -205,7 +205,7 @@ Title</string>
                             <variation key="heightClass=regular" constant="60"/>
                         </constraint>
                         <constraint firstItem="KeK-cX-xXB" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="2EN-h1-ldw"/>
-                        <constraint firstItem="98K-SA-Pdv" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" priority="999" constant="75" id="2rw-H2-C5Q"/>
+                        <constraint firstItem="98K-SA-Pdv" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" priority="999" constant="15" id="2rw-H2-C5Q"/>
                         <constraint firstAttribute="trailing" secondItem="m54-Yx-R7K" secondAttribute="trailing" id="3f9-SO-RA2">
                             <variation key="widthClass=compact" constant="0.0"/>
                             <variation key="widthClass=regular" constant="0.0"/>
