@@ -15,6 +15,7 @@ extension ContentControlsViewController.Props.Player: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar.Seeker: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Seekbar.Seeker.State: Defaultable { }
+extension ContentControlsViewController.Props.Player.Item.Controls.Live: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Camera: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Camera.Angles: Defaultable { }
 extension ContentControlsViewController.Props.Player.Item.Controls.Error: Defaultable { }

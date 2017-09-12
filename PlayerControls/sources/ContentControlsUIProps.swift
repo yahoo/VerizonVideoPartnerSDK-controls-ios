@@ -72,6 +72,7 @@ extension DefaultControlsViewController {
         var settingsButtonAction: Action<Void>
         
         var liveIndicationViewIsHidden: Bool
+        var liveDotColor: UIColor?
         
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
@@ -215,7 +216,9 @@ extension DefaultControlsViewController {
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
             
-            liveIndicationViewIsHidden = props.player?.item.playable?.isLive ?? true
+            liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
+            
+            liveDotColor = props.player?.item.playable?.live.dotColor
         }
     }
 }

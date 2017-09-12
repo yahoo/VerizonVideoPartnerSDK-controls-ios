@@ -50,6 +50,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBOutlet private var liveIndicationView: UIView!
     @IBOutlet private var liveIndicationViewTitleConstraint: NSLayoutConstraint!
+    @IBOutlet private var liveDotLabel: UILabel!
     
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
@@ -180,7 +181,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
         liveIndicationViewTitleConstraint.isActive = !uiProps.liveIndicationViewIsHidden
+        liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
     }
+    
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
     
