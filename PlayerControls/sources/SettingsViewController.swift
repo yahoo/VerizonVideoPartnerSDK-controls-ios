@@ -5,6 +5,8 @@ import Foundation
 public class SettingsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dimmedAreaTouchRecognizer: UITapGestureRecognizer!
+    @IBOutlet var closeButtonView: UIView!
+    @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBAction func closeButtonTouched(_ sender: Any) {
         props?.dismissAction()
@@ -23,6 +25,7 @@ public class SettingsViewController: UIViewController {
         didSet {
             guard isViewLoaded else { return }
             tableView.reloadData()
+            view.setNeedsLayout()
         }
     }
 }
