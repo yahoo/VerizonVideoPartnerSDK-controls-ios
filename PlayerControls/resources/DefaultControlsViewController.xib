@@ -19,6 +19,7 @@
                 <outlet property="controlsView" destination="fi9-sW-1VX" id="dg0-wz-bBh"/>
                 <outlet property="durationTextLabel" destination="Im0-Vw-2gZ" id="7UT-l7-dfO"/>
                 <outlet property="errorLabel" destination="UtD-cb-Wlb" id="ebo-gb-gDd"/>
+                <outlet property="liveDotLabel" destination="5Hj-Mr-azG" id="4IE-zq-M31"/>
                 <outlet property="liveIndicationView" destination="aUE-Db-Ht9" id="3TF-6f-Ijr"/>
                 <outlet property="liveIndicationViewTitleConstraint" destination="w88-zY-fND" id="bsv-Kb-P0J"/>
                 <outlet property="loadingImageView" destination="ikX-6f-FSq" id="VZj-CY-bUg"/>
