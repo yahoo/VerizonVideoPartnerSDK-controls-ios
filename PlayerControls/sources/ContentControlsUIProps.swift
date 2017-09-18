@@ -225,7 +225,7 @@ extension DefaultControlsViewController {
             compassViewBelowLive = {
                 guard
                     props.player?.item.playable?.camera != nil,
-                    props.player?.item.playable?.live.isHidden == true
+                    props.player?.item.playable?.live.isHidden == false
                     else { return false }
                 return true
             }()

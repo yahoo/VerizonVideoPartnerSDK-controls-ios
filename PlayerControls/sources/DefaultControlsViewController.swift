@@ -112,7 +112,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
 
-        let constant = traitCollection.userInterfaceIdiom == .pad ? 60 : 43
+        let constant = traitCollection.userInterfaceIdiom == .pad ? 70 : 63
         bottomSeekBarConstraint.constant = uiProps.seekbarPositionedAtBottom
             ? 13
             : CGFloat(constant)
