@@ -45,6 +45,7 @@ extension DefaultControlsViewController {
         var updateCameraAngles: Action<CGPoint>
         var resetCameraAngles: Action<Void>
         var cameraPanGestureIsEnabled: Bool
+        var compassViewBelowLive: Bool
         
         var videoTitleLabelHidden: Bool
         var videoTitleLabelText: String
@@ -144,9 +145,8 @@ extension DefaultControlsViewController {
                 guard let playable = props.player?.item.playable else { return false }
                 let hasNoTitle = playable.title.characters.count == 0
                 let hasNoSettings = playable.settings.isHidden
-                let hasNoLiveLabel = playable.live.isHidden
                 let hasNoPipButton = playable.pictureInPictureControl.isUnsupported
-                return hasNoTitle && hasNoSettings && hasNoLiveLabel && hasNoPipButton
+                return hasNoTitle && hasNoSettings && hasNoPipButton
             }()
             
             sideBarViewHidden = props.player?.item.playable?.sideBarViewHidden ?? true
@@ -221,6 +221,14 @@ extension DefaultControlsViewController {
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             
             liveDotColor = props.player?.item.playable?.live.dotColor
+            
+            compassViewBelowLive = {
+                guard
+                    props.player?.item.playable?.camera != nil,
+                    props.player?.item.playable?.live.isHidden == true
+                    else { return false }
+                return true
+            }()
         }
     }
 }
