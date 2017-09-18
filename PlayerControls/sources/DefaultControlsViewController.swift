@@ -49,12 +49,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var settingsButton: UIButton!
     
     @IBOutlet private var liveIndicationView: UIView!
-    @IBOutlet private var liveIndicationViewTitleConstraint: NSLayoutConstraint!
     @IBOutlet private var liveDotLabel: UILabel!
     
     @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
-    @IBOutlet private var invisibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomSeekBarConstraint: NSLayoutConstraint!
+    @IBOutlet private var compassBodyBelowLiveTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var compassBodyNoLiveTopConstraint: NSLayoutConstraint!
+
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -111,7 +112,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
 
-        let constant = traitCollection.userInterfaceIdiom == .pad ? 60 : 43
+        let constant = traitCollection.userInterfaceIdiom == .pad ? 70 : 63
         bottomSeekBarConstraint.constant = uiProps.seekbarPositionedAtBottom
             ? 13
             : CGFloat(constant)
@@ -180,8 +181,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         settingsButton.isEnabled = uiProps.settingsButtonEnabled
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
-        liveIndicationViewTitleConstraint.isActive = !uiProps.liveIndicationViewIsHidden
         liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
+        compassBodyBelowLiveTopConstraint.isActive = uiProps.compassViewBelowLive
+        compassBodyNoLiveTopConstraint.isActive = !uiProps.compassViewBelowLive
     }
     
     //swiftlint:enable function_body_length
