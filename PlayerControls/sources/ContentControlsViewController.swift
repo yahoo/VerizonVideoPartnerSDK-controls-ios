@@ -160,7 +160,8 @@ extension ContentControlsViewController.Props.Player.Item {
         public enum Settings {
             case hidden
             case disabled
-            case enabled(Action<Void>)
+            case presented(dismiss: Action<Void>)
+            case dismissed(present: Action<Void>)
         }
         public var settings: Settings = .disabled
         
