@@ -18,6 +18,7 @@ func props() -> Props {
             controls.pictureInPictureControl = .unsupported
             controls.legible = .`internal`(nil)
             controls.title = ""
+            controls.airplay = .enabled
         })
     })
 }

@@ -1,3 +1,4 @@
+import MediaPlayer
 //  Copyright © 2016 One by Aol : Publishers. All rights reserved.
 
 /// This class contains all controls that
@@ -47,6 +48,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var pipButton: UIButton!
     @IBOutlet private var settingsButton: UIButton!
+    @IBOutlet private var airPlayView: AirPlayView!
     
     @IBOutlet private var liveIndicationView: UIView!
     @IBOutlet private var liveDotLabel: UILabel!
@@ -182,8 +184,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
         liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
-        compassBodyBelowLiveTopConstraint.isActive = uiProps.compassViewBelowLive
-        compassBodyNoLiveTopConstraint.isActive = !uiProps.compassViewBelowLive
+        
+        airPlayView.props = AirPlayView.Props(
+            icons: AirPlayView.Props.Icons(
+                normal: UIImage.init(named: "icon-airplay", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
+                selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
+                highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
+        )
+        airPlayView.isHidden = uiProps.airplayButtonHidden
     }
     
     //swiftlint:enable function_body_length
