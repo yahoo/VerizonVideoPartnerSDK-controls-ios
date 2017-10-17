@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,11 +50,11 @@
             </connections>
         </tapGestureRecognizer>
         <view contentMode="scaleToFill" id="rFH-6N-3gH">
-            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEd-qf-YJr" userLabel="Subtitles">
-                    <rect key="frame" x="299.5" y="235.5" width="68" height="43"/>
+                    <rect key="frame" x="173" y="596.66666666666663" width="68" height="43"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <string key="text">Subtitles
@@ -64,19 +64,19 @@ Subtitles</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKq-bU-tvG">
-                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fi9-sW-1VX" userLabel="Controls view">
-                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m54-Yx-R7K" userLabel="Shadow View">
-                            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon-loading" translatesAutoresizingMaskIntoConstraints="NO" id="ikX-6f-FSq">
-                            <rect key="frame" x="286.5" y="140.5" width="95" height="95"/>
+                            <rect key="frame" x="160" y="321" width="95" height="95"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0O-oR-0Rg">
                             <rect key="frame" x="10" y="20" width="30" height="30"/>
@@ -89,7 +89,7 @@ Subtitles</string>
                             <rect key="frame" x="10" y="20" width="30" height="30"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98K-SA-Pdv">
-                            <rect key="frame" x="15" y="318" width="35" height="43"/>
+                            <rect key="frame" x="15" y="679" width="35" height="43"/>
                             <string key="text">Title
 Title</string>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -97,7 +97,7 @@ Title</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVE-Q8-zOG">
-                            <rect key="frame" x="286.5" y="140.5" width="95" height="95"/>
+                            <rect key="frame" x="160" y="321" width="95" height="95"/>
                             <state key="normal" image="icon-replay"/>
                             <state key="highlighted" image="icon-replay-glow"/>
                             <connections>
@@ -105,7 +105,7 @@ Title</string>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8A-X2-cyf" userLabel="Play Button">
-                            <rect key="frame" x="286.5" y="140.5" width="95" height="95"/>
+                            <rect key="frame" x="160" y="321" width="95" height="95"/>
                             <state key="normal" image="icon-play"/>
                             <state key="highlighted" image="icon-play-glow"/>
                             <connections>
@@ -113,7 +113,7 @@ Title</string>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-cX-xXB" userLabel="Pause Button">
-                            <rect key="frame" x="286.5" y="140.5" width="95" height="95"/>
+                            <rect key="frame" x="160" y="321" width="95" height="95"/>
                             <state key="normal" image="icon-pause"/>
                             <state key="highlighted" image="icon-pause-glow"/>
                             <connections>
@@ -121,7 +121,7 @@ Title</string>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ida-wI-kAP" userLabel="Next">
-                            <rect key="frame" x="439.5" y="172.5" width="22" height="32"/>
+                            <rect key="frame" x="313" y="353" width="23" height="32"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="icon-forward"/>
@@ -131,7 +131,7 @@ Title</string>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73i-r1-qKj" userLabel="Prev">
-                            <rect key="frame" x="205.5" y="172.5" width="23" height="32"/>
+                            <rect key="frame" x="79" y="353" width="23" height="32"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="contentEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="5"/>
                             <state key="normal" image="icon-backward"/>
@@ -141,7 +141,7 @@ Title</string>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djN-u7-nkt" userLabel="10 sec forward">
-                            <rect key="frame" x="387.5" y="167.5" width="42" height="42"/>
+                            <rect key="frame" x="261" y="348" width="42" height="42"/>
                             <state key="normal" image="icon-10-sec"/>
                             <state key="highlighted" image="icon-10-sec-active"/>
                             <connections>
@@ -149,7 +149,7 @@ Title</string>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNh-R2-LdG" userLabel="10 sec backward">
-                            <rect key="frame" x="238.5" y="167.5" width="42" height="42"/>
+                            <rect key="frame" x="112" y="348" width="42" height="42"/>
                             <state key="normal" image="icon-10-sec"/>
                             <state key="highlighted" image="icon-10-sec-active"/>
                             <connections>
@@ -157,7 +157,7 @@ Title</string>
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGV-rG-prj" userLabel="PiP">
-                            <rect key="frame" x="533" y="322" width="32" height="32"/>
+                            <rect key="frame" x="280" y="683" width="32" height="32"/>
                             <state key="normal" image="icon-pip"/>
                             <state key="highlighted" image="icon-pip-active"/>
                             <connections>
@@ -165,7 +165,7 @@ Title</string>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddy-Jb-aVD">
-                            <rect key="frame" x="580" y="322" width="32" height="32"/>
+                            <rect key="frame" x="327" y="683" width="32" height="32"/>
                             <state key="normal" image="icon-sub">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -175,18 +175,18 @@ Title</string>
                             </connections>
                         </button>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im0-Vw-2gZ">
-                            <rect key="frame" x="618" y="312" width="32" height="14"/>
+                            <rect key="frame" x="365" y="666" width="32" height="14"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="Uc8-v7-96O" customClass="SideBarView" customModule="PlayerControls" customModuleProvider="target">
-                            <rect key="frame" x="636.5" y="0.0" width="30" height="265"/>
+                            <rect key="frame" x="383.66666666666669" y="0.0" width="30" height="619"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="57" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-vH-cgi" customClass="SeekerControlView" customModule="PlayerControls" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="255" width="667" height="57"/>
+                            <rect key="frame" x="0.0" y="609" width="414" height="57"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="height">
@@ -221,19 +221,13 @@ Title</string>
                         <constraint firstItem="fAO-vH-cgi" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" id="OYY-c7-642"/>
                         <constraint firstAttribute="trailing" secondItem="Uc8-v7-96O" secondAttribute="trailing" constant="0.5" id="Pzo-A9-BH0"/>
                         <constraint firstAttribute="trailing" secondItem="fAO-vH-cgi" secondAttribute="trailing" id="SFG-A0-7XF"/>
-                        <constraint firstAttribute="bottom" secondItem="m54-Yx-R7K" secondAttribute="bottom" constant="-322" id="XTw-G3-EcR">
-                            <variation key="widthClass=compact" constant="0.0"/>
-                        </constraint>
+                        <constraint firstAttribute="bottom" secondItem="m54-Yx-R7K" secondAttribute="bottom" id="XTw-G3-EcR"/>
                         <constraint firstAttribute="trailing" secondItem="Im0-Vw-2gZ" secondAttribute="trailing" constant="17" id="eTt-xT-Hay"/>
-                        <constraint firstItem="m54-Yx-R7K" firstAttribute="top" secondItem="fi9-sW-1VX" secondAttribute="top" id="fv1-Ls-gs3">
-                            <variation key="widthClass=compact" constant="0.0"/>
-                        </constraint>
+                        <constraint firstItem="m54-Yx-R7K" firstAttribute="top" secondItem="fi9-sW-1VX" secondAttribute="top" id="fv1-Ls-gs3"/>
                         <constraint firstItem="ikX-6f-FSq" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="g57-te-Fqp"/>
                         <constraint firstItem="ikX-6f-FSq" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="hHz-DU-eUK"/>
                         <constraint firstAttribute="bottom" secondItem="tGV-rG-prj" secondAttribute="bottom" constant="21" id="iLy-Tk-n9h"/>
-                        <constraint firstItem="m54-Yx-R7K" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" constant="1" id="iTM-by-B9G">
-                            <variation key="widthClass=compact" constant="0.0"/>
-                        </constraint>
+                        <constraint firstItem="m54-Yx-R7K" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" id="iTM-by-B9G"/>
                         <constraint firstItem="ida-wI-kAP" firstAttribute="leading" secondItem="djN-u7-nkt" secondAttribute="trailing" constant="9.5" id="iww-Ws-dSP">
                             <variation key="widthClass=compact" constant="10"/>
                             <variation key="widthClass=regular" constant="20"/>
@@ -279,15 +273,12 @@ Title</string>
                         </mask>
                         <mask key="constraints">
                             <exclude reference="HWP-bD-q7I"/>
-                            <exclude reference="MDB-2d-aWk"/>
-                            <exclude reference="sZA-Tb-Cie"/>
-                            <exclude reference="zsd-wr-B4P"/>
-                            <exclude reference="79p-mr-0NO"/>
-                            <exclude reference="pG8-cM-rpN"/>
-                            <exclude reference="F2z-D3-yET"/>
-                            <exclude reference="iww-Ws-dSP"/>
                             <exclude reference="EEn-7U-jDF"/>
                             <exclude reference="OYY-c7-642"/>
+                            <exclude reference="SFG-A0-7XF"/>
+                            <exclude reference="put-WR-Szd"/>
+                            <exclude reference="MDB-2d-aWk"/>
+                            <exclude reference="sZA-Tb-Cie"/>
                             <exclude reference="g57-te-Fqp"/>
                             <exclude reference="hHz-DU-eUK"/>
                             <exclude reference="2EN-h1-ldw"/>
@@ -296,14 +287,14 @@ Title</string>
                             <exclude reference="sPA-I1-YzI"/>
                             <exclude reference="y9t-79-v13"/>
                             <exclude reference="xAL-Mr-aiA"/>
-                            <exclude reference="XTw-G3-EcR"/>
-                            <exclude reference="fv1-Ls-gs3"/>
-                            <exclude reference="iTM-by-B9G"/>
+                            <exclude reference="zsd-wr-B4P"/>
+                            <exclude reference="79p-mr-0NO"/>
+                            <exclude reference="pG8-cM-rpN"/>
+                            <exclude reference="F2z-D3-yET"/>
+                            <exclude reference="iww-Ws-dSP"/>
                             <exclude reference="DWa-IY-lCj"/>
                             <exclude reference="Pzo-A9-BH0"/>
                             <exclude reference="eTt-xT-Hay"/>
-                            <exclude reference="SFG-A0-7XF"/>
-                            <exclude reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -320,15 +311,12 @@ Title</string>
                         </mask>
                         <mask key="constraints">
                             <include reference="HWP-bD-q7I"/>
-                            <include reference="MDB-2d-aWk"/>
-                            <include reference="sZA-Tb-Cie"/>
-                            <include reference="zsd-wr-B4P"/>
-                            <include reference="79p-mr-0NO"/>
-                            <include reference="pG8-cM-rpN"/>
-                            <include reference="F2z-D3-yET"/>
-                            <include reference="iww-Ws-dSP"/>
                             <include reference="EEn-7U-jDF"/>
                             <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
+                            <include reference="MDB-2d-aWk"/>
+                            <include reference="sZA-Tb-Cie"/>
                             <include reference="g57-te-Fqp"/>
                             <include reference="hHz-DU-eUK"/>
                             <include reference="2EN-h1-ldw"/>
@@ -337,14 +325,14 @@ Title</string>
                             <include reference="sPA-I1-YzI"/>
                             <include reference="y9t-79-v13"/>
                             <include reference="xAL-Mr-aiA"/>
-                            <include reference="XTw-G3-EcR"/>
-                            <include reference="fv1-Ls-gs3"/>
-                            <include reference="iTM-by-B9G"/>
+                            <include reference="zsd-wr-B4P"/>
+                            <include reference="79p-mr-0NO"/>
+                            <include reference="pG8-cM-rpN"/>
+                            <include reference="F2z-D3-yET"/>
+                            <include reference="iww-Ws-dSP"/>
                             <include reference="DWa-IY-lCj"/>
                             <include reference="Pzo-A9-BH0"/>
                             <include reference="eTt-xT-Hay"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=regular">
@@ -361,15 +349,12 @@ Title</string>
                         </mask>
                         <mask key="constraints">
                             <include reference="HWP-bD-q7I"/>
-                            <include reference="MDB-2d-aWk"/>
-                            <include reference="sZA-Tb-Cie"/>
-                            <include reference="zsd-wr-B4P"/>
-                            <include reference="79p-mr-0NO"/>
-                            <include reference="pG8-cM-rpN"/>
-                            <include reference="F2z-D3-yET"/>
-                            <include reference="iww-Ws-dSP"/>
                             <include reference="EEn-7U-jDF"/>
                             <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
+                            <include reference="MDB-2d-aWk"/>
+                            <include reference="sZA-Tb-Cie"/>
                             <include reference="g57-te-Fqp"/>
                             <include reference="hHz-DU-eUK"/>
                             <include reference="2EN-h1-ldw"/>
@@ -378,25 +363,25 @@ Title</string>
                             <include reference="sPA-I1-YzI"/>
                             <include reference="y9t-79-v13"/>
                             <include reference="xAL-Mr-aiA"/>
-                            <include reference="XTw-G3-EcR"/>
-                            <include reference="fv1-Ls-gs3"/>
-                            <include reference="iTM-by-B9G"/>
+                            <include reference="zsd-wr-B4P"/>
+                            <include reference="79p-mr-0NO"/>
+                            <include reference="pG8-cM-rpN"/>
+                            <include reference="F2z-D3-yET"/>
+                            <include reference="iww-Ws-dSP"/>
                             <include reference="DWa-IY-lCj"/>
                             <include reference="Pzo-A9-BH0"/>
                             <include reference="eTt-xT-Hay"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtD-cb-Wlb" userLabel="Error">
-                    <rect key="frame" x="333.5" y="127.5" width="0.0" height="0.0"/>
+                    <rect key="frame" x="207" y="308" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVo-gm-8qs">
-                    <rect key="frame" x="286" y="140" width="95" height="95"/>
+                    <rect key="frame" x="159.66666666666666" y="320.66666666666669" width="95" height="95"/>
                     <state key="normal" image="icon-replay"/>
                     <connections>
                         <action selector="retry" destination="-1" eventType="touchUpInside" id="tme-iX-huy"/>
@@ -469,8 +454,8 @@ Title</string>
         <image name="icon-10-sec-active" width="42" height="42"/>
         <image name="icon-backward" width="18" height="18"/>
         <image name="icon-backward-active" width="18" height="18"/>
-        <image name="icon-forward" width="17" height="18"/>
-        <image name="icon-forward-active" width="17" height="18"/>
+        <image name="icon-forward" width="18" height="18"/>
+        <image name="icon-forward-active" width="18" height="18"/>
         <image name="icon-loading" width="95" height="95"/>
         <image name="icon-pause" width="95" height="95"/>
         <image name="icon-pause-glow" width="95" height="95"/>
