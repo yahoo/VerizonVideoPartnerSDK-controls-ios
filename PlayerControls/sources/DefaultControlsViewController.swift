@@ -57,8 +57,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var bottomSeekBarConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyBelowLiveTopConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyNoLiveTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var airplayPipTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var airplayEdgeTrailingConstrains: NSLayoutConstraint!
     @IBOutlet private var subtitlesAirplayTrailingConstrains: NSLayoutConstraint!
     @IBOutlet private var subtitlesEdgeTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var subtitlesPipTrailingConstrains: NSLayoutConstraint!
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -140,8 +143,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
         visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
-        subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden
-        subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden
+        airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
+        airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
+        subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden 
+        subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden && uiProps.pipButtonHidden
+        subtitlesPipTrailingConstrains.isActive = uiProps.airplayButtonHidden
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         
