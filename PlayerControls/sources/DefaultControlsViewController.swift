@@ -57,7 +57,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var bottomSeekBarConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyBelowLiveTopConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyNoLiveTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet private var subtitlesAirplayTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var subtitlesEdgeTrailingConstrains: NSLayoutConstraint!
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -139,6 +140,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
         visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
+        subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden
+        subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         

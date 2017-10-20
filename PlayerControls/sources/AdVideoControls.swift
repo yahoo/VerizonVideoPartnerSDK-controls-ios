@@ -22,7 +22,6 @@ public final class AdVideoControls: UIViewController {
     @IBOutlet private var skipButton: UIButton!
     
     @IBOutlet public weak var containerView: UIView!
-    @IBOutlet public weak var volumeView: MPVolumeView!
     
     public var props: Props = Props(mainAction: .play { },
                                     seeker: nil,
@@ -58,7 +57,6 @@ public final class AdVideoControls: UIViewController {
         seekerView.isHidden = props.seeker == nil
         seekerView.isCurrentTimeEnabled = false
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
-        volumeView.showsVolumeSlider = false
     }
     
     public struct Props {
