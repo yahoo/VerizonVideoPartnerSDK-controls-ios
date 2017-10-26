@@ -136,7 +136,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
-        visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 86.5
+        visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         

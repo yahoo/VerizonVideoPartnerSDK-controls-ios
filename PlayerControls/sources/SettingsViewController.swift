@@ -76,7 +76,9 @@ extension ContentControlsViewController {
         }
 
         switch controls.legible {
-        case .external(_ , let group), .`internal`(let group):
+        case .external(_ , let group):
+            appendSection(with: "SUBTITLES", group: group)
+        case .`internal`(let group):
             appendSection(with: "SUBTITLES", group: group)
         }
         
