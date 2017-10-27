@@ -130,7 +130,7 @@ extension ContentControlsViewController.Props.Player.Item {
         
         public enum Subtitles {
             case `internal`(MediaGroupControl?)
-            case external(external: External, control: MediaGroupControl?)
+            case external(external: External, control: MediaGroupControl)
             
             public enum External {
                 case none
