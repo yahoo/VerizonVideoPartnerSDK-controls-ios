@@ -35,13 +35,14 @@ public final class AirPlayView: UIView {
     var props: Props = Props.empty {
         didSet { setNeedsLayout() }
     }
-    let volumeView = MPVolumeView()
+    private let volumeView = MPVolumeView()
     
     public override func awakeFromNib() {
         super.awakeFromNib()
         
         volumeView.isOpaque = true
         volumeView.showsVolumeSlider = false
+        addSubview(volumeView)
     }
     
     override public func layoutSubviews() {
@@ -51,10 +52,5 @@ public final class AirPlayView: UIView {
         volumeView.setRouteButtonImage(props.icons.highlighted, for: .highlighted)
         volumeView.setRouteButtonImage(props.icons.normal, for: .normal)
         volumeView.setRouteButtonImage(props.icons.selected, for: .selected)
-        
-        if volumeView.superview != self {
-            volumeView.removeFromSuperview()
-            addSubview(volumeView)
-        }
     }
 }
