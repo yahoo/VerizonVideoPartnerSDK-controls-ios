@@ -72,6 +72,8 @@ extension DefaultControlsViewController {
         var settingsButtonEnabled: Bool
         var settingsButtonAction: Action<Void>
         
+        var airplayButtonHidden: Bool
+        
         var liveIndicationViewIsHidden: Bool
         var liveDotColor: UIColor?
         
@@ -146,7 +148,8 @@ extension DefaultControlsViewController {
                 let hasNoTitle = playable.title.characters.count == 0
                 let hasNoSettings = playable.settings.isHidden
                 let hasNoPipButton = playable.pictureInPictureControl.isUnsupported
-                return hasNoTitle && hasNoSettings && hasNoPipButton
+                let hasNoAirplayButton = playable.airplay.isHidden
+                return hasNoTitle && hasNoSettings && hasNoPipButton && hasNoAirplayButton
             }()
             
             sideBarViewHidden = props.player?.item.playable?.sideBarViewHidden ?? true
@@ -217,6 +220,8 @@ extension DefaultControlsViewController {
             settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
+            
+            airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             

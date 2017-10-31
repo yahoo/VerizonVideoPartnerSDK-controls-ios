@@ -1,3 +1,4 @@
+import MediaPlayer
 //  Copyright © 2016 One by Aol : Publishers. All rights reserved.
 
 /// This class contains all controls that
@@ -47,6 +48,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var pipButton: UIButton!
     @IBOutlet private var settingsButton: UIButton!
+    @IBOutlet private var airPlayView: AirPlayView!
     
     @IBOutlet private var liveIndicationView: UIView!
     @IBOutlet private var liveDotLabel: UILabel!
@@ -55,7 +57,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var bottomSeekBarConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyBelowLiveTopConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyNoLiveTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet private var airplayPipTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var airplayEdgeTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var subtitlesAirplayTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var subtitlesEdgeTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var subtitlesPipTrailingConstrains: NSLayoutConstraint!
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -137,6 +143,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
         visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
+        airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
+        airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
+        subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden 
+        subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden && uiProps.pipButtonHidden
+        subtitlesPipTrailingConstrains.isActive = uiProps.airplayButtonHidden
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         
@@ -182,8 +193,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
         liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
-        compassBodyBelowLiveTopConstraint.isActive = uiProps.compassViewBelowLive
-        compassBodyNoLiveTopConstraint.isActive = !uiProps.compassViewBelowLive
+        
+        airPlayView.props = AirPlayView.Props(
+            icons: AirPlayView.Props.Icons(
+                normal: UIImage.init(named: "icon-airplay", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
+                selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
+                highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
+        )
+        airPlayView.isHidden = uiProps.airplayButtonHidden
     }
     
     //swiftlint:enable function_body_length

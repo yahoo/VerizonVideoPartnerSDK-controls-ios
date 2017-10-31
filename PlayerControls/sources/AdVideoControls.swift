@@ -1,6 +1,7 @@
 //  Copyright © 2016 One by Aol : Publishers. All rights reserved.
 
 import Foundation
+import MediaPlayer
 
 /// This class contains all controls that are used
 /// for advertisement video playback.

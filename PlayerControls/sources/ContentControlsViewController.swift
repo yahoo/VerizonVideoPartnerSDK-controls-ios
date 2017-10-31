@@ -164,6 +164,13 @@ extension ContentControlsViewController.Props.Player.Item {
         }
         public var settings: Settings = .disabled
         
+        public enum AirPlay {
+            case hidden
+            case enabled
+            case active
+        }
+        public var airplay: AirPlay = .hidden
+        
         public init() { }
     }
 }

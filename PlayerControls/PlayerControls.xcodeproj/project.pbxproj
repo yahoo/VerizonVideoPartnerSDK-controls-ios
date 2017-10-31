@@ -38,6 +38,7 @@
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
 		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
+		DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA070BB01F8B776A007F407D /* AirPlayView.swift */; };
 		DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		DA070BB01F8B776A007F407D /* AirPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayView.swift; sourceTree = "<group>"; };
 		DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EnumPrism.stencil; path = templates/EnumPrism.stencil; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 		50582F901E65CD7300B18908 /* content controls */ = {
 			isa = PBXGroup;
 			children = (
+				DA070BAF1F8B76B9007F407D /* air play */,
 				50F471331F5958D300C35AEF /* settings */,
 				50582F931E65CD8D00B18908 /* seeker control view */,
 				50582F921E65CD8500B18908 /* side bar */,
@@ -283,6 +286,14 @@
 				50F4713C1F5981E800C35AEF /* SettingCell.xib */,
 			);
 			name = settings;
+			sourceTree = "<group>";
+		};
+		DA070BAF1F8B76B9007F407D /* air play */ = {
+			isa = PBXGroup;
+			children = (
+				DA070BB01F8B776A007F407D /* AirPlayView.swift */,
+			);
+			name = "air play";
 			sourceTree = "<group>";
 		};
 		DAB9AEEA1F542C460050B940 /* templates */ = {
@@ -422,6 +433,7 @@
 				50582F861E65CA5F00B18908 /* TimeFormatter.swift in Sources */,
 				50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */,
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
+				DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
 				50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
