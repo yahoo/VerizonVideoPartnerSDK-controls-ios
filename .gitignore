@@ -34,6 +34,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
+.DS_Store
 
 # CocoaPods
 #
@@ -49,6 +50,10 @@ playground.xcworkspace
 PlayerControls/Carthage/Checkouts
 
 PlayerControls/Carthage/Build
+
+Demo/Carthage/Checkouts
+
+Demo/Carthage/Build
 
 # fastlane
 #
