@@ -154,16 +154,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		06E744AB1FACDFD9001FC8D7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				06208AA61FAC869D00085FF5 /* SnapshotTest */,
+				06208A891FAC867700085FF5 /* DefaultControls */,
+				06208A971FAC868700085FF5 /* AdVideoControls */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		DEE134F51F0FD2F100C47354 = {
 			isa = PBXGroup;
 			children = (
+				06E744AB1FACDFD9001FC8D7 /* Tests */,
 				DEE135001F0FD2F100C47354 /* Demo */,
-				06208A891FAC867700085FF5 /* DefaultControls */,
-				06208A971FAC868700085FF5 /* AdVideoControls */,
-				06208AA61FAC869D00085FF5 /* SnapshotTest */,
 				DEE134FF1F0FD2F100C47354 /* Products */,
-				DEE135131F0FD36500C47354 /* PlayerControls.framework */,
 				06208AB11FAC86B300085FF5 /* Frameworks */,
+				DEE135131F0FD36500C47354 /* PlayerControls.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -456,12 +464,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DefaultControls/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				INFOPLIST_FILE = Tests/DefaultControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.DefaultControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
@@ -479,12 +487,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DefaultControls/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				INFOPLIST_FILE = Tests/DefaultControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.DefaultControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
@@ -502,12 +510,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = AdVideoControls/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				INFOPLIST_FILE = Tests/AdVideoControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.AdVideoControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
@@ -525,12 +533,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = AdVideoControls/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				INFOPLIST_FILE = Tests/AdVideoControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.AdVideoControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
