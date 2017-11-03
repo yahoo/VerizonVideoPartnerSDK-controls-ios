@@ -6,30 +6,57 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
 //
 
-import XCTest
 
-class AdVideoControls: XCTestCase {
+import UIKit
+import SnapshotTest
+@testable import PlayerControls
+
+final class CaseWithPlayTimeIsNotLoading: SnapshotTest {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var controller: AdVideoControls {
+        let controller = AdVideoControls()
+        
+        controller.props = AdVideoControls.Props(
+            mainAction: AdVideoControls.Props.MainAction.pause(nop),
+            seeker: AdVideoControls.Props.Seeker(
+                remainingPlayTime: "9999:59",
+                currentValue: 0.5),
+            tapAction: nop,
+            isLoading: false)
+        
+        return controller
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testPortrait() {
+        verify(controller, in: .portrait)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLandscape() {
+        verify(controller, in: .landscape)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
+
+final class CaseWithPlayTimeIsLoading: SnapshotTest {
+    
+    var controller: AdVideoControls {
+        let controller = AdVideoControls()
+        
+        controller.props = AdVideoControls.Props(
+            mainAction: AdVideoControls.Props.MainAction.play(nop),
+            seeker: AdVideoControls.Props.Seeker(remainingPlayTime: "0:00", currentValue: 1),
+            tapAction: nop,
+            isLoading: true)
+        
+        return controller
+    }
+    
+    func testPortrait() {
+        verify(controller, in: .portrait)
+    }
+    
+    func testLandscape() {
+        verify(controller, in: .landscape)
+    }
+}
+
+
