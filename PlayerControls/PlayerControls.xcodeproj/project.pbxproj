@@ -26,8 +26,6 @@
 		50582FA91E65DC1600B18908 /* ControlsVisibilityControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F881E65CBE600B18908 /* ControlsVisibilityControllerTests.swift */; };
 		50582FAA1E65DC1600B18908 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F831E65CA5F00B18908 /* FormatterTests.swift */; };
 		50582FAB1E65DC1600B18908 /* SideBarViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F761E65C8CC00B18908 /* SideBarViewTests.swift */; };
-		50582FAF1E65DDBA00B18908 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAD1E65DDBA00B18908 /* Nimble.framework */; };
-		50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50582FAE1E65DDBA00B18908 /* Quick.framework */; };
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
 		50582FC41E67086000B18908 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FC31E67086000B18908 /* Defaultable.swift */; };
 		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
@@ -89,8 +87,6 @@
 		50582F961E65D1BA00B18908 /* PlayerControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerControls.h; sourceTree = SOURCE_ROOT; };
 		50582F9E1E65D78C00B18908 /* PlayerControlsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerControlsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50582FA21E65D78C00B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		50582FAD1E65DDBA00B18908 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		50582FAE1E65DDBA00B18908 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
 		50582FC31E67086000B18908 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
@@ -117,8 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50582FAF1E65DDBA00B18908 /* Nimble.framework in Frameworks */,
-				50582FB01E65DDBA00B18908 /* Quick.framework in Frameworks */,
 				50582FA31E65D78C00B18908 /* PlayerControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,8 +244,6 @@
 		50582FAC1E65DDBA00B18908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50582FAD1E65DDBA00B18908 /* Nimble.framework */,
-				50582FAE1E65DDBA00B18908 /* Quick.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
