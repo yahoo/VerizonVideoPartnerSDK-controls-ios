@@ -180,6 +180,12 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             
             resetUrlIfNeeded()
             handleThumbnail()
+        } else if let image = uiProps.thumbnailImage {
+            func handleThumbnailImage() {
+                thumbnailImageView.isHidden = false
+                thumbnailImageView.image = image
+            }
+            handleThumbnailImage()
         }
         
         retryButton.isHidden = uiProps.retryButtonHidden
