@@ -7,12 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06208A8B1FAC867700085FF5 /* DefaultControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06208A8A1FAC867700085FF5 /* DefaultControls.swift */; };
+		06208A991FAC868700085FF5 /* AdVideoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06208A981FAC868700085FF5 /* AdVideoControls.swift */; };
+		06208AA91FAC869D00085FF5 /* SnapshotTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 06208AA71FAC869D00085FF5 /* SnapshotTest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06208AAC1FAC869D00085FF5 /* SnapshotTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06208AA51FAC869D00085FF5 /* SnapshotTest.framework */; };
+		06208AAD1FAC869D00085FF5 /* SnapshotTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06208AA51FAC869D00085FF5 /* SnapshotTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		06208AB61FAC86C400085FF5 /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06208AB21FAC86B300085FF5 /* FBSnapshotTestCase.framework */; };
+		06208ABC1FAC874700085FF5 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06208ABB1FAC874700085FF5 /* HostViewController.swift */; };
+		06208ABE1FAC875400085FF5 /* SnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06208ABD1FAC875400085FF5 /* SnapshotTest.swift */; };
 		DEE135021F0FD2F100C47354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE135011F0FD2F100C47354 /* AppDelegate.swift */; };
 		DEE135091F0FD2F100C47354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE135081F0FD2F100C47354 /* Assets.xcassets */; };
 		DEE1350C1F0FD2F100C47354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE1350A1F0FD2F100C47354 /* LaunchScreen.storyboard */; };
 		DEE135141F0FD36500C47354 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE135131F0FD36500C47354 /* PlayerControls.framework */; };
 		DEE135151F0FD36500C47354 /* PlayerControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEE135131F0FD36500C47354 /* PlayerControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06208A8D1FAC867700085FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE134F61F0FD2F100C47354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEE134FD1F0FD2F100C47354;
+			remoteInfo = Demo;
+		};
+		06208A9B1FAC868700085FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE134F61F0FD2F100C47354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEE134FD1F0FD2F100C47354;
+			remoteInfo = Demo;
+		};
+		06208AAA1FAC869D00085FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE134F61F0FD2F100C47354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06208AA41FAC869D00085FF5;
+			remoteInfo = SnapshotTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DEE135161F0FD36500C47354 /* Embed Frameworks */ = {
@@ -21,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				06208AAD1FAC869D00085FF5 /* SnapshotTest.framework in Embed Frameworks */,
 				DEE135151F0FD36500C47354 /* PlayerControls.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -29,6 +62,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06208A881FAC867700085FF5 /* DefaultControls.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefaultControls.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06208A8A1FAC867700085FF5 /* DefaultControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultControls.swift; sourceTree = "<group>"; };
+		06208A8C1FAC867700085FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06208A961FAC868700085FF5 /* AdVideoControls.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdVideoControls.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06208A981FAC868700085FF5 /* AdVideoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVideoControls.swift; sourceTree = "<group>"; };
+		06208A9A1FAC868700085FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06208AA51FAC869D00085FF5 /* SnapshotTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapshotTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06208AA71FAC869D00085FF5 /* SnapshotTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapshotTest.h; sourceTree = "<group>"; };
+		06208AA81FAC869D00085FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06208AB21FAC86B300085FF5 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSnapshotTestCase.framework; path = Carthage/Build/iOS/FBSnapshotTestCase.framework; sourceTree = "<group>"; };
+		06208ABB1FAC874700085FF5 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
+		06208ABD1FAC875400085FF5 /* SnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTest.swift; sourceTree = "<group>"; };
 		DEE134FE1F0FD2F100C47354 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE135011F0FD2F100C47354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEE135081F0FD2F100C47354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,10 +83,33 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		06208A851FAC867700085FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208A931FAC868700085FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208AA11FAC869D00085FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06208AB61FAC86C400085FF5 /* FBSnapshotTestCase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEE134FB1F0FD2F100C47354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06208AAC1FAC869D00085FF5 /* SnapshotTest.framework in Frameworks */,
 				DEE135141F0FD36500C47354 /* PlayerControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,11 +117,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06208A891FAC867700085FF5 /* DefaultControls */ = {
+			isa = PBXGroup;
+			children = (
+				06208A8A1FAC867700085FF5 /* DefaultControls.swift */,
+				06208A8C1FAC867700085FF5 /* Info.plist */,
+			);
+			path = DefaultControls;
+			sourceTree = "<group>";
+		};
+		06208A971FAC868700085FF5 /* AdVideoControls */ = {
+			isa = PBXGroup;
+			children = (
+				06208A981FAC868700085FF5 /* AdVideoControls.swift */,
+				06208A9A1FAC868700085FF5 /* Info.plist */,
+			);
+			path = AdVideoControls;
+			sourceTree = "<group>";
+		};
+		06208AA61FAC869D00085FF5 /* SnapshotTest */ = {
+			isa = PBXGroup;
+			children = (
+				06208AA71FAC869D00085FF5 /* SnapshotTest.h */,
+				06208ABB1FAC874700085FF5 /* HostViewController.swift */,
+				06208AA81FAC869D00085FF5 /* Info.plist */,
+				06208ABD1FAC875400085FF5 /* SnapshotTest.swift */,
+			);
+			path = SnapshotTest;
+			sourceTree = "<group>";
+		};
+		06208AB11FAC86B300085FF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06208AB21FAC86B300085FF5 /* FBSnapshotTestCase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06E744AB1FACDFD9001FC8D7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				06208AA61FAC869D00085FF5 /* SnapshotTest */,
+				06208A891FAC867700085FF5 /* DefaultControls */,
+				06208A971FAC868700085FF5 /* AdVideoControls */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		DEE134F51F0FD2F100C47354 = {
 			isa = PBXGroup;
 			children = (
+				06E744AB1FACDFD9001FC8D7 /* Tests */,
 				DEE135001F0FD2F100C47354 /* Demo */,
 				DEE134FF1F0FD2F100C47354 /* Products */,
+				06208AB11FAC86B300085FF5 /* Frameworks */,
 				DEE135131F0FD36500C47354 /* PlayerControls.framework */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				DEE134FE1F0FD2F100C47354 /* Demo.app */,
+				06208A881FAC867700085FF5 /* DefaultControls.xctest */,
+				06208A961FAC868700085FF5 /* AdVideoControls.xctest */,
+				06208AA51FAC869D00085FF5 /* SnapshotTest.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,7 +199,73 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		06208AA21FAC869D00085FF5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06208AA91FAC869D00085FF5 /* SnapshotTest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		06208A871FAC867700085FF5 /* DefaultControls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06208A911FAC867700085FF5 /* Build configuration list for PBXNativeTarget "DefaultControls" */;
+			buildPhases = (
+				06208A841FAC867700085FF5 /* Sources */,
+				06208A851FAC867700085FF5 /* Frameworks */,
+				06208A861FAC867700085FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06208A8E1FAC867700085FF5 /* PBXTargetDependency */,
+			);
+			name = DefaultControls;
+			productName = DefaultControls;
+			productReference = 06208A881FAC867700085FF5 /* DefaultControls.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		06208A951FAC868700085FF5 /* AdVideoControls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06208A9D1FAC868700085FF5 /* Build configuration list for PBXNativeTarget "AdVideoControls" */;
+			buildPhases = (
+				06208A921FAC868700085FF5 /* Sources */,
+				06208A931FAC868700085FF5 /* Frameworks */,
+				06208A941FAC868700085FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06208A9C1FAC868700085FF5 /* PBXTargetDependency */,
+			);
+			name = AdVideoControls;
+			productName = AdVideoControls;
+			productReference = 06208A961FAC868700085FF5 /* AdVideoControls.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		06208AA41FAC869D00085FF5 /* SnapshotTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06208AAE1FAC869D00085FF5 /* Build configuration list for PBXNativeTarget "SnapshotTest" */;
+			buildPhases = (
+				06208AA01FAC869D00085FF5 /* Sources */,
+				06208AA11FAC869D00085FF5 /* Frameworks */,
+				06208AA21FAC869D00085FF5 /* Headers */,
+				06208AA31FAC869D00085FF5 /* Resources */,
+				06208ABF1FAC8A6700085FF5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapshotTest;
+			productName = SnapshotTest;
+			productReference = 06208AA51FAC869D00085FF5 /* SnapshotTest.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DEE134FD1F0FD2F100C47354 /* Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEE135101F0FD2F100C47354 /* Build configuration list for PBXNativeTarget "Demo" */;
@@ -92,6 +278,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				06208AAB1FAC869D00085FF5 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -104,10 +291,25 @@
 		DEE134F61F0FD2F100C47354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "One by AOL : Publishers";
 				TargetAttributes = {
+					06208A871FAC867700085FF5 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DEE134FD1F0FD2F100C47354;
+					};
+					06208A951FAC868700085FF5 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DEE134FD1F0FD2F100C47354;
+					};
+					06208AA41FAC869D00085FF5 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
 					DEE134FD1F0FD2F100C47354 = {
 						CreatedOnToolsVersion = 9.0;
 					};
@@ -127,11 +329,35 @@
 			projectRoot = "";
 			targets = (
 				DEE134FD1F0FD2F100C47354 /* Demo */,
+				06208A871FAC867700085FF5 /* DefaultControls */,
+				06208A951FAC868700085FF5 /* AdVideoControls */,
+				06208AA41FAC869D00085FF5 /* SnapshotTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		06208A861FAC867700085FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208A941FAC868700085FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208AA31FAC869D00085FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEE134FC1F0FD2F100C47354 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,7 +369,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06208ABF1FAC8A6700085FF5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/FBSnapshotTestCase.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		06208A841FAC867700085FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06208A8B1FAC867700085FF5 /* DefaultControls.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208A921FAC868700085FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06208A991FAC868700085FF5 /* AdVideoControls.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06208AA01FAC869D00085FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06208ABC1FAC874700085FF5 /* HostViewController.swift in Sources */,
+				06208ABE1FAC875400085FF5 /* SnapshotTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEE134FA1F0FD2F100C47354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +421,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06208A8E1FAC867700085FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEE134FD1F0FD2F100C47354 /* Demo */;
+			targetProxy = 06208A8D1FAC867700085FF5 /* PBXContainerItemProxy */;
+		};
+		06208A9C1FAC868700085FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEE134FD1F0FD2F100C47354 /* Demo */;
+			targetProxy = 06208A9B1FAC868700085FF5 /* PBXContainerItemProxy */;
+		};
+		06208AAB1FAC869D00085FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06208AA41FAC869D00085FF5 /* SnapshotTest */;
+			targetProxy = 06208AAA1FAC869D00085FF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DEE1350A1F0FD2F100C47354 /* LaunchScreen.storyboard */ = {
@@ -166,6 +452,165 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		06208A8F1FAC867700085FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95F456P57Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/DefaultControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.DefaultControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Debug;
+		};
+		06208A901FAC867700085FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95F456P57Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/DefaultControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.DefaultControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Release;
+		};
+		06208A9E1FAC868700085FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95F456P57Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/AdVideoControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.AdVideoControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Debug;
+		};
+		06208A9F1FAC868700085FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95F456P57Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/AdVideoControls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.AdVideoControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Release;
+		};
+		06208AAF1FAC869D00085FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7FCMSU478D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = SnapshotTest/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.SnapshotTest;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		06208AB01FAC869D00085FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7FCMSU478D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = SnapshotTest/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.SnapshotTest;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DEE1350E1F0FD2F100C47354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,6 +719,7 @@
 		DEE135111F0FD2F100C47354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7FCMSU478D;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -289,6 +735,7 @@
 		DEE135121F0FD2F100C47354 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7FCMSU478D;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -304,6 +751,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06208A911FAC867700085FF5 /* Build configuration list for PBXNativeTarget "DefaultControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06208A8F1FAC867700085FF5 /* Debug */,
+				06208A901FAC867700085FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06208A9D1FAC868700085FF5 /* Build configuration list for PBXNativeTarget "AdVideoControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06208A9E1FAC868700085FF5 /* Debug */,
+				06208A9F1FAC868700085FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06208AAE1FAC869D00085FF5 /* Build configuration list for PBXNativeTarget "SnapshotTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06208AAF1FAC869D00085FF5 /* Debug */,
+				06208AB01FAC869D00085FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DEE134F91F0FD2F100C47354 /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
