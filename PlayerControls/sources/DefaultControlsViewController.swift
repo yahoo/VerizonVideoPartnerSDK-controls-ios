@@ -25,6 +25,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
+    @IBOutlet private var airplayActiveLabel: UILabel!
     @IBOutlet private var thumbnailImageView: UIImageView!
     @IBOutlet private var controlsView: UIView!
     @IBOutlet private var shadowView: UIView!
@@ -194,6 +195,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
         liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
         
+        airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden || !uiProps.controlsViewHidden
         airPlayView.props = AirPlayView.Props(
             icons: AirPlayView.Props.Icons(
                 normal: UIImage.init(named: "icon-airplay", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
