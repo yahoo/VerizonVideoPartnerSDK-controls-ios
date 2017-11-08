@@ -36,6 +36,8 @@
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
 		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
+		DA036B621FB20A5900BD0728 /* AirPlayActiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */; };
+		DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */; };
 		DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA070BB01F8B776A007F407D /* AirPlayView.swift */; };
 		DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AirPlayActiveView.xib; path = resources/AirPlayActiveView.xib; sourceTree = SOURCE_ROOT; };
+		DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayActiveView.swift; sourceTree = "<group>"; };
 		DA070BB01F8B776A007F407D /* AirPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayView.swift; sourceTree = "<group>"; };
 		DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EnumPrism.stencil; path = templates/EnumPrism.stencil; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -284,6 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				DA070BB01F8B776A007F407D /* AirPlayView.swift */,
+				DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */,
+				DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */,
 			);
 			name = "air play";
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				50582F821E65CA0F00B18908 /* AdVideoControls.xib in Resources */,
 				50582F7B1E65C93400B18908 /* SeekerControlPlayground.xib in Resources */,
 				50582F701E65C64B00B18908 /* DefaultControlsViewController.xib in Resources */,
+				DA036B621FB20A5900BD0728 /* AirPlayActiveView.xib in Resources */,
 				50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */,
 				50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */,
 				50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */,
@@ -429,6 +436,7 @@
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
 				50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
+				DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */,
 				50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */,
 				50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */,
 				50582FC41E67086000B18908 /* Defaultable.swift in Sources */,

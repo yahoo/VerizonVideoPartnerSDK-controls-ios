@@ -72,7 +72,7 @@ extension DefaultControlsViewController {
         var settingsButtonEnabled: Bool
         var settingsButtonAction: Action<Void>
         
-        var airplayActiveLabelHidden: Bool
+        var airplayActiveViewHidden: Bool
         var airplayButtonHidden: Bool
         
         var liveIndicationViewIsHidden: Bool
@@ -222,7 +222,7 @@ extension DefaultControlsViewController {
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
             
-            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
+            airplayActiveViewHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
             airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
