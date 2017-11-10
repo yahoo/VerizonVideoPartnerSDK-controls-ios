@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06208A871FAC867700085FF5"
-               BuildableName = "DefaultControls.xctest"
-               BlueprintName = "DefaultControls"
+               BlueprintIdentifier = "06208A951FAC868700085FF5"
+               BuildableName = "AdVideoControls.xctest"
+               BlueprintName = "AdVideoControls"
                ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06208A951FAC868700085FF5"
-               BuildableName = "AdVideoControls.xctest"
-               BlueprintName = "AdVideoControls"
+               BlueprintIdentifier = "06208A871FAC867700085FF5"
+               BuildableName = "DefaultControls.xctest"
+               BlueprintName = "DefaultControls"
                ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -85,18 +85,18 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "IMAGE_DIFF_DIR"
-            value = "$(SOURCE_ROOT)/Tests/FailureDifferences"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
             key = "FB_REFERENCE_IMAGE_DIR"
             value = "$(SOURCE_ROOT)/Tests/ReferenceImages"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "IMAGE_DIFF_DIR"
+            value = "$(SOURCE_ROOT)/Tests/FailureDiffs"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "RECORD_MODE"
-            value = "FALSE"
+            value = "TRUE"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
