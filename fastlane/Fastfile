@@ -1,16 +1,5 @@
-# Customize this file, documentation can be found here:
-# https://docs.fastlane.tools/actions/
-# All available actions: https://docs.fastlane.tools/actions
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
 # All lines starting with a # are ignored when running `fastlane`
 
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
 fastlane_version "2.63.0"
 
 default_platform :ios
@@ -23,19 +12,12 @@ platform :ios do
   end
 
   desc "Runs all the snapshot tests on selected devices"
-  lane :test do
-    scan(fail_build: false, scheme: "Demo", device: "iPhone 5s")
-    #scan(fail_build: false, scheme: "Demo", device: "iPhone 8")
-    #scan(fail_build: false, scheme: "Demo", device: "iPhone 8 Plus")
-    #scan(fail_build: false, scheme: "Demo", device: "iPhone X")
-    #scan(fail_build: false, scheme: "Demo", device: "iPad Pro (12.9-inch)")
-    #scan(fail_build: false, scheme: "Demo", device: "iPad Pro (10.5-inch)")
-    #scan(fail_build: false, scheme: "Demo", device: "iPad Pro (9.7-inch)")
+  lane :verify do
+    scan(fail_build: false, scheme: "Demo", device: "iPad Pro (12.9-inch)")
+ end
+
+  desc "Rewrites all existing snapshots on selected devices"
+  lane :record do
+    scan(fail_build: false, scheme: "Record", device: "iPad Pro (12.9-inch)")
   end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://docs.fastlane.tools/actions
-
-# fastlane reports which actions are used. No personal data is recorded.
-# Learn more at https://docs.fastlane.tools/#metrics
+end

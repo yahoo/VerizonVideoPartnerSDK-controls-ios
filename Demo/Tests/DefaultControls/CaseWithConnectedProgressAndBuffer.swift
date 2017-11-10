@@ -9,6 +9,7 @@ import UIKit
 import SnapshotTest
 @testable import PlayerControls
 
+
 class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
     
     var controller: DefaultControlsViewController {
@@ -22,37 +23,70 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
                 player.item = DefaultControlsViewController.Props.Player.Item.playable(
                     DefaultControlsViewController.Props.Player.Item.Controls { controls in
                         
-                controls.seekbar = .init()
-                
-                controls.seekbar?.duration = 600
-                controls.seekbar?.currentTime = 300
-                controls.seekbar?.progress = 0.25
-                controls.seekbar?.buffered = 0.25
-                controls.seekbar?.seeker.seekTo = nop()
-                controls.seekbar?.seeker.state.start = nop()
-                
-                controls.live.isHidden = true
-                controls.playbackAction.pause = nop
-                
-                controls.camera = DefaultControlsViewController.Props.Player.Item.Controls.Camera()
-                controls.camera?.angles.horizontal = 3.14
-                controls.camera?.angles.vertical = 3.14
-                controls.camera?.moveTo = nop()
-                controls.settings = .hidden
-                controls.pictureInPictureControl = .unsupported
-                
-                controls.legible = .`internal`(nil)
-            })
+                        controls.title = "SOME TITLE"
+                        controls.seekbar = .init()
+                        controls.seekbar?.duration = 600
+                        controls.seekbar?.currentTime = 300
+                        controls.seekbar?.progress = 0.25
+                        controls.seekbar?.buffered = 0.25
+                        controls.seekbar?.seeker.seekTo = nop()
+                        controls.seekbar?.seeker.state.start = nop()
+                        
+                        controls.live.isHidden = true
+                        controls.playbackAction.pause = nop
+                        
+                        controls.camera = DefaultControlsViewController.Props.Player.Item.Controls.Camera()
+                        controls.camera?.angles.horizontal = 3.14
+                        controls.camera?.angles.vertical = 3.14
+                        controls.camera?.moveTo = nop()
+                        
+                        controls.settings = .enabled(nop())
+                        controls.pictureInPictureControl = .possible(nop())
+                        controls.airplay = .hidden
+                        
+                        controls.legible = .`internal`(nil)
+                })
         })
         
         return controller
     }
     
-    func testPortrait() {
-        verify(controller, in: .portrait)
-    }
-    
-    func testLandscape() {
-        verify(controller, in: .landscape)
+    func test() {
+        verify(controller, for: Presentation.iPhone.X.portrait)
+        verify(controller, for: Presentation.iPhone.X.landscapeLeft)
+        verify(controller, for: Presentation.iPhone.X.landscapeRight)
+        
+        verify(controller, for: Presentation.iPhone.Eight.portrait)
+        verify(controller, for: Presentation.iPhone.Eight.landscape)
+        
+        verify(controller, for: Presentation.iPhone.EightPlus.portrait)
+        verify(controller, for: Presentation.iPhone.EightPlus.landscape)
+        
+        verify(controller, for: Presentation.iPhone.SE.portrait)
+        verify(controller, for: Presentation.iPhone.SE.landscape)
+        
+        verify(controller, for: Presentation.iPad.Pro9_7.Portrait.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro9_7.Portrait.OneThirds)
+        verify(controller, for: Presentation.iPad.Pro9_7.Portrait.TwoThirds)
+        verify(controller, for: Presentation.iPad.Pro9_7.Landscape.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro9_7.Landscape.oneThird)
+        verify(controller, for: Presentation.iPad.Pro9_7.Landscape.twoThird)
+        verify(controller, for: Presentation.iPad.Pro9_7.Landscape.half)
+        
+        verify(controller, for: Presentation.iPad.Pro10_5.Portrait.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro10_5.Portrait.OneThirds)
+        verify(controller, for: Presentation.iPad.Pro10_5.Portrait.TwoThirds)
+        verify(controller, for: Presentation.iPad.Pro10_5.Landscape.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro10_5.Landscape.oneThird)
+        verify(controller, for: Presentation.iPad.Pro10_5.Landscape.twoThird)
+        verify(controller, for: Presentation.iPad.Pro10_5.Landscape.half)
+        
+        verify(controller, for: Presentation.iPad.Pro12_9.Portrait.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro12_9.Portrait.oneThirds)
+        verify(controller, for: Presentation.iPad.Pro12_9.Portrait.twoThirds)
+        verify(controller, for: Presentation.iPad.Pro12_9.Landscape.fullScreen)
+        verify(controller, for: Presentation.iPad.Pro12_9.Landscape.oneThird)
+        verify(controller, for: Presentation.iPad.Pro12_9.Landscape.twoThird)
+        verify(controller, for: Presentation.iPad.Pro12_9.Landscape.half)
     }
 }

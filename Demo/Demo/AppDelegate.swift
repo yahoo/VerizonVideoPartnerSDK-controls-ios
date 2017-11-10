@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+    
         let vc = DefaultControlsViewController()
         vc.view.backgroundColor = .green
         vc.view.tintColor = .blue

@@ -9,32 +9,32 @@
 import FBSnapshotTestCase
 import UIKit
 
+public typealias Presentation = HostWindow.Presentation
+
 open class SnapshotTest: FBSnapshotTestCase {
     
     override open func setUp() {
         super.setUp()
-        recordMode = nil != ProcessInfo.processInfo.environment["RECORD_MODE"]
-        isDeviceAgnostic = true
+        isDeviceAgnostic = false
+        guard let record = ProcessInfo.processInfo.environment["RECORD_MODE"] else { return }
+        if record == "TRUE" {
+            recordMode = true
+        } else {
+            recordMode = false
+        }
     }
     
     public func verify(
         _ controller: UIViewController,
-        in orientation: UIInterfaceOrientationMask,
+        for presentation: HostWindow.Presentation,
         file: StaticString = #file,
         line: UInt = #line) {
         
-        let hostViewController = HostViewController()
-        hostViewController.overridedSupportedInterfaceOrientations = orientation
-        hostViewController.childViewController = controller
-        hostViewController.view.backgroundColor = .green
-        hostViewController.view.tintColor = .blue
+        let window = HostWindow(presentation: presentation)
+        controller.view.backgroundColor = .red 
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = controller
         window.makeKeyAndVisible()
-        window.rootViewController = hostViewController
-        
-        FBSnapshotVerifyView(hostViewController.view, file: file, line: line)
+        FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
     }
 }
-
-
