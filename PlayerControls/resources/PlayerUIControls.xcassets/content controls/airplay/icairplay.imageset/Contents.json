@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "airplay.png",
+      "filename" : "icairplay.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icairplay@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icairplay@3x.png",
       "scale" : "3x"
     }
   ],

@@ -34,17 +34,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Mi-7eg" customClass="AirPlayActiveView" customModule="PlayerControls" customModuleProvider="target">
-                    <rect key="frame" x="14" y="189" width="346" height="290"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="346" id="3Ua-1X-EnV"/>
-                        <constraint firstAttribute="height" constant="290" id="GVo-OR-nMU"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-ei-EYl">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Mi-7eg" customClass="AirPlayActiveView" customModule="PlayerControls" customModuleProvider="target">
+                    <rect key="frame" x="74.5" y="246.5" width="226" height="174"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="226" id="3Ua-1X-EnV"/>
+                        <constraint firstAttribute="height" constant="174" id="GVo-OR-nMU"/>
+                    </constraints>
                 </view>
                 <view alpha="0.5" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xUJ-hB-tQp" userLabel="Shadow View">
                     <rect key="frame" x="0.0" y="627" width="375" height="40"/>

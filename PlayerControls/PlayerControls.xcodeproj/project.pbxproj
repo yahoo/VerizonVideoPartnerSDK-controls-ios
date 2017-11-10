@@ -187,6 +187,7 @@
 		50582F8F1E65CD6700B18908 /* ad controls */ = {
 			isa = PBXGroup;
 			children = (
+				DA15DA621FB5C9F4002CA6B9 /* airplay */,
 				50582F7F1E65CA0F00B18908 /* AdVideoControls.swift */,
 				50582F801E65CA0F00B18908 /* AdVideoControls.xib */,
 			);
@@ -196,7 +197,7 @@
 		50582F901E65CD7300B18908 /* content controls */ = {
 			isa = PBXGroup;
 			children = (
-				DA070BAF1F8B76B9007F407D /* air play */,
+				DA070BAF1F8B76B9007F407D /* airplay */,
 				50F471331F5958D300C35AEF /* settings */,
 				50582F931E65CD8D00B18908 /* seeker control view */,
 				50582F921E65CD8500B18908 /* side bar */,
@@ -284,14 +285,21 @@
 			name = settings;
 			sourceTree = "<group>";
 		};
-		DA070BAF1F8B76B9007F407D /* air play */ = {
+		DA070BAF1F8B76B9007F407D /* airplay */ = {
 			isa = PBXGroup;
 			children = (
 				DA070BB01F8B776A007F407D /* AirPlayView.swift */,
-				DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */,
-				DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */,
 			);
-			name = "air play";
+			name = airplay;
+			sourceTree = "<group>";
+		};
+		DA15DA621FB5C9F4002CA6B9 /* airplay */ = {
+			isa = PBXGroup;
+			children = (
+				DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */,
+				DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */,
+			);
+			name = airplay;
 			sourceTree = "<group>";
 		};
 		DAB9AEEA1F542C460050B940 /* templates */ = {

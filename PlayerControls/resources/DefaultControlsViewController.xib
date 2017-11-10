@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefaultControlsViewController" customModule="PlayerControls" customModuleProvider="target">
             <connections>
                 <outlet property="airPlayView" destination="72o-zQ-Neb" id="H2B-hs-BSd"/>
-                <outlet property="airplayActiveView" destination="1Fc-OR-K4c" id="5Yb-Eb-2Jq"/>
+                <outlet property="airplayActiveLabel" destination="kPK-Sh-8jh" id="JaP-cu-vma"/>
                 <outlet property="airplayEdgeTrailingConstrains" destination="Vyl-vI-sAn" id="VCW-Qu-Qym"/>
                 <outlet property="airplayPipTrailingConstrains" destination="oHL-VL-d41" id="QIz-jM-MP2"/>
                 <outlet property="bottomSeekBarConstraint" destination="1rA-Ma-4OD" id="thy-r3-SLe"/>
@@ -70,14 +70,6 @@ Subtitles</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fc-OR-K4c" customClass="AirPlayActiveView" customModule="PlayerControls" customModuleProvider="target">
-                    <rect key="frame" x="67" y="15" width="346" height="290"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="346" id="EUR-j8-6yf"/>
-                        <constraint firstAttribute="height" constant="290" id="fnf-cG-3K2"/>
-                    </constraints>
-                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKq-bU-tvG">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,6 +396,12 @@ Title</string>
                         </mask>
                     </variation>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This video is playing on Apple TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPK-Sh-8jh">
+                    <rect key="frame" x="127" y="75" width="226.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtD-cb-Wlb" userLabel="Error">
                     <rect key="frame" x="240" y="100" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -446,13 +444,14 @@ Title</string>
             <constraints>
                 <constraint firstItem="NKq-bU-tvG" firstAttribute="top" secondItem="rFH-6N-3gH" secondAttribute="top" id="24r-Hq-M3g"/>
                 <constraint firstAttribute="bottom" secondItem="fi9-sW-1VX" secondAttribute="bottom" id="33F-58-Fc1"/>
-                <constraint firstItem="1Fc-OR-K4c" firstAttribute="centerX" secondItem="rFH-6N-3gH" secondAttribute="centerX" id="4R9-mm-tQi"/>
+                <constraint firstItem="IVo-gm-8qs" firstAttribute="top" secondItem="kPK-Sh-8jh" secondAttribute="bottom" constant="20" id="7Wz-dr-n9W"/>
                 <constraint firstItem="aUE-Db-Ht9" firstAttribute="top" secondItem="rFH-6N-3gH" secondAttribute="top" constant="20" id="8xl-GB-75a"/>
                 <constraint firstItem="Uc8-v7-96O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UtD-cb-Wlb" secondAttribute="trailing" constant="10" id="FtY-J6-Kdm"/>
                 <constraint firstItem="UtD-cb-Wlb" firstAttribute="centerY" secondItem="fi9-sW-1VX" secondAttribute="centerY" constant="-60" id="Jcc-XU-IcT">
                     <variation key="heightClass=regular-widthClass=regular" constant="-120"/>
                 </constraint>
                 <constraint firstItem="SEd-qf-YJr" firstAttribute="centerX" secondItem="rFH-6N-3gH" secondAttribute="centerX" id="MSf-YW-nEL"/>
+                <constraint firstItem="kPK-Sh-8jh" firstAttribute="centerX" secondItem="rFH-6N-3gH" secondAttribute="centerX" id="QGR-7P-ruj"/>
                 <constraint firstAttribute="bottom" secondItem="NKq-bU-tvG" secondAttribute="bottom" id="Vog-pm-tOS"/>
                 <constraint firstItem="IVo-gm-8qs" firstAttribute="centerX" secondItem="rFH-6N-3gH" secondAttribute="centerX" id="ZsG-TS-eKR"/>
                 <constraint firstItem="NKq-bU-tvG" firstAttribute="leading" secondItem="rFH-6N-3gH" secondAttribute="leading" id="cUc-Ko-vsy"/>
@@ -465,7 +464,6 @@ Title</string>
                 <constraint firstItem="aUE-Db-Ht9" firstAttribute="leading" secondItem="rFH-6N-3gH" secondAttribute="leading" constant="10" id="mZh-yz-9m2"/>
                 <constraint firstItem="UtD-cb-Wlb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rFH-6N-3gH" secondAttribute="leading" constant="40" id="ute-YD-JsE"/>
                 <constraint firstItem="fi9-sW-1VX" firstAttribute="leading" secondItem="rFH-6N-3gH" secondAttribute="leading" id="vK8-8v-dJz"/>
-                <constraint firstItem="1Fc-OR-K4c" firstAttribute="centerY" secondItem="rFH-6N-3gH" secondAttribute="centerY" id="yCh-21-8s5"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="ydI-nT-cAb" appends="YES" id="w9x-Nr-aVL"/>
