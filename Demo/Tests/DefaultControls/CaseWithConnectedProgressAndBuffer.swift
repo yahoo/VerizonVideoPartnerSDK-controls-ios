@@ -23,12 +23,12 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
                 player.item = DefaultControlsViewController.Props.Player.Item.playable(
                     DefaultControlsViewController.Props.Player.Item.Controls { controls in
                         
-                        controls.title = "SOME TITLE"
+                        controls.title = "SOME VERY LONG LONG LONG LONG TITLE"
                         controls.seekbar = .init()
-                        controls.seekbar?.duration = 600
-                        controls.seekbar?.currentTime = 300
-                        controls.seekbar?.progress = 0.25
-                        controls.seekbar?.buffered = 0.25
+                        controls.seekbar?.duration = 3600
+                        controls.seekbar?.currentTime = 1800
+                        controls.seekbar?.progress = 0.5
+                        controls.seekbar?.buffered = 0.75
                         controls.seekbar?.seeker.seekTo = nop()
                         controls.seekbar?.seeker.state.start = nop()
                         
@@ -42,7 +42,7 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
                         
                         controls.settings = .enabled(nop())
                         controls.pictureInPictureControl = .possible(nop())
-                        controls.airplay = .hidden
+                        controls.airplay = .enabled
                         
                         controls.legible = .`internal`(nil)
                 })
@@ -57,36 +57,22 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
         verify(controller, for: iPhone.X.landscapeRight)
         
         verify(controller, for: iPhone.Eight.portrait)
-        verify(controller, for: iPhone.Eight.landscape)
         
-        verify(controller, for: iPhone.EightPlus.portrait)
         verify(controller, for: iPhone.EightPlus.landscape)
         
         verify(controller, for: iPhone.SE.portrait)
         verify(controller, for: iPhone.SE.landscape)
         
-        verify(controller, for: iPad.Pro9_7.Portrait.fullScreen)
+        
         verify(controller, for: iPad.Pro9_7.Portrait.OneThirds)
         verify(controller, for: iPad.Pro9_7.Portrait.TwoThirds)
-        verify(controller, for: iPad.Pro9_7.Landscape.fullScreen)
+        
         verify(controller, for: iPad.Pro9_7.Landscape.oneThird)
         verify(controller, for: iPad.Pro9_7.Landscape.twoThird)
         verify(controller, for: iPad.Pro9_7.Landscape.half)
         
-        verify(controller, for: iPad.Pro10_5.Portrait.fullScreen)
         verify(controller, for: iPad.Pro10_5.Portrait.OneThirds)
-        verify(controller, for: iPad.Pro10_5.Portrait.TwoThirds)
-        verify(controller, for: iPad.Pro10_5.Landscape.fullScreen)
-        verify(controller, for: iPad.Pro10_5.Landscape.oneThird)
-        verify(controller, for: iPad.Pro10_5.Landscape.twoThird)
-        verify(controller, for: iPad.Pro10_5.Landscape.half)
         
-        verify(controller, for: iPad.Pro12_9.Portrait.fullScreen)
         verify(controller, for: iPad.Pro12_9.Portrait.oneThirds)
-        verify(controller, for: iPad.Pro12_9.Portrait.twoThirds)
-        verify(controller, for: iPad.Pro12_9.Landscape.fullScreen)
-        verify(controller, for: iPad.Pro12_9.Landscape.oneThird)
-        verify(controller, for: iPad.Pro12_9.Landscape.twoThird)
-        verify(controller, for: iPad.Pro12_9.Landscape.half)
     }
 }
