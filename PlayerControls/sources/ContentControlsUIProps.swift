@@ -72,6 +72,7 @@ extension DefaultControlsViewController {
         var settingsButtonEnabled: Bool
         var settingsButtonAction: Action<Void>
         
+        var airplayActiveLabelHidden: Bool
         var airplayButtonHidden: Bool
         
         var liveIndicationViewIsHidden: Bool
@@ -80,7 +81,13 @@ extension DefaultControlsViewController {
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
-            controlsViewHidden = props.player == nil || !controlsViewVisible
+            controlsViewHidden = {
+                let isPlayerAbsent = props.player == nil
+                let isControlsViewHidden = !controlsViewVisible
+                let isAirPlayInactive = !(props.player?.item.playable?.airplay.isActive ?? false)
+                
+                return isPlayerAbsent || (isControlsViewHidden && isAirPlayInactive)
+            }()
             
             loading = props.player?.item.playable?.loading ?? false
             
@@ -221,6 +228,7 @@ extension DefaultControlsViewController {
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
             
+            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
             airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true

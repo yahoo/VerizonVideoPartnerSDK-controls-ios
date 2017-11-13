@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdVideoControls" customModule="OneMobileSDK" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdVideoControls" customModule="PlayerControls" customModuleProvider="target">
             <connections>
+                <outlet property="airplayActiveView" destination="Qev-Mi-7eg" id="ehT-lX-0XI"/>
                 <outlet property="containerView" destination="qIL-ei-EYl" id="L12-FM-W5p"/>
                 <outlet property="loadingImageView" destination="EKe-z8-rXd" id="eHq-Ft-TPG"/>
                 <outlet property="pauseButton" destination="vqW-yt-m6i" id="vhJ-RC-RJ4"/>
@@ -30,6 +37,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-ei-EYl">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qev-Mi-7eg" customClass="AirPlayActiveView" customModule="PlayerControls" customModuleProvider="target">
+                    <rect key="frame" x="74.5" y="246.5" width="226" height="174"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="226" id="3Ua-1X-EnV"/>
+                        <constraint firstAttribute="height" constant="174" id="GVo-OR-nMU"/>
+                    </constraints>
                 </view>
                 <view alpha="0.5" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xUJ-hB-tQp" userLabel="Shadow View">
                     <rect key="frame" x="0.0" y="627" width="375" height="40"/>
@@ -111,7 +126,7 @@
                         <action selector="pauseButtonTouched" destination="-1" eventType="touchUpInside" id="rzB-K6-R0g"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-Gw-Woe" customClass="SeekerControlView" customModule="OneMobileSDK" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkK-Gw-Woe" customClass="SeekerControlView" customModule="PlayerControls" customModuleProvider="target">
                     <rect key="frame" x="50" y="631" width="315" height="15"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="1" green="0.77647058820000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,6 +161,7 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qIL-ei-EYl" secondAttribute="trailing" id="3hW-FM-9ca"/>
+                <constraint firstItem="Qev-Mi-7eg" firstAttribute="centerX" secondItem="GG0-Gw-iIe" secondAttribute="centerX" id="6Da-80-PTC"/>
                 <constraint firstItem="unl-Sw-N45" firstAttribute="top" secondItem="xUJ-hB-tQp" secondAttribute="bottom" constant="-19" id="9Ib-35-9LD"/>
                 <constraint firstItem="unl-Sw-N45" firstAttribute="top" secondItem="OkK-Gw-Woe" secondAttribute="bottom" constant="2" id="Chg-Un-fBY"/>
                 <constraint firstItem="vqW-yt-m6i" firstAttribute="centerY" secondItem="xUJ-hB-tQp" secondAttribute="centerY" id="JtB-W4-hFr"/>
@@ -159,6 +175,7 @@
                 <constraint firstItem="vqW-yt-m6i" firstAttribute="bottom" secondItem="unl-Sw-N45" secondAttribute="bottom" id="bm1-gl-GKq"/>
                 <constraint firstItem="vqW-yt-m6i" firstAttribute="leading" secondItem="EKe-z8-rXd" secondAttribute="leading" id="bxH-ZT-O0p"/>
                 <constraint firstItem="qIL-ei-EYl" firstAttribute="top" secondItem="GG0-Gw-iIe" secondAttribute="top" id="fFk-p9-gZW"/>
+                <constraint firstItem="Qev-Mi-7eg" firstAttribute="centerY" secondItem="GG0-Gw-iIe" secondAttribute="centerY" id="fPi-aF-QsS"/>
                 <constraint firstItem="OkK-Gw-Woe" firstAttribute="leading" secondItem="unl-Sw-N45" secondAttribute="leading" id="iU0-rh-ErI"/>
                 <constraint firstAttribute="trailing" secondItem="OkK-Gw-Woe" secondAttribute="trailing" constant="10" id="loR-ZW-HCb"/>
                 <constraint firstItem="8JH-hm-H4n" firstAttribute="centerY" secondItem="unl-Sw-N45" secondAttribute="centerY" id="mxg-x4-MZQ"/>

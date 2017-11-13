@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirPlayActiveView" customModule="PlayerControls" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="q0B-Qv-JL7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="226" height="174"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="icairplay" translatesAutoresizingMaskIntoConstraints="NO" id="mu7-aS-QHA">
+                    <rect key="frame" x="48" y="0.0" width="130" height="88.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mu7-aS-QHA" secondAttribute="height" multiplier="130:89" id="gJf-2T-VMK"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AirPlay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bU-JH-iXV">
+                    <rect key="frame" x="82.5" y="121" width="61" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This video is playing on Apple TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6Y-xh-sYt">
+                    <rect key="frame" x="0.0" y="156" width="226" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mu7-aS-QHA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Hfh-Te-2as"/>
+                <constraint firstAttribute="bottom" secondItem="o6Y-xh-sYt" secondAttribute="bottom" id="PQn-ZE-EGH"/>
+                <constraint firstItem="o6Y-xh-sYt" firstAttribute="top" secondItem="8bU-JH-iXV" secondAttribute="bottom" constant="11" id="Q8j-BV-lGR"/>
+                <constraint firstItem="mu7-aS-QHA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cgn-Fo-aPr"/>
+                <constraint firstItem="8bU-JH-iXV" firstAttribute="top" secondItem="mu7-aS-QHA" secondAttribute="bottom" constant="32" id="goQ-Mx-Dyl"/>
+                <constraint firstItem="8bU-JH-iXV" firstAttribute="centerX" secondItem="o6Y-xh-sYt" secondAttribute="centerX" id="nh9-8g-rjj"/>
+                <constraint firstItem="mu7-aS-QHA" firstAttribute="centerX" secondItem="8bU-JH-iXV" secondAttribute="centerX" id="qBw-re-7L4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="16.5" y="-198.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icairplay" width="130" height="89"/>
+    </resources>
+</document>

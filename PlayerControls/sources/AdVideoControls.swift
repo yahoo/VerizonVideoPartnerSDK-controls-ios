@@ -20,13 +20,16 @@ public final class AdVideoControls: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     /// Skip button. Not yet implemented, hidden by default.
     @IBOutlet private var skipButton: UIButton!
+    /// AirPlay active view. Shows when AirPlay is active
+    @IBOutlet private var airplayActiveView: AirPlayActiveView!
     
     @IBOutlet public weak var containerView: UIView!
     
     public var props: Props = Props(mainAction: .play { },
                                     seeker: nil,
                                     tapAction: nil,
-                                    isLoading: true) {
+                                    isLoading: true,
+                                    airplayActiveViewHidden: true) {
         didSet {
             guard isViewLoaded else { return }
             view.setNeedsLayout()
@@ -57,17 +60,20 @@ public final class AdVideoControls: UIViewController {
         seekerView.isHidden = props.seeker == nil
         seekerView.isCurrentTimeEnabled = false
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
+        airplayActiveView.isHidden = props.airplayActiveViewHidden
     }
     
     public struct Props {
         public static let `default` = Props(mainAction: .play { },
                                             seeker: nil,
                                             tapAction: nil,
-                                            isLoading: true)
+                                            isLoading: true,
+                                            airplayActiveViewHidden: true)
         public let mainAction: MainAction
         public let seeker: Seeker?
         public let tapAction: Action<Void>?
         public let isLoading: Bool
+        public let airplayActiveViewHidden: Bool
         
         public enum MainAction {
             case play(Action<Void>)
@@ -86,11 +92,13 @@ public final class AdVideoControls: UIViewController {
         public init(mainAction: MainAction,
                     seeker: Seeker?,
                     tapAction: Action<Void>?,
-                    isLoading: Bool) {
+                    isLoading: Bool,
+                    airplayActiveViewHidden: Bool) {
             self.mainAction = mainAction
             self.seeker = seeker
             self.tapAction = tapAction
             self.isLoading = isLoading
+            self.airplayActiveViewHidden = airplayActiveViewHidden
         }
     }
     
