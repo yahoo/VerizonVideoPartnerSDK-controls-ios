@@ -1,10 +1,5 @@
-//
-//  CaseWithPlayTimeIsLoading.swift
-//  AdVideoControls
-//
-//  Created by rtysiachnik on 11/6/17.
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-//
+
 import UIKit
 import SnapshotTest
 @testable import PlayerControls

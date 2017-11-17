@@ -153,9 +153,9 @@
 		06208AA61FAC869D00085FF5 /* SnapshotTest */ = {
 			isa = PBXGroup;
 			children = (
-				06208ABD1FAC875400085FF5 /* SnapshotTest.swift */,
-				069F387E1FB5BB15004FCA7A /* HostWindow.swift */,
 				069F38801FB5BB28004FCA7A /* Extensions.swift */,
+				069F387E1FB5BB15004FCA7A /* HostWindow.swift */,
+				06208ABD1FAC875400085FF5 /* SnapshotTest.swift */,
 				069193571FB0AE6A006D5484 /* Supported Files */,
 			);
 			path = SnapshotTest;

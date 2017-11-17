@@ -1,10 +1,4 @@
-//
-//  Extensions.swift
-//  SnapshotTest
-//
-//  Created by rtysiachnik on 11/10/17.
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-//
 
 extension UITraitCollection {
     enum iPhone {
@@ -84,7 +78,7 @@ extension CGSize {
 }
 
 extension CGRect {
-    static func getCGRectBy(size: CGSize) -> CGRect {
+    static func getCGRect(from size: CGSize) -> CGRect {
         return CGRect(origin: CGPoint(x: 0, y: 0), size: size)
     }
 }

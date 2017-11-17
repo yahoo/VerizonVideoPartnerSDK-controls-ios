@@ -1,10 +1,4 @@
-//
-//  HostWindow.swift
-//  SnapshotTest
-//
-//  Created by rtysiachnik on 11/10/17.
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-//
 
 import UIKit
 
@@ -13,9 +7,9 @@ public class HostWindow: UIWindow {
     public var presentation: Presentation?
     
     init(presentation: Presentation) {
-        super.init(frame: CGRect.getCGRectBy(size: presentation.size))
+        super.init(frame: CGRect.getCGRect(from: presentation.size))
         self.presentation = presentation
-        presentation.mask?.frame = CGRect.getCGRectBy(size: presentation.size)
+        presentation.mask?.frame = CGRect.getCGRect(from: presentation.size)
         self.mask = presentation.mask
     }
     
@@ -113,12 +107,12 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let twoThirds = Presentation(
-                        name: "iPad_12.9_Portrait_SplitView_2:3",
+                        name: "iPad_12.9_Portrait_SplitView_2_3",
                         size: CGSize.iPad.Pro12_9.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let oneThirds = Presentation(
-                        name: "iPad_12.9_Portrait_SplitView_1:3",
+                        name: "iPad_12.9_Portrait_SplitView_1_3",
                         size: CGSize.iPad.Pro12_9.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitOneThird)
                     
@@ -131,17 +125,17 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let half = Presentation(
-                        name: "iPad_12.9_Landscape_SplitView_1:2",
+                        name: "iPad_12.9_Landscape_SplitView_1_2",
                         size: CGSize.iPad.Pro12_9.rotated.splitViewHalf,
                         traitCollection: UITraitCollection.iPad.splitHalfFor12_9)
                     
                     public static let twoThird = Presentation(
-                        name: "iPad_12.9_Landscape_SplitView_2:3",
+                        name: "iPad_12.9_Landscape_SplitView_2_3",
                         size: CGSize.iPad.Pro12_9.rotated.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let oneThird = Presentation(
-                        name: "iPad_12.9_Landscape_SplitView_1:3",
+                        name: "iPad_12.9_Landscape_SplitView_1_3",
                         size: CGSize.iPad.Pro12_9.rotated.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitOneThird)
                     
@@ -156,12 +150,12 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let TwoThirds = Presentation(
-                        name: "iPad_10.5_Portrait_SplitView_2:3",
+                        name: "iPad_10.5_Portrait_SplitView_2_3",
                         size: CGSize.iPad.Pro10_5.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let OneThirds = Presentation(
-                        name: "iPad_10.5_Portrait_SplitView_1:3",
+                        name: "iPad_10.5_Portrait_SplitView_1_3",
                         size: CGSize.iPad.Pro10_5.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitOneThird)
                 }
@@ -172,17 +166,17 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let half = Presentation(
-                        name: "iPad_10.5_Landscape_SplitView_1:2",
+                        name: "iPad_10.5_Landscape_SplitView_1_2",
                         size: CGSize.iPad.Pro10_5.rotated.splitViewHalf,
                         traitCollection: UITraitCollection.iPad.splitHalf)
                     
                     public static let twoThird = Presentation(
-                        name: "iPad_10.5_Landscape_SplitView_2:3",
+                        name: "iPad_10.5_Landscape_SplitView_2_3",
                         size: CGSize.iPad.Pro10_5.rotated.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let oneThird = Presentation(
-                        name: "iPad_10.5_Landscape_SplitView_1:3",
+                        name: "iPad_10.5_Landscape_SplitView_1_3",
                         size: CGSize.iPad.Pro10_5.rotated.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitHalf)
                 }
@@ -196,12 +190,12 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let TwoThirds = Presentation(
-                        name: "iPad_9.7_Portrait_SplitView_2:3",
+                        name: "iPad_9.7_Portrait_SplitView_2_3",
                         size: CGSize.iPad.Pro9_7.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let OneThirds = Presentation(
-                        name: "iPad_9.7_Portrait_SplitView_1:3",
+                        name: "iPad_9.7_Portrait_SplitView_1_3",
                         size: CGSize.iPad.Pro9_7.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitOneThird)
                 }
@@ -212,17 +206,17 @@ public class HostWindow: UIWindow {
                         traitCollection: UITraitCollection.iPad.fullScreen)
                     
                     public static let half = Presentation(
-                        name: "iPad_9.7_Landscape_SplitView_1:2",
+                        name: "iPad_9.7_Landscape_SplitView_1_2",
                         size: CGSize.iPad.Pro9_7.rotated.splitViewHalf,
                         traitCollection: UITraitCollection.iPad.splitHalf)
                     
                     public static let twoThird = Presentation(
-                        name: "iPad_9.7_Landscape_SplitView_2:3",
+                        name: "iPad_9.7_Landscape_SplitView_2_3",
                         size: CGSize.iPad.Pro9_7.rotated.splitViewTwoThirds,
                         traitCollection: UITraitCollection.iPad.splitTwoThirds)
                     
                     public static let oneThird = Presentation(
-                        name: "iPad_9.7_Landscape_SplitView_1:3",
+                        name: "iPad_9.7_Landscape_SplitView_1_3",
                         size: CGSize.iPad.Pro9_7.rotated.splitViewOneThird,
                         traitCollection: UITraitCollection.iPad.splitHalf)
                 }

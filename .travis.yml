@@ -1,0 +1,21 @@
+language: swift
+osx_image: xcode9.1
+xcode_workspace: PlayerControls
+
+branches:
+ only:
+ - travis-integration
+
+before_install:
+- bundle install
+- brew update
+- brew install sourcery
+- brew install carthage
+- cd Demo
+- carthage update --platform iOS
+- brew cask install fastlane
+- cd ..
+
+script:
+- fastlane verify
+- bundle exec danger --verbose
