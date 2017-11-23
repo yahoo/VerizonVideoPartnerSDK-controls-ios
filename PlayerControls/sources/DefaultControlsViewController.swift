@@ -205,6 +205,67 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         airPlayView.isHidden = uiProps.airplayButtonHidden
     }
     
+    //Code below makes expected layout on all devices, including iPhone X without changes in interface in xib file, which can be made only without iOS 8 support.
+    public override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        let statusBarSpacing: CGFloat = 20.0
+        
+        if #available(iOS 11, *) {
+            let guide = view.safeAreaLayoutGuide
+            controlsView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+            controlsView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+            controlsView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+            controlsView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+            
+            shadowView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            shadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            shadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            
+            liveIndicationView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 10).isActive = true
+            liveIndicationView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10).isActive = true
+            
+            visibleControlsSubtitlesConstraint.constant = controlsView.isHidden
+                ? 30 + view.safeAreaInsets.bottom
+                : 110 + view.safeAreaInsets.bottom
+        } else if #available(iOS 9, *) {
+            controlsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            controlsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            controlsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            controlsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            
+            shadowView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        } else {
+            NSLayoutConstraint(item: controlsView, attribute: .top, relatedBy: .equal, toItem: view,
+                               attribute: .top, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: controlsView, attribute: .bottom, relatedBy: .equal, toItem: view,
+                               attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: controlsView, attribute: .leading, relatedBy: .equal, toItem: view,
+                               attribute: .leading, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: controlsView, attribute: .trailing, relatedBy: .equal, toItem: view,
+                               attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+            
+            NSLayoutConstraint(item: shadowView, attribute: .top, relatedBy: .equal, toItem: view,
+                               attribute: .top, multiplier: 1, constant: 0).isActive = true
+            
+            NSLayoutConstraint(item: liveIndicationView, attribute: .top, relatedBy: .equal, toItem: view,
+                               attribute: .top, multiplier: 1, constant: statusBarSpacing).isActive = true
+        }
+        
+    }
+    
+    ///Method that hides or shows iPhone X home indicator based on controlsView hidden status.
+    @available(iOS 11.0, *)
+    override public func prefersHomeIndicatorAutoHidden() -> Bool
+    {
+        if controlsView.isHidden {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     //swiftlint:enable function_body_length
     //swiftlint:enable cyclomatic_complexity
     
@@ -231,7 +292,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     func updateVisibilityController( //swiftlint:disable:this cyclomatic_complexity
         from old: ContentControlsViewController.Props,
-             to new: ContentControlsViewController.Props) {
+        to new: ContentControlsViewController.Props) {
         
         func isVideoPlaying(for props: ContentControlsViewController.Props) -> Bool {
             guard case .player(let player) = props else { return false }
@@ -281,7 +342,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func pauseButtonTouched() {
         uiProps.pauseButtonAction()
-		onUserInteraction?()
+        onUserInteraction?()
     }
     
     @IBAction private func replayButtonTouched() {
@@ -301,17 +362,17 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     private func startSeek(from progress: CGFloat) {
         uiProps.startSeekAction(.init(progress))
-		onUserInteraction?()
+        onUserInteraction?()
     }
     
     private func updateSeek(to progress: CGFloat) {
         uiProps.updateSeekAction(.init(progress))
-		onUserInteraction?()
+        onUserInteraction?()
     }
     
     private func stopSeek(at progress: CGFloat) {
         uiProps.stopSeekAction(.init(progress))
-		onUserInteraction?()
+        onUserInteraction?()
     }
     
     @IBAction private func seekForwardButtonTouched() {
