@@ -7,7 +7,6 @@ branches:
  - travis-integration
 
 before_install:
-- bundle install
 - brew update
 - brew install sourcery
 - brew install carthage
@@ -18,4 +17,3 @@ before_install:
 
 script:
 - fastlane verify
-- bundle exec danger --verbose

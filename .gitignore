@@ -55,7 +55,7 @@ Demo/Carthage/Checkouts
 
 Demo/Carthage/Build
 
-Demo/FailureDifferences
+Demo/Tests/FailureDifferences
 
 # fastlane
 #
