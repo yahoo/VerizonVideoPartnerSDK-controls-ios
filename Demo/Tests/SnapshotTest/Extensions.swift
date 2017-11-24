@@ -24,7 +24,7 @@ extension UITraitCollection {
         }
     }
     enum iPad {
-        static let fullScreen = UITraitCollection(
+        static let regular = UITraitCollection(
             traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
                          UITraitCollection(horizontalSizeClass: .regular),
                          UITraitCollection(verticalSizeClass: .regular),])
@@ -32,18 +32,10 @@ extension UITraitCollection {
             traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
                          UITraitCollection(horizontalSizeClass: .regular),
                          UITraitCollection(verticalSizeClass: .compact),])
-        static let splitTwoThirds = UITraitCollection(
-            traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
-                         UITraitCollection(horizontalSizeClass: .regular),
-                         UITraitCollection(verticalSizeClass: .regular),])
         static let splitHalf = UITraitCollection(
             traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
                          UITraitCollection(horizontalSizeClass: .compact),
                          UITraitCollection(verticalSizeClass: .compact),])
-        static let splitHalfFor12_9 = UITraitCollection(
-            traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
-                         UITraitCollection(horizontalSizeClass: .regular),
-                         UITraitCollection(verticalSizeClass: .regular),])
     }
 }
 
@@ -77,9 +69,9 @@ extension CGSize {
     }
 }
 
-extension CGRect {
-    static func getCGRect(from size: CGSize) -> CGRect {
-        return CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+extension CGSize{
+    var asRect: CGRect {
+        return CGRect(x: 0, y: 0, width: width, height: height)
     }
 }
 
