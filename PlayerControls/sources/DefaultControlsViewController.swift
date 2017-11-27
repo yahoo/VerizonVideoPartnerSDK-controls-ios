@@ -78,6 +78,15 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        setupAirPlayCurrentVisibility()
+        NotificationCenter.default.addObserver(self, selector: #selector(setupAirPlayCurrentVisibility), name: .MPVolumeViewWirelessRoutesAvailableDidChange, object: nil)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         seekerView.callbacks.onDragStarted = { [unowned self] value in
@@ -146,9 +155,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
         airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
         airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
-        subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden 
-        subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden && uiProps.pipButtonHidden
-        subtitlesPipTrailingConstrains.isActive = uiProps.airplayButtonHidden
+
+        setupAirPlayCurrentVisibility()
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         
@@ -272,6 +280,15 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         onTapEvent = visibilityController.tap
         onPlayEvent = visibilityController.play
         onPauseEvent = visibilityController.pause
+    }
+    
+    func setupAirPlayCurrentVisibility() {
+        airPlayView.isHidden = !uiProps.airplayButtonHidden && airPlayView.volumeView.areWirelessRoutesAvailable
+            ? false
+            : true
+        subtitlesAirplayTrailingConstrains.isActive = !airPlayView.isHidden
+        subtitlesEdgeTrailingConstrains.isActive = airPlayView.isHidden && uiProps.pipButtonHidden
+        subtitlesPipTrailingConstrains.isActive = airPlayView.isHidden
     }
     
     @IBAction private func playButtonTouched() {
