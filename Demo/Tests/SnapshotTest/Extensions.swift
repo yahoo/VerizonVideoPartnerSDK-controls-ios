@@ -1,42 +1,79 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
 
-extension UITraitCollection {
-    enum iPhone {
-        enum iPhoneRegular {
-            static let portrait = UITraitCollection(
-                traitsFrom: [UITraitCollection(userInterfaceIdiom: .phone),
-                             UITraitCollection(verticalSizeClass: .regular),
-                             UITraitCollection(horizontalSizeClass: .compact)])
-            static let landscape = UITraitCollection(
-                traitsFrom: [UITraitCollection(userInterfaceIdiom: .phone),
-                             UITraitCollection(verticalSizeClass: .compact),
-                             UITraitCollection(horizontalSizeClass: .compact)])
-        }
-        enum iPhonePlus {
-            static let portrait = UITraitCollection(
-                traitsFrom: [UITraitCollection(userInterfaceIdiom: .phone),
-                             UITraitCollection(verticalSizeClass: .regular),
-                             UITraitCollection(horizontalSizeClass: .compact)])
-            static let landscape = UITraitCollection(
-                traitsFrom: [UITraitCollection(userInterfaceIdiom: .phone),
-                             UITraitCollection(verticalSizeClass: .compact),
-                             UITraitCollection(horizontalSizeClass: .regular)])
-        }
+import Foundation
+
+extension UITraitCollection: ExpressibleByArrayLiteral {
+    
+    public typealias ArrayLiteralElement = UITraitCollection
+    
+    public init(arrayLiteral elements: ArrayLiteralElement...){
+        self.init(traitsFrom: elements)
     }
-    enum iPad {
-        static let regular = UITraitCollection(
-            traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
-                         UITraitCollection(horizontalSizeClass: .regular),
-                         UITraitCollection(verticalSizeClass: .regular),])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
-                         UITraitCollection(horizontalSizeClass: .regular),
-                         UITraitCollection(verticalSizeClass: .compact),])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [UITraitCollection(userInterfaceIdiom: .pad),
-                         UITraitCollection(horizontalSizeClass: .compact),
-                         UITraitCollection(verticalSizeClass: .compact),])
+   
+     @available(iOS 10.0, *)
+    public enum interfaceIdiom {
+        public static let phone = UITraitCollection(userInterfaceIdiom: .phone)
+        public static let pad = UITraitCollection(userInterfaceIdiom: .pad)
+        public static let tv = UITraitCollection(userInterfaceIdiom: .tv)
+        public static let carPlay = UITraitCollection(userInterfaceIdiom: .carPlay)
     }
+    
+    @available(iOS 10.0, *)
+    public enum layoutDirection {
+        public static let leftToRight = UITraitCollection(layoutDirection: .leftToRight)
+        public static let rightToLeft = UITraitCollection(layoutDirection: .rightToLeft)
+        public static let unspecified = UITraitCollection(layoutDirection: .unspecified)
+    }
+    
+    public enum displayScale {
+        public static let retina = UITraitCollection(displayScale: 2.0)
+        public static let nonRetina = UITraitCollection(displayScale: 1.0)
+        public static let unspecified = UITraitCollection(displayScale: 0.0)
+    }
+    
+    public enum horizontalSizeClass {
+        public static let regular = UITraitCollection(horizontalSizeClass: .regular)
+        public static let compact = UITraitCollection(horizontalSizeClass: .compact)
+        public static let unspecified = UITraitCollection(horizontalSizeClass: .unspecified)
+    }
+    
+    public enum verticalSizeClass {
+         public static let regular = UITraitCollection(verticalSizeClass: .regular)
+         public static let compact = UITraitCollection(verticalSizeClass: .compact)
+         public static let unspecified = UITraitCollection(verticalSizeClass: .unspecified)
+    }
+    
+    @available(iOS 9.0, *)
+    public enum forceTouch {
+        public static let unavailable = UITraitCollection(forceTouchCapability: .unavailable)
+        public static let available = UITraitCollection(forceTouchCapability: .available)
+        public static let unknown = UITraitCollection(forceTouchCapability: .unknown)
+    }
+    
+    @available(iOS 10.0, *)
+    public enum contentSizeCategory {
+        public static let unspecified = UITraitCollection(preferredContentSizeCategory: .unspecified)
+        public static let extraSmall = UITraitCollection(preferredContentSizeCategory: .extraSmall)
+        public static let extraLarge = UITraitCollection(preferredContentSizeCategory: .extraLarge)
+        public static let small = UITraitCollection(preferredContentSizeCategory: .small)
+        public static let medium = UITraitCollection(preferredContentSizeCategory: .medium)
+        public static let large = UITraitCollection(preferredContentSizeCategory: .large)
+        public static let extraExtraSmall = UITraitCollection(preferredContentSizeCategory: .extraExtraLarge)
+        public static let extraExtraExtraLarge = UITraitCollection(preferredContentSizeCategory: .extraExtraExtraLarge)
+        public static let accessibilityMedium = UITraitCollection(preferredContentSizeCategory: .accessibilityMedium)
+        public static let accessibilityLarge = UITraitCollection(preferredContentSizeCategory: .accessibilityLarge)
+        public static let accessibilityExtraLarge = UITraitCollection(preferredContentSizeCategory: .accessibilityExtraLarge)
+        public static let accessibilityExtraExtraLarge = UITraitCollection(preferredContentSizeCategory: .accessibilityExtraExtraLarge)
+        public static let accessibilityExtraExtraExtraLarge = UITraitCollection(preferredContentSizeCategory: .accessibilityExtraExtraExtraLarge)
+    }
+    
+    @available(iOS 10.0, *)
+    public enum displayGamut {
+        public static let unspecified = UITraitCollection(displayGamut: .unspecified)
+        public static let SRGB = UITraitCollection(displayGamut: .SRGB)
+        public static let P3 = UITraitCollection(displayGamut: .P3)
+    }
+
 }
 
 extension CGSize {

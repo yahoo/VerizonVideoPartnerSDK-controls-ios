@@ -4,7 +4,7 @@ import FBSnapshotTestCase
 import UIKit
 
 public typealias iPhone = HostWindow.Presentation.iPhone
-public typealias iPad = HostWindow.Presentation.iPad
+//public typealias iPad = HostWindow.Presentation.iPad
 
 open class SnapshotTest: FBSnapshotTestCase {
     
