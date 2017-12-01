@@ -7,9 +7,10 @@ extension UITraitCollection {
     public enum Display {
         
         public enum Scale {
-            public static let retina = UITraitCollection(displayScale: 2.0)
-            public static let nonRetina = UITraitCollection(displayScale: 1.0)
-            public static let unspecified = UITraitCollection(displayScale: 0.0)
+            public static let x3 = UITraitCollection(displayScale: 3.0)
+            public static let x2 = UITraitCollection(displayScale: 2.0)
+            public static let x0 = UITraitCollection(displayScale: 0.0)
+            public static let x1 = UITraitCollection(displayScale: 1.0)
         }
         
         @available(iOS 10.0, *)
@@ -35,8 +36,6 @@ extension UITraitCollection {
         }
     }
     
-    
-    
     public enum Compability {
         @available(iOS 10.0, *)
         public enum displayGamut {
@@ -51,7 +50,6 @@ extension UITraitCollection {
             public static let available = UITraitCollection(forceTouchCapability: .available)
             public static let unknown = UITraitCollection(forceTouchCapability: .unknown)
         }
-        
     }
     
     public enum ContentCategory {
@@ -87,13 +85,13 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x1,
                              Compability.displayGamut.SRGB])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x1,
                              Compability.displayGamut.SRGB])
         }
         enum _6 {
@@ -101,13 +99,13 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB])
         }
         enum _6Plus {
@@ -115,13 +113,13 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.displayGamut.SRGB])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.displayGamut.SRGB])
         }
         enum _6S {
@@ -129,14 +127,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available,
                              Compability.displayGamut.SRGB])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available,
                              Compability.displayGamut.SRGB])
         }
@@ -145,14 +143,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.SRGB])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.SRGB])
         }
@@ -161,14 +159,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
         }
@@ -177,14 +175,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
         }
@@ -194,13 +192,13 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
         }
@@ -209,14 +207,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
         }
@@ -225,14 +223,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
             static let landscape = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x3,
                              Compability.forceTouch.available,
                              Compability.displayGamut.P3])
         }
@@ -246,21 +244,21 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitOneThird = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitHalf = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
         }
@@ -269,21 +267,21 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitOneThird = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitHalf = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
         }
@@ -293,21 +291,21 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitOneThird = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
             static let splitHalf = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.phone,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.P3,
                              Compability.forceTouch.unavailable])
         }
@@ -317,21 +315,21 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
             static let splitOneThird = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
             static let splitHalf = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
         }
@@ -340,7 +338,7 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
         }
@@ -349,7 +347,7 @@ extension UITraitCollection {
                     traitsFrom: [Display.interfaceIdiom.pad,
                                  Display.SizeClass.vertical.regular,
                                  Display.SizeClass.horizontal.regular,
-                                 Display.Scale.retina,
+                                 Display.Scale.x2,
                                  Compability.displayGamut.SRGB,
                                  Compability.forceTouch.unavailable])
         }
@@ -358,7 +356,7 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.nonRetina,
+                             Display.Scale.x1,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
         }
@@ -367,7 +365,7 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
         }
@@ -376,14 +374,14 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.regular,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
             static let splitOneThird = UITraitCollection(
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.regular,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable
                 ])
@@ -391,7 +389,7 @@ extension UITraitCollection {
                 traitsFrom: [Display.interfaceIdiom.pad,
                              Display.SizeClass.vertical.compact,
                              Display.SizeClass.horizontal.compact,
-                             Display.Scale.retina,
+                             Display.Scale.x2,
                              Compability.displayGamut.SRGB,
                              Compability.forceTouch.unavailable])
             
