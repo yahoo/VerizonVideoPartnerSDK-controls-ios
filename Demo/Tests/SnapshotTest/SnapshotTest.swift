@@ -3,9 +3,6 @@
 import FBSnapshotTestCase
 import UIKit
 
-public typealias iPhone = HostWindow.Presentation.iPhone
-//public typealias iPad = HostWindow.Presentation.iPad
-
 open class SnapshotTest: FBSnapshotTestCase {
     
     override open func setUp() {
@@ -14,9 +11,10 @@ open class SnapshotTest: FBSnapshotTestCase {
         recordMode = ProcessInfo.processInfo.environment["RECORD_MODE"] == "TRUE"
     }
     
+    @available(iOS 10.0, *)
     public func verify(
         _ controller: UIViewController,
-        for presentation: HostWindow.Presentation,
+        for presentation: Presentation,
         file: StaticString = #file,
         line: UInt = #line) {
         
