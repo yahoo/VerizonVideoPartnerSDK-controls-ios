@@ -46,34 +46,21 @@ import Foundation
         @available(*, unavailable, message:"Optional associated value is not supported yet")
     {%endif%}
     public var {{case.name}}: {% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType case %}{% else %}{% call associatedValueVarUnitType case %}{% endif %} {
-        get {
             guard case let .{{ case.name }}({{ case.name }}) = self else { return nil }
             return {{case.name}}
-        }
-        set {
-            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
-            /*Set self from the case has associated value or not*/
-            self = .{{ case.name }}({% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiSet case newValue %}{% else %}{% call associatedValueVarUnitSet case newValue %}{% endif %})
-        }
     }
 {% endmacro %}
 
 /*Creates Bool var with given simple case*/
 {% macro simpleVar case %}
     public var is{{ case.name|upperFirst }}: Bool {
-        get {
             guard case .{{ case.name }} = self else { return false }
             return true
-        }
-        set {
-            guard newValue else { fatalError("Setting false value forbidden") }
-            self = .{{ case.name }}
-        }
     }
 {% endmacro %}
 
 /*For each public enum with cases count > 0 is created extension with cases' prism vars*/
-{% for enum in types.enums where enum.cases.all.count > 0 and not enum.accessLevel == 'private' %}
+{% for enum in types.implementing.GeneratePrism|enum   %}
     public extension {{ enum.name }} {
         {% for case in enum.cases %}
             {% if case.hasAssociatedValue %}
