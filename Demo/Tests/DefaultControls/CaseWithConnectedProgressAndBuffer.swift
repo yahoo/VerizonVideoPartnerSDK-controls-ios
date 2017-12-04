@@ -5,6 +5,7 @@ import SnapshotTest
 @testable import PlayerControls
 
 
+@available(iOS 11.0, *)
 class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
     
     var controller: DefaultControlsViewController {
@@ -49,36 +50,35 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
     }
     
     func test() {
-        verify(controller, for: iPhone.X.portrait)
-        verify(controller, for: iPhone.X.landscapeLeft)
-        verify(controller, for: iPhone.X.landscapeRight)
+        verify(controller, for: Device.iPhone_X.portrait)
+        verify(controller, for: Device.iPhone_X.landscapeLeft)
+        verify(controller, for: Device.iPhone_X.landscapeRight)
         
-        verify(controller, for: iPhone.Eight.portrait)
+        verify(controller, for: Device.iPhone_8.portrait)
         
-        verify(controller, for: iPhone.EightPlus.landscape)
+        verify(controller, for: Device.iPhone_8Plus.landscape)
         
-        verify(controller, for: iPhone.SE.portrait)
-        verify(controller, for: iPhone.SE.landscape)
+        verify(controller, for: Device.iPhone_SE.portrait)
+        verify(controller, for: Device.iPhone_SE.landscape)
         
+        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro9_7.Portrait.twoThirds)
         
-        verify(controller, for: iPad.Pro9_7.Portrait.OneThirds)
-        verify(controller, for: iPad.Pro9_7.Portrait.TwoThirds)
+        verify(controller, for: Device.iPad_Pro9_7.Landscape.oneThird)
+        verify(controller, for: Device.iPad_Pro9_7.Landscape.twoThird)
+        verify(controller, for: Device.iPad_Pro9_7.Landscape.half)
         
-        verify(controller, for: iPad.Pro9_7.Landscape.oneThird)
-        verify(controller, for: iPad.Pro9_7.Landscape.twoThird)
-        verify(controller, for: iPad.Pro9_7.Landscape.half)
+        verify(controller, for: Device.iPad_Pro10_5.Landscape.half)
         
-        verify(controller, for: iPad.Pro10_5.Portrait.OneThirds)
-        
-        verify(controller, for: iPad.Pro12_9.Portrait.oneThirds)
+        verify(controller, for: Device.iPad_Pro12_9.Landscape.half)
     }
     
     func sideProps() -> [SideBarView.ButtonProps]{
         
         let shareIcons = SideBarView.ButtonProps.Icons(
-            normal: UIImage(named: "icon-share", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil)!,
+            normal: UIImage(named: "icon-share", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
             selected: nil,
-            highlighted: UIImage(named: "icon-share-active", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil))
+            highlighted: UIImage(named: "icon-share-active", in: Bundle(for: SideBarView.self), compatibleWith: nil))
         
         let share = SideBarView.ButtonProps(
             isEnabled: true,
@@ -87,9 +87,9 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
             handler: {})
         
         let addIcon = SideBarView.ButtonProps.Icons(
-            normal: UIImage(named: "icon-add", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil)!,
+            normal: UIImage(named: "icon-add", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
             selected: nil,
-            highlighted: UIImage(named: "icon-add-active", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil))
+            highlighted: UIImage(named: "icon-add-active", in: Bundle(for: SideBarView.self), compatibleWith: nil))
         
         let add = SideBarView.ButtonProps(
             isEnabled: true,
@@ -98,9 +98,9 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
             handler: {})
         
         let favoriteIcon = SideBarView.ButtonProps.Icons(
-            normal: UIImage(named: "icon-fav", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil)!,
+            normal: UIImage(named: "icon-fav", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
             selected: nil,
-            highlighted: UIImage(named: "icon-fav-active", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil))
+            highlighted: UIImage(named: "icon-fav-active", in: Bundle(for: SideBarView.self), compatibleWith: nil))
         
         let favorite = SideBarView.ButtonProps(
             isEnabled: true,
@@ -109,9 +109,9 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
             handler: {})
         
         let laterIcon = SideBarView.ButtonProps.Icons(
-            normal: UIImage(named: "icon-later", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil)!,
+            normal: UIImage(named: "icon-later", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
             selected: nil,
-            highlighted: UIImage(named: "icon-later-active", in: Bundle(identifier: "com.aol.one.PlayerControls"), compatibleWith: nil))
+            highlighted: UIImage(named: "icon-later-active", in: Bundle(for: SideBarView.self), compatibleWith: nil))
         
         let later = SideBarView.ButtonProps(
             isEnabled: true,

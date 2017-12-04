@@ -37,12 +37,12 @@ public enum Device {
         public static var portrait = Presentation.iPhone_8Plus.portrait
         public static var landscape = Presentation.iPhone_8Plus.landscape
     }
+    @available(iOS 11.0, *)
     public enum iPhone_X {
         public static var portrait = Presentation.iPhone_X.portrait
         public static var landscapeRight = Presentation.iPhone_X.landscapeRight
         public static var landscapeLeft = Presentation.iPhone_X.landscapeLeft
     }
-    
     public enum iPad_Pro12_9 {
         public enum Portrait{
             public static let fullScreen = Presentation.iPad_Pro12_9.Portrait.fullScreen
@@ -118,32 +118,6 @@ public enum Device {
             public static let oneThird = Presentation.iPad_mini2.Landscape.oneThird
         }
     }
-    public enum iPad_mini3 {
-        public enum Portrait{
-            public static let fullScreen = Presentation.iPad_mini3.Portrait.fullScreen
-            public static let twoThirds = Presentation.iPad_mini3.Portrait.twoThirds
-            public static let oneThird = Presentation.iPad_mini3.Portrait.oneThird
-        }
-        public enum Landscape {
-            public static let fullScreen = Presentation.iPad_mini3.Portrait.fullScreen
-            public static let half = Presentation.iPad_mini3.Landscape.half
-            public static let twoThird = Presentation.iPad_mini3.Landscape.twoThird
-            public static let oneThird = Presentation.iPad_mini3.Landscape.oneThird
-        }
-    }
-    public enum iPad_mini4 {
-        public enum Portrait{
-            public static let fullScreen = Presentation.iPad_mini4.Portrait.fullScreen
-            public static let twoThirds = Presentation.iPad_mini4.Portrait.twoThirds
-            public static let oneThird = Presentation.iPad_mini4.Portrait.oneThird
-        }
-        public enum Landscape {
-            public static let fullScreen = Presentation.iPad_mini4.Portrait.fullScreen
-            public static let half = Presentation.iPad_mini4.Landscape.half
-            public static let twoThird = Presentation.iPad_mini4.Landscape.twoThird
-            public static let oneThird = Presentation.iPad_mini4.Landscape.oneThird
-        }
-    }
 }
 
 @available(iOS 10.0, *)
@@ -160,15 +134,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_SE_Portrait",
                 size: CGSize.iPhone.SE,
-                traitCollection: UITraitCollection.iPhone_SE.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_SE.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_SE_Landscape",
                 size: CGSize.iPhone.SE.rotated,
-                traitCollection: UITraitCollection.iPhone_SE.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_SE.landscape)
         }
     }
     public enum iPhone_6 {
@@ -176,15 +148,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_6_Portrait",
                 size: CGSize.iPhone.Eight,
-                traitCollection: UITraitCollection.iPhone_6.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_6_Landscape_Left",
                 size: CGSize.iPhone.Eight.rotated,
-                traitCollection: UITraitCollection.iPhone_6.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6.landscape)
         }
     }
     public enum iPhone_6Plus {
@@ -192,15 +162,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone6Plus_Portrait",
                 size: CGSize.iPhone.EightPlus,
-                traitCollection: UITraitCollection.iPhone_6Plus.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6Plus.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_6Plus_Landscape_Left",
                 size: CGSize.iPhone.EightPlus.rotated,
-                traitCollection: UITraitCollection.iPhone_6Plus.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6Plus.landscape)
         }
     }
     public enum iPhone_6S {
@@ -208,15 +176,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_6S_Portrait",
                 size: CGSize.iPhone.Eight,
-                traitCollection: UITraitCollection.iPhone_6S.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6S.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_6S_Landscape_Left",
                 size: CGSize.iPhone.Eight.rotated,
-                traitCollection: UITraitCollection.iPhone_6S.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6S.landscape)
         }
     }
     public enum iPhone_6SPlus {
@@ -224,15 +190,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_6SPlus_Portrait",
                 size: CGSize.iPhone.EightPlus,
-                traitCollection: UITraitCollection.iPhone_6SPlus.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6SPlus.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_6SPlus_Landscape_Left",
                 size: CGSize.iPhone.EightPlus.rotated,
-                traitCollection: UITraitCollection.iPhone_6SPlus.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_6SPlus.landscape)
         }
     }
     public enum iPhone_7 {
@@ -240,15 +204,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_7_Portrait",
                 size: CGSize.iPhone.Eight,
-                traitCollection: UITraitCollection.iPhone_7.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_7.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_7_Landscape_Left",
                 size: CGSize.iPhone.Eight.rotated,
-                traitCollection: UITraitCollection.iPhone_7.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_7.landscape)
         }
     }
     public enum iPhone_7Plus {
@@ -256,15 +218,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_7Plus_Portrait",
                 size: CGSize.iPhone.EightPlus,
-                traitCollection: UITraitCollection.iPhone_7Plus.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_7Plus.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_7Plus_Landscape_Left",
                 size: CGSize.iPhone.EightPlus.rotated,
-                traitCollection: UITraitCollection.iPhone_7Plus.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_7Plus.landscape)
         }
     }
     public enum iPhone_8 {
@@ -272,15 +232,13 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_8_Portrait",
                 size: CGSize.iPhone.Eight,
-                traitCollection: UITraitCollection.iPhone_8.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_8.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_8_Landscape",
                 size: CGSize.iPhone.Eight.rotated,
-                traitCollection: UITraitCollection.iPhone_8.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_8.landscape)
         }
         
     }
@@ -289,17 +247,16 @@ public struct Presentation {
             return Presentation(
                 name: "iPhone_8_Plus_Portrait",
                 size: CGSize.iPhone.EightPlus,
-                traitCollection: UITraitCollection.iPhone_8Plus.portrait,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_8Plus.portrait)
         }
         public static var landscape: Presentation {
             return Presentation(
                 name: "iPhone_8_Plus_Landscape",
                 size: CGSize.iPhone.EightPlus.rotated,
-                traitCollection: UITraitCollection.iPhone_8Plus.landscape,
-                mask: nil)
+                traitCollection: UITraitCollection.iPhone_8Plus.landscape)
         }
     }
+    @available(iOS 11.0, *)
     public enum iPhone_X {
         public static var portrait: Presentation {
             return Presentation(
@@ -525,84 +482,6 @@ public struct Presentation {
                 traitCollection: UITraitCollection.iPad_mini2.splitHalf)
         }
     }
-    public enum iPad_mini3 {
-        public enum Portrait {
-            public static let fullScreen = Presentation(
-                name: "iPad_mini3_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_mini3.regular)
-            
-            public static let twoThirds = Presentation(
-                name: "iPad_mini3_Portrait_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini3.regular)
-            
-            public static let oneThird = Presentation(
-                name: "iPad_mini3_Portrait_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini3.splitOneThird)
-        }
-        public enum Landscape {
-            public static let fullScreen = Presentation(
-                name: "iPad_mini3_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_mini3.regular)
-            
-            public static let half = Presentation(
-                name: "iPad_mini3_Landscape_SplitView_1_2",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_mini3.splitHalf)
-            
-            public static let twoThird = Presentation(
-                name: "iPad_mini3_Landscape_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini3.regular)
-            
-            public static let oneThird = Presentation(
-                name: "iPad_mini3_Landscape_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini3.splitHalf)
-        }
-    }
-    public enum iPad_mini4 {
-        public enum Portrait {
-            public static let fullScreen = Presentation(
-                name: "iPad_mini2_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_mini4.regular)
-            
-            public static let twoThirds = Presentation(
-                name: "iPad_mini4_Portrait_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini4.regular)
-            
-            public static let oneThird = Presentation(
-                name: "iPad_mini4_Portrait_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini4.splitOneThird)
-        }
-        public enum Landscape {
-            public static let fullScreen = Presentation(
-                name: "iPad_mini4_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_mini4.regular)
-            
-            public static let half = Presentation(
-                name: "iPad_mini4_Landscape_SplitView_1_2",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_mini4.splitHalf)
-            
-            public static let twoThird = Presentation(
-                name: "iPad_mini4_Landscape_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini4.regular)
-            
-            public static let oneThird = Presentation(
-                name: "iPad_mini4_Landscape_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini4.splitHalf)
-        }
-    }
     public enum iPad_5thGen {
         public enum Portrait {
             public static let fullScreen = Presentation(
@@ -643,7 +522,7 @@ public struct Presentation {
         }
     }
     
-    private init(name: String, size: CGSize, traitCollection: UITraitCollection, mask: UIView? = nil){
+    init(name: String, size: CGSize, traitCollection: UITraitCollection, mask: UIView? = nil){
         self.name = name
         self.size = size
         self.traitCollection = traitCollection

@@ -1,14 +1,13 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-
-import Foundation
+//  This file contains all possible specifications for all iOS devices available for this moment, including size, trait collection and masks for iPhone X.
 
 extension UITraitCollection {
     public enum Display {
         public enum Scale {
             public static let x3 = UITraitCollection(displayScale: 3.0)
             public static let x2 = UITraitCollection(displayScale: 2.0)
-            public static let x0 = UITraitCollection(displayScale: 0.0)
             public static let x1 = UITraitCollection(displayScale: 1.0)
+            public static let x0 = UITraitCollection(displayScale: 0.0)
         }
         
         
@@ -277,15 +276,13 @@ extension UITraitCollection {
                          Display.SizeClass.Vertical.regular,
                          Display.SizeClass.Horizontal.regular,
                          Display.Scale.x2,
-                         Compability.DisplayGamut.P3,
-                         Compability.ForceTouch.unavailable])
+                         Compability.DisplayGamut.P3])
         static let splitOneThird = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
                          Display.SizeClass.Horizontal.regular,
                          Display.Scale.x2,
-                         Compability.DisplayGamut.P3,
-                         Compability.ForceTouch.unavailable])
+                         Compability.DisplayGamut.P3])
         static let splitHalf = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
@@ -293,7 +290,6 @@ extension UITraitCollection {
                          Display.Scale.x2,
                          Compability.DisplayGamut.P3])
     }
-    @available(iOS 10.0, *)
     enum iPad_Air {
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
@@ -311,7 +307,6 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
-    @available(iOS 10.0, *)
     enum iPad_Air2 {
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
@@ -329,7 +324,6 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
-    @available(iOS 10.0, *)
     enum iPad_5thGen{
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
@@ -347,7 +341,6 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
-    @available(iOS 10.0, *)
     enum iPad_mini {
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
@@ -355,7 +348,6 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.regular,
                          Display.Scale.x2])
     }
-
     enum iPad_mini2 {
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
@@ -373,7 +365,6 @@ extension UITraitCollection {
                          Display.SizeClass.Vertical.compact,
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
-        
     }
 }
 

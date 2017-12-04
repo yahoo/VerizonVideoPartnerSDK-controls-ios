@@ -5,6 +5,7 @@ import SnapshotTest
 @testable import PlayerControls
 
 
+@available(iOS 11.0, *)
 class CaseSeekbarWithFullProgress: SnapshotTest  {
     
     var controller: DefaultControlsViewController {
@@ -38,10 +39,10 @@ class CaseSeekbarWithFullProgress: SnapshotTest  {
     }
     
     func test() {
-        verify(controller, for: iPhone.X.portrait)
+        verify(controller, for: Device.iPhone_X.portrait)
         
-        verify(controller, for: iPhone.X.landscapeRight)
+        verify(controller, for: Device.iPhone_X.landscapeRight)
         
-        verify(controller, for: iPad.Pro9_7.Portrait.fullScreen)
+        verify(controller, for: Device.iPad_Pro9_7.Portrait.fullScreen)
     }
 }

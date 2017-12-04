@@ -5,6 +5,7 @@ import SnapshotTest
 @testable import PlayerControls
 
 
+@available(iOS 11.0, *)
 class CaseWithPlayTimeIsNotLoading: SnapshotTest {
     
     var controller: AdVideoControls {
@@ -17,13 +18,12 @@ class CaseWithPlayTimeIsNotLoading: SnapshotTest {
                 currentValue: 0.5),
             tapAction: nop,
             isLoading: false)
-        
         return controller
     }
     
     func test() {
-        verify(controller, for: iPhone.X.landscapeRight)
+        verify(controller, for: Device.iPhone_X.landscapeRight)
         
-        verify(controller, for: iPad.Pro12_9.Landscape.fullScreen)
+        verify(controller, for: Device.iPad_Pro12_9.Landscape.fullScreen)
     }
 }

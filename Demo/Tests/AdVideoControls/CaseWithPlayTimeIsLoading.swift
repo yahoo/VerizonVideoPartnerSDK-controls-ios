@@ -5,6 +5,7 @@ import SnapshotTest
 @testable import PlayerControls
 
 
+@available(iOS 11.0, *)
 class CaseWithPlayTimeIsLoading: SnapshotTest {
     
     var controller: AdVideoControls {
@@ -15,15 +16,14 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
             seeker: AdVideoControls.Props.Seeker(remainingPlayTime: "0:00", currentValue: 1),
             tapAction: nop,
             isLoading: true)
-        
         return controller
     }
     
     func test() {
-        verify(controller, for: iPhone.X.portrait)
-        verify(controller, for: iPhone.X.landscapeLeft)
+        verify(controller, for: Device.iPhone_X.portrait)
+        verify(controller, for: Device.iPhone_X.landscapeLeft)
         
-        verify(controller, for: iPad.Pro9_7.Portrait.OneThirds)
+        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
     }
 }
 

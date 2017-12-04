@@ -3,16 +3,19 @@
 import FBSnapshotTestCase
 import UIKit
 
+///The base class of view snapshotting tests on all possible screens. By default, you have to create schemes for testing and for record. Both of them must contain enviroment arguments with paths to save images and with a value that indicates the record mode state ("RECORD_MODE" by default). For your own implementation of setting record mode true or false, override the setUp method and design your own way of running tests.
 open class SnapshotTest: FBSnapshotTestCase {
     
+    ///Settings for snapshot testing.
     override open func setUp() {
         super.setUp()
         isDeviceAgnostic = false
         recordMode = ProcessInfo.processInfo.environment["RECORD_MODE"] == "TRUE"
     }
     
+    ///Verifies your snapshots with specified controller, whose view you're going to test and a device with its parameteres.
     @available(iOS 10.0, *)
-    public func verify(
+    public final func verify(
         _ controller: UIViewController,
         for presentation: Presentation,
         file: StaticString = #file,
@@ -23,6 +26,44 @@ open class SnapshotTest: FBSnapshotTestCase {
         
         window.rootViewController = controller
         window.makeKeyAndVisible()
+        
         FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
+    }
+    
+    ///Verifies your snapshots with specified view and device with its parameteres (controller is a UIViewController).
+    @available(iOS 10.0, *)
+    public final func verify(
+        _ view: UIView,
+        for presentation: Presentation,
+        file: StaticString = #file,
+        line: UInt = #line) {
+        
+        let controller = UIViewController()
+        controller.view.addSubview(view)
+        
+        let window = HostWindow(presentation: presentation)
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+        
+        FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
+    }
+    
+    ///Verifies your snapshots with specified view and with custom size of the window.
+    @available(iOS 10.0, *)
+    public final func verify(
+        _ view: UIView,
+        height: Int,
+        width: Int,
+        file: StaticString = #file,
+        line: UInt = #line) {
+
+        let controller = UIViewController()
+        controller.view.addSubview(view)
+        
+        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+        
+        FBSnapshotVerifyView(window, identifier: "customSize(\(width)x\(height)", suffixes: [""], file: file, line: line)
     }
 }
