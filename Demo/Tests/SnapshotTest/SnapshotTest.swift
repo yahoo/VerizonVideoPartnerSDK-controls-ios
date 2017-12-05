@@ -18,10 +18,11 @@ open class SnapshotTest: FBSnapshotTestCase {
     public final func verify(
         _ controller: UIViewController,
         for presentation: Presentation,
+        with context: Context = Context(),
         file: StaticString = #file,
         line: UInt = #line) {
         
-        let window = HostWindow(presentation: presentation)
+        let window = HostWindow(presentation: presentation, context: context)
         controller.view.backgroundColor = .red 
         
         window.rootViewController = controller
@@ -35,35 +36,37 @@ open class SnapshotTest: FBSnapshotTestCase {
     public final func verify(
         _ view: UIView,
         for presentation: Presentation,
+        with context: Context = Context(),
         file: StaticString = #file,
         line: UInt = #line) {
-        
+
         let controller = UIViewController()
         controller.view.addSubview(view)
-        
+
         let window = HostWindow(presentation: presentation)
         window.rootViewController = controller
         window.makeKeyAndVisible()
-        
+
         FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
     }
-    
+
     ///Verifies your snapshots with specified view and with custom size of the window.
     @available(iOS 10.0, *)
     public final func verify(
         _ view: UIView,
         height: Int,
         width: Int,
+        with context: Context = Context(),
         file: StaticString = #file,
         line: UInt = #line) {
 
         let controller = UIViewController()
         controller.view.addSubview(view)
-        
+
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: width, height: height))
         window.rootViewController = controller
         window.makeKeyAndVisible()
-        
+
         FBSnapshotVerifyView(window, identifier: "customSize(\(width)x\(height)", suffixes: [""], file: file, line: line)
     }
 }

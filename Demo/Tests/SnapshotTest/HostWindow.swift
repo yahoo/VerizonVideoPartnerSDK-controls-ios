@@ -13,7 +13,6 @@ public class HostWindow: UIWindow {
         return traits
     }
     
-    
     public init(presentation: Presentation, context: Context = .init()) {
         self.presentation = presentation
         self.traits = UITraitCollection(traitsFrom: [presentation.traitCollection, context.getTraits()])
@@ -22,17 +21,24 @@ public class HostWindow: UIWindow {
         self.mask?.frame = self.bounds
     }
     
-    public struct Context {
-        var layoutDirection = UITraitEnvironmentLayoutDirection.unspecified
-        var contentSizeCategory = UIContentSizeCategory.unspecified
-        
-        public func getTraits() -> UITraitCollection {
-            return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
-                                                  UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
-        }
-    }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+@available(iOS 10.0, *)
+public struct Context {
+    public var layoutDirection: UITraitEnvironmentLayoutDirection
+    public var contentSizeCategory: UIContentSizeCategory
+    
+    public init(layoutDirection: UITraitEnvironmentLayoutDirection = .unspecified, contentSizeCategory: UIContentSizeCategory = .unspecified) {
+        self.layoutDirection = layoutDirection
+        self.contentSizeCategory = contentSizeCategory
+    }
+    
+    public func getTraits() -> UITraitCollection {
+        return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
+                                              UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
     }
 }

@@ -48,6 +48,7 @@ extension UIView {
     func createImage(named name: String) -> UIImage {
         return UIImage(named: name,
                        in: Bundle(for: type(of: self)),
-                       compatibleWith: traitCollection)!
+                       compatibleWith: preferredTraitCollection
+            )!
     }
 }

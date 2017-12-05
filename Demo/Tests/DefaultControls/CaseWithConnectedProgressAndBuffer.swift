@@ -70,7 +70,9 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
         
         verify(controller, for: Device.iPad_Pro10_5.Landscape.half)
         
-        verify(controller, for: Device.iPad_Pro12_9.Landscape.half)
+        verify(controller, for: Device.iPad_Pro12_9.Landscape.half, with: Context(
+            layoutDirection: .leftToRight,
+            contentSizeCategory: .extraLarge))
     }
     
     func sideProps() -> [SideBarView.ButtonProps]{
