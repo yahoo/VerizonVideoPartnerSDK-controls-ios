@@ -19,7 +19,7 @@ open class ContentControlsViewController: UIViewController {
     
     public enum Props: Prism {
         case noPlayer
-
+        
         case player(Player)
         
         case pictureInPicture
@@ -27,12 +27,13 @@ open class ContentControlsViewController: UIViewController {
         public struct Player {
             public var playlist: Playlist?
             public struct Playlist {
-                public var next: Action<Void>?
-                public var prev: Action<Void>?
+                public var next: Command?
+                public var prev: Command?
                 public init() { }
             }
-
+            
             public var item = Item.nonplayable("")
+            
             public enum Item: Prism {
                 case playable(Controls)
                 case nonplayable(String)
@@ -51,9 +52,9 @@ extension ContentControlsViewController.Props.Player.Item {
         public var playbackAction: Playback = .none
         public enum Playback: Prism {
             case none
-            case play(Action<Void>)
-            case pause(Action<Void>)
-            case replay(Action<Void>)
+            case play(CommandWith<Void>)
+            case pause(CommandWith<Void>)
+            case replay(CommandWith<Void>)
         }
         
         public var live = Live()
@@ -75,13 +76,13 @@ extension ContentControlsViewController.Props.Player.Item {
             public var seeker = Seeker()
             
             public struct Seeker {
-                public var seekTo: Action<Seconds>?
+                public var seekTo: CommandWith<Seconds>?
                 
                 public var state = State()
                 public struct State {
-                    public var start: Action<Progress> = nop
-                    public var update: Action<Progress> = nop
-                    public var stop: Action<Progress> = nop
+                    public var start: CommandWith<Progress> = .nop
+                    public var update: CommandWith<Progress> = .nop
+                    public var stop: CommandWith<Progress> = .nop
                     public init() { }
                 }
                 public init() { }
@@ -104,7 +105,7 @@ extension ContentControlsViewController.Props.Player.Item {
             }
             
             public var angles = Angles()
-            public var moveTo: Action<Angles> = nop
+            public var moveTo: CommandWith<Angles> = .nop
             public init() { }
         }
         
@@ -115,12 +116,13 @@ extension ContentControlsViewController.Props.Player.Item {
             case image(UIImage)
         }
         
+        
         public var sideBarViewHidden = true
         
         public var error: Error?
         public struct Error {
             public var message = ""
-            public var retryAction: Action<Void>?
+            public var retryCommand: CommandWith<Void>?
             public init() { }
         }
         
@@ -128,7 +130,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public enum PictureInPictureControl: Prism {
             case unsupported
             case impossible
-            case possible(Action<Void>)
+            case possible(Command)
         }
         
         public enum Subtitles: Prism {
@@ -150,7 +152,7 @@ extension ContentControlsViewController.Props.Player.Item {
             public struct Option {
                 public var name = ""
                 public var selected = false
-                public var select: Action<Void> = nop
+                public var select: Command? = Command.nop
                 public init() { }
             }
             
@@ -163,7 +165,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public enum Settings: Prism {
             case hidden
             case disabled
-            case enabled(Action<Void>)
+            case enabled(Command)
         }
         public var settings: Settings = .disabled
         

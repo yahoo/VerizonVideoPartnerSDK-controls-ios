@@ -3,11 +3,11 @@
 import Foundation
 
 public class ControlsPresentationController {
-    struct Timer { let start, stop: Action<Void> }
+    struct Timer { let start, stop: Command }
     public struct Controls {
-        let show, hide: Action<Void>
+        let show, hide: Command
         
-        public init(show: @escaping Action<Void>, hide: @escaping Action<Void>) {
+        public init(show: Command, hide: Command) {
             self.show = show
             self.hide = hide
         }
@@ -26,52 +26,51 @@ public class ControlsPresentationController {
         
         /// We need this indirection to allow swift avoid
         // circullar dependency between timer and controller.
-        var fire: (() -> ())?
+        var fire: Command?
         
         let internalTimer = Timer(
-            start: {
+            start: Command {
                 timer?.cancel()
-                timer = PlayerControls.Timer(duration: 3) { fire?() }
-        },
-            stop: {
+                timer = PlayerControls.Timer(duration: 3, fire: fire)}
+        ,
+            stop:  Command {
                 timer?.cancel()
         })
         
-        
         self.init(controls: controls, timer: internalTimer)
+        fire = .init { [weak self] in self?.timerFired() }
         
-        fire = { [weak self] in self?.timerFired() }
         
         // At the end. self -> Timer -> OneMobileSDK.Timer -> [weak self]
         // No retain cycle here.
     }
     
-    public func tap() { behavior(.tap) }
-    public func timerFired() { behavior(.timerFired) }
-    public func play() { behavior(.play) }
-    public func pause() { behavior(.pause) }
-    public func resetTimer() { behavior(.resetTimer) }
+    public func tap() { behavior.perform(with: .tap) }
+    public func timerFired() { behavior.perform(with: .timerFired) }
+    public func play() { behavior.perform(with: .play) }
+    public func pause() { behavior.perform(with: .pause) }
+    public func resetTimer() { behavior.perform(with: .resetTimer) }
     
     private enum Message {
         case tap, timerFired, play, pause, resetTimer
     }
     
-    private var behavior: Action<Message> = { fatalError("Unhandled message: \($0)") }
+    private var behavior: CommandWith<Message> = CommandWith(action: { fatalError("Unhandled message: \($0)") })
     
     private func start() {
-        controls.show()
-        behavior = { [weak self] in self?.visiblePaused(by: $0) }
+        controls.show.perform()
+        behavior = CommandWith(action: { [weak self] in self?.visiblePaused(by: $0) })
     }
     
     private func visiblePaused(by message: Message) {
         switch message {
         case .tap:
-            controls.hide()
-            behavior = { [weak self] in self?.hiddenPaused(by: $0) }
+            controls.hide.perform()
+            behavior = CommandWith(action: { [weak self] in self?.hiddenPaused(by: $0) })
             
         case .play:
-            timer.start()
-            behavior = { [weak self] in self?.visiblePlaying(by: $0) }
+            timer.start.perform()
+            behavior = CommandWith(action: { [weak self] in self?.visiblePlaying(by: $0) })
             
         case .resetTimer: break
             
@@ -81,11 +80,11 @@ public class ControlsPresentationController {
     private func hiddenPaused(by message: Message) {
         switch message {
         case .tap:
-            controls.show()
-            behavior = { [weak self] in self?.visiblePaused(by: $0) } 
+            controls.show.perform()
+            behavior = CommandWith(action: { [weak self] in self?.visiblePaused(by: $0) })
             
         case .play:
-            behavior = { [weak self] in self?.hiddenPlaying(by: $0) }
+            behavior = CommandWith(action: { [weak self] in self?.hiddenPlaying(by: $0) })
             
         default: fatalError("Unhandled message: \(message)") }
     }
@@ -93,21 +92,21 @@ public class ControlsPresentationController {
     private func visiblePlaying(by message: Message) {
         switch message {
         case .tap:
-            timer.stop()
-            controls.hide()
-            behavior = { [weak self] in self?.hiddenPlaying(by: $0) }
+            timer.stop.perform()
+            controls.hide.perform()
+            behavior = CommandWith(action: { [weak self] in self?.hiddenPlaying(by: $0) })
             
         case .pause:
-            timer.stop()
-            behavior = { [weak self] in self?.visiblePaused(by: $0) }
+            timer.stop.perform()
+            behavior = CommandWith(action: { [weak self] in self?.visiblePaused(by: $0) })
             
         case .timerFired:
-            controls.hide()
-            behavior = { [weak self] in self?.hiddenPlaying(by: $0) }
+            controls.hide.perform()
+            behavior = CommandWith(action: { [weak self] in self?.hiddenPlaying(by: $0) })
             
         case .resetTimer:
-            timer.stop()
-            timer.start()
+            timer.stop.perform()
+            timer.start.perform()
             
         default: fatalError("Unhandled message: \(message)") }
     }
@@ -115,13 +114,13 @@ public class ControlsPresentationController {
     private func hiddenPlaying(by message: Message) {
         switch message {
         case .tap:
-            controls.show()
-            timer.start()
-            behavior = { [weak self] in self?.visiblePlaying(by: $0) }
+            controls.show.perform()
+            timer.start.perform()
+            behavior = CommandWith(action: { [weak self] in self?.visiblePlaying(by: $0) })
             
         case .pause:
-            controls.show()
-            behavior = { [weak self] in self?.visiblePaused(by: $0) }
+            controls.show.perform()
+            behavior = CommandWith(action: { [weak self] in self?.visiblePaused(by: $0) })
             
         case .resetTimer: break
             

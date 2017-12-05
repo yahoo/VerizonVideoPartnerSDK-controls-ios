@@ -48,13 +48,13 @@ public final class SideBarView: UIView {
         }
         
         /// Touch handler for button.
-        public var handler: Action<Void>
+        public var handler: Command
         
         /// Public constructor.
         public init(isEnabled: Bool,
                     isSelected: Bool,
                     icons: Icons,
-                    handler: @escaping Action<Void>) {
+                    handler: Command) {
             self.isEnabled = isEnabled
             self.isSelected = isSelected
             self.icons = icons
@@ -69,7 +69,7 @@ public final class SideBarView: UIView {
                 normal: UIImage(),
                 selected: nil,
                 highlighted: nil),
-            handler: {})
+            handler: .nop)
     }
     var buttons: [UIButton] = []
     
@@ -77,7 +77,7 @@ public final class SideBarView: UIView {
         guard let index = buttons.index(of: sender) else {
             fatalError("Not found button in array!")
         }
-        props[index].handler()
+        props[index].handler.perform()
     }
     
     var props: SideBarView.Props = [] {
@@ -175,3 +175,5 @@ extension SideBarView {
         return totalSpace / spacingCount
     }
 }
+
+

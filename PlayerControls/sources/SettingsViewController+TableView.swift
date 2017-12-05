@@ -82,7 +82,7 @@ extension SettingsViewController: UITableViewDelegate {
             fatalError("Cell not found!")
         }
         
-        cell.select()
+        cell.select.perform()
     }
 }
 

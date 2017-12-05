@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0696270D1FD188A50098494A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696270C1FD188A50098494A /* Command.swift */; };
 		50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */; };
 		50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F691E65C64B00B18908 /* ContentControlsViewController.swift */; };
 		50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F6A1E65C64B00B18908 /* DefaultControlsViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0696270C1FD188A50098494A /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		50582F5B1E65C41900B18908 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50582F5F1E65C41900B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentControlsUIProps.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				50582F731E65C79D00B18908 /* Utils.swift */,
+				0696270C1FD188A50098494A /* Command.swift */,
 				50582FB11E65DEF800B18908 /* Recorder.swift */,
 				50582FC31E67086000B18908 /* Defaultable.swift */,
 			);
@@ -434,6 +437,7 @@
 				DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */,
 				50582F811E65CA0F00B18908 /* AdVideoControls.swift in Sources */,
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
+				0696270D1FD188A50098494A /* Command.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
 				50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */,

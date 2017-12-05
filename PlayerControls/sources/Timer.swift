@@ -4,9 +4,9 @@ import Foundation
 
 public class Timer {
     private var timer: Foundation.Timer!
-    private let fire: Action<Void>
-    public init(duration: TimeInterval, fire: @escaping Action<Void>) {
-        self.fire = fire
+    private let fire: Command
+    public init(duration: TimeInterval, fire: Command?) {
+        self.fire = fire!
         self.timer = Foundation.Timer(timeInterval: duration,
                                       target: self,
                                       selector: #selector(onFire),
@@ -17,7 +17,7 @@ public class Timer {
     }
     
     @objc private func onFire() {
-        fire()
+        fire.perform()
     }
     
     func cancel() {
