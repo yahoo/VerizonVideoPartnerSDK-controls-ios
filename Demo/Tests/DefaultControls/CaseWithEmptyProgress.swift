@@ -10,6 +10,7 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
     
     var controller: DefaultControlsViewController {
         let controller = DefaultControlsViewController()
+        controller.view.backgroundColor = .red
         
         controller.props = DefaultControlsViewController.Props.player(
             DefaultControlsViewController.Props.Player { player in
@@ -57,14 +58,14 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         verify(controller, for: Device.iPhone_SE.portrait)
         verify(controller, for: Device.iPhone_SE.landscape)
         
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro9_7.Landscape.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Landscape.oneThird)
         
-        verify(controller, for: Device.iPad_Pro10_5.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro10_5.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro10.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro10.Portrait.oneThird)
         
-        verify(controller, for: Device.iPad_Pro12_9.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro12_9.Landscape.oneThird)
+        verify(controller, for: Device.iPad_Pro12.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro12.Landscape.oneThird)
     }
 }
 

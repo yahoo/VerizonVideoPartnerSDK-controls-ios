@@ -10,20 +10,21 @@ class CaseWithPlayTimeIsNotLoading: SnapshotTest {
     
     var controller: AdVideoControls {
         let controller = AdVideoControls()
+        controller.view.backgroundColor = .red
         
         controller.props = AdVideoControls.Props(
-            mainAction: AdVideoControls.Props.MainAction.pause(nop),
+            mainAction: AdVideoControls.Props.MainAction.pause(nop()),
             seeker: AdVideoControls.Props.Seeker(
                 remainingPlayTime: "9999:59",
                 currentValue: 0.5),
-            tapAction: nop,
-            isLoading: false)
+            tapAction: nop() ,
+            isLoading: false, airplayActiveViewHidden: false)
         return controller
     }
     
     func test() {
         verify(controller, for: Device.iPhone_X.landscapeRight)
         
-        verify(controller, for: Device.iPad_Pro12_9.Landscape.fullScreen)
+        verify(controller, for: Device.iPad_Pro12.Landscape.fullScreen)
     }
 }

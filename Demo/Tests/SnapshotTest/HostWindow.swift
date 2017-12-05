@@ -15,7 +15,7 @@ public class HostWindow: UIWindow {
     
     public init(presentation: Presentation, context: Context = .init()) {
         self.presentation = presentation
-        self.traits = UITraitCollection(traitsFrom: [presentation.traitCollection, context.getTraits()])
+        self.traits = UITraitCollection(traitsFrom: [presentation.traitCollection, context.traitCollection])
         super.init(frame: presentation.size.asRect)
         self.mask = presentation.mask
         self.mask?.frame = self.bounds
@@ -31,14 +31,14 @@ public class HostWindow: UIWindow {
 public struct Context {
     public var layoutDirection: UITraitEnvironmentLayoutDirection
     public var contentSizeCategory: UIContentSizeCategory
+    public var traitCollection: UITraitCollection {
+        return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
+                                              UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
+    }
     
     public init(layoutDirection: UITraitEnvironmentLayoutDirection = .unspecified, contentSizeCategory: UIContentSizeCategory = .unspecified) {
         self.layoutDirection = layoutDirection
         self.contentSizeCategory = contentSizeCategory
     }
     
-    public func getTraits() -> UITraitCollection {
-        return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
-                                              UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
-    }
 }

@@ -10,6 +10,7 @@ class CaseWithThumbnail: SnapshotTest{
     
     var controller: DefaultControlsViewController {
         let controller = DefaultControlsViewController()
+        controller.view.backgroundColor = .red
         
         controller.props = DefaultControlsViewController.Props.player(
             DefaultControlsViewController.Props.Player { player in
@@ -23,7 +24,7 @@ class CaseWithThumbnail: SnapshotTest{
                         controls.seekbar?.seeker.state.stop = nop
                         
                         controls.live.isHidden = false
-                        controls.live.dotColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                        controls.live.dotColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
                         controls.sideBarViewHidden = false
                         controls.playbackAction.isNone = true
                         
@@ -51,14 +52,14 @@ class CaseWithThumbnail: SnapshotTest{
         
         verify(controller, for: Device.iPhone_SE.portrait)
         
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.fullScreen)
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro9_7.Landscape.twoThird)
+        verify(controller, for: Device.iPad_Pro9.Portrait.fullScreen)
+        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Landscape.twoThird)
         
-        verify(controller, for: Device.iPad_Pro10_5.Portrait.twoThirds)
-        verify(controller, for: Device.iPad_Pro10_5.Landscape.oneThird)
+        verify(controller, for: Device.iPad_Pro10.Portrait.twoThirds)
+        verify(controller, for: Device.iPad_Pro10.Landscape.oneThird)
         
-        verify(controller, for: Device.iPad_Pro12_9.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro12_9.Landscape.fullScreen)
+        verify(controller, for: Device.iPad_Pro12.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro12.Landscape.fullScreen)
     }
 }

@@ -10,6 +10,7 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
     
     var controller: DefaultControlsViewController {
         let controller = DefaultControlsViewController()
+        controller.view.backgroundColor = .red
         
         controller.props = DefaultControlsViewController.Props.player(
             DefaultControlsViewController.Props.Player { player in
@@ -61,16 +62,16 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
         verify(controller, for: Device.iPhone_SE.portrait)
         verify(controller, for: Device.iPhone_SE.landscape)
         
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.twoThirds)
+        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Portrait.twoThirds)
         
-        verify(controller, for: Device.iPad_Pro9_7.Landscape.oneThird)
-        verify(controller, for: Device.iPad_Pro9_7.Landscape.twoThird)
-        verify(controller, for: Device.iPad_Pro9_7.Landscape.half)
+        verify(controller, for: Device.iPad_Pro9.Landscape.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Landscape.twoThird)
+        verify(controller, for: Device.iPad_Pro9.Landscape.half)
         
-        verify(controller, for: Device.iPad_Pro10_5.Landscape.half)
+        verify(controller, for: Device.iPad_Pro10.Landscape.half)
         
-        verify(controller, for: Device.iPad_Pro12_9.Landscape.half, with: Context(
+        verify(controller, for: Device.iPad_Pro12.Landscape.half, with: Context(
             layoutDirection: .leftToRight,
             contentSizeCategory: .extraLarge))
     }

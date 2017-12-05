@@ -10,12 +10,13 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
     
     var controller: AdVideoControls {
         let controller = AdVideoControls()
+        controller.view.backgroundColor = .red
         
         controller.props = AdVideoControls.Props(
             mainAction: AdVideoControls.Props.MainAction.play(nop),
             seeker: AdVideoControls.Props.Seeker(remainingPlayTime: "0:00", currentValue: 1),
             tapAction: nop,
-            isLoading: true)
+            isLoading: true, airplayActiveViewHidden: true)
         return controller
     }
     
@@ -23,7 +24,7 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
         verify(controller, for: Device.iPhone_X.portrait)
         verify(controller, for: Device.iPhone_X.landscapeLeft)
         
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.oneThird)
+        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
     }
 }
 

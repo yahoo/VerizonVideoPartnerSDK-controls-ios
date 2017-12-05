@@ -81,12 +81,12 @@ extension UITraitCollection {
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
                          Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x1])
+                         Display.Scale.x2])
         static let landscape = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
                          Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x1])
+                         Display.Scale.x2])
     }
     enum iPhone_6 {
         static let portrait = UITraitCollection(
@@ -97,7 +97,7 @@ extension UITraitCollection {
         static let landscape = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
+                         Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
     enum iPhone_6Plus {
@@ -123,7 +123,7 @@ extension UITraitCollection {
         static let landscape = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
+                         Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2,
                          Compability.ForceTouch.available])
     }
@@ -154,7 +154,7 @@ extension UITraitCollection {
         static let landscape = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
+                         Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2,
                          Compability.ForceTouch.available,
                          Compability.DisplayGamut.P3])
@@ -187,7 +187,7 @@ extension UITraitCollection {
         static let landscape = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
+                         Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2,
                          Compability.ForceTouch.available,
                          Compability.DisplayGamut.P3])
@@ -229,117 +229,265 @@ extension UITraitCollection {
     //MARK: Traits for all iPads
     @available(iOS 10.0, *)
     enum iPad_Pro9_7 {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+        }
     }
     @available(iOS 10.0, *)
     enum iPad_Pro10_5 {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2,
+                             Compability.DisplayGamut.P3])
+        }
     }
-    @available(iOS 10.0, *)
     enum iPad_Pro12_9 {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.phone,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2,
-                         Compability.DisplayGamut.P3])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+        }
     }
     enum iPad_Air {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
     }
     enum iPad_Air2 {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
     }
     enum iPad_5thGen{
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
     }
     enum iPad_mini {
         static let regular = UITraitCollection(
@@ -349,22 +497,45 @@ extension UITraitCollection {
                          Display.Scale.x2])
     }
     enum iPad_mini2 {
-        static let regular = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.regular,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2])
-        static let splitOneThird = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.regular,
-                         Display.Scale.x2
-            ])
-        static let splitHalf = UITraitCollection(
-            traitsFrom: [Display.InterfaceIdiom.pad,
-                         Display.SizeClass.Vertical.compact,
-                         Display.SizeClass.Horizontal.compact,
-                         Display.Scale.x2])
+        enum portrait {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
+        enum landscape {
+            static let regular = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.regular,
+                             Display.Scale.x2])
+            static let splitOneThird = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitTwoThirds = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+            static let splitHalf = UITraitCollection(
+                traitsFrom: [Display.InterfaceIdiom.pad,
+                             Display.SizeClass.Vertical.regular,
+                             Display.SizeClass.Horizontal.compact,
+                             Display.Scale.x2])
+        }
     }
 }
 
@@ -378,9 +549,9 @@ extension CGSize {
     }
     
     public enum iPad {
-        static let mini_air_Pro9_7 = CGSize(width: 768, height: 1024)
-        static let Pro10_5 = CGSize(width: 834, height: 1112)
-        static let Pro12_9 = CGSize(width: 1024, height: 1366)
+        static let mini_air_Pro9 = CGSize(width: 768, height: 1024)
+        static let Pro10 = CGSize(width: 834, height: 1112)
+        static let Pro12 = CGSize(width: 1024, height: 1366)
     }
     
     public enum Watch {

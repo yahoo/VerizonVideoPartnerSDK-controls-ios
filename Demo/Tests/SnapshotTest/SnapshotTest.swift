@@ -23,7 +23,6 @@ open class SnapshotTest: FBSnapshotTestCase {
         line: UInt = #line) {
         
         let window = HostWindow(presentation: presentation, context: context)
-        controller.view.backgroundColor = .red 
         
         window.rootViewController = controller
         window.makeKeyAndVisible()
@@ -59,14 +58,15 @@ open class SnapshotTest: FBSnapshotTestCase {
         with context: Context = Context(),
         file: StaticString = #file,
         line: UInt = #line) {
-
+        
         let controller = UIViewController()
-        controller.view.addSubview(view)
-
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        view.frame = window.bounds
+        controller.view.addSubview(view)
+        
         window.rootViewController = controller
         window.makeKeyAndVisible()
 
-        FBSnapshotVerifyView(window, identifier: "customSize(\(width)x\(height)", suffixes: [""], file: file, line: line)
+        FBSnapshotVerifyView(window, identifier: "customSize_\(width)x\(height)", suffixes: [""], file: file, line: line)
     }
 }

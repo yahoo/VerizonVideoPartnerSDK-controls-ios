@@ -1,5 +1,6 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
 
+///An enum that has all iOS devices. Choose device, its orientation and if you going to choose iPad, you have also to choose between one of the display modes.
 public enum Device {
     public enum iPhone_SE {
         public static var portrait = Presentation.iPhone_SE.portrait
@@ -43,45 +44,43 @@ public enum Device {
         public static var landscapeRight = Presentation.iPhone_X.landscapeRight
         public static var landscapeLeft = Presentation.iPhone_X.landscapeLeft
     }
-    public enum iPad_Pro12_9 {
+    public enum iPad_Pro12 {
         public enum Portrait{
-            public static let fullScreen = Presentation.iPad_Pro12_9.Portrait.fullScreen
-            public static let twoThirds = Presentation.iPad_Pro12_9.Portrait.twoThirds
-            public static let oneThird = Presentation.iPad_Pro12_9.Portrait.oneThird
+            public static let fullScreen = Presentation.iPad_Pro12.Portrait.fullScreen
+            public static let twoThirds = Presentation.iPad_Pro12.Portrait.twoThirds
+            public static let oneThird = Presentation.iPad_Pro12.Portrait.oneThird
         }
         public enum Landscape {
-            public static let fullScreen = Presentation.iPad_Pro12_9.Portrait.fullScreen
-            public static let half = Presentation.iPad_Pro12_9.Landscape.half
-            public static let twoThird = Presentation.iPad_Pro12_9.Landscape.twoThird
-            public static let oneThird = Presentation.iPad_Pro12_9.Landscape.oneThird
+            public static let fullScreen = Presentation.iPad_Pro12.Portrait.fullScreen
+            public static let half = Presentation.iPad_Pro12.Landscape.half
+            public static let twoThird = Presentation.iPad_Pro12.Landscape.twoThird
+            public static let oneThird = Presentation.iPad_Pro12.Landscape.oneThird
         }
     }
-    public enum iPad_Pro10_5 {
+    public enum iPad_Pro10 {
         public enum Portrait{
-            public static let fullScreen = Presentation.iPad_Pro10_5.Portrait.fullScreen
-            public static let twoThirds = Presentation.iPad_Pro10_5.Portrait.twoThirds
-            public static let oneThird = Presentation.iPad_Pro10_5.Portrait.oneThird
+            public static let fullScreen = Presentation.iPad_Pro10.Portrait.fullScreen
+            public static let twoThirds = Presentation.iPad_Pro10.Portrait.twoThirds
+            public static let oneThird = Presentation.iPad_Pro10.Portrait.oneThird
         }
         public enum Landscape {
-            
-            public static let fullScreen = Presentation.iPad_Pro10_5.Portrait.fullScreen
-            public static let half = Presentation.iPad_Pro10_5.Landscape.half
-            public static let twoThird = Presentation.iPad_Pro10_5.Landscape.twoThird
-            public static let oneThird = Presentation.iPad_Pro10_5.Landscape.oneThird
+            public static let fullScreen = Presentation.iPad_Pro10.Portrait.fullScreen
+            public static let half = Presentation.iPad_Pro10.Landscape.half
+            public static let twoThird = Presentation.iPad_Pro10.Landscape.twoThird
+            public static let oneThird = Presentation.iPad_Pro10.Landscape.oneThird
         }
     }
-    public enum iPad_Pro9_7 {
+    public enum iPad_Pro9 {
         public enum Portrait{
-            public static let fullScreen = Presentation.iPad_Pro9_7.Portrait.fullScreen
-            public static let twoThirds = Presentation.iPad_Pro9_7.Portrait.twoThirds
-            public static let oneThird = Presentation.iPad_Pro9_7.Portrait.oneThird
+            public static let fullScreen = Presentation.iPad_Pro9.Portrait.fullScreen
+            public static let twoThirds = Presentation.iPad_Pro9.Portrait.twoThirds
+            public static let oneThird = Presentation.iPad_Pro9.Portrait.oneThird
         }
         public enum Landscape {
-            
-            public static let fullScreen = Presentation.iPad_Pro9_7.Portrait.fullScreen
-            public static let half = Presentation.iPad_Pro9_7.Landscape.half
-            public static let twoThird = Presentation.iPad_Pro9_7.Landscape.twoThird
-            public static let oneThird = Presentation.iPad_Pro9_7.Landscape.oneThird
+            public static let fullScreen = Presentation.iPad_Pro9.Portrait.fullScreen
+            public static let half = Presentation.iPad_Pro9.Landscape.half
+            public static let twoThird = Presentation.iPad_Pro9.Landscape.twoThird
+            public static let oneThird = Presentation.iPad_Pro9.Landscape.oneThird
         }
     }
     public enum iPad_Air {
@@ -281,165 +280,165 @@ public struct Presentation {
         }
     }
     //MARK: Presentations for iPad
-    public enum iPad_Pro12_9 {
+    public enum iPad_Pro12 {
         public enum Portrait{
             public static let fullScreen = Presentation(
-                name: "iPad_12.9_Portrait_FullScreen",
-                size: CGSize.iPad.Pro12_9,
-                traitCollection: UITraitCollection.iPad_Pro12_9.regular)
+                name: "iPad_Pro12_Portrait_FullScreen",
+                size: CGSize.iPad.Pro12,
+                traitCollection: UITraitCollection.iPad_Pro12_9.portrait.regular)
             
             public static let twoThirds = Presentation(
-                name: "iPad_12.9_Portrait_SplitView_2_3",
-                size: CGSize.iPad.Pro12_9.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro12_9.regular)
+                name: "iPad_Pro12_Portrait_SplitView_2_3",
+                size: CGSize.iPad.Pro12.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro12_9.portrait.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_12.9_Portrait_SplitView_1_3",
-                size: CGSize.iPad.Pro12_9.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro12_9.splitOneThird)
+                name: "iPad_Pro12_Portrait_SplitView_1_3",
+                size: CGSize.iPad.Pro12.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro12_9.portrait.splitOneThird)
             
         }
         public enum Landscape {
             
             public static let fullScreen = Presentation(
-                name: "iPad_12.9_Landscape_FullScreen",
-                size: CGSize.iPad.Pro12_9.rotated,
-                traitCollection: UITraitCollection.iPad_Pro12_9.regular)
+                name: "iPad_Pro12_Landscape_FullScreen",
+                size: CGSize.iPad.Pro12.rotated,
+                traitCollection: UITraitCollection.iPad_Pro12_9.landscape.regular)
             
             public static let half = Presentation(
-                name: "iPad_12.9_Landscape_SplitView_1_2",
-                size: CGSize.iPad.Pro12_9.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_Pro12_9.regular)
+                name: "iPad_Pro12_Landscape_SplitView_1_2",
+                size: CGSize.iPad.Pro12.rotated.splitViewHalf,
+                traitCollection: UITraitCollection.iPad_Pro12_9.landscape.regular)
             
             public static let twoThird = Presentation(
-                name: "iPad_12.9_Landscape_SplitView_2_3",
-                size: CGSize.iPad.Pro12_9.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro12_9.regular)
+                name: "iPad_Pro12_Landscape_SplitView_2_3",
+                size: CGSize.iPad.Pro12.rotated.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro12_9.landscape.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_12.9_Landscape_SplitView_1_3",
-                size: CGSize.iPad.Pro12_9.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro12_9.splitOneThird)
+                name: "iPad_Pro12_Landscape_SplitView_1_3",
+                size: CGSize.iPad.Pro12.rotated.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro12_9.landscape.splitOneThird)
             
         }
     }
-    public enum iPad_Pro10_5 {
+    public enum iPad_Pro10 {
         public enum Portrait {
             public static let fullScreen = Presentation(
-                name: "iPad_10.5_FullScreen",
-                size: CGSize.iPad.Pro10_5,
-                traitCollection: UITraitCollection.iPad_Pro10_5.regular)
+                name: "iPad_Pro10_FullScreen",
+                size: CGSize.iPad.Pro10,
+                traitCollection: UITraitCollection.iPad_Pro10_5.portrait.regular)
             
             public static let twoThirds = Presentation(
-                name: "iPad_10.5_Portrait_SplitView_2_3",
-                size: CGSize.iPad.Pro10_5.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro10_5.regular)
+                name: "iPad_Pro10_Portrait_SplitView_2_3",
+                size: CGSize.iPad.Pro10.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro10_5.portrait.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_10.5_Portrait_SplitView_1_3",
-                size: CGSize.iPad.Pro10_5.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro10_5.splitOneThird)
+                name: "iPad_Pro10_Portrait_SplitView_1_3",
+                size: CGSize.iPad.Pro10.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro10_5.portrait.splitOneThird)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
-                name: "iPad_10.5_Landscape_FullScreen",
-                size: CGSize.iPad.Pro10_5.rotated,
-                traitCollection: UITraitCollection.iPad_Pro10_5.regular)
+                name: "iPad_Pro10_Landscape_FullScreen",
+                size: CGSize.iPad.Pro10.rotated,
+                traitCollection: UITraitCollection.iPad_Pro10_5.landscape.regular)
             
             public static let half = Presentation(
-                name: "iPad_10.5_Landscape_SplitView_1_2",
-                size: CGSize.iPad.Pro10_5.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_Pro10_5.splitHalf)
+                name: "iPad_Pro10_Landscape_SplitView_1_2",
+                size: CGSize.iPad.Pro10.rotated.splitViewHalf,
+                traitCollection: UITraitCollection.iPad_Pro10_5.landscape.splitHalf)
             
             public static let twoThird = Presentation(
-                name: "iPad_10.5_Landscape_SplitView_2_3",
-                size: CGSize.iPad.Pro10_5.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro10_5.regular)
+                name: "iPad_Pro10_Landscape_SplitView_2_3",
+                size: CGSize.iPad.Pro10.rotated.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro10_5.landscape.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_10.5_Landscape_SplitView_1_3",
-                size: CGSize.iPad.Pro10_5.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro10_5.splitHalf)
+                name: "iPad_Pro10_Landscape_SplitView_1_3",
+                size: CGSize.iPad.Pro10.rotated.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro10_5.landscape.splitHalf)
         }
     }
-    public enum iPad_Pro9_7 {
+    public enum iPad_Pro9 {
         public enum Portrait {
             public static let fullScreen = Presentation(
-                name: "iPad_9.7_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_Pro9_7.regular)
+                name: "iPad_Pro9_FullScreen",
+                size: CGSize.iPad.mini_air_Pro9,
+                traitCollection: UITraitCollection.iPad_Pro9_7.portrait.regular)
             
             public static let twoThirds = Presentation(
-                name: "iPad_9.7_Portrait_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro9_7.regular)
+                name: "iPad_Pro9_Portrait_SplitView_2_3",
+                size: CGSize.iPad.mini_air_Pro9.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro9_7.portrait.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_9.7_Portrait_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro9_7.splitOneThird)
+                name: "iPad_Pro9_Portrait_SplitView_1_3",
+                size: CGSize.iPad.mini_air_Pro9.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro9_7.portrait.splitOneThird)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
-                name: "iPad_9.7_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_Pro9_7.regular)
+                name: "iPad_Pro9_Landscape_FullScreen",
+                size: CGSize.iPad.mini_air_Pro9.rotated,
+                traitCollection: UITraitCollection.iPad_Pro9_7.landscape.regular)
             
             public static let half = Presentation(
-                name: "iPad_9.7_Landscape_SplitView_1_2",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_Pro9_7.splitHalf)
+                name: "iPad_Pro9_Landscape_SplitView_1_2",
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewHalf,
+                traitCollection: UITraitCollection.iPad_Pro9_7.landscape.splitHalf)
             
             public static let twoThird = Presentation(
-                name: "iPad_9.7_Landscape_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_Pro9_7.regular)
+                name: "iPad_Pro9_Landscape_SplitView_2_3",
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_Pro9_7.landscape.regular)
             
             public static let oneThird = Presentation(
-                name: "iPad_9.7_Landscape_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_Pro9_7.splitHalf)
+                name: "iPad_Pro9_Landscape_SplitView_1_3",
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_Pro9_7.landscape.splitHalf)
         }
     }
     public enum iPad_Air {
         public enum Portrait {
             public static let fullScreen = Presentation(
                 name: "iPad_Air_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_Air.regular)
+                size: CGSize.iPad.mini_air_Pro9,
+                traitCollection: UITraitCollection.iPad_Air.portrait.regular)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
                 name: "iPad_Air_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_Air.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated,
+                traitCollection: UITraitCollection.iPad_Air.landscape.regular)
         }
     }
     public enum iPad_Air2 {
         public enum Portrait {
             public static let fullScreen = Presentation(
                 name: "iPad_Air2_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_Air2.regular)
+                size: CGSize.iPad.mini_air_Pro9,
+                traitCollection: UITraitCollection.iPad_Air2.portrait.regular)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
                 name: "iPad_Air2_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_Air2.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated,
+                traitCollection: UITraitCollection.iPad_Air2.landscape.regular)
         }
     }
     public enum iPad_mini {
         public enum Portrait {
             public static let fullScreen = Presentation(
                 name: "iPad_mini_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
+                size: CGSize.iPad.mini_air_Pro9,
                 traitCollection: UITraitCollection.iPad_mini.regular)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
                 name: "iPad_mini_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
+                size: CGSize.iPad.mini_air_Pro9.rotated,
                 traitCollection: UITraitCollection.iPad_mini.regular)
         }
     }
@@ -447,82 +446,82 @@ public struct Presentation {
         public enum Portrait {
             public static let fullScreen = Presentation(
                 name: "iPad_mini2_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_mini2.regular)
+                size: CGSize.iPad.mini_air_Pro9,
+                traitCollection: UITraitCollection.iPad_mini2.portrait.regular)
             
             public static let twoThirds = Presentation(
                 name: "iPad_mini2_Portrait_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini2.regular)
+                size: CGSize.iPad.mini_air_Pro9.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_mini2.portrait.regular)
             
             public static let oneThird = Presentation(
                 name: "iPad_mini2_Portrait_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini2.splitOneThird)
+                size: CGSize.iPad.mini_air_Pro9.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_mini2.portrait.splitOneThird)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
                 name: "iPad_mini2_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_mini2.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated,
+                traitCollection: UITraitCollection.iPad_mini2.landscape.regular)
             
             public static let half = Presentation(
                 name: "iPad_mini2_Landscape_SplitView_1_2",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_mini2.splitHalf)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewHalf,
+                traitCollection: UITraitCollection.iPad_mini2.landscape.splitHalf)
             
             public static let twoThird = Presentation(
                 name: "iPad_mini2_Landscape_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_mini2.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_mini2.landscape.regular)
             
             public static let oneThird = Presentation(
                 name: "iPad_mini2_Landscape_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_mini2.splitHalf)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_mini2.landscape.splitHalf)
         }
     }
     public enum iPad_5thGen {
         public enum Portrait {
             public static let fullScreen = Presentation(
                 name: "iPad_5thGen_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7,
-                traitCollection: UITraitCollection.iPad_5thGen.regular)
+                size: CGSize.iPad.mini_air_Pro9,
+                traitCollection: UITraitCollection.iPad_5thGen.portrait.regular)
             
             public static let TwoThirds = Presentation(
                 name: "iPad_5thGen_Portrait_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_5thGen.regular)
+                size: CGSize.iPad.mini_air_Pro9.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_5thGen.portrait.regular)
             
             public static let oneThird = Presentation(
                 name: "iPad_5thGenPortrait_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_5thGen.splitOneThird)
+                size: CGSize.iPad.mini_air_Pro9.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_5thGen.portrait.splitOneThird)
         }
         public enum Landscape {
             public static let fullScreen = Presentation(
                 name: "iPad_5thGen_Landscape_FullScreen",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated,
-                traitCollection: UITraitCollection.iPad_5thGen.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated,
+                traitCollection: UITraitCollection.iPad_5thGen.landscape.regular)
             
             public static let half = Presentation(
                 name: "iPad_5thGen_Landscape_SplitView_1_2",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewHalf,
-                traitCollection: UITraitCollection.iPad_5thGen.splitHalf)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewHalf,
+                traitCollection: UITraitCollection.iPad_5thGen.landscape.splitHalf)
             
             public static let twoThird = Presentation(
                 name: "iPad_5thGen_Landscape_SplitView_2_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewTwoThirds,
-                traitCollection: UITraitCollection.iPad_5thGen.regular)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewTwoThirds,
+                traitCollection: UITraitCollection.iPad_5thGen.landscape.regular)
             
             public static let oneThird = Presentation(
                 name: "iPad_5thGen_Landscape_SplitView_1_3",
-                size: CGSize.iPad.mini_air_Pro9_7.rotated.splitViewOneThird,
-                traitCollection: UITraitCollection.iPad_5thGen.splitHalf)
+                size: CGSize.iPad.mini_air_Pro9.rotated.splitViewOneThird,
+                traitCollection: UITraitCollection.iPad_5thGen.landscape.splitHalf)
         }
     }
     
-    init(name: String, size: CGSize, traitCollection: UITraitCollection, mask: UIView? = nil){
+    public init(name: String, size: CGSize, traitCollection: UITraitCollection, mask: UIView? = nil){
         self.name = name
         self.size = size
         self.traitCollection = traitCollection

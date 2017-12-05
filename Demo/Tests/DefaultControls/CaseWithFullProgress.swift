@@ -10,6 +10,7 @@ class CaseSeekbarWithFullProgress: SnapshotTest  {
     
     var controller: DefaultControlsViewController {
         let controller = DefaultControlsViewController()
+        controller.view.backgroundColor = .red
         
         controller.props = DefaultControlsViewController.Props.player(
             DefaultControlsViewController.Props.Player { player in
@@ -43,6 +44,6 @@ class CaseSeekbarWithFullProgress: SnapshotTest  {
         
         verify(controller, for: Device.iPhone_X.landscapeRight)
         
-        verify(controller, for: Device.iPad_Pro9_7.Portrait.fullScreen)
+        verify(controller, for: Device.iPad_Pro9.Portrait.fullScreen)
     }
 }
