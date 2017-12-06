@@ -2,7 +2,9 @@
 
 import Foundation
 
-public protocol GeneratePrism {}
+///Generate prism for confirmed enum 
+public protocol Prism {}
+
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
@@ -15,7 +17,7 @@ open class ContentControlsViewController: UIViewController {
         }
     }
     
-    public enum Props: GeneratePrism {
+    public enum Props: Prism {
         case noPlayer
 
         case player(Player)
@@ -31,7 +33,7 @@ open class ContentControlsViewController: UIViewController {
             }
 
             public var item = Item.nonplayable("")
-            public enum Item: GeneratePrism {
+            public enum Item: Prism {
                 case playable(Controls)
                 case nonplayable(String)
             }
@@ -47,7 +49,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public var loading = false
         
         public var playbackAction: Playback = .none
-        public enum Playback: GeneratePrism {
+        public enum Playback: Prism {
             case none
             case play(Action<Void>)
             case pause(Action<Void>)
@@ -108,7 +110,7 @@ extension ContentControlsViewController.Props.Player.Item {
         
         /// URL or UIImage for the thumbnail.
         public var thumbnail: Thumbnail?
-        public enum Thumbnail: GeneratePrism {
+        public enum Thumbnail: Prism {
             case url(URL) //swiftlint:disable:this type_name
             case image(UIImage)
         }
@@ -123,21 +125,21 @@ extension ContentControlsViewController.Props.Player.Item {
         }
         
         public var pictureInPictureControl: PictureInPictureControl = .unsupported
-        public enum PictureInPictureControl: GeneratePrism {
+        public enum PictureInPictureControl: Prism {
             case unsupported
             case impossible
             case possible(Action<Void>)
         }
         
-        public enum Subtitles: GeneratePrism {
+        public enum Subtitles: Prism {
             case `internal`(MediaGroupControl?)
             case external(external: External, control: MediaGroupControl)
             
-            public enum External: GeneratePrism {
+            public enum External: Prism {
                 case none
                 case unavailable
                 case available(state: State)
-                public enum State: GeneratePrism {
+                public enum State: Prism {
                     case active(text: String?), loading, inactive, error
                 }
             }
@@ -158,14 +160,14 @@ extension ContentControlsViewController.Props.Player.Item {
         public var legible: Subtitles = .`internal`(nil)
         public var audible: MediaGroupControl?
         
-        public enum Settings: GeneratePrism {
+        public enum Settings: Prism {
             case hidden
             case disabled
             case enabled(Action<Void>)
         }
         public var settings: Settings = .disabled
         
-        public enum AirPlay: GeneratePrism {
+        public enum AirPlay: Prism {
             case hidden
             case enabled
             case active

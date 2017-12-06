@@ -46,21 +46,21 @@ import Foundation
         @available(*, unavailable, message:"Optional associated value is not supported yet")
     {%endif%}
     public var {{case.name}}: {% if case.associatedValues.all.count > 1 %}{% call associatedValueVarMultiType case %}{% else %}{% call associatedValueVarUnitType case %}{% endif %} {
-            guard case let .{{ case.name }}({{ case.name }}) = self else { return nil }
-            return {{case.name}}
+        guard case let .{{ case.name }}({{ case.name }}) = self else { return nil }
+        return {{case.name}}
     }
 {% endmacro %}
 
 /*Creates Bool var with given simple case*/
 {% macro simpleVar case %}
     public var is{{ case.name|upperFirst }}: Bool {
-            guard case .{{ case.name }} = self else { return false }
-            return true
+        guard case .{{ case.name }} = self else { return false }
+        return true
     }
 {% endmacro %}
 
 /*For each public enum with cases count > 0 is created extension with cases' prism vars*/
-{% for enum in types.implementing.GeneratePrism|enum   %}
+{% for enum in types.implementing.Prism|enum %}
     public extension {{ enum.name }} {
         {% for case in enum.cases %}
             {% if case.hasAssociatedValue %}

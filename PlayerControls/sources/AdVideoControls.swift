@@ -75,7 +75,7 @@ public final class AdVideoControls: UIViewController {
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
         
-        public enum MainAction: GeneratePrism {
+        public enum MainAction: Prism {
             case play(Action<Void>)
             case pause(Action<Void>)
         }

@@ -12,7 +12,7 @@ func props() -> Props {
             controls.title = "Some title very very very very very very very very very long"
             controls.live.isHidden = true
             controls.seekbar = .init()
-            controls.playbackAction.pause = nop
+            controls.playbackAction = .pause(nop)
             controls.camera = Props.Player.Item.Controls.Camera()
             controls.settings = .hidden
             controls.pictureInPictureControl = .unsupported
