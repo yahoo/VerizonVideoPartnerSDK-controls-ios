@@ -31,14 +31,18 @@ public class HostWindow: UIWindow {
 public struct Context {
     public var layoutDirection: UITraitEnvironmentLayoutDirection
     public var contentSizeCategory: UIContentSizeCategory
-    public var traitCollection: UITraitCollection {
+    public var name: String
+    
+    public init(layoutDirection: UITraitEnvironmentLayoutDirection = .unspecified, contentSizeCategory: UIContentSizeCategory = .unspecified, name: String = "") {
+        self.layoutDirection = layoutDirection
+        self.contentSizeCategory = contentSizeCategory
+        self.name = name
+    }
+    
+    public func getTraits() -> UITraitCollection {
         return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
                                               UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
     }
-    
-    public init(layoutDirection: UITraitEnvironmentLayoutDirection = .unspecified, contentSizeCategory: UIContentSizeCategory = .unspecified) {
-        self.layoutDirection = layoutDirection
-        self.contentSizeCategory = contentSizeCategory
-    }
-    
 }
+
+
