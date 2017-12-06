@@ -21,7 +21,6 @@ public class HostWindow: UIWindow {
         self.mask?.frame = self.bounds
     }
     
-    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -32,17 +31,14 @@ public struct Context {
     public var layoutDirection: UITraitEnvironmentLayoutDirection
     public var contentSizeCategory: UIContentSizeCategory
     public var name: String
+    public var traitCollection: UITraitCollection {
+        return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
+                                              UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
+    }
     
     public init(layoutDirection: UITraitEnvironmentLayoutDirection = .unspecified, contentSizeCategory: UIContentSizeCategory = .unspecified, name: String = "") {
         self.layoutDirection = layoutDirection
         self.contentSizeCategory = contentSizeCategory
         self.name = name
     }
-    
-    public func getTraits() -> UITraitCollection {
-        return UITraitCollection(traitsFrom: [UITraitCollection(layoutDirection: self.layoutDirection),
-                                              UITraitCollection(preferredContentSizeCategory: self.contentSizeCategory)])
-    }
 }
-
-
