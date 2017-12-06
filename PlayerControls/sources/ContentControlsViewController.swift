@@ -4,7 +4,6 @@ import Foundation
 
 ///Generate prism for confirmed enum 
 public protocol Prism {}
-
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
@@ -52,9 +51,9 @@ extension ContentControlsViewController.Props.Player.Item {
         public var playbackAction: Playback = .none
         public enum Playback: Prism {
             case none
-            case play(CommandWith<Void>)
-            case pause(CommandWith<Void>)
-            case replay(CommandWith<Void>)
+            case play(Command)
+            case pause(Command)
+            case replay(Command)
         }
         
         public var live = Live()
@@ -122,7 +121,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public var error: Error?
         public struct Error {
             public var message = ""
-            public var retryCommand: CommandWith<Void>?
+            public var retryCommand: Command?
             public init() { }
         }
         
@@ -152,7 +151,7 @@ extension ContentControlsViewController.Props.Player.Item {
             public struct Option {
                 public var name = ""
                 public var selected = false
-                public var select: Command? = Command.nop
+                public var select: Command = .nop
                 public init() { }
             }
             

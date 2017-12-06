@@ -67,7 +67,7 @@ extension ContentControlsViewController {
                         SettingsViewController.Props.Cell(
                             title: $0.name,
                             selected: $0.selected,
-                            select: $0.select!)
+                            select: $0.select)
                 }))
         }
         

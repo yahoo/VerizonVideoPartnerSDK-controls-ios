@@ -80,7 +80,7 @@ public final class AdVideoControls: UIViewController {
             case pause(Command)
         }
         
-        public struct Seeker: Codable {
+        public struct Seeker {
             public let remainingPlayTime: String
             public let currentValue: Double
             public init(remainingPlayTime: String, currentValue: Double) {

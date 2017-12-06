@@ -69,7 +69,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             sideBarView.props = sidebarProps.map { [weak self] in
                 var props = $0
                 let handler = props.handler
-                props.handler = .init {
+                props.handler = CommandWith {
                     self?.onUserInteraction?.perform()
                     handler.perform()
                 }
@@ -80,13 +80,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        seekerView.callbacks.onDragStarted = .init { [unowned self] value in
+        seekerView.callbacks.onDragStarted = CommandWith { [unowned self] value in
             self.startSeek(from: value)
         }
-        seekerView.callbacks.onDragChanged = .init { [unowned self] value in
+        seekerView.callbacks.onDragChanged = CommandWith { [unowned self] value in
             self.updateSeek(to: value)
         }
-        seekerView.callbacks.onDragFinished = .init { [unowned self] value in
+        seekerView.callbacks.onDragFinished = CommandWith { [unowned self] value in
             self.stopSeek(at: value)
         }
     }
