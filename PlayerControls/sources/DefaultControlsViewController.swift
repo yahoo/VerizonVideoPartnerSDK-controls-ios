@@ -193,7 +193,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         settingsButton.isEnabled = uiProps.settingsButtonEnabled
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
-        liveDotLabel.textColor = uiProps.liveDotColor ?? view.tintColor
+        liveDotLabel.textColor = uiProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
         
         airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden
         airPlayView.props = AirPlayView.Props(
