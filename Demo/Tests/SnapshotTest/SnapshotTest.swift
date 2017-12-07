@@ -27,6 +27,10 @@ open class SnapshotTest: FBSnapshotTestCase {
         window.rootViewController = controller
         window.makeKeyAndVisible()
         
-        FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
+        let name = [presentation.name, context.name]
+            .filter { !$0.isEmpty }
+            .joined(separator: "_")
+        
+        FBSnapshotVerifyView(window, identifier: name, suffixes: [""], file: file, line: line)
     }
 }
