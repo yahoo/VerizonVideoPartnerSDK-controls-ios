@@ -47,25 +47,25 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
     }
     
     func test() {
-        verify(controller, for: Device.iPhone_X.portrait)
-        verify(controller, for: Device.iPhone_X.landscapeLeft)
+        verify(controller, for: Device.iPhoneX.portrait)
+        verify(controller, for: Device.iPhoneX.landscapeLeft)
         
-        verify(controller, for: Device.iPhone_8.portrait)
-        verify(controller, for: Device.iPhone_8.landscape)
+        verify(controller, for: Device.iPhone8.portrait)
+        verify(controller, for: Device.iPhone8.landscape)
         
-        verify(controller, for: Device.iPhone_8Plus.landscape)
+        verify(controller, for: Device.iPhone8Plus.landscape)
        
-        verify(controller, for: Device.iPhone_SE.portrait)
-        verify(controller, for: Device.iPhone_SE.landscape)
+        verify(controller, for: Device.iPhoneSE.portrait)
+        verify(controller, for: Device.iPhoneSE.landscape)
         
-        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro9.Landscape.oneThird)
+        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.Landscape.oneThird)
         
-        verify(controller, for: Device.iPad_Pro10.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro10.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro10.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro10.Portrait.oneThird)
         
-        verify(controller, for: Device.iPad_Pro12.Portrait.oneThird)
-        verify(controller, for: Device.iPad_Pro12.Landscape.oneThird)
+        verify(controller, for: Device.iPadPro12.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro12.Landscape.oneThird)
     }
 }
 

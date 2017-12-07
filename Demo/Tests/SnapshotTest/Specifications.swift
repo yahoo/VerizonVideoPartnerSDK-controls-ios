@@ -76,7 +76,7 @@ extension UITraitCollection {
         }
     }
     //MARK: Traits for all iPhones
-    enum iPhone_SE {
+    enum iPhoneSE {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -88,7 +88,7 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
-    enum iPhone_6 {
+    enum iPhone6 {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -100,7 +100,7 @@ extension UITraitCollection {
                          Display.SizeClass.Horizontal.compact,
                          Display.Scale.x2])
     }
-    enum iPhone_6Plus {
+    enum iPhone6Plus {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -113,7 +113,7 @@ extension UITraitCollection {
                          Display.Scale.x3])
     }
     @available(iOS 9.0, *)
-    enum iPhone_6S {
+    enum iPhone6S {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -128,7 +128,7 @@ extension UITraitCollection {
                          Compability.ForceTouch.available])
     }
     @available(iOS 9.0, *)
-    enum iPhone_6SPlus {
+    enum iPhone6SPlus {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -143,7 +143,7 @@ extension UITraitCollection {
                          Compability.ForceTouch.available])
     }
     @available(iOS 10.0, *)
-    enum iPhone_7 {
+    enum iPhone7 {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -160,7 +160,7 @@ extension UITraitCollection {
                          Compability.DisplayGamut.P3])
     }
     @available(iOS 10.0, *)
-    enum iPhone_7Plus {
+    enum iPhone7Plus {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -177,7 +177,7 @@ extension UITraitCollection {
                          Compability.DisplayGamut.P3])
     }
     @available(iOS 10.0, *)
-    enum iPhone_8 {
+    enum iPhone8 {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -193,7 +193,7 @@ extension UITraitCollection {
                          Compability.DisplayGamut.P3])
     }
     @available(iOS 10.0, *)
-    enum iPhone_8Plus {
+    enum iPhone8Plus {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -210,7 +210,7 @@ extension UITraitCollection {
                          Compability.DisplayGamut.P3])
     }
     @available(iOS 11.0, *)
-    enum iPhone_X {
+    enum iPhoneX {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -228,7 +228,7 @@ extension UITraitCollection {
     }
     //MARK: Traits for all iPads
     @available(iOS 10.0, *)
-    enum iPad_Pro9_7 {
+    enum iPadPro9 {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -277,7 +277,7 @@ extension UITraitCollection {
         }
     }
     @available(iOS 10.0, *)
-    enum iPad_Pro10_5 {
+    enum iPadPro10 {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -325,7 +325,7 @@ extension UITraitCollection {
                              Compability.DisplayGamut.P3])
         }
     }
-    enum iPad_Pro12_9 {
+    enum iPadPro12 {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -366,7 +366,7 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
     }
-    enum iPad_Air {
+    enum iPadAir {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -407,7 +407,7 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
     }
-    enum iPad_Air2 {
+    enum iPadAir2 {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -448,7 +448,7 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
     }
-    enum iPad_5thGen{
+    enum iPad5thGen {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
@@ -489,14 +489,14 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
     }
-    enum iPad_mini {
+    enum iPadMini {
         static let regular = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.pad,
                          Display.SizeClass.Vertical.regular,
                          Display.SizeClass.Horizontal.regular,
                          Display.Scale.x2])
     }
-    enum iPad_mini2 {
+    enum iPadMini2 {
         enum portrait {
             static let regular = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,

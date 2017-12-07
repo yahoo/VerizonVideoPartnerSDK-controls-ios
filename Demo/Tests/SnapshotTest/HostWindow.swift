@@ -3,7 +3,6 @@
 import UIKit
 
 ///Custom window contains a presentation variable, that is designed to represent all existing device screens in every possible view, including different orientations and split view.
-@available(iOS 10.0, *)
 public class HostWindow: UIWindow {
     
     public var presentation: Presentation
@@ -13,6 +12,16 @@ public class HostWindow: UIWindow {
         return traits
     }
     
+    @available(iOS 9.0, *)
+    public init(presentation: Presentation) {
+        self.presentation = presentation
+        self.traits = UITraitCollection(traitsFrom: [presentation.traitCollection])
+        super.init(frame: presentation.size.asRect)
+        self.mask = presentation.mask
+        self.mask?.frame = self.bounds
+    }
+    
+    @available(iOS 10.0, *)
     public init(presentation: Presentation, context: Context = .init()) {
         self.presentation = presentation
         self.traits = UITraitCollection(traitsFrom: [presentation.traitCollection, context.traitCollection])

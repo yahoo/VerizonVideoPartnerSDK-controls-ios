@@ -40,10 +40,10 @@ class CaseSeekbarWithFullProgress: SnapshotTest  {
     }
     
     func test() {
-        verify(controller, for: Device.iPhone_X.portrait)
+        verify(controller, for: Device.iPhoneX.portrait)
         
-        verify(controller, for: Device.iPhone_X.landscapeRight)
+        verify(controller, for: Device.iPhoneX.landscapeRight)
         
-        verify(controller, for: Device.iPad_Pro9.Portrait.fullScreen)
+        verify(controller, for: Device.iPadPro9.Portrait.fullScreen)
     }
 }

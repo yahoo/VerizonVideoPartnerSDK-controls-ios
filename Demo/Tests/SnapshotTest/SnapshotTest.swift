@@ -29,44 +29,4 @@ open class SnapshotTest: FBSnapshotTestCase {
         
         FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
     }
-    
-    ///Verifies your snapshots with specified view and device with its parameteres (controller is a UIViewController).
-    @available(iOS 10.0, *)
-    public final func verify(
-        _ view: UIView,
-        for presentation: Presentation,
-        with context: Context = Context(),
-        file: StaticString = #file,
-        line: UInt = #line) {
-
-        let controller = UIViewController()
-        controller.view.addSubview(view)
-
-        let window = HostWindow(presentation: presentation)
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
-
-        FBSnapshotVerifyView(window, identifier: presentation.name, suffixes: [""], file: file, line: line)
-    }
-
-    ///Verifies your snapshots with specified view and with custom size of the window.
-    @available(iOS 10.0, *)
-    public final func verify(
-        _ view: UIView,
-        height: Int,
-        width: Int,
-        with context: Context = Context(),
-        file: StaticString = #file,
-        line: UInt = #line) {
-        
-        let controller = UIViewController()
-        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        view.frame = window.bounds
-        controller.view.addSubview(view)
-        
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
-
-        FBSnapshotVerifyView(window, identifier: "customSize_\(width)x\(height)", suffixes: [""], file: file, line: line)
-    }
 }

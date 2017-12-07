@@ -21,10 +21,10 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
     }
     
     func test() {
-        verify(controller, for: Device.iPhone_X.portrait)
-        verify(controller, for: Device.iPhone_X.landscapeLeft)
+        verify(controller, for: Device.iPhoneX.portrait)
+        verify(controller, for: Device.iPhoneX.landscapeLeft)
         
-        verify(controller, for: Device.iPad_Pro9.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
     }
 }
 
