@@ -58,14 +58,14 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         verify(controller, for: Device.iPhoneSE.portrait)
         verify(controller, for: Device.iPhoneSE.landscape)
         
-        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro9.Landscape.oneThird)
+        verify(controller, for: Device.iPadPro9.portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.landscape.oneThird)
         
-        verify(controller, for: Device.iPadPro10.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro10.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro10.portrait.oneThird)
+        verify(controller, for: Device.iPadPro10.portrait.oneThird)
         
-        verify(controller, for: Device.iPadPro12.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro12.Landscape.oneThird)
+        verify(controller, for: Device.iPadPro12.portrait.oneThird)
+        verify(controller, for: Device.iPadPro12.landscape.oneThird)
     }
 }
 

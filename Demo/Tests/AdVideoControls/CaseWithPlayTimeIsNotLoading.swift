@@ -25,6 +25,6 @@ class CaseWithPlayTimeIsNotLoading: SnapshotTest {
     func test() {
         verify(controller, for: Device.iPhoneX.landscapeRight)
         
-        verify(controller, for: Device.iPadPro12.Landscape.fullScreen)
+        verify(controller, for: Device.iPadPro12.landscape.fullScreen)
     }
 }

@@ -44,6 +44,6 @@ class CaseSeekbarWithFullProgress: SnapshotTest  {
         
         verify(controller, for: Device.iPhoneX.landscapeRight)
         
-        verify(controller, for: Device.iPadPro9.Portrait.fullScreen)
+        verify(controller, for: Device.iPadPro9.portrait.fullScreen)
     }
 }

@@ -27,7 +27,9 @@ open class SnapshotTest: FBSnapshotTestCase {
         window.rootViewController = controller
         window.makeKeyAndVisible()
         
-        let name = [presentation.name, context.name]
+        let name = [presentation.name,
+                    context.name]
+            .map { $0.replacingOccurrences(of: " ", with: "_") }
             .filter { !$0.isEmpty }
             .joined(separator: "_")
         

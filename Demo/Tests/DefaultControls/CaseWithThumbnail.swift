@@ -52,14 +52,14 @@ class CaseWithThumbnail: SnapshotTest{
         
         verify(controller, for: Device.iPhoneSE.portrait)
         
-        verify(controller, for: Device.iPadPro9.Portrait.fullScreen)
-        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro9.Landscape.twoThird)
+        verify(controller, for: Device.iPadPro9.portrait.fullScreen)
+        verify(controller, for: Device.iPadPro9.portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.landscape.twoThird)
         
-        verify(controller, for: Device.iPadPro10.Portrait.twoThirds)
-        verify(controller, for: Device.iPadPro10.Landscape.oneThird)
+        verify(controller, for: Device.iPadPro10.portrait.twoThirds)
+        verify(controller, for: Device.iPadPro10.landscape.oneThird)
         
-        verify(controller, for: Device.iPadPro12.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro12.Landscape.fullScreen)
+        verify(controller, for: Device.iPadPro12.portrait.oneThird)
+        verify(controller, for: Device.iPadPro12.landscape.fullScreen)
     }
 }

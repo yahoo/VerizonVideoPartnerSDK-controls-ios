@@ -24,7 +24,7 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
         verify(controller, for: Device.iPhoneX.portrait)
         verify(controller, for: Device.iPhoneX.landscapeLeft)
         
-        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.portrait.oneThird)
     }
 }
 

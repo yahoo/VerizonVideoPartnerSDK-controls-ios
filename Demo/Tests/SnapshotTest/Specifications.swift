@@ -1,5 +1,5 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-//  This file contains all possible specifications for all iOS devices available for this moment, including size, trait collection and masks for iPhone X.
+//  This file contains all possible specifications for all iOS devices available for this moment, including size, trait collections and masks for iPhone X.
 
 extension UITraitCollection {
     public enum Display {
@@ -7,10 +7,7 @@ extension UITraitCollection {
             public static let x3 = UITraitCollection(displayScale: 3.0)
             public static let x2 = UITraitCollection(displayScale: 2.0)
             public static let x1 = UITraitCollection(displayScale: 1.0)
-            public static let x0 = UITraitCollection(displayScale: 0.0)
         }
-        
-        
         public enum InterfaceIdiom {
             public static let phone = UITraitCollection(userInterfaceIdiom: .phone)
             public static let pad = UITraitCollection(userInterfaceIdiom: .pad)
@@ -19,7 +16,6 @@ extension UITraitCollection {
             @available(iOS 9.0, *)
             public static let carPlay = UITraitCollection(userInterfaceIdiom: .carPlay)
         }
-        
         public enum SizeClass {
             public enum Horizontal {
                 public static let regular = UITraitCollection(horizontalSizeClass: .regular)
@@ -49,7 +45,6 @@ extension UITraitCollection {
             public static let unknown = UITraitCollection(forceTouchCapability: .unknown)
         }
     }
-    
     public enum ContentCategory {
         @available(iOS 10.0, *)
         public enum LayoutDirection {
@@ -57,7 +52,6 @@ extension UITraitCollection {
             public static let rightToLeft = UITraitCollection(layoutDirection: .rightToLeft)
             public static let unspecified = UITraitCollection(layoutDirection: .unspecified)
         }
-        
         @available(iOS 10.0, *)
         public enum ContentSizeCategory {
             public static let unspecified = UITraitCollection(preferredContentSizeCategory: .unspecified)
@@ -76,7 +70,7 @@ extension UITraitCollection {
         }
     }
     
-    enum iPhoneRegular {
+    enum iPhone {
         static let portrait = UITraitCollection(
             traitsFrom: [Display.InterfaceIdiom.phone,
                          Display.SizeClass.Vertical.regular,
@@ -116,9 +110,9 @@ extension UITraitCollection {
                          Compability.ForceTouch.available,
                          Compability.DisplayGamut.P3])
     }
-    enum iPadRegular {
+    enum iPad {
         enum portrait {
-            static let regular = UITraitCollection(
+            static let fullScreen = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
                              Display.SizeClass.Vertical.regular,
                              Display.SizeClass.Horizontal.regular,
@@ -135,7 +129,7 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
         enum landscape {
-            static let regular = UITraitCollection(
+            static let fullScreen = UITraitCollection(
                 traitsFrom: [Display.InterfaceIdiom.pad,
                              Display.SizeClass.Vertical.regular,
                              Display.SizeClass.Horizontal.regular,
@@ -157,80 +151,23 @@ extension UITraitCollection {
                              Display.Scale.x2])
         }
     }
-    enum iPadPro12 {
-        enum portrait {
-            static let regular = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.regular,
-                             Display.Scale.x2])
-            static let splitOneThird = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.compact,
-                             Display.Scale.x2])
-            static let splitTwoThirds = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.compact,
-                             Display.Scale.x2])
-        }
-        enum landscape {
-            static let regular = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.regular,
-                             Display.Scale.x2])
-            static let splitOneThird = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.compact,
-                             Display.Scale.x2])
-            static let splitTwoThirds = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.compact,
-                             Display.Scale.x2])
-            static let splitHalf = UITraitCollection(
-                traitsFrom: [Display.InterfaceIdiom.pad,
-                             Display.SizeClass.Vertical.regular,
-                             Display.SizeClass.Horizontal.regular,
-                             Display.Scale.x2])
-        }
+    enum iPadOld {
+            static let fullScreen = iPad.portrait.fullScreen
     }
 }
-    //iPhone 6S and 6S Plus Trait - force touch
-    //iPhone 7 and 7 Plus Trait - force touch and P3
-    //iPhone 8 and 8 Plus Trait - force touch and P3
-    //iPhone X Trait - force touch, P3 and x3 scale
-
-    //iPhone Regular - 5s, 6, 6s, SE, 7, 8
-    //iPhone Plus - 6 plus, 7 plus, 8 plus
-    
-    //iPad Pro 9 Trait - P3
-    //iPad Pro 10 Trait - P3
-    
-    //iPad Pro 12 - Pro 12 LoL
-    //iPad Regular = 9, 10, Air, Air 2, Mini, Mini 2, iPad 5th Generation
 
 extension CGSize {
-    public enum iPhone {
-        static let SE = CGSize(width: 320, height: 568)
-        static let X = CGSize(width: 375, height: 812)
-        static let Eight = CGSize(width: 375, height: 667)
-        static let EightPlus = CGSize(width: 414, height: 736)
-    }
+        static let iPhoneSE = CGSize(width: 320, height: 568)
+        static let iPhoneX = CGSize(width: 375, height: 812)
+        static let iPhone = CGSize(width: 375, height: 667)
+        static let iPhonePlus = CGSize(width: 414, height: 736)
+
+        static let iPadPro9 = CGSize(width: 768, height: 1024)
+        static let iPadPro10 = CGSize(width: 834, height: 1112)
+        static let iPadPro12 = CGSize(width: 1024, height: 1366)
     
-    public enum iPad {
-        static let Pro9 = CGSize(width: 768, height: 1024)
-        static let Pro10 = CGSize(width: 834, height: 1112)
-        static let Pro12 = CGSize(width: 1024, height: 1366)
-    }
-    
-    public enum Watch {
-        static let as38mm = CGSize(width: 272, height: 340)
-        static let as42mm = CGSize(width: 312, height: 390)
-    }
+        static let watch38mm = CGSize(width: 272, height: 340)
+        static let watch42mm = CGSize(width: 312, height: 390)
 }
 extension CGSize {
     var rotated: CGSize {

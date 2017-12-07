@@ -62,16 +62,16 @@ class CaseSeekbarWithConectedProgressAndBuffer: SnapshotTest {
         verify(controller, for: Device.iPhoneSE.portrait)
         verify(controller, for: Device.iPhoneSE.landscape)
         
-        verify(controller, for: Device.iPadPro9.Portrait.oneThird)
-        verify(controller, for: Device.iPadPro9.Portrait.twoThirds)
+        verify(controller, for: Device.iPadPro9.portrait.oneThird)
+        verify(controller, for: Device.iPadPro9.portrait.twoThirds)
         
-        verify(controller, for: Device.iPadPro9.Landscape.oneThird)
-        verify(controller, for: Device.iPadPro9.Landscape.twoThird)
-        verify(controller, for: Device.iPadPro9.Landscape.half)
+        verify(controller, for: Device.iPadPro9.landscape.oneThird)
+        verify(controller, for: Device.iPadPro9.landscape.twoThird)
+        verify(controller, for: Device.iPadPro9.landscape.half)
         
-        verify(controller, for: Device.iPadPro10.Landscape.half)
+        verify(controller, for: Device.iPadPro10.landscape.half)
         
-        verify(controller, for: Device.iPadPro12.Landscape.half, with: Context(
+        verify(controller, for: Device.iPadPro12.landscape.half, with: Context(
             layoutDirection: .leftToRight,
             contentSizeCategory: .extraLarge))
     }
