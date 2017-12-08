@@ -34,6 +34,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
+.DS_Store
 
 # CocoaPods
 #
@@ -50,6 +51,12 @@ PlayerControls/Carthage/Checkouts
 
 PlayerControls/Carthage/Build
 
+Demo/Carthage/Checkouts
+
+Demo/Carthage/Build
+
+Demo/Tests/FailureDifferences
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
@@ -61,3 +68,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+fastlane/README.md
