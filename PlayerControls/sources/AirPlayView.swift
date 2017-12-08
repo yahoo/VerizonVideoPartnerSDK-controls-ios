@@ -35,7 +35,7 @@ public final class AirPlayView: UIView {
     var props: Props = Props.empty {
         didSet { setNeedsLayout() }
     }
-    private let volumeView = MPVolumeView()
+    public let volumeView = MPVolumeView()
     
     public override func awakeFromNib() {
         super.awakeFromNib()
