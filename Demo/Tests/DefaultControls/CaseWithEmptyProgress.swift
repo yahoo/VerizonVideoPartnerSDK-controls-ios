@@ -46,18 +46,22 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         return controller
     }
     
-    func test() {
-        verify(controller, for: Device.iPhoneX.portrait)
-        verify(controller, for: Device.iPhoneX.landscapeLeft)
-        
-        verify(controller, for: Device.iPhone8.portrait)
-        verify(controller, for: Device.iPhone8.landscape)
-        
-        verify(controller, for: Device.iPhone8Plus.landscape)
-       
-        verify(controller, for: Device.iPhoneSE.portrait)
-        verify(controller, for: Device.iPhoneSE.landscape)
-        
+    private enum Errors: Error {
+        case notValidIdiom
+    }
+    
+    func test()throws {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            verifyPads()
+        case .phone:
+            verifyPhones()
+        default:
+            throw Errors.notValidIdiom
+        }
+    }
+    
+    func verifyPads() {
         verify(controller, for: Device.iPadPro9.portrait.oneThird)
         verify(controller, for: Device.iPadPro9.landscape.oneThird)
         
@@ -66,6 +70,19 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         
         verify(controller, for: Device.iPadPro12.portrait.oneThird)
         verify(controller, for: Device.iPadPro12.landscape.oneThird)
+    }
+    
+    func verifyPhones() {
+        verify(controller, for: Device.iPhoneX.portrait)
+        verify(controller, for: Device.iPhoneX.landscapeLeft)
+        
+        verify(controller, for: Device.iPhone8.portrait)
+        verify(controller, for: Device.iPhone8.landscape)
+        
+        verify(controller, for: Device.iPhone8Plus.landscape)
+        
+        verify(controller, for: Device.iPhoneSE.portrait)
+        verify(controller, for: Device.iPhoneSE.landscape)
     }
 }
 

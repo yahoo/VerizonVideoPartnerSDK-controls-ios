@@ -22,9 +22,26 @@ class CaseWithPlayTimeIsNotLoading: SnapshotTest {
         return controller
     }
     
-    func test() {
-        verify(controller, for: Device.iPhoneX.landscapeRight)
-        
+    private enum Errors: Error {
+        case notValidIdiom
+    }
+    
+    func test()throws {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            verifyPads()
+        case .phone:
+            verifyPhones()
+        default:
+            throw Errors.notValidIdiom
+        }
+    }
+    
+    func verifyPads() {
         verify(controller, for: Device.iPadPro12.landscape.fullScreen)
+    }
+    
+    func verifyPhones() {
+        verify(controller, for: Device.iPhoneX.landscapeRight)
     }
 }

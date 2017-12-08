@@ -20,10 +20,27 @@ class CaseWithPlayTimeIsLoading: SnapshotTest {
         return controller
     }
     
-    func test() {
+   private enum Errors: Error {
+        case notValidIdiom
+    }
+    
+    func test()throws {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            verifyPads()
+        case .phone:
+            verifyPhones()
+        default:
+            throw Errors.notValidIdiom
+        }
+    }
+    
+    func verifyPads() {
         verify(controller, for: Device.iPhoneX.portrait)
         verify(controller, for: Device.iPhoneX.landscapeLeft)
-        
+    }
+    
+    func verifyPhones() {
         verify(controller, for: Device.iPadPro9.portrait.oneThird)
     }
 }
