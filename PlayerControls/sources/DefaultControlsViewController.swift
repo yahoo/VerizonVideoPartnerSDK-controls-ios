@@ -236,7 +236,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         func isVideoPlaying(for props: ContentControlsViewController.Props) -> Bool {
             guard case .player(let player) = props else { return false }
             guard case .playable(let contentProps) = player.item else { return false }
-            guard case .pause = contentProps.playbackAction else { return false }
+            guard case .pause = contentProps.playbackCommand else { return false }
             return true
         }
         
@@ -268,10 +268,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         let visibilityController = ControlsPresentationController(controls: controls)
         
-        onUserInteraction = CommandWith(action: visibilityController.resetTimer)
-        onTapEvent = CommandWith(action: visibilityController.tap)
-        onPlayEvent = CommandWith(action: visibilityController.play)
-        onPauseEvent = CommandWith(action: visibilityController.pause)
+        onUserInteraction = CommandWith { visibilityController.resetTimer() }
+        onTapEvent = CommandWith { visibilityController.tap() }
+        onPlayEvent = CommandWith { visibilityController.play() }
+        onPauseEvent = CommandWith { visibilityController.pause() }
     }
  
     @IBAction private func playButtonTouched() {

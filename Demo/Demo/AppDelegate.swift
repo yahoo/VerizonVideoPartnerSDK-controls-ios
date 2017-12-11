@@ -3,8 +3,6 @@
 import UIKit
 import PlayerControls
 
-func nop() {}
-
 typealias Props = ContentControlsViewController.Props
 func props() -> Props {
     return Props.player(Props.Player { player in

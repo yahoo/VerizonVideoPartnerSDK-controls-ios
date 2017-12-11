@@ -91,17 +91,17 @@ extension DefaultControlsViewController {
             
             loading = props.player?.item.playable?.loading ?? false
             
-            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil
+            playButtonHidden = props.player?.item.playable?.playbackCommand.play == nil
             
-            playButtonCommand = props.player?.item.playable?.playbackAction.play ?? .nop
+            playButtonCommand = props.player?.item.playable?.playbackCommand.play ?? .nop
             
-            pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil
+            pauseButtonHidden = props.player?.item.playable?.playbackCommand.pause == nil
             
-            pauseButtonCommand = props.player?.item.playable?.playbackAction.pause ?? .nop
+            pauseButtonCommand = props.player?.item.playable?.playbackCommand.pause ?? .nop
             
-            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
+            replayButtonHidden = props.player?.item.playable?.playbackCommand.replay == nil
             
-            replayButtonCommand = props.player?.item.playable?.playbackAction.replay ?? .nop
+            replayButtonCommand = props.player?.item.playable?.playbackCommand.replay ?? .nop
             
             nextButtonEnabled = props.player?.playlist?.next != nil
             

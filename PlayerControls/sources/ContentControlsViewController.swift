@@ -48,8 +48,8 @@ extension ContentControlsViewController.Props.Player.Item {
         public var title = ""
         public var loading = false
         
-        public var playbackAction: Playback = .none
-        public enum Playback: Prism {
+        public var playbackCommand: Playback = .none
+            public enum Playback: Prism {
             case none
             case play(Command)
             case pause(Command)
