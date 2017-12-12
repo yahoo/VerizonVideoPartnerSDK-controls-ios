@@ -1,7 +1,7 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
 
 import UIKit
-import SnapshotTest
+import SnappyShrimp
 @testable import PlayerControls
 
 
@@ -46,22 +46,7 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         return controller
     }
     
-    private enum Errors: Error {
-        case notValidIdiom
-    }
-    
-    func test()throws {
-        switch UIDevice.current.userInterfaceIdiom {
-        case .pad:
-            verifyPads()
-        case .phone:
-            verifyPhones()
-        default:
-            throw Errors.notValidIdiom
-        }
-    }
-    
-    func verifyPads() {
+    func test() {
         verify(controller, for: Device.iPadPro9.portrait.oneThird)
         verify(controller, for: Device.iPadPro9.landscape.oneThird)
         
@@ -70,9 +55,7 @@ class CaseSeekbarWithEmtyProgress: SnapshotTest {
         
         verify(controller, for: Device.iPadPro12.portrait.oneThird)
         verify(controller, for: Device.iPadPro12.landscape.oneThird)
-    }
-    
-    func verifyPhones() {
+        
         verify(controller, for: Device.iPhoneX.portrait)
         verify(controller, for: Device.iPhoneX.landscapeLeft)
         
