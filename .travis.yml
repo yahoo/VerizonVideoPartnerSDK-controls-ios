@@ -1,15 +1,12 @@
 language: swift
-osx_image: xcode9.1
+osx_image: xcode9.2
 xcode_workspace: PlayerControls
+cache: bundler
 
 before_install:
 - brew update
 - brew install sourcery
-- brew install carthage
-- cd Demo
-- carthage update --platform iOS
 - brew cask install fastlane
 
 script:
-- cd ..
 - fastlane verify
