@@ -8,20 +8,20 @@ extension DefaultControlsViewController {
         var controlsViewHidden: Bool
         
         var playButtonHidden: Bool
-        var playButtonCommand: Command
+        var playButtonAction: Command
         
         var pauseButtonHidden: Bool
-        var pauseButtonCommand: Command
+        var pauseButtonAction: Command
         
         var replayButtonHidden: Bool
-        var replayButtonCommand: Command
+        var replayButtonAction: Command
         
         var nextButtonHidden: Bool
-        var nextButtonCommand: Command
+        var nextButtonAction: Command
         var nextButtonEnabled: Bool
         
         var prevButtonHidden: Bool
-        var prevButtonCommand: Command
+        var prevButtonAction: Command
         var prevButtonEnabled: Bool
         
         var seekerViewHidden: Bool
@@ -29,10 +29,10 @@ extension DefaultControlsViewController {
         var seekerViewCurrentTime: UInt
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
-        var startSeekCommand: CommandWith<Double>
-        var updateSeekCommand: CommandWith<Double>
-        var stopSeekCommand: CommandWith<Double>
-        var seekToSecondsCommand: CommandWith<UInt>
+        var startSeekAction: CommandWith<Double>
+        var updateSeekAction: CommandWith<Double>
+        var stopSeekAction: CommandWith<Double>
+        var seekToSecondsAction: CommandWith<UInt>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
         var seekbarPositionedAtBottom: Bool
@@ -62,15 +62,15 @@ extension DefaultControlsViewController {
         var errorLabelHidden: Bool
         var errorLabelText: String
         var retryButtonHidden: Bool
-        var retryButtonCommand: Command
+        var retryButtonAction: Command
         
         var pipButtonHidden: Bool
         var pipButtonEnabled: Bool
-        var pipButtonCommand: Command
+        var pipButtonAction: Command
         
         var settingsButtonHidden: Bool
         var settingsButtonEnabled: Bool
-        var settingsButtonCommand: Command
+        var settingsButtonAction: Command
         
         var airplayActiveLabelHidden: Bool
         var airplayButtonHidden: Bool
@@ -91,25 +91,25 @@ extension DefaultControlsViewController {
             
             loading = props.player?.item.playable?.loading ?? false
             
-            playButtonHidden = props.player?.item.playable?.playbackCommand.play == nil
+            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil
             
-            playButtonCommand = props.player?.item.playable?.playbackCommand.play ?? .nop
+            playButtonAction = props.player?.item.playable?.playbackAction.play ?? .nop
             
-            pauseButtonHidden = props.player?.item.playable?.playbackCommand.pause == nil
+            pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil
             
-            pauseButtonCommand = props.player?.item.playable?.playbackCommand.pause ?? .nop
+            pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? .nop
             
-            replayButtonHidden = props.player?.item.playable?.playbackCommand.replay == nil
+            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
             
-            replayButtonCommand = props.player?.item.playable?.playbackCommand.replay ?? .nop
+            replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? .nop
             
             nextButtonEnabled = props.player?.playlist?.next != nil
             
-            nextButtonCommand = props.player?.playlist?.next ?? .nop
+            nextButtonAction = props.player?.playlist?.next ?? .nop
             
             prevButtonEnabled = props.player?.playlist?.prev != nil
             
-            prevButtonCommand = props.player?.playlist?.prev ?? .nop
+            prevButtonAction = props.player?.playlist?.prev ?? .nop
             
             let nextButtonDisabled = !nextButtonEnabled
             let prevButtonDisabled = !prevButtonEnabled
@@ -131,13 +131,13 @@ extension DefaultControlsViewController {
             
             seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
             
-            seekToSecondsCommand = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
+            seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
             
-            startSeekCommand = props.player?.item.playable?.seekbar?.seeker.state.start ?? .nop
+            startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? .nop
             
-            updateSeekCommand = props.player?.item.playable?.seekbar?.seeker.state.update ?? .nop
+            updateSeekAction = props.player?.item.playable?.seekbar?.seeker.state.update ?? .nop
             
-            stopSeekCommand = props.player?.item.playable?.seekbar?.seeker.state.stop ?? .nop
+            stopSeekAction = props.player?.item.playable?.seekbar?.seeker.state.stop ?? .nop
             
             seekerViewCurrentTimeText = {
                 guard let seekbar = props.player?.item.playable?.seekbar else { return "" }
@@ -213,19 +213,19 @@ extension DefaultControlsViewController {
             
             retryButtonHidden = props.player?.item.playable?.error == nil
             
-            retryButtonCommand = props.player?.item.playable?.error?.retryCommand ?? .nop
+            retryButtonAction = props.player?.item.playable?.error?.retryAction ?? .nop
             
             pipButtonHidden = props.player?.item.playable?.pictureInPictureControl.isUnsupported ?? true
             
             pipButtonEnabled = props.player?.item.playable?.pictureInPictureControl.possible != nil
             
-            pipButtonCommand = props.player?.item.playable?.pictureInPictureControl.possible ?? .nop
+            pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? .nop
             
             settingsButtonHidden = props.player?.item.playable?.settings.isHidden ?? true
             
             settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
             
-            settingsButtonCommand = props.player?.item.playable?.settings.enabled ?? .nop
+            settingsButtonAction = props.player?.item.playable?.settings.enabled ?? .nop
             
             airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
             airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true

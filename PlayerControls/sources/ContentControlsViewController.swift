@@ -48,7 +48,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public var title = ""
         public var loading = false
         
-        public var playbackCommand: Playback = .none
+        public var playbackAction: Playback = .none
             public enum Playback: Prism {
             case none
             case play(Command)
@@ -121,7 +121,7 @@ extension ContentControlsViewController.Props.Player.Item {
         public var error: Error?
         public struct Error {
             public var message = ""
-            public var retryCommand: Command?
+            public var retryAction: Command?
             public init() { }
         }
         

@@ -236,7 +236,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         func isVideoPlaying(for props: ContentControlsViewController.Props) -> Bool {
             guard case .player(let player) = props else { return false }
             guard case .playable(let contentProps) = player.item else { return false }
-            guard case .pause = contentProps.playbackCommand else { return false }
+            guard case .pause = contentProps.playbackAction else { return false }
             return true
         }
         
@@ -275,53 +275,53 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
  
     @IBAction private func playButtonTouched() {
-        uiProps.playButtonCommand.perform()
+        uiProps.playButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     @IBAction private func pauseButtonTouched() {
-        uiProps.pauseButtonCommand.perform()
+        uiProps.pauseButtonAction.perform()
 		onUserInteraction?.perform()
     }
     
     @IBAction private func replayButtonTouched() {
-        uiProps.replayButtonCommand.perform()
+        uiProps.replayButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     @IBAction private func nextButtonTouched() {
-        uiProps.nextButtonCommand.perform()
+        uiProps.nextButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     @IBAction private func prevButtonTouched() {
-        uiProps.prevButtonCommand.perform()
+        uiProps.prevButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     private func startSeek(from progress: CGFloat) {
-        uiProps.startSeekCommand.perform(with: .init(progress))
+        uiProps.startSeekAction.perform(with: .init(progress))
 		onUserInteraction?.perform()
     }
     
     private func updateSeek(to progress: CGFloat) {
-        uiProps.updateSeekCommand.perform(with: .init(progress))
+        uiProps.updateSeekAction.perform(with: .init(progress))
 		onUserInteraction?.perform()
     }
     
     private func stopSeek(at progress: CGFloat) {
-        uiProps.stopSeekCommand.perform(with: .init(progress))
+        uiProps.stopSeekAction.perform(with: .init(progress))
 		onUserInteraction?.perform()
     }
     
     @IBAction private func seekForwardButtonTouched() {
-        uiProps.seekToSecondsCommand.perform(with: uiProps.seekerViewCurrentTime.advanced(by: 10))
+        uiProps.seekToSecondsAction.perform(with: uiProps.seekerViewCurrentTime.advanced(by: 10))
         onUserInteraction?.perform()
     }
     
     @IBAction private func seekBackButtonTouched() {
         let value = uiProps.seekerViewCurrentTime
-        uiProps.seekToSecondsCommand.perform(with: value - min(value, 10))
+        uiProps.seekToSecondsAction.perform(with: value - min(value, 10))
         onUserInteraction?.perform()
     }
     
@@ -342,16 +342,16 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     @IBAction private func retry() {
-        uiProps.retryButtonCommand.perform()
+        uiProps.retryButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     @IBAction private func pipButtonTouched() {
-        uiProps.pipButtonCommand.perform()
+        uiProps.pipButtonAction.perform()
         onUserInteraction?.perform()
     }
     
     @IBAction private func settingsButtonTouched() {
-        uiProps.settingsButtonCommand.perform()
+        uiProps.settingsButtonAction.perform()
     }
 }

@@ -9,7 +9,7 @@ public class SettingsViewController: UIViewController {
     @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBAction func closeButtonTouched(_ sender: Any) {
-        props?.dismissCommand.perform()
+        props?.dismissAction.perform()
     }
     
     public init() {
@@ -44,7 +44,7 @@ extension SettingsViewController {
         }
         
         public let sections: [Section]
-        public let dismissCommand: Command
+        public let dismissAction: Command
     }
 }
 
@@ -52,7 +52,7 @@ extension ContentControlsViewController {
     public static func settingProps(from props: Props) -> SettingsViewController.Props? {        
         guard case .player(let player) = props else { return nil }
         guard case .playable(let controls) = player.item else { return nil }
-        guard case .enabled(let command) = controls.settings else { return nil }
+        guard case .enabled(let action) = controls.settings else { return nil }
         
         var sections: [SettingsViewController.Props.Section] = []
     
@@ -84,6 +84,6 @@ extension ContentControlsViewController {
         
         return SettingsViewController.Props(
             sections: sections,
-            dismissCommand: command)
+            dismissAction: action)
     }
 }

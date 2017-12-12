@@ -25,9 +25,9 @@ public final class AdVideoControls: UIViewController {
     
     @IBOutlet public weak var containerView: UIView!
     
-    public var props: Props = Props(mainCommand: .play(.nop),
+    public var props: Props = Props(mainAction: .play(.nop),
                                     seeker: nil,
-                                    tapCommand: nil,
+                                    tapAction: nil,
                                     isLoading: true,
                                     airplayActiveViewHidden: true) {
         didSet {
@@ -48,7 +48,7 @@ public final class AdVideoControls: UIViewController {
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        playButton.isHidden = props.mainCommand.pause != nil
+        playButton.isHidden = props.mainAction.pause != nil
         
         pauseButton.isHidden = !playButton.isHidden
         
@@ -64,18 +64,18 @@ public final class AdVideoControls: UIViewController {
     }
     
     public struct Props {
-        public static let `default` = Props(mainCommand: .play(.nop),
+        public static let `default` = Props(mainAction: .play(.nop),
                                             seeker: nil,
-                                            tapCommand: nil,
+                                            tapAction: nil,
                                             isLoading: true,
                                             airplayActiveViewHidden: true)
-        public let mainCommand: MainCommand
+        public let mainAction: MainAction
         public let seeker: Seeker?
-        public let tapCommand: Command?
+        public let tapAction: Command?
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
         
-        public enum MainCommand: Prism {
+        public enum MainAction: Prism {
             case play(Command)
             case pause(Command)
         }
@@ -89,14 +89,14 @@ public final class AdVideoControls: UIViewController {
             }
         }
         
-        public init(mainCommand: MainCommand,
+        public init(mainAction: MainAction,
                     seeker: Seeker?,
-                    tapCommand: Command?,
+                    tapAction: Command?,
                     isLoading: Bool,
                     airplayActiveViewHidden: Bool) {
-            self.mainCommand = mainCommand
+            self.mainAction = mainAction
             self.seeker = seeker
-            self.tapCommand = tapCommand
+            self.tapAction = tapAction
             self.isLoading = isLoading
             self.airplayActiveViewHidden = airplayActiveViewHidden
         }
@@ -111,17 +111,17 @@ public final class AdVideoControls: UIViewController {
             red: 1.0, green: 198.0 / 255.0, blue: 0, alpha: 1.0)
     }
     
-    /// Play video button Command. Replace if you need custom behavior.
+    /// Play video button command. Replace if you need custom behavior.
     @IBAction private func playButtonTouched() {
-        props.mainCommand.play?.perform()
+        props.mainAction.play?.perform()
     }
     
-    /// Pause video button Command. Replace if you need custom behavior.
+    /// Pause video button command. Replace if you need custom behavior.
     @IBAction private func pauseButtonTouched() {
-        props.mainCommand.pause?.perform()
+        props.mainAction.pause?.perform()
     }
     
-    @IBAction private func viewTouched() { props.tapCommand?.perform() }
+    @IBAction private func viewTouched() { props.tapAction?.perform() }
 }
 
 extension AdVideoControls {
