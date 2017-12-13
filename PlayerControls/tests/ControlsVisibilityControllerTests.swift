@@ -12,11 +12,11 @@ class ControlsVisibilityControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         controls = ControlsPresentationController.Controls(
-            show: CommandWith { [weak self] in self?.recorder.hook("show controls")() },
-            hide: CommandWith { [weak self] in self?.recorder.hook("hide controls")() })
+            show: CommandWith(action: recorder.hook("show controls")),
+            hide: CommandWith(action: recorder.hook("hide controls")))
         timer = ControlsPresentationController.Timer(
-            start: CommandWith { [weak self] in self?.recorder.hook("start timer")() },
-            stop: CommandWith { [weak self] in self?.recorder.hook("end timer")() })
+            start: CommandWith(action: recorder.hook("start timer")),
+            stop: CommandWith(action: recorder.hook("end timer")))
         controller = ControlsPresentationController(controls: controls, timer: timer)
     }
     
