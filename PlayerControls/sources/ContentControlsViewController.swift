@@ -64,7 +64,7 @@ extension ContentControlsViewController.Props.Player.Item {
         }
         public var seekbar: Seekbar?
         public struct Seekbar {
-            public typealias Seconds = UInt
+            public typealias Seconds = Int
             public typealias Progress = Double
             
             public var duration: Seconds = 0
