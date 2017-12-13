@@ -11,12 +11,12 @@ public enum TimeFormatter {
         return formatter
     }()
     
-    public static func string(from value: UInt) -> String {
+    public static func string(from value: Int) -> String {
         let hours = value / 3600
         let minutes = value / 60 % 60
         let seconds = value % 60
         
-        func format(_ value: UInt) -> String {
+        func format(_ value: Int) -> String {
             guard let string = formatter.string(from: NSNumber(value: value)) else {
                 fatalError("Unhandled conversion!")
             }

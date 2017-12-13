@@ -26,13 +26,13 @@ extension DefaultControlsViewController {
         
         var seekerViewHidden: Bool
         var seekerViewCurrentTimeText: String
-        var seekerViewCurrentTime: UInt
+        var seekerViewCurrentTime: Int
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
         var startSeekAction: CommandWith<Double>
         var updateSeekAction: CommandWith<Double>
         var stopSeekAction: CommandWith<Double>
-        var seekToSecondsAction: CommandWith<UInt>
+        var seekToSecondsAction: CommandWith<Int>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
         var seekbarPositionedAtBottom: Bool
