@@ -1,15 +1,5 @@
 //  Copyright © 2017 One by AOL : Publishers. All rights reserved.
 
-public typealias Action<T> = (T) -> Void
-
-func nop<T>() -> Action<T> {
-    return { _ in }
-}
-
-func nop<T>(t: T) { }
-
-func nop() { }
-
 extension UIImageView {
     func enableRotation() {
         /* Configure loading animation. */ do {

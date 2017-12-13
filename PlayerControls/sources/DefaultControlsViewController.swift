@@ -3,7 +3,7 @@ import MediaPlayer
 
 /// This class contains all controls that
 /// are defined for Player View Controller default UI.
-/// You can replace actions with your own
+/// You can replace commands with your own
 /// and customise controls according to your needs.
 public final class DefaultControlsViewController: ContentControlsViewController {
     public init() {
@@ -69,9 +69,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             sideBarView.props = sidebarProps.map { [weak self] in
                 var props = $0
                 let handler = props.handler
-                props.handler = {
-                    self?.onUserInteraction?()
-                    handler()
+                props.handler = CommandWith {
+                    self?.onUserInteraction?.perform()
+                    handler.perform()
                 }
                 return props
             }
@@ -80,13 +80,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        seekerView.callbacks.onDragStarted = { [unowned self] value in
+        seekerView.callbacks.onDragStarted = CommandWith { [unowned self] value in
             self.startSeek(from: value)
         }
-        seekerView.callbacks.onDragChanged = { [unowned self] value in
+        seekerView.callbacks.onDragChanged = CommandWith { [unowned self] value in
             self.updateSeek(to: value)
         }
-        seekerView.callbacks.onDragFinished = { [unowned self] value in
+        seekerView.callbacks.onDragFinished = CommandWith { [unowned self] value in
             self.stopSeek(at: value)
         }
     }
@@ -224,10 +224,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
-    public var onPlayEvent: Action<Void>?
-    public var onPauseEvent: Action<Void>?
-    public var onTapEvent: Action<Void>?
-    public var onUserInteraction: Action<Void>?
+    public var onPlayEvent: Command?
+    public var onPauseEvent: Command?
+    public var onTapEvent: Command?
+    public var onUserInteraction: Command?
     
     func updateVisibilityController( //swiftlint:disable:this cyclomatic_complexity
         from old: ContentControlsViewController.Props,
@@ -243,8 +243,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         switch (isVideoPlaying(for: old), isVideoPlaying(for: new)) {
         case (true, true): break
         case (false, false): break
-        case (false, true): onPlayEvent?()
-        case (true, false): onPauseEvent?()
+        case (false, true): onPlayEvent?.perform()
+        case (true, false): onPauseEvent?.perform()
         }
     }
     
@@ -263,95 +263,95 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     func setupVisibilityController() {
         weak var weakSelf = self
         let controls = ControlsPresentationController.Controls(
-            show: { weakSelf?.showControls() },
-            hide: { weakSelf?.hideControls() })
+            show: CommandWith { weakSelf?.showControls() },
+            hide: CommandWith { weakSelf?.hideControls() })
         
         let visibilityController = ControlsPresentationController(controls: controls)
         
-        onUserInteraction = visibilityController.resetTimer
-        onTapEvent = visibilityController.tap
-        onPlayEvent = visibilityController.play
-        onPauseEvent = visibilityController.pause
+        onUserInteraction = CommandWith { visibilityController.resetTimer() }
+        onTapEvent = CommandWith { visibilityController.tap() }
+        onPlayEvent = CommandWith { visibilityController.play() }
+        onPauseEvent = CommandWith { visibilityController.pause() }
     }
-    
+ 
     @IBAction private func playButtonTouched() {
-        uiProps.playButtonAction()
-        onUserInteraction?()
+        uiProps.playButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func pauseButtonTouched() {
-        uiProps.pauseButtonAction()
-		onUserInteraction?()
+        uiProps.pauseButtonAction.perform()
+		onUserInteraction?.perform()
     }
     
     @IBAction private func replayButtonTouched() {
-        uiProps.replayButtonAction()
-        onUserInteraction?()
+        uiProps.replayButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func nextButtonTouched() {
-        uiProps.nextButtonAction()
-        onUserInteraction?()
+        uiProps.nextButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func prevButtonTouched() {
-        uiProps.prevButtonAction()
-        onUserInteraction?()
+        uiProps.prevButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     private func startSeek(from progress: CGFloat) {
-        uiProps.startSeekAction(.init(progress))
-		onUserInteraction?()
+        uiProps.startSeekAction.perform(with: .init(progress))
+		onUserInteraction?.perform()
     }
     
     private func updateSeek(to progress: CGFloat) {
-        uiProps.updateSeekAction(.init(progress))
-		onUserInteraction?()
+        uiProps.updateSeekAction.perform(with: .init(progress))
+		onUserInteraction?.perform()
     }
     
     private func stopSeek(at progress: CGFloat) {
-        uiProps.stopSeekAction(.init(progress))
-		onUserInteraction?()
+        uiProps.stopSeekAction.perform(with: .init(progress))
+		onUserInteraction?.perform()
     }
     
     @IBAction private func seekForwardButtonTouched() {
-        uiProps.seekToSecondsAction(uiProps.seekerViewCurrentTime.advanced(by: 10))
-        onUserInteraction?()
+        uiProps.seekToSecondsAction.perform(with: uiProps.seekerViewCurrentTime.advanced(by: 10))
+        onUserInteraction?.perform()
     }
     
     @IBAction private func seekBackButtonTouched() {
         let value = uiProps.seekerViewCurrentTime
-        uiProps.seekToSecondsAction(value - min(value, 10))
-        onUserInteraction?()
+        uiProps.seekToSecondsAction.perform(with: value - min(value, 10))
+        onUserInteraction?.perform()
     }
     
     @IBAction private func onEmptySpaceTap() {
-        onTapEvent?()
+        onTapEvent?.perform()
     }
     
     @IBAction private func onCameraPan(with recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: recognizer.view)
         recognizer.setTranslation(CGPoint.zero, in: recognizer.view)
         
-        uiProps.updateCameraAngles(translation)
+        uiProps.updateCameraAngles.perform(with: translation)
     }
     
     @IBAction private func resetCamera() {
-        uiProps.resetCameraAngles()
-        onUserInteraction?()
+        uiProps.resetCameraAngles.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func retry() {
-        uiProps.retryButtonAction()
-        onUserInteraction?()
+        uiProps.retryButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func pipButtonTouched() {
-        uiProps.pipButtonAction()
-        onUserInteraction?()
+        uiProps.pipButtonAction.perform()
+        onUserInteraction?.perform()
     }
     
     @IBAction private func settingsButtonTouched() {
-        uiProps.settingsButtonAction()
+        uiProps.settingsButtonAction.perform()
     }
 }

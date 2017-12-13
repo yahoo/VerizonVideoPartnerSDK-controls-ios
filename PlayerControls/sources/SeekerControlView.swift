@@ -141,18 +141,18 @@ final class SeekerControlView: UIView {
         }
     }
     struct Callbacks {
-        var onDragStarted: Action<CGFloat>?
-        var onDragChanged: Action<CGFloat>?
-        var onDragFinished: Action<CGFloat>?
+        var onDragStarted: CommandWith<CGFloat>?
+        var onDragChanged: CommandWith<CGFloat>?
+        var onDragFinished: CommandWith<CGFloat>?
     }
     
     var callbacks: Callbacks = Callbacks()
     
     func ringIsDragged(recognizer: SeekGestureRecognizer) {
         switch recognizer.state {
-        case .began: callbacks.onDragStarted?(recognizer.progress)
-        case .changed: callbacks.onDragChanged?(recognizer.progress)
-        case .ended, .possible: callbacks.onDragFinished?(recognizer.progress)
+        case .began: callbacks.onDragStarted?.perform(with: recognizer.progress)
+        case .changed: callbacks.onDragChanged?.perform(with: recognizer.progress)
+        case .ended, .possible: callbacks.onDragFinished?.perform(with: recognizer.progress)
         default: break }
     }
     

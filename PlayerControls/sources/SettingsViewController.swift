@@ -9,7 +9,7 @@ public class SettingsViewController: UIViewController {
     @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBAction func closeButtonTouched(_ sender: Any) {
-        props?.dismissAction()
+        props?.dismissAction.perform()
     }
     
     public init() {
@@ -40,11 +40,11 @@ extension SettingsViewController {
         public struct Cell {
             public let title: String
             public let selected: Bool
-            public let select: Action<Void>
+            public let select: Command
         }
         
         public let sections: [Section]
-        public let dismissAction: Action<Void>
+        public let dismissAction: Command
     }
 }
 

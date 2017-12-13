@@ -25,7 +25,7 @@ public final class AdVideoControls: UIViewController {
     
     @IBOutlet public weak var containerView: UIView!
     
-    public var props: Props = Props(mainAction: .play { },
+    public var props: Props = Props(mainAction: .play(.nop),
                                     seeker: nil,
                                     tapAction: nil,
                                     isLoading: true,
@@ -64,20 +64,20 @@ public final class AdVideoControls: UIViewController {
     }
     
     public struct Props {
-        public static let `default` = Props(mainAction: .play { },
+        public static let `default` = Props(mainAction: .play(.nop),
                                             seeker: nil,
                                             tapAction: nil,
                                             isLoading: true,
                                             airplayActiveViewHidden: true)
         public let mainAction: MainAction
         public let seeker: Seeker?
-        public let tapAction: Action<Void>?
+        public let tapAction: Command?
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
         
         public enum MainAction: Prism {
-            case play(Action<Void>)
-            case pause(Action<Void>)
+            case play(Command)
+            case pause(Command)
         }
         
         public struct Seeker {
@@ -91,7 +91,7 @@ public final class AdVideoControls: UIViewController {
         
         public init(mainAction: MainAction,
                     seeker: Seeker?,
-                    tapAction: Action<Void>?,
+                    tapAction: Command?,
                     isLoading: Bool,
                     airplayActiveViewHidden: Bool) {
             self.mainAction = mainAction
@@ -111,17 +111,17 @@ public final class AdVideoControls: UIViewController {
             red: 1.0, green: 198.0 / 255.0, blue: 0, alpha: 1.0)
     }
     
-    /// Play video button action. Replace if you need custom behavior.
+    /// Play video button command. Replace if you need custom behavior.
     @IBAction private func playButtonTouched() {
-        props.mainAction.play?()
+        props.mainAction.play?.perform()
     }
     
-    /// Pause video button action. Replace if you need custom behavior.
+    /// Pause video button command. Replace if you need custom behavior.
     @IBAction private func pauseButtonTouched() {
-        props.mainAction.pause?()
+        props.mainAction.pause?.perform()
     }
     
-    @IBAction private func viewTouched() { props.tapAction?() }
+    @IBAction private func viewTouched() { props.tapAction?.perform() }
 }
 
 extension AdVideoControls {

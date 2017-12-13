@@ -8,20 +8,20 @@ extension DefaultControlsViewController {
         var controlsViewHidden: Bool
         
         var playButtonHidden: Bool
-        var playButtonAction: Action<Void>
+        var playButtonAction: Command
         
         var pauseButtonHidden: Bool
-        var pauseButtonAction: Action<Void>
+        var pauseButtonAction: Command
         
         var replayButtonHidden: Bool
-        var replayButtonAction: Action<Void>
+        var replayButtonAction: Command
         
         var nextButtonHidden: Bool
-        var nextButtonAction: Action<Void>
+        var nextButtonAction: Command
         var nextButtonEnabled: Bool
         
         var prevButtonHidden: Bool
-        var prevButtonAction: Action<Void>
+        var prevButtonAction: Command
         var prevButtonEnabled: Bool
         
         var seekerViewHidden: Bool
@@ -29,10 +29,10 @@ extension DefaultControlsViewController {
         var seekerViewCurrentTime: UInt
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
-        var startSeekAction: Action<Double>
-        var updateSeekAction: Action<Double>
-        var stopSeekAction: Action<Double>
-        var seekToSecondsAction: Action<UInt>
+        var startSeekAction: CommandWith<Double>
+        var updateSeekAction: CommandWith<Double>
+        var stopSeekAction: CommandWith<Double>
+        var seekToSecondsAction: CommandWith<UInt>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
         var seekbarPositionedAtBottom: Bool
@@ -42,8 +42,8 @@ extension DefaultControlsViewController {
         var compasBodyViewHidden: Bool
         var compasDirectionViewHidden: Bool
         var compasDirectionViewTransform: CGAffineTransform
-        var updateCameraAngles: Action<CGPoint>
-        var resetCameraAngles: Action<Void>
+        var updateCameraAngles: CommandWith<CGPoint>
+        var resetCameraAngles: Command
         var cameraPanGestureIsEnabled: Bool
         var compassViewBelowLive: Bool
         
@@ -62,15 +62,15 @@ extension DefaultControlsViewController {
         var errorLabelHidden: Bool
         var errorLabelText: String
         var retryButtonHidden: Bool
-        var retryButtonAction: Action<Void>
+        var retryButtonAction: Command
         
         var pipButtonHidden: Bool
         var pipButtonEnabled: Bool
-        var pipButtonAction: Action<Void>
+        var pipButtonAction: Command
         
         var settingsButtonHidden: Bool
         var settingsButtonEnabled: Bool
-        var settingsButtonAction: Action<Void>
+        var settingsButtonAction: Command
         
         var airplayActiveLabelHidden: Bool
         var airplayButtonHidden: Bool
@@ -93,23 +93,23 @@ extension DefaultControlsViewController {
             
             playButtonHidden = props.player?.item.playable?.playbackAction.play == nil
             
-            playButtonAction = props.player?.item.playable?.playbackAction.play ?? nop
+            playButtonAction = props.player?.item.playable?.playbackAction.play ?? .nop
             
             pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil
             
-            pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? nop
+            pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? .nop
             
             replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
             
-            replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? nop
+            replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? .nop
             
             nextButtonEnabled = props.player?.playlist?.next != nil
             
-            nextButtonAction = props.player?.playlist?.next ?? nop
+            nextButtonAction = props.player?.playlist?.next ?? .nop
             
             prevButtonEnabled = props.player?.playlist?.prev != nil
             
-            prevButtonAction = props.player?.playlist?.prev ?? nop
+            prevButtonAction = props.player?.playlist?.prev ?? .nop
             
             let nextButtonDisabled = !nextButtonEnabled
             let prevButtonDisabled = !prevButtonEnabled
@@ -131,13 +131,13 @@ extension DefaultControlsViewController {
             
             seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
             
-            seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? nop
+            seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
             
-            startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? nop
+            startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? .nop
             
-            updateSeekAction = props.player?.item.playable?.seekbar?.seeker.state.update ?? nop
+            updateSeekAction = props.player?.item.playable?.seekbar?.seeker.state.update ?? .nop
             
-            stopSeekAction = props.player?.item.playable?.seekbar?.seeker.state.stop ?? nop
+            stopSeekAction = props.player?.item.playable?.seekbar?.seeker.state.stop ?? .nop
             
             seekerViewCurrentTimeText = {
                 guard let seekbar = props.player?.item.playable?.seekbar else { return "" }
@@ -171,19 +171,18 @@ extension DefaultControlsViewController {
             }()
             
             updateCameraAngles = {
-                guard let camera = props.player?.item.playable?.camera else { return nop }
-                return { translation in
+                guard let camera = props.player?.item.playable?.camera else { return .nop }
+                return camera.moveTo.map { translation in
                     var angles = camera.angles
                     angles.horizontal += Float(translation.x) * 0.01
                     angles.vertical += Float(translation.y) * 0.01
-                    
-                    camera.moveTo(angles)
+                    return angles
                 }
             }()
             
             resetCameraAngles = {
-                guard let camera = props.player?.item.playable?.camera else { return nop }
-                return { camera.moveTo(.init()) }
+                guard let camera = props.player?.item.playable?.camera else { return .nop }
+                return camera.moveTo.bind(to: .init())
             }()
             
             cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil
@@ -214,26 +213,26 @@ extension DefaultControlsViewController {
             
             retryButtonHidden = props.player?.item.playable?.error == nil
             
-            retryButtonAction = props.player?.item.playable?.error?.retryAction ?? nop
+            retryButtonAction = props.player?.item.playable?.error?.retryAction ?? .nop
             
             pipButtonHidden = props.player?.item.playable?.pictureInPictureControl.isUnsupported ?? true
             
             pipButtonEnabled = props.player?.item.playable?.pictureInPictureControl.possible != nil
             
-            pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? nop
+            pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? .nop
             
             settingsButtonHidden = props.player?.item.playable?.settings.isHidden ?? true
             
             settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
             
-            settingsButtonAction = props.player?.item.playable?.settings.enabled ?? nop
+            settingsButtonAction = props.player?.item.playable?.settings.enabled ?? .nop
             
             airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
             airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             
-            liveDotColor = props.player?.item.playable?.live.dotColor
+            liveDotColor = props.player?.item.playable?.live.dotColor ?? nil
             
             compassViewBelowLive = {
                 guard

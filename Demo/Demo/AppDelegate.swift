@@ -3,8 +3,6 @@
 import UIKit
 import PlayerControls
 
-func nop() {}
-
 typealias Props = ContentControlsViewController.Props
 func props() -> Props {
     return Props.player(Props.Player { player in
@@ -12,7 +10,7 @@ func props() -> Props {
             controls.title = "Some title very very very very very very very very very long"
             controls.live.isHidden = true
             controls.seekbar = .init()
-            controls.playbackAction = .pause(nop)
+            controls.playbackAction = .pause(.nop)
             controls.camera = Props.Player.Item.Controls.Camera()
             controls.settings = .hidden
             controls.pictureInPictureControl = .unsupported
