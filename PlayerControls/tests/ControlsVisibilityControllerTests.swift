@@ -12,11 +12,11 @@ class ControlsVisibilityControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         controls = ControlsPresentationController.Controls(
-            show: recorder.hook("show controls"),
-            hide: recorder.hook("hide controls"))
+            show: CommandWith(action: recorder.hook("show controls")),
+            hide: CommandWith(action: recorder.hook("hide controls")))
         timer = ControlsPresentationController.Timer(
-            start: recorder.hook("start timer"),
-            stop: recorder.hook("end timer"))
+            start: CommandWith(action: recorder.hook("start timer")),
+            stop: CommandWith(action: recorder.hook("end timer")))
         controller = ControlsPresentationController(controls: controls, timer: timer)
     }
     
@@ -32,46 +32,46 @@ class ControlsVisibilityControllerTests: XCTestCase {
         }
         
         recorder.verify {
-            controls.show()
+            controls.show.perform()
         }
     }
     
     
     func testHideOnTap() {
         recorder.record { controller.tap() }
-        recorder.verify { controls.hide() }
+        recorder.verify { controls.hide.perform() }
     }
     
     func testStartTimerOnPlay() {
         recorder.record { controller.play() }
-        recorder.verify { timer.start() }
+        recorder.verify { timer.start.perform() }
     }
     
     func testPlayingShouldHideOnTimerFire() {
         controller.play()
         recorder.record { controller.timerFired() }
-        recorder.verify { controls.hide() }
+        recorder.verify { controls.hide.perform() }
     }
     
     func testPlayingShouldStopTimerOnPause() {
         controller.play()
         recorder.record { controller.pause() }
-        recorder.verify { timer.stop() }
+        recorder.verify { timer.stop.perform() }
     }
     
     func testPlayingShouldHideAndStopOnTap() {
         controller.play()
         recorder.record { controller.tap() }
         recorder.verify {
-            timer.stop()
-            controls.hide()
+            timer.stop.perform()
+            controls.hide.perform()
         }
     }
     
     func testPausedAndHiddenShouldShowControlsByTap() {
         controller.tap()
         recorder.record { controller.tap() }
-        recorder.verify { controls.show() }
+        recorder.verify { controls.show.perform() }
     }
     
     func testPausedAndHiddenShouldStartPlayingVideo() {
@@ -84,7 +84,7 @@ class ControlsVisibilityControllerTests: XCTestCase {
         controller.tap()
         controller.play()
         recorder.record { controller.pause() }
-        recorder.verify { controls.show() }
+        recorder.verify { controls.show.perform() }
     }
     
     func testPlayingAndHiddenShouldStartTimerAndShowOnTap() {
@@ -92,8 +92,8 @@ class ControlsVisibilityControllerTests: XCTestCase {
         controller.play()
         recorder.record { controller.tap() }
         recorder.verify {
-            controls.show()
-            timer.start()
+            controls.show.perform()
+            timer.start.perform()
         }
     }
 }
