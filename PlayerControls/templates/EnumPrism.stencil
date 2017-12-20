@@ -53,7 +53,7 @@ import Foundation
 
 /*Creates Bool var with given simple case*/
 {% macro simpleVar case %}
-    public var is{{ case.name|upperFirst }}: Bool {
+    public var is{{ case.name|capitalize }}: Bool {
         guard case .{{ case.name }} = self else { return false }
         return true
     }
