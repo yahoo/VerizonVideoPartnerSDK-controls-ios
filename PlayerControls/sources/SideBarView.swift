@@ -30,7 +30,8 @@ public final class SideBarView: UIView {
         public var isSelected: Bool
         
         /// Button icons.
-        public var icons: Icons; public struct Icons {
+        public var icons: Icons
+        public struct Icons {
             /// Corresponds to UIButton 'normalImage' property.
             public var normal: UIImage
             /// Corresponds to UIButton 'selectedImage' property.
