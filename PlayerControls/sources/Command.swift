@@ -1,5 +1,4 @@
-//  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-
+//  Copyright © 2017 Oath. All rights reserved.
 public typealias Command = CommandWith<Void>
 
 public struct CommandWith<T> {

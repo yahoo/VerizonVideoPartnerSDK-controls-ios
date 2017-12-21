@@ -1,5 +1,4 @@
-//  Copyright © 2016 One by Aol : Publishers. All rights reserved.
-
+//  Copyright © 2017 Oath. All rights reserved.
 import Foundation
 import MediaPlayer
 

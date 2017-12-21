@@ -1,6 +1,5 @@
 import MediaPlayer
-//  Copyright © 2016 One by Aol : Publishers. All rights reserved.
-
+//  Copyright © 2017 Oath. All rights reserved.
 /// This class contains all controls that
 /// are defined for Player View Controller default UI.
 /// You can replace commands with your own
