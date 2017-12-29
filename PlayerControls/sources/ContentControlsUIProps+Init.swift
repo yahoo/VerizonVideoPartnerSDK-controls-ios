@@ -7,36 +7,36 @@
 //
 
 import Foundation
-private typealias Props = ContentControlsViewController.Props
 
-extension Props.Player {
-    public init(playlist: Props.Playlist?, item: Props.Item) {
+extension ContentControlsViewController.Props.Player {
+    public init(playlist: ContentControlsViewController.Props.Playlist?,
+                item: ContentControlsViewController.Props.Item) {
         self.playlist = playlist
         self.item = item
     }
 }
 
-extension Props.Playlist {
+extension ContentControlsViewController.Props.Playlist {
     public init(next: Command?, prev: Command?) {
         self.next = next
         self.prev = prev
     }
 }
 
-extension Props.Controls {
-    public init(airplay: Props.AirPlay,
-                audible: Props.MediaGroupControl?,
-                camera: Props.Camera?,
-                error: Props.Error?,
-                legible: Props.Subtitles,
-                live: Props.Live,
+extension ContentControlsViewController.Props.Controls {
+    public init(airplay: ContentControlsViewController.Props.AirPlay,
+                audible: ContentControlsViewController.Props.MediaGroupControl?,
+                camera: ContentControlsViewController.Props.Camera?,
+                error: ContentControlsViewController.Props.Error?,
+                legible: ContentControlsViewController.Props.Subtitles,
+                live: ContentControlsViewController.Props.Live,
                 loading: Bool,
-                pictureInPictureControl: Props.PictureInPictureControl,
-                playbackAction: Props.Playback,
-                seekbar: Props.Seekbar,
-                settings: Props.Settings,
+                pictureInPictureControl: ContentControlsViewController.Props.PictureInPictureControl,
+                playbackAction: ContentControlsViewController.Props.Playback,
+                seekbar: ContentControlsViewController.Props.Seekbar,
+                settings: ContentControlsViewController.Props.Settings,
                 sideBarViewHidden: Bool,
-                thumbnail: Props.Thumbnail?,
+                thumbnail: ContentControlsViewController.Props.Thumbnail?,
                 title: String) {
         self.title = title
         self.thumbnail = thumbnail
@@ -55,41 +55,41 @@ extension Props.Controls {
     }
 }
 
-extension Props.Angles {
+extension ContentControlsViewController.Props.Angles {
     public init(horizontal: Float, vertical: Float) {
         self.horizontal = horizontal
         self.vertical = vertical
     }
 }
 
-extension Props.Camera {
-    public init(angles: Props.Angles, moveTo: CommandWith<Props.Angles>) {
+extension ContentControlsViewController.Props.Camera {
+    public init(angles: ContentControlsViewController.Props.Angles, moveTo: CommandWith<ContentControlsViewController.Props.Angles>) {
         self.angles = angles
         self.moveTo = moveTo
     }
 }
 
-extension Props.Error {
+extension ContentControlsViewController.Props.Error {
     public init(message: String, retryAction: Command?) {
         self.message = message
         self.retryAction = retryAction
     }
 }
 
-extension Props.Live {
+extension ContentControlsViewController.Props.Live {
     public init(isHidden: Bool, dotColor: UIColor?) {
         self.isHidden = isHidden
         self.dotColor = dotColor
     }
 }
 
-extension Props.MediaGroupControl {
-    public init(options: [Props.Option]) {
+extension ContentControlsViewController.Props.MediaGroupControl {
+    public init(options: [ContentControlsViewController.Props.Option]) {
         self.options = options
     }
 }
 
-extension Props.Option {
+extension ContentControlsViewController.Props.Option {
     public init(name: String ,
                 selected: Bool,
                 select: Command) {
@@ -99,8 +99,12 @@ extension Props.Option {
     }
 }
 
-extension Props.Seekbar {
-    public init(duration: Props.Seconds, currentTime: Props.Seconds, progress: Props.Progress, buffered: Props.Progress, seeker: Props.Seeker) {
+extension ContentControlsViewController.Props.Seekbar {
+    public init(duration: ContentControlsViewController.Props.Seconds,
+                currentTime: ContentControlsViewController.Props.Seconds,
+                progress: ContentControlsViewController.Props.Progress,
+                buffered: ContentControlsViewController.Props.Progress,
+                seeker: ContentControlsViewController.Props.Seeker) {
         self.duration = duration
         self.currentTime = currentTime
         self.progress = progress
@@ -109,18 +113,18 @@ extension Props.Seekbar {
     }
 }
 
-extension Props.State {
-    public init(start: CommandWith<Props.Progress>,
-                update: CommandWith<Props.Progress>,
-                stop: CommandWith<Props.Progress>) {
+extension ContentControlsViewController.Props.State {
+    public init(start: CommandWith<ContentControlsViewController.Props.Progress>,
+                update: CommandWith<ContentControlsViewController.Props.Progress>,
+                stop: CommandWith<ContentControlsViewController.Props.Progress>) {
         self.start = start
         self.update = update
         self.stop = stop
     }
 }
 
-extension Props.Seeker {
-    public init(seekTo: CommandWith<Props.Seconds>?, state: Props.State) {
+extension ContentControlsViewController.Props.Seeker {
+    public init(seekTo: CommandWith<ContentControlsViewController.Props.Seconds>?, state: ContentControlsViewController.Props.State) {
         self.seekTo = seekTo
         self.state = state
     }
