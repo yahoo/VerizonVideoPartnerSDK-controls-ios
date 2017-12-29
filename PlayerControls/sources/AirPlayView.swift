@@ -2,6 +2,12 @@
 import UIKit
 import MediaPlayer
 
+#if (arch(i386) || arch(x86_64)) && os(iOS)
+    typealias AirPlayButton = AirPlayMock
+#else
+    typealias AirPlayButton = MPVolumeView
+#endif
+
 public final class AirPlayView: UIView {
     public struct Props {
         public struct Icons {
@@ -34,7 +40,7 @@ public final class AirPlayView: UIView {
     var props: Props = Props.empty {
         didSet { setNeedsLayout() }
     }
-    private let volumeView = MPVolumeView()
+    private let volumeView = AirPlayButton()
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,5 +57,14 @@ public final class AirPlayView: UIView {
         volumeView.setRouteButtonImage(props.icons.highlighted, for: .highlighted)
         volumeView.setRouteButtonImage(props.icons.normal, for: .normal)
         volumeView.setRouteButtonImage(props.icons.selected, for: .selected)
+    }
+}
+
+class AirPlayMock: UIButton {
+    
+    var showsVolumeSlider: Bool = false
+    
+    func setRouteButtonImage(_ image: UIImage?, for controlState: UIControlState) {
+        setImage(image, for: controlState)
     }
 }
