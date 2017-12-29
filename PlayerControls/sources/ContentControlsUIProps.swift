@@ -181,11 +181,11 @@ extension DefaultControlsViewController {
             
             resetCameraAngles = {
                 guard let camera = props.player?.item.playable?.camera else { return .nop }
-                return camera.moveTo.bind(to: .init(horizontal: 0.0, vertical: 0.0))
+                return camera.moveTo.bind(to: .init())
             }()
             
             cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil
-        
+            
             videoTitleLabelHidden = props.player?.item.playable == nil
             
             videoTitleLabelText = props.player?.item.playable?.title ?? ""

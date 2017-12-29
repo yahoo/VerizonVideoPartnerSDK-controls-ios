@@ -56,7 +56,7 @@ extension ContentControlsViewController {
         var sections: [SettingsViewController.Props.Section] = []
     
         func appendSection(with title: String,
-                           group: Props.MediaGroupControl?) {
+                           group: Props.Player.Item.Controls.MediaGroupControl?) {
             guard let group = group else { return }
             guard group.options.count > 1 else { return }
             sections.append(

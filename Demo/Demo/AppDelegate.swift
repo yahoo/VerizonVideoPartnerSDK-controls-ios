@@ -5,52 +5,25 @@ import PlayerControls
 
 typealias Props = ContentControlsViewController.Props
 func props() -> Props {
-    return Props.player(Props.Player(
-        playlist: Props.Playlist(
-            next: nil,
-            prev: nil),
-        item: .playable(Props.Controls(
-            airplay: .enabled,
-            audible: Props.MediaGroupControl(options: []),
-            camera: Props.Camera(
-                angles: Props.Angles(
-                    horizontal: 0.0,
-                    vertical: 0.0),
-                moveTo: .nop),
-            error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Somthing short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
-            live: Props.Live(
-                isHidden: false,
-                dotColor: nil),
-            loading: false,
-            pictureInPictureControl: .possible(.nop),
-            playbackAction: .play(.nop),
-            seekbar: Props.Seekbar(
-                duration: 3600,
-                currentTime: 1800,
-                progress: 0.5,
-                buffered: 0.7,
-                seeker: Props.Seeker(
-                    seekTo: .nop,
-                    state: Props.State(
-                        start: .nop,
-                        update: .nop,
-                        stop: .nop))),
-            settings: .enabled(.nop),
-            sideBarViewHidden: true,
-            thumbnail: nil,
-            title: "Long titel"))))
+    return Props.player(Props.Player { player in
+        player.item = Props.Player.Item.playable(Props.Player.Item.Controls { controls in
+            controls.title = "Some title very very very very very very very very very long"
+            controls.live.isHidden = true
+            controls.seekbar = .init()
+            controls.playbackAction = .pause(.nop)
+            controls.camera = Props.Player.Item.Controls.Camera()
+            controls.settings = .hidden
+            controls.pictureInPictureControl = .unsupported
+            controls.legible = .`internal`(nil)
+            controls.title = ""
+            controls.airplay = .enabled
+        })
+    })
 }
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -67,6 +40,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
-
 
