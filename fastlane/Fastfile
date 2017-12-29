@@ -1,0 +1,16 @@
+# All lines starting with a # are ignored when running `fastlane`
+
+fastlane_version "2.63.0"
+
+default_platform :ios
+
+platform :ios do
+
+  desc "Runs all existing tests"
+  lane :test do
+    scan(
+	fail_build: true,  
+	scheme: "PlayerControls", 
+	)
+  end
+end
