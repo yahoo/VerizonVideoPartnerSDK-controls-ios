@@ -1,13 +1,7 @@
-//
-//  Inits.swift
-//  PlayerControls
-//
-//  Created by Andrey Doroshko on 12/21/17.
-//  Copyright © 2017 One by AOL : Publishers. All rights reserved.
-//
+//  Copyright © 2017 Oath. All rights reserved
 
 import Foundation
-
+ty
 extension ContentControlsViewController.Props.Player {
     public init(playlist: ContentControlsViewController.Props.Playlist?,
                 item: ContentControlsViewController.Props.Item) {
