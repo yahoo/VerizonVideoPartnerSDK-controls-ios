@@ -234,7 +234,7 @@ extension DefaultControlsViewController {
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             
-            liveDotColor = props.player?.item.playable?.live.dotColor ?? nil
+            liveDotColor = props.player?.item.playable?.live.dotColor?.color ?? nil
             
             compassViewBelowLive = {
                 guard

@@ -73,7 +73,8 @@ extension ContentControlsViewController.Props.Error {
 extension ContentControlsViewController.Props.Live {
     public init(isHidden: Bool, dotColor: UIColor?) {
         self.isHidden = isHidden
-        self.dotColor = dotColor
+        guard let color = dotColor else { self.dotColor = nil; return }
+        self.dotColor = Color(_: color)
     }
 }
 
