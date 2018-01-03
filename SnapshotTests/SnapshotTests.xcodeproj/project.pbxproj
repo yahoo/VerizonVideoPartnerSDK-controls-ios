@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06BE31091FEA878E00E48A1E /* DefaulController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE31081FEA878E00E48A1E /* DefaulController.swift */; };
-		06BE31331FEA880400E48A1E /* AdVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE31321FEA880400E48A1E /* AdVideoController.swift */; };
 		06BE313C1FEA88E900E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06BE313D1FEA88EF00E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
+		06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */; };
 		241D737D1FF2E82400E989AE /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */; };
 		241D737E1FF2E82800E989AE /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */; };
+		24287A6D1FF59034000EE3C7 /* AdVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24287A6C1FF59034000EE3C7 /* AdVideoController.swift */; };
 		247FEB291FF2F84C000D7EE1 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247FEB2A1FF2F84C000D7EE1 /* PlayerControls.framework */; };
 		247FEB2B1FF2F850000D7EE1 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247FEB2C1FF2F850000D7EE1 /* PlayerControls.framework */; };
 /* End PBXBuildFile section */
@@ -20,12 +20,12 @@
 /* Begin PBXFileReference section */
 		0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnappyShrimp.framework; path = Carthage/Build/iOS/SnappyShrimp.framework; sourceTree = "<group>"; };
 		06BE31061FEA878E00E48A1E /* DefaulController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefaulController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		06BE31081FEA878E00E48A1E /* DefaulController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaulController.swift; sourceTree = "<group>"; };
 		06BE310A1FEA878E00E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06BE31301FEA880400E48A1E /* AdVideoController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdVideoController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		06BE31321FEA880400E48A1E /* AdVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdVideoController.swift; sourceTree = "<group>"; };
 		06BE31341FEA880400E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseWithAllControls.swift; sourceTree = "<group>"; };
 		241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSnapshotTestCase.framework; path = Carthage/Build/iOS/FBSnapshotTestCase.framework; sourceTree = "<group>"; };
+		24287A6C1FF59034000EE3C7 /* AdVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdVideoController.swift; sourceTree = "<group>"; };
 		247FEB2A1FF2F84C000D7EE1 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		247FEB2C1FF2F850000D7EE1 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,7 +87,7 @@
 		06BE31071FEA878E00E48A1E /* DefaulController */ = {
 			isa = PBXGroup;
 			children = (
-				06BE31081FEA878E00E48A1E /* DefaulController.swift */,
+				06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */,
 				06BE310A1FEA878E00E48A1E /* Info.plist */,
 			);
 			path = DefaulController;
@@ -96,7 +96,7 @@
 		06BE31311FEA880400E48A1E /* AdVideoController */ = {
 			isa = PBXGroup;
 			children = (
-				06BE31321FEA880400E48A1E /* AdVideoController.swift */,
+				24287A6C1FF59034000EE3C7 /* AdVideoController.swift */,
 				06BE31341FEA880400E48A1E /* Info.plist */,
 			);
 			path = AdVideoController;
@@ -157,6 +157,7 @@
 					};
 					06BE312F1FEA880300E48A1E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -235,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06BE31091FEA878E00E48A1E /* DefaulController.swift in Sources */,
+				06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06BE31331FEA880400E48A1E /* AdVideoController.swift in Sources */,
+				24287A6D1FF59034000EE3C7 /* AdVideoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +401,7 @@
 		06BE31381FEA880400E48A1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95F456P57Y;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -411,6 +413,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.AdVideoController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,6 +422,7 @@
 		06BE31391FEA880400E48A1E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95F456P57Y;
 				FRAMEWORK_SEARCH_PATHS = (
