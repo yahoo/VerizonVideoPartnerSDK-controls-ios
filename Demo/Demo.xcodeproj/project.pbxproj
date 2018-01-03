@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060071941FE838B00090D328 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE135131F0FD36500C47354 /* PlayerControls.framework */; };
-		060071961FE838B00090D328 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE1350A1F0FD2F100C47354 /* LaunchScreen.storyboard */; };
-		060071971FE838B00090D328 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE135081F0FD2F100C47354 /* Assets.xcassets */; };
-		060071991FE838B00090D328 /* PlayerControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEE135131F0FD36500C47354 /* PlayerControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		060071A41FE839540090D328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060071A31FE839540090D328 /* AppDelegate.swift */; };
-		060071A51FE839580090D328 /* SnapshotTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0600719E1FE838B00090D328 /* SnapshotTests.plist */; };
-		060071A61FE8395B0090D328 /* SnapshotTests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060071A11FE839410090D328 /* SnapshotTests.xcassets */; };
 		DEE135021F0FD2F100C47354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE135011F0FD2F100C47354 /* AppDelegate.swift */; };
 		DEE135091F0FD2F100C47354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE135081F0FD2F100C47354 /* Assets.xcassets */; };
 		DEE1350C1F0FD2F100C47354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE1350A1F0FD2F100C47354 /* LaunchScreen.storyboard */; };
@@ -22,17 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		060071981FE838B00090D328 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				060071991FE838B00090D328 /* PlayerControls.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DEE135161F0FD36500C47354 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +29,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0600719D1FE838B00090D328 /* SnapshotTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapshotTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0600719E1FE838B00090D328 /* SnapshotTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = SnapshotTests.plist; path = "/Users/rtysiachnik/Desktop/Angry Snappy Shrim/OneMobileSDK-controls-ios/Demo/Tests/SnapshotTests.plist"; sourceTree = "<absolute>"; };
-		060071A11FE839410090D328 /* SnapshotTests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnapshotTests.xcassets; sourceTree = "<group>"; };
-		060071A31FE839540090D328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEE134FE1F0FD2F100C47354 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE135011F0FD2F100C47354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEE135081F0FD2F100C47354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,14 +38,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		060071931FE838B00090D328 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				060071941FE838B00090D328 /* PlayerControls.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DEE134FB1F0FD2F100C47354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,28 +49,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		060071A01FE839100090D328 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				060071A71FE839830090D328 /* Support */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		060071A71FE839830090D328 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				060071A31FE839540090D328 /* AppDelegate.swift */,
-				0600719E1FE838B00090D328 /* SnapshotTests.plist */,
-				060071A11FE839410090D328 /* SnapshotTests.xcassets */,
-			);
-			name = Support;
-			sourceTree = "<group>";
-		};
 		DEE134F51F0FD2F100C47354 = {
 			isa = PBXGroup;
 			children = (
-				060071A01FE839100090D328 /* Tests */,
 				DEE135001F0FD2F100C47354 /* Demo */,
 				DEE134FF1F0FD2F100C47354 /* Products */,
 				DEE135131F0FD36500C47354 /* PlayerControls.framework */,
@@ -111,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				DEE134FE1F0FD2F100C47354 /* Demo.app */,
-				0600719D1FE838B00090D328 /* SnapshotTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,24 +80,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		060071901FE838B00090D328 /* SnapshotTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0600719A1FE838B00090D328 /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
-			buildPhases = (
-				060071911FE838B00090D328 /* Sources */,
-				060071931FE838B00090D328 /* Frameworks */,
-				060071951FE838B00090D328 /* Resources */,
-				060071981FE838B00090D328 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SnapshotTests;
-			productName = Demo;
-			productReference = 0600719D1FE838B00090D328 /* SnapshotTests.app */;
-			productType = "com.apple.product-type.application";
-		};
 		DEE134FD1F0FD2F100C47354 /* Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEE135101F0FD2F100C47354 /* Build configuration list for PBXNativeTarget "Demo" */;
@@ -176,9 +108,6 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "One by AOL : Publishers";
 				TargetAttributes = {
-					060071901FE838B00090D328 = {
-						LastSwiftMigration = 0920;
-					};
 					DEE134FD1F0FD2F100C47354 = {
 						CreatedOnToolsVersion = 9.0;
 					};
@@ -198,23 +127,11 @@
 			projectRoot = "";
 			targets = (
 				DEE134FD1F0FD2F100C47354 /* Demo */,
-				060071901FE838B00090D328 /* SnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		060071951FE838B00090D328 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				060071961FE838B00090D328 /* LaunchScreen.storyboard in Resources */,
-				060071A61FE8395B0090D328 /* SnapshotTests.xcassets in Resources */,
-				060071A51FE839580090D328 /* SnapshotTests.plist in Resources */,
-				060071971FE838B00090D328 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DEE134FC1F0FD2F100C47354 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,14 +144,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		060071911FE838B00090D328 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				060071A41FE839540090D328 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DEE134FA1F0FD2F100C47354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,39 +166,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0600719B1FE838B00090D328 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7FCMSU478D;
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/SnapshotTests.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.Demo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		0600719C1FE838B00090D328 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7FCMSU478D;
-				INFOPLIST_FILE = "$(SRCROOT)/Tests/SnapshotTests.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aol.one.PlayerControls.Demo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		DEE1350E1F0FD2F100C47354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -428,15 +304,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0600719A1FE838B00090D328 /* Build configuration list for PBXNativeTarget "SnapshotTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0600719B1FE838B00090D328 /* Debug */,
-				0600719C1FE838B00090D328 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DEE134F91F0FD2F100C47354 /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

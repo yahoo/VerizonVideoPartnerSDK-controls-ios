@@ -6,11 +6,29 @@ default_platform :ios
 
 platform :ios do
 
-  desc "Runs all existing tests"
+  desc "Runs all the snapshot tests on selected devices"
+  lane :verify do
+    scan(
+	fail_build: true, 
+	scheme: "Verify Snapshots", 
+	devices: ["iPhone 8", "iPhone 8 Plus", "iPad Pro (12.9-inch)"]
+	)
+ end
+
+  desc "Rewrites all existing snapshots on selected devices"
+  lane :record do
+    scan(
+	fail_build: false, 
+	scheme: "Record Snapshots", 
+	devices: ["iPhone 8", "iPhone 8 Plus", "iPad Pro (12.9-inch)"]
+	)
+  end
+  desc "Runs all existing tests, including snapshot tests and PlayerControls Unit tests"
   lane :test do
     scan(
-	fail_build: true,  
-	scheme: "PlayerControls", 
+	fail_build: true, 
+	scheme: "Tests", 
+	devices: ["iPhone 8", "iPhone 8 Plus", "iPad Pro (12.9-inch)"]
 	)
   end
 end
