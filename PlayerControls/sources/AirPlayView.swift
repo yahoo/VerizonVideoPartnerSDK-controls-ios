@@ -67,4 +67,14 @@ class AirPlayMock: UIButton {
     func setRouteButtonImage(_ image: UIImage?, for controlState: UIControlState) {
         setImage(image, for: controlState)
     }
+    
+    init() {
+        super.init(frame: CGRect())
+        imageView?.contentMode = .center
+        imageView?.clipsToBounds = false
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
