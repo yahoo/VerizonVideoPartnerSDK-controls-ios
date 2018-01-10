@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062BE6992004F80100AE4488 /* CaseWithoutBottomItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BE6982004F80000AE4488 /* CaseWithoutBottomItems.swift */; };
 		06BE313C1FEA88E900E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06BE313D1FEA88EF00E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnappyShrimp.framework; path = Carthage/Build/iOS/SnappyShrimp.framework; sourceTree = "<group>"; };
+		062BE6982004F80000AE4488 /* CaseWithoutBottomItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithoutBottomItems.swift; sourceTree = "<group>"; };
 		06BE31061FEA878E00E48A1E /* DefaulController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefaulController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BE310A1FEA878E00E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06BE31301FEA880400E48A1E /* AdVideoController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdVideoController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 		06BE31071FEA878E00E48A1E /* DefaulController */ = {
 			isa = PBXGroup;
 			children = (
+				062BE6982004F80000AE4488 /* CaseWithoutBottomItems.swift */,
 				06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */,
 				06BE310A1FEA878E00E48A1E /* Info.plist */,
 			);
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062BE6992004F80100AE4488 /* CaseWithoutBottomItems.swift in Sources */,
 				06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
