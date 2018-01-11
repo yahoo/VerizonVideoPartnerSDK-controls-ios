@@ -12,10 +12,11 @@
 		06BE313C1FEA88E900E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06BE313D1FEA88EF00E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06E0E706200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E705200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift */; };
+		06E0E7092007B03C00A5BE11 /* CaseWithAdLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E7072007B03C00A5BE11 /* CaseWithAdLoading.swift */; };
+		06E0E70A2007B03C00A5BE11 /* CaseWithAirPlayActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E7082007B03C00A5BE11 /* CaseWithAirPlayActive.swift */; };
 		06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */; };
 		241D737D1FF2E82400E989AE /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */; };
 		241D737E1FF2E82800E989AE /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */; };
-		24287A6D1FF59034000EE3C7 /* AdVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24287A6C1FF59034000EE3C7 /* AdVideoController.swift */; };
 		247FEB291FF2F84C000D7EE1 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247FEB2A1FF2F84C000D7EE1 /* PlayerControls.framework */; };
 		247FEB2B1FF2F850000D7EE1 /* PlayerControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247FEB2C1FF2F850000D7EE1 /* PlayerControls.framework */; };
 /* End PBXBuildFile section */
@@ -29,9 +30,10 @@
 		06BE31301FEA880400E48A1E /* AdVideoController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdVideoController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BE31341FEA880400E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06E0E705200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithSubtitlesAndCamera.swift; sourceTree = "<group>"; };
+		06E0E7072007B03C00A5BE11 /* CaseWithAdLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithAdLoading.swift; sourceTree = "<group>"; };
+		06E0E7082007B03C00A5BE11 /* CaseWithAirPlayActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithAirPlayActive.swift; sourceTree = "<group>"; };
 		06F6C66B1FF519F900E055F0 /* CaseWithAllControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseWithAllControls.swift; sourceTree = "<group>"; };
 		241D737C1FF2E82400E989AE /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSnapshotTestCase.framework; path = Carthage/Build/iOS/FBSnapshotTestCase.framework; sourceTree = "<group>"; };
-		24287A6C1FF59034000EE3C7 /* AdVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdVideoController.swift; sourceTree = "<group>"; };
 		247FEB2A1FF2F84C000D7EE1 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		247FEB2C1FF2F850000D7EE1 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,7 +107,8 @@
 		06BE31311FEA880400E48A1E /* AdVideoController */ = {
 			isa = PBXGroup;
 			children = (
-				24287A6C1FF59034000EE3C7 /* AdVideoController.swift */,
+				06E0E7072007B03C00A5BE11 /* CaseWithAdLoading.swift */,
+				06E0E7082007B03C00A5BE11 /* CaseWithAirPlayActive.swift */,
 				06BE31341FEA880400E48A1E /* Info.plist */,
 			);
 			path = AdVideoController;
@@ -256,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24287A6D1FF59034000EE3C7 /* AdVideoController.swift in Sources */,
+				06E0E70A2007B03C00A5BE11 /* CaseWithAirPlayActive.swift in Sources */,
+				06E0E7092007B03C00A5BE11 /* CaseWithAdLoading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
