@@ -27,7 +27,7 @@ extension ContentControlsViewController.Props.Controls {
                 loading: Bool,
                 pictureInPictureControl: ContentControlsViewController.Props.PictureInPictureControl,
                 playbackAction: ContentControlsViewController.Props.Playback,
-                seekbar: ContentControlsViewController.Props.Seekbar,
+                seekbar: ContentControlsViewController.Props.Seekbar?,
                 settings: ContentControlsViewController.Props.Settings,
                 sideBarViewHidden: Bool,
                 thumbnail: ContentControlsViewController.Props.Thumbnail?,
