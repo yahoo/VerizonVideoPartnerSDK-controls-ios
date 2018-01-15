@@ -46,6 +46,7 @@ final class SeekerControlView: UIView {
             
             currentTimeLabel = UILabel()
             currentTimeLabel.font = UIFont(name: "Helvetica", size: 10.0)
+            currentTimeLabel.textColor = tintColor
             
             addSubview(seekerFiller)
             addSubview(seekerBackground)
