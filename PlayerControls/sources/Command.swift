@@ -21,11 +21,11 @@ extension CommandWith where T == Void {
 }
 
 extension CommandWith {
-    func bind(to value: T) -> Command {
+    public func bind(to value: T) -> Command {
         return Command { self.perform(with: value) }
     }
     
-    func map<U>(block: @escaping (U) -> T) -> CommandWith<U> {
+    public func map<U>(block: @escaping (U) -> T) -> CommandWith<U> {
         return CommandWith<U> { self.perform(with: block($0)) }
     }
 }

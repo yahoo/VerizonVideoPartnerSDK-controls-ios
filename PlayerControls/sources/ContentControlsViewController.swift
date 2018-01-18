@@ -1,6 +1,7 @@
 //  Copyright © 2017 Oath. All rights reserved.
 import Foundation
-///Generate prism for confirmed enum 
+import CoreMedia
+///Generate prism for confirmed enum
 public protocol Prism {}
 /// Base class for implementing custom content
 /// video controls.
@@ -44,7 +45,6 @@ open class ContentControlsViewController: UIViewController {
 
 extension ContentControlsViewController.Props {
     public typealias Seconds = Int
-    public typealias Progress = Double
     
     public struct Controls {
         
@@ -182,6 +182,18 @@ extension ContentControlsViewController.Props {
         case url(URL) //swiftlint:disable:this type_name
         case image(UIImage)
     }
+    
+    public struct Progress {
+        public let value: CGFloat
+        public init(_ value: CGFloat) {
+            self.value = min(max(value.isNaN ? 0 : value, 0), 1)
+        }
+    }
 }
 
-
+extension ContentControlsViewController.Props.Progress: ExpressibleByIntegerLiteral {
+    public typealias IntegerLiteralType = Int
+    public init(integerLiteral value: IntegerLiteralType) {
+        self.value = .init(value)
+    }
+}
