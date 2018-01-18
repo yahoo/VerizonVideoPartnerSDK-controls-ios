@@ -28,9 +28,9 @@ extension DefaultControlsViewController {
         var seekerViewCurrentTime: Int
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
-        var startSeekAction: CommandWith<Double>
-        var updateSeekAction: CommandWith<Double>
-        var stopSeekAction: CommandWith<Double>
+        var startSeekAction: CommandWith<Props.Progress>
+        var updateSeekAction: CommandWith<Props.Progress>
+        var stopSeekAction: CommandWith<Props.Progress>
         var seekToSecondsAction: CommandWith<Int>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
@@ -145,13 +145,13 @@ extension DefaultControlsViewController {
             
             seekerViewCurrentTime = props.player?.item.playable?.seekbar?.currentTime ?? 0
             
-            seekerViewProgress = CGFloat(props.player?.item.playable?.seekbar?.progress ?? 0)
+            seekerViewProgress = CGFloat(props.player?.item.playable?.seekbar?.progress.value ?? 0)
             
-            seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered ?? 0)
+            seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered.value ?? 0)
             
             seekbarPositionedAtBottom = {
                 guard let playable = props.player?.item.playable else { return false }
-                let hasNoTitle = playable.title.characters.count == 0
+                let hasNoTitle = playable.title.count == 0
                 let hasNoSettings = playable.settings.isHidden
                 let hasNoPipButton = playable.pictureInPictureControl.isUnsupported
                 let hasNoAirplayButton = playable.airplay.isHidden
