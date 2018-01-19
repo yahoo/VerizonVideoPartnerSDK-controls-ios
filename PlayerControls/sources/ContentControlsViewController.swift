@@ -183,7 +183,7 @@ extension ContentControlsViewController.Props {
         case image(UIImage)
     }
     
-    public struct Progress {
+    public struct Progress: Codable {
         public typealias NativeValue = CGFloat
         
         public let value: NativeValue
