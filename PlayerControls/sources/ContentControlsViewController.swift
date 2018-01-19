@@ -184,8 +184,10 @@ extension ContentControlsViewController.Props {
     }
     
     public struct Progress {
-        public let value: CGFloat
-        public init(_ value: CGFloat) {
+        public typealias NativeValue = CGFloat
+        
+        public let value: NativeValue
+        public init(_ value: NativeValue) {
             self.value = min(max(value.isNaN ? 0 : value, 0), 1)
         }
     }
@@ -194,6 +196,13 @@ extension ContentControlsViewController.Props {
 extension ContentControlsViewController.Props.Progress: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
     public init(integerLiteral value: IntegerLiteralType) {
-        self.value = .init(value)
+        self.init(NativeValue(value))
+    }
+}
+
+extension ContentControlsViewController.Props.Progress: ExpressibleByFloatLiteral {
+    public typealias FloatLiteralType = Double
+    public init(floatLiteral value: FloatLiteralType) {
+        self.init(NativeValue(value))
     }
 }
