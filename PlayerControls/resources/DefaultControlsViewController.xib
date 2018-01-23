@@ -224,7 +224,7 @@ Title</string>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="height">
-                                    <real key="value" value="22"/>
+                                    <integer key="value" value="38"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="progress">
                                     <real key="value" value="0.0"/>
@@ -271,6 +271,7 @@ Title</string>
                         <constraint firstAttribute="trailing" secondItem="Ddy-Jb-aVD" secondAttribute="trailing" constant="55" id="gLr-H3-hip"/>
                         <constraint firstItem="ikX-6f-FSq" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="hHz-DU-eUK"/>
                         <constraint firstItem="m54-Yx-R7K" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" id="iTM-by-B9G"/>
+                        <constraint firstItem="Im0-Vw-2gZ" firstAttribute="top" secondItem="fAO-vH-cgi" secondAttribute="bottom" id="if2-R8-sVs"/>
                         <constraint firstItem="ida-wI-kAP" firstAttribute="leading" secondItem="djN-u7-nkt" secondAttribute="trailing" constant="9.5" id="iww-Ws-dSP">
                             <variation key="widthClass=compact" constant="10"/>
                             <variation key="widthClass=regular" constant="20"/>
@@ -285,7 +286,6 @@ Title</string>
                             <variation key="widthClass=regular" constant="20"/>
                             <variation key="heightClass=compact-widthClass=compact" constant="50"/>
                         </constraint>
-                        <constraint firstItem="Im0-Vw-2gZ" firstAttribute="top" secondItem="fAO-vH-cgi" secondAttribute="bottom" id="r82-kU-nXo"/>
                         <constraint firstItem="U8A-X2-cyf" firstAttribute="centerY" secondItem="fi9-sW-1VX" secondAttribute="centerY" id="sPA-I1-YzI"/>
                         <constraint firstItem="cNh-R2-LdG" firstAttribute="leading" secondItem="73i-r1-qKj" secondAttribute="trailing" constant="10" id="sZA-Tb-Cie">
                             <variation key="widthClass=regular" constant="20"/>
