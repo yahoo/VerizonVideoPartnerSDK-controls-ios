@@ -23,7 +23,7 @@ class CaseWithThumbnail: SnapshotTest{
                         controls.seekbar?.seeker.state.stop = .nop
                         
                         controls.live.isHidden = false
-                        controls.live.dotColor = #colorLiteral(red: 0.6609608521, green: 1, blue: 0.4075785412, alpha: 1)
+                        controls.live.dotColor = Color(#colorLiteral(red: 0.6609608521, green: 1, blue: 0.4075785412, alpha: 1))
                         controls.sideBarViewHidden = false
                         controls.playbackAction = .none
                         

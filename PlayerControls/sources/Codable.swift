@@ -9,7 +9,7 @@ extension ContentControlsViewController.Props: Codable {
     public enum Cases: String, Codable {
         case noPlayer
         case player
-        case pictureinPicture
+        case pictureInPicture
     }
     
     public init(from decoder: Decoder) throws {
@@ -17,7 +17,7 @@ extension ContentControlsViewController.Props: Codable {
         let `case` = try values.decode(Cases.self, forKey: .case)
         switch `case` {
         case .noPlayer: self = .noPlayer
-        case .pictureinPicture: self = .pictureInPicture
+        case .pictureInPicture: self = .pictureInPicture
         case .player: self = .player(try values.decode(Player.self, forKey: .value))
         }
         return
@@ -29,7 +29,7 @@ extension ContentControlsViewController.Props: Codable {
         case ContentControlsViewController.Props.noPlayer:
             try container.encode(Cases.noPlayer, forKey: .case)
         case ContentControlsViewController.Props.pictureInPicture:
-            try container.encode(Cases.pictureinPicture, forKey: .case)
+            try container.encode(Cases.pictureInPicture, forKey: .case)
         case ContentControlsViewController.Props.player(let player):
             try container.encode(Cases.player, forKey: .case)
             try container.encode(player, forKey: .value)
@@ -160,7 +160,9 @@ extension ContentControlsViewController.Props.PictureInPictureControl: Codable {
         switch self {
         case .impossible: try container.encode(Cases.unsupported, forKey: .case)
         case .unsupported: try container.encode(Cases.impossible, forKey: .case)
-        case .possible: try container.encode(Cases.possible, forKey: .case)
+        case .possible(let command):
+            try container.encode(Cases.possible, forKey: .case)
+            try container.encode(command, forKey: .value)
         }
     }
 }
@@ -168,7 +170,7 @@ extension ContentControlsViewController.Props.PictureInPictureControl: Codable {
 extension ContentControlsViewController.Props.Subtitles: Codable {
     
     public enum Cases: String, Codable {
-        case internall
+        case `internal`
         case external
     }
     
@@ -205,7 +207,7 @@ extension ContentControlsViewController.Props.Subtitles: Codable {
         let `case` = try values.decode(Cases.self, forKey: .case)
         let type = ContentControlsViewController.Props.MediaGroupControl?.self
         switch `case` {
-        case .internall:
+        case .`internal`:
             self = .`internal`(try values.decode(type, forKey: .value))
         case .external:
             let externalControl = try values.decode(ExternalControl.self, forKey: .value)
@@ -217,7 +219,7 @@ extension ContentControlsViewController.Props.Subtitles: Codable {
         var container = encoder.container(keyedBy: EnumCodingKeys.self)
         switch self {
         case .`internal`(let mediaGroupControls):
-            try container.encode(Cases.internall, forKey: .case)
+            try container.encode(Cases.`internal`, forKey: .case)
             try container.encode(mediaGroupControls, forKey: .value)
         case .external(let external, let controls):
             try container.encode(Cases.external, forKey: .case)
@@ -321,7 +323,7 @@ extension ContentControlsViewController.Props.Settings: Codable {
             try container.encode(Cases.disabled, forKey: .case)
         case .enabled(let command):
             try container.encode(Cases.enabled, forKey: .case)
-            try container.encode(command, forKey: .case)
+            try container.encode(command, forKey: .value)
         }
     }
 }
