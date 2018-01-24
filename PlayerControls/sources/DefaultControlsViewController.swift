@@ -118,7 +118,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.updateCurrentTime(text: uiProps.seekerViewCurrentTimeText)
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
-
+        seekerView.accessibilityLabel = uiProps.seekerViewAccessabilityLabel
+        
         let constant = traitCollection.userInterfaceIdiom == .pad ? 70 : 63
         bottomSeekBarConstraint.constant = uiProps.seekbarPositionedAtBottom
             ? 13
@@ -139,6 +140,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         durationTextLabel.text = uiProps.durationTextLabelText
         durationTextLabel.isHidden = uiProps.durationTextHidden
+        durationTextLabel.accessibilityLabel = uiProps.durationTextLabelAccessibilityLabel
         
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText

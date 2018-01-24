@@ -36,20 +36,11 @@ final class SeekerControlView: UIView {
     private func setup() {
         /* Initial setup. */ do {
             dragControl = UIImageView()
-            dragControl.isAccessibilityElement = true
-            dragControl.accessibilityLabel = "Seek bar drag control"
-            dragControl.accessibilityTraits = UIAccessibilityTraitAdjustable
             
             seekerFiller = UIImageView()
-            seekerFiller.isAccessibilityElement = true
-            seekerFiller.accessibilityLabel = "Seek bar"
-            seekerFiller.accessibilityTraits = UIAccessibilityTraitAdjustable
             
             seekerBackground = UIImageView()
             seekerBackground.tintColor = .white
-            seekerBackground.isAccessibilityElement = true
-            seekerBackground.accessibilityLabel = "Seek bar"
-            seekerBackground.accessibilityTraits = UIAccessibilityTraitAdjustable
             
             seekerBufferBackground = UIImageView()
             seekerBufferBackground.alpha = 0.6
@@ -105,10 +96,6 @@ final class SeekerControlView: UIView {
         if seekerBufferBackground.image == nil {
             seekerBufferBackground.image = createImage(named: "seekbar-full")
         }
-        
-        dragControl.accessibilityValue = currentTimeLabel.text
-        seekerFiller.accessibilityValue = currentTimeLabel.text
-        seekerBackground.accessibilityValue = currentTimeLabel.text
         
         seekerFiller.sizeToFit()
         seekerBackground.sizeToFit()

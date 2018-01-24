@@ -28,6 +28,7 @@ extension DefaultControlsViewController {
         var seekerViewCurrentTime: Int
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
+        var seekerViewAccessabilityLabel: String
         var startSeekAction: CommandWith<Props.Progress>
         var updateSeekAction: CommandWith<Props.Progress>
         var stopSeekAction: CommandWith<Props.Progress>
@@ -49,6 +50,7 @@ extension DefaultControlsViewController {
         var videoTitleLabelHidden: Bool
         var videoTitleLabelText: String
         
+        var durationTextLabelAccessibilityLabel: String
         var durationTextHidden: Bool
         var durationTextLabelText: String
         
@@ -120,6 +122,11 @@ extension DefaultControlsViewController {
             
             seekerViewHidden = props.player?.item.playable?.seekbar == nil
             
+            durationTextLabelAccessibilityLabel = {
+                guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
+                return TimeFormatter.voiceOverReadable(from: duration)
+            }()
+            
             durationTextHidden = props.player?.item.playable?.seekbar == nil
             
             durationTextLabelText = {
@@ -132,6 +139,14 @@ extension DefaultControlsViewController {
             seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
             
             seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
+            
+            seekerViewAccessabilityLabel = {
+                guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
+                guard let currentTime = props.player?.item.playable?.seekbar?.currentTime else { return "" }
+                let currentTimeString = TimeFormatter.voiceOverReadable(from: currentTime)
+                let durationString =  TimeFormatter.voiceOverReadable(from: duration)
+                return "Track position \(currentTimeString) of \(durationString))"
+            }()
             
             startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? .nop
             
