@@ -28,7 +28,7 @@ extension DefaultControlsViewController {
         var seekerViewCurrentTime: Int
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
-        var seekerViewAccessabilityLabel: String
+        var seekerViewAccessibilityLabel: String
         var startSeekAction: CommandWith<Props.Progress>
         var updateSeekAction: CommandWith<Props.Progress>
         var stopSeekAction: CommandWith<Props.Progress>
@@ -140,7 +140,7 @@ extension DefaultControlsViewController {
             
             seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
             
-            seekerViewAccessabilityLabel = {
+            seekerViewAccessibilityLabel = {
                 guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
                 guard let currentTime = props.player?.item.playable?.seekbar?.currentTime else { return "" }
                 let currentTimeString = TimeFormatter.voiceOverReadable(from: currentTime)

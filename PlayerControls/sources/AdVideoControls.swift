@@ -58,6 +58,7 @@ public final class AdVideoControls: UIViewController {
         seekerView.text = props.seeker?.remainingPlayTime ?? ""
         seekerView.isHidden = props.seeker == nil
         seekerView.isCurrentTimeEnabled = false
+        seekerView.accessibilityLabel = props.seeker?.accessibilityLabel ?? ""
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
         airplayActiveView.isHidden = props.airplayActiveViewHidden
     }
@@ -82,9 +83,11 @@ public final class AdVideoControls: UIViewController {
         public struct Seeker: Codable {
             public let remainingPlayTime: String
             public let currentValue: Double
-            public init(remainingPlayTime: String, currentValue: Double) {
+            public let accessibilityLabel: String
+            public init(remainingPlayTime: String, currentValue: Double, accessibilityLabel: String) {
                 self.remainingPlayTime = remainingPlayTime
                 self.currentValue = currentValue
+                self.accessibilityLabel = accessibilityLabel
             }
         }
         
