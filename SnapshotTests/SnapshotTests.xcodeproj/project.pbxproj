@@ -11,6 +11,9 @@
 		062BE6A620065C1500AE4488 /* CaseWithAirplayActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062BE6A520065C1500AE4488 /* CaseWithAirplayActive.swift */; };
 		06BE313C1FEA88E900E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
 		06BE313D1FEA88EF00E48A1E /* SnappyShrimp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0615F43D1FE95BCD0027E84D /* SnappyShrimp.framework */; };
+		06C506E9200CB25900643B18 /* CaseWithThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C506E8200CB25900643B18 /* CaseWithThumbnail.swift */; };
+		06C506F5200E306800643B18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C506F4200E306800643B18 /* Media.xcassets */; };
+		06C506F6200E309600643B18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C506F4200E306800643B18 /* Media.xcassets */; };
 		06E0E706200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E705200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift */; };
 		06E0E7092007B03C00A5BE11 /* CaseWithAdLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E7072007B03C00A5BE11 /* CaseWithAdLoading.swift */; };
 		06E0E70A2007B03C00A5BE11 /* CaseWithAirPlayActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0E7082007B03C00A5BE11 /* CaseWithAirPlayActive.swift */; };
@@ -29,6 +32,8 @@
 		06BE310A1FEA878E00E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06BE31301FEA880400E48A1E /* AdVideoController.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdVideoController.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BE31341FEA880400E48A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06C506E8200CB25900643B18 /* CaseWithThumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithThumbnail.swift; sourceTree = "<group>"; };
+		06C506F4200E306800643B18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Support/Media.xcassets; sourceTree = "<group>"; };
 		06E0E705200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithSubtitlesAndCamera.swift; sourceTree = "<group>"; };
 		06E0E7072007B03C00A5BE11 /* CaseWithAdLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithAdLoading.swift; sourceTree = "<group>"; };
 		06E0E7082007B03C00A5BE11 /* CaseWithAirPlayActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseWithAirPlayActive.swift; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		060071B61FE931A90090D328 = {
 			isa = PBXGroup;
 			children = (
+				06C506F3200E2FBF00643B18 /* Support */,
 				06BE31071FEA878E00E48A1E /* DefaulController */,
 				06BE31311FEA880400E48A1E /* AdVideoController */,
 				060071C01FE931A90090D328 /* Products */,
@@ -95,6 +101,7 @@
 		06BE31071FEA878E00E48A1E /* DefaulController */ = {
 			isa = PBXGroup;
 			children = (
+				06C506E8200CB25900643B18 /* CaseWithThumbnail.swift */,
 				06E0E705200798EA00A5BE11 /* CaseWithSubtitlesAndCamera.swift */,
 				062BE6A520065C1500AE4488 /* CaseWithAirplayActive.swift */,
 				062BE6982004F80000AE4488 /* CaseWithoutBottomItems.swift */,
@@ -112,6 +119,14 @@
 				06BE31341FEA880400E48A1E /* Info.plist */,
 			);
 			path = AdVideoController;
+			sourceTree = "<group>";
+		};
+		06C506F3200E2FBF00643B18 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				06C506F4200E306800643B18 /* Media.xcassets */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C506F6200E309600643B18 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C506F5200E306800643B18 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +269,7 @@
 				062BE6A620065C1500AE4488 /* CaseWithAirplayActive.swift in Sources */,
 				062BE6992004F80100AE4488 /* CaseWithoutBottomItems.swift in Sources */,
 				06F6C66C1FF519F900E055F0 /* CaseWithAllControls.swift in Sources */,
+				06C506E9200CB25900643B18 /* CaseWithThumbnail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

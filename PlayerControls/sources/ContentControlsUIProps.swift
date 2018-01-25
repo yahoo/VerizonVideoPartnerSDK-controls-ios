@@ -57,6 +57,7 @@ extension DefaultControlsViewController {
         
         var thumbnailImageViewHidden: Bool
         var thumbnailImageUrl: URL?
+        var thumbnailImage: UIImage?
         
         var errorLabelHidden: Bool
         var errorLabelText: String
@@ -205,6 +206,8 @@ extension DefaultControlsViewController {
             thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil
             
             thumbnailImageUrl = props.player?.item.playable?.thumbnail?.url
+            
+            thumbnailImage = props.player?.item.playable?.thumbnail?.image
             
             errorLabelText = props.player?.item.nonplayable ?? props.player?.item.playable?.error?.message ?? ""
             
