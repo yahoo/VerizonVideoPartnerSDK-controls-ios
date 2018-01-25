@@ -429,7 +429,7 @@ Title</string>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVo-gm-8qs">
                     <rect key="frame" x="193" y="113" width="95" height="95"/>
-                    <accessibility key="accessibilityConfiguration" label="Retry to load video"/>
+                    <accessibility key="accessibilityConfiguration" label="Retry to load content video"/>
                     <state key="normal" image="icon-replay"/>
                     <connections>
                         <action selector="retry" destination="-1" eventType="touchUpInside" id="tme-iX-huy"/>
