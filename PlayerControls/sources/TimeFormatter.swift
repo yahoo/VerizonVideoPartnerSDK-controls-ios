@@ -38,8 +38,7 @@ public enum TimeFormatter {
         }
     }
     
-    public static func voiceOverReadable(from seconds: Int) -> String {
-        guard let string = dateComponentsFormatter.string(from: .init(seconds)) else { return "" }
-        return string
+    public static func voiceOverReadable(from seconds: Int) -> String? {
+        return dateComponentsFormatter.string(from: .init(seconds))
     }
 }

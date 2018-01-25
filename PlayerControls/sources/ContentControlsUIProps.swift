@@ -124,7 +124,7 @@ extension DefaultControlsViewController {
             
             durationTextLabelAccessibilityLabel = {
                 guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
-                return TimeFormatter.voiceOverReadable(from: duration)
+                return TimeFormatter.voiceOverReadable(from: duration) ?? ""
             }()
             
             durationTextHidden = props.player?.item.playable?.seekbar == nil
@@ -143,8 +143,8 @@ extension DefaultControlsViewController {
             seekerViewAccessibilityLabel = {
                 guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
                 guard let currentTime = props.player?.item.playable?.seekbar?.currentTime else { return "" }
-                let currentTimeString = TimeFormatter.voiceOverReadable(from: currentTime)
-                let durationString =  TimeFormatter.voiceOverReadable(from: duration)
+                guard let currentTimeString = TimeFormatter.voiceOverReadable(from: currentTime) else { return "" }
+                guard let durationString =  TimeFormatter.voiceOverReadable(from: duration) else { return "" }
                 return "Track position \(currentTimeString) of \(durationString))"
             }()
             
