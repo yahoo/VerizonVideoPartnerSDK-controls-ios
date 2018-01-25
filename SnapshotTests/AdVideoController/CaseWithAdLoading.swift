@@ -13,7 +13,10 @@ class CaseWithAdLoading: SnapshotTest {
         
         controller.props = AdVideoControls.Props(
             mainAction: AdVideoControls.Props.MainAction.pause(.nop),
-            seeker: AdVideoControls.Props.Seeker(remainingPlayTime: "9999:59", currentValue: 0),
+            seeker: AdVideoControls.Props.Seeker(
+                remainingPlayTime: "9999:59",
+                currentValue: 0,
+                accessibilityLabel: ""),
             tapAction: .nop,
             isLoading: true, airplayActiveViewHidden: true)
         return controller
