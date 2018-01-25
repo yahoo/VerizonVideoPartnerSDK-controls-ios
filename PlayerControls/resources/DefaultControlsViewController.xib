@@ -84,7 +84,7 @@ Subtitles</string>
                         </view>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon-loading" translatesAutoresizingMaskIntoConstraints="NO" id="ikX-6f-FSq">
                             <rect key="frame" x="193" y="113" width="95" height="95"/>
-                            <accessibility key="accessibilityConfiguration" label="Loading">
+                            <accessibility key="accessibilityConfiguration" label="Loading content video">
                                 <bool key="isElement" value="YES"/>
                             </accessibility>
                         </imageView>
@@ -160,7 +160,7 @@ Title</string>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djN-u7-nkt" userLabel="10 sec forward">
                             <rect key="frame" x="294" y="140" width="42" height="42"/>
-                            <accessibility key="accessibilityConfiguration" label="10 sec forward"/>
+                            <accessibility key="accessibilityConfiguration" label="10 seconds forward"/>
                             <state key="normal" image="icon-10-sec"/>
                             <state key="highlighted" image="icon-10-sec-active"/>
                             <connections>
@@ -169,7 +169,7 @@ Title</string>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNh-R2-LdG" userLabel="10 sec backward">
                             <rect key="frame" x="145" y="140" width="42" height="42"/>
-                            <accessibility key="accessibilityConfiguration" label="10 sec backward"/>
+                            <accessibility key="accessibilityConfiguration" label="10 seconds backward"/>
                             <state key="normal" image="icon-10-sec"/>
                             <state key="highlighted" image="icon-10-sec-active"/>
                             <connections>
@@ -461,6 +461,7 @@ Title</string>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration" label="Live video indicator">
+                        <accessibilityTraits key="traits" none="YES"/>
                         <bool key="isElement" value="YES"/>
                     </accessibility>
                     <constraints>
