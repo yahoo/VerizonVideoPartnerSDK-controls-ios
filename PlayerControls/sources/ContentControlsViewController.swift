@@ -22,14 +22,14 @@ open class ContentControlsViewController: UIViewController {
         
         case pictureInPicture
         
-        public struct Player {
+        public struct Player: Codable {
             public var playlist: Playlist?
             public var item: Item = .nonplayable("")
             
             public init() {}
         }
         
-        public struct Playlist {
+        public struct Playlist: Codable {
             public var next: Command?
             public var prev: Command?
             
@@ -46,7 +46,7 @@ open class ContentControlsViewController: UIViewController {
 extension ContentControlsViewController.Props {
     public typealias Seconds = Int
     
-    public struct Controls {
+    public struct Controls: Codable {
         
         public var title: String = ""
         public var loading: Bool = false
@@ -68,7 +68,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct Angles {
+    public struct Angles: Codable {
         /// zero - center, positive - right part, negative - left part.
         public var horizontal: Float = 0.0
         /// zero - horizon, positive - above horizon, negative - below
@@ -83,7 +83,7 @@ extension ContentControlsViewController.Props {
         case active
     }
     
-    public struct Camera {
+    public struct Camera: Codable {
         /// Angles of current camera position - measured in radians.
         public var angles: Angles = Angles()
         public var moveTo: CommandWith<Angles> = .nop
@@ -101,27 +101,27 @@ extension ContentControlsViewController.Props {
         }
     }
     
-    public struct Error {
+    public struct Error: Codable {
         public var message: String = ""
         public var retryAction: Command?
         
         public init() {}
     }
     
-    public struct Live {
+    public struct Live: Codable {
         public var isHidden: Bool = true
-        public var dotColor: UIColor?
+        public var dotColor: Color?
         
         public init() {}
     }
     
-    public struct MediaGroupControl {
+    public struct MediaGroupControl: Codable {
         public var options: [Option] = []
         
         public init() {}
     }
     
-    public struct Option {
+    public struct Option: Codable {
         public var name: String = ""
         public var selected: Bool = false
         public var select: Command = .nop
@@ -142,7 +142,7 @@ extension ContentControlsViewController.Props {
         case replay(Command)
     }
     
-    public struct Seekbar {
+    public struct Seekbar: Codable {
         public var duration: Seconds = 0
         public var currentTime: Seconds = 0
         public var progress: Progress = 0
@@ -152,7 +152,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct State {
+    public struct State: Codable {
         public var start: CommandWith<Progress> = .nop
         public var update: CommandWith<Progress> = .nop
         public var stop: CommandWith<Progress> = .nop
@@ -160,7 +160,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct Seeker {
+    public struct Seeker: Codable {
         public var seekTo: CommandWith<Seconds>?
         public var state: State = State()
         
@@ -183,7 +183,7 @@ extension ContentControlsViewController.Props {
         case image(UIImage)
     }
     
-    public struct Progress {
+    public struct Progress: Codable {
         public typealias NativeValue = CGFloat
         
         public let value: NativeValue

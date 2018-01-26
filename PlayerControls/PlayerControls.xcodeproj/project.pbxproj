@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0696270D1FD188A50098494A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696270C1FD188A50098494A /* Command.swift */; };
-		42A7F6581FEC156400CE39C0 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7F6571FEC156400CE39C0 /* Defaultable.swift */; };
+		422017F41FE3D557002E4DE5 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422017F31FE3D557002E4DE5 /* Codable.swift */; };
+		427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427DA9121FFBA1E700698438 /* Defaultable.swift */; };
+		429C3D341FFBA54200B72272 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3D331FFBA54200B72272 /* Color.swift */; };
 		42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */; };
 		50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */; };
 		50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F691E65C64B00B18908 /* ContentControlsViewController.swift */; };
@@ -70,6 +72,9 @@
 
 /* Begin PBXFileReference section */
 		0696270C1FD188A50098494A /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		422017F31FE3D557002E4DE5 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
+		429C3D331FFBA54200B72272 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		42A7F6571FEC156400CE39C0 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentControlsUIProps+Init.swift"; sourceTree = "<group>"; };
 		50582F5B1E65C41900B18908 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,12 +133,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		427DA9111FFBA12500698438 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				42A7F6571FEC156400CE39C0 /* Defaultable.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		50582F511E65C41900B18908 = {
 			isa = PBXGroup;
 			children = (
 				50582F5D1E65C41900B18908 /* PlayerControls */,
 				50582F5C1E65C41900B18908 /* Products */,
 				50582FAC1E65DDBA00B18908 /* Frameworks */,
+				427DA9111FFBA12500698438 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,10 +275,12 @@
 		50582FB31E65E5B900B18908 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				429C3D331FFBA54200B72272 /* Color.swift */,
+				427DA9121FFBA1E700698438 /* Defaultable.swift */,
 				50582F731E65C79D00B18908 /* Utils.swift */,
-				42A7F6571FEC156400CE39C0 /* Defaultable.swift */,
 				0696270C1FD188A50098494A /* Command.swift */,
 				50582FB11E65DEF800B18908 /* Recorder.swift */,
+				422017F31FE3D557002E4DE5 /* Codable.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -442,17 +458,19 @@
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				0696270D1FD188A50098494A /* Command.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
+				422017F41FE3D557002E4DE5 /* Codable.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
 				50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */,
 				50582F861E65CA5F00B18908 /* TimeFormatter.swift in Sources */,
 				50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */,
-				42A7F6581FEC156400CE39C0 /* Defaultable.swift in Sources */,
+				427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */,
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
 				DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
 				50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
 				DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */,
+				429C3D341FFBA54200B72272 /* Color.swift in Sources */,
 				42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */,
 				50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */,
 				50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */,

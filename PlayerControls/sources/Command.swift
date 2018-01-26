@@ -29,3 +29,29 @@ extension CommandWith {
         return CommandWith<U> { self.perform(with: block($0)) }
     }
 }
+
+extension CommandWith: Codable {
+    
+    private static var currentType: String {
+        return T.self == Void.self
+            ? "Command"
+            : String(describing: CommandWith.self)
+    }
+    
+    public enum CodingError: Error { case decoding(String) }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let descriptor = try container.decode(String.self)
+        guard CommandWith.currentType == descriptor else {
+            throw CodingError.decoding("Decoding Failed. Exptected: \(CommandWith.currentType). Recieved \(descriptor)")
+        }
+        self = .nop
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(CommandWith.currentType)
+    }
+}
+

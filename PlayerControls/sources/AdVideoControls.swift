@@ -62,7 +62,7 @@ public final class AdVideoControls: UIViewController {
         airplayActiveView.isHidden = props.airplayActiveViewHidden
     }
     
-    public struct Props {
+    public struct Props: Codable {
         public static let `default` = Props(mainAction: .play(.nop),
                                             seeker: nil,
                                             tapAction: nil,
@@ -79,7 +79,7 @@ public final class AdVideoControls: UIViewController {
             case pause(Command)
         }
         
-        public struct Seeker {
+        public struct Seeker: Codable {
             public let remainingPlayTime: String
             public let currentValue: Double
             public init(remainingPlayTime: String, currentValue: Double) {
@@ -132,3 +132,4 @@ extension AdVideoControls {
         button.tintColor = .white
     }
 }
+
