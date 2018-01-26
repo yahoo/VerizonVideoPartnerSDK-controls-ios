@@ -120,9 +120,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.buffered = uiProps.seekerViewBuffered
         seekerView.accessibilityLabel = uiProps.seekerViewAccessibilityLabel
         
-        let constant = traitCollection.userInterfaceIdiom == .pad ? 70 : 63
+        let constant = traitCollection.userInterfaceIdiom == .pad ? 66.75 : 59.75
         bottomSeekBarConstraint.constant = uiProps.seekbarPositionedAtBottom
-            ? 13
+            ? 9.75
             : CGFloat(constant)
         
         seekBackButton.isHidden = uiProps.seekBackButtonHidden

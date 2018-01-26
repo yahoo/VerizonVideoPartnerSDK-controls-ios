@@ -105,7 +105,7 @@ final class SeekerControlView: UIView {
             
         /* Calculate drag position. */ do {
             dragControl.frame.origin.x = -dragControl.alignmentRectInsets.left + dragControlX
-            dragControl.center.y = bounds.maxY - dragControl.bounds.midY
+            dragControl.center.y = bounds.maxY - dragControl.bounds.midY - 1.5
         }
         
         /* Calculate current time label position. */ do {

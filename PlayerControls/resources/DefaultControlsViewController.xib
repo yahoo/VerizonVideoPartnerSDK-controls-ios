@@ -208,19 +208,12 @@ Title</string>
                                 <constraint firstAttribute="width" constant="32" id="oXo-18-PP0"/>
                             </constraints>
                         </view>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im0-Vw-2gZ">
-                            <rect key="frame" x="431" y="257" width="32" height="14"/>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="Uc8-v7-96O" customClass="SideBarView" customModule="PlayerControls" customModuleProvider="target">
-                            <rect key="frame" x="450" y="0.0" width="30" height="213"/>
+                            <rect key="frame" x="450" y="0.0" width="30" height="225.5"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="57" translatesAutoresizingMaskIntoConstraints="NO" id="fAO-vH-cgi" customClass="SeekerControlView" customModule="PlayerControls" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="203" width="480" height="54"/>
+                            <rect key="frame" x="0.0" y="203.5" width="480" height="57"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" adjustable="YES"/>
@@ -235,20 +228,27 @@ Title</string>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im0-Vw-2gZ">
+                            <rect key="frame" x="431" y="258" width="32" height="14"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="U8A-X2-cyf" firstAttribute="leading" secondItem="cNh-R2-LdG" secondAttribute="trailing" constant="6" id="1RA-jh-Xfd"/>
-                        <constraint firstAttribute="bottom" secondItem="fAO-vH-cgi" secondAttribute="bottom" constant="63" id="1rA-Ma-4OD">
-                            <variation key="heightClass=regular" constant="70"/>
+                        <constraint firstAttribute="bottom" secondItem="fAO-vH-cgi" secondAttribute="bottom" constant="59.75" id="1rA-Ma-4OD">
+                            <variation key="heightClass=regular" constant="66.75"/>
                         </constraint>
                         <constraint firstItem="KeK-cX-xXB" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="2EN-h1-ldw"/>
                         <constraint firstAttribute="trailing" secondItem="m54-Yx-R7K" secondAttribute="trailing" id="3f9-SO-RA2"/>
                         <constraint firstItem="djN-u7-nkt" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="79p-mr-0NO"/>
                         <constraint firstItem="KeK-cX-xXB" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="Bug-m8-Fqm"/>
                         <constraint firstItem="Uc8-v7-96O" firstAttribute="top" secondItem="fi9-sW-1VX" secondAttribute="top" id="DWa-IY-lCj"/>
-                        <constraint firstItem="fAO-vH-cgi" firstAttribute="top" secondItem="Uc8-v7-96O" secondAttribute="bottom" constant="-10" id="EEn-7U-jDF"/>
+                        <constraint firstItem="fAO-vH-cgi" firstAttribute="top" secondItem="Uc8-v7-96O" secondAttribute="bottom" constant="-22.75" id="EEn-7U-jDF"/>
                         <constraint firstAttribute="trailing" secondItem="tGV-rG-prj" secondAttribute="trailing" constant="55" id="F29-fV-Pgy"/>
                         <constraint firstItem="ida-wI-kAP" firstAttribute="centerY" secondItem="djN-u7-nkt" secondAttribute="centerY" id="F2z-D3-yET"/>
                         <constraint firstItem="Ddy-Jb-aVD" firstAttribute="centerY" secondItem="tGV-rG-prj" secondAttribute="centerY" id="FM3-YM-YML"/>
@@ -275,7 +275,7 @@ Title</string>
                         <constraint firstAttribute="trailing" secondItem="Ddy-Jb-aVD" secondAttribute="trailing" constant="55" id="gLr-H3-hip"/>
                         <constraint firstItem="ikX-6f-FSq" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="hHz-DU-eUK"/>
                         <constraint firstItem="m54-Yx-R7K" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" id="iTM-by-B9G"/>
-                        <constraint firstItem="Im0-Vw-2gZ" firstAttribute="top" secondItem="fAO-vH-cgi" secondAttribute="bottom" id="if2-R8-sVs"/>
+                        <constraint firstItem="Im0-Vw-2gZ" firstAttribute="top" secondItem="fAO-vH-cgi" secondAttribute="bottom" constant="-3.25" id="if2-R8-sVs"/>
                         <constraint firstItem="ida-wI-kAP" firstAttribute="leading" secondItem="djN-u7-nkt" secondAttribute="trailing" constant="9.5" id="iww-Ws-dSP">
                             <variation key="widthClass=compact" constant="10"/>
                             <variation key="widthClass=regular" constant="20"/>
