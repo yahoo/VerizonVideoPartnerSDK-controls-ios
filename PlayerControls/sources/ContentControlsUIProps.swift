@@ -85,9 +85,8 @@ extension DefaultControlsViewController {
                 let isPlayerAbsent = props.player == nil
                 let isControlsViewHidden = !controlsViewVisible
                 let isAirPlayInactive = !(props.player?.item.playable?.airplay.isActive ?? false)
-                let isVoiceOverOff = !UIAccessibilityIsVoiceOverRunning()
                 
-                return isPlayerAbsent || (isControlsViewHidden && isAirPlayInactive && isVoiceOverOff)
+                return isPlayerAbsent || (isControlsViewHidden && isAirPlayInactive)
             }()
             
             loading = props.player?.item.playable?.loading ?? false
