@@ -98,8 +98,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        let controlsViewVisible = controlsShouldBeVisible || UIAccessibilityIsVoiceOverRunning()
         uiProps = UIProps(props: props,
-                          controlsViewVisible: controlsShouldBeVisible)
+                          controlsViewVisible: controlsViewVisible)
         
         controlsView.isHidden = uiProps.controlsViewHidden
         isLoading = uiProps.loading
