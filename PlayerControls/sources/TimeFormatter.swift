@@ -3,10 +3,19 @@
 public enum CurrentTimeControl {}
 
 public enum TimeFormatter {
-    static let formatter: NumberFormatter = {
+    static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 2
         formatter.maximumFractionDigits = 0
+        return formatter
+    }()
+    
+    static let dateComponentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.includesApproximationPhrase = false
+        formatter.includesTimeRemainingPhrase = false
+        formatter.allowedUnits = [.hour, .minute, .second]
         return formatter
     }()
     
@@ -16,7 +25,7 @@ public enum TimeFormatter {
         let seconds = value % 60
         
         func format(_ value: Int) -> String {
-            guard let string = formatter.string(from: NSNumber(value: value)) else {
+            guard let string = numberFormatter.string(from: NSNumber(value: value)) else {
                 fatalError("Unhandled conversion!")
             }
             return string
@@ -27,5 +36,9 @@ public enum TimeFormatter {
         } else {
             return "\(minutes):\(format(seconds))"
         }
+    }
+    
+    public static func voiceOverReadable(from seconds: Int) -> String? {
+        return dateComponentsFormatter.string(from: .init(seconds))
     }
 }

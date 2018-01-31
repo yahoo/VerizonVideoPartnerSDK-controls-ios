@@ -36,6 +36,7 @@ final class SeekerControlView: UIView {
     private func setup() {
         /* Initial setup. */ do {
             dragControl = UIImageView()
+            
             seekerFiller = UIImageView()
             
             seekerBackground = UIImageView()
@@ -104,7 +105,7 @@ final class SeekerControlView: UIView {
             
         /* Calculate drag position. */ do {
             dragControl.frame.origin.x = -dragControl.alignmentRectInsets.left + dragControlX
-            dragControl.center.y = bounds.midY
+            dragControl.center.y = bounds.maxY - dragControl.bounds.midY
         }
         
         /* Calculate current time label position. */ do {

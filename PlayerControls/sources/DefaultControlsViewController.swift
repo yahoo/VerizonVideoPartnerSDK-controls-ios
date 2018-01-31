@@ -118,11 +118,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.updateCurrentTime(text: uiProps.seekerViewCurrentTimeText)
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
-
-        let constant = traitCollection.userInterfaceIdiom == .pad ? 70 : 63
-        bottomSeekBarConstraint.constant = uiProps.seekbarPositionedAtBottom
-            ? 13
-            : CGFloat(constant)
+        seekerView.height = traitCollection.userInterfaceIdiom == .pad ? 46 : 38
+        seekerView.accessibilityLabel = uiProps.seekerViewAccessibilityLabel
+        
+        bottomSeekBarConstraint.constant = {
+            let constant = traitCollection.userInterfaceIdiom == .pad ? 60 : 53
+            return .init(uiProps.seekbarPositionedAtBottom ? 10 : constant)
+        }()
         
         seekBackButton.isHidden = uiProps.seekBackButtonHidden
         seekForwardButton.isHidden = uiProps.seekForwardButtonHidden
@@ -139,11 +141,15 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         durationTextLabel.text = uiProps.durationTextLabelText
         durationTextLabel.isHidden = uiProps.durationTextHidden
+        durationTextLabel.accessibilityLabel = uiProps.durationTextLabelAccessibilityLabel
         
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
-        visibleControlsSubtitlesConstraint.constant = uiProps.controlsViewHidden ? 30 : 110
+        visibleControlsSubtitlesConstraint.constant = {
+            let constant = traitCollection.userInterfaceIdiom == .pad ? 130 : 110
+            return .init(uiProps.controlsViewHidden ? 30 : constant)
+        }()
         airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
         airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
         subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden 
