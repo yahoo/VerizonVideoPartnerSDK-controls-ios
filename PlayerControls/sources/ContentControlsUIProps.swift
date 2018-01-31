@@ -84,60 +84,61 @@ extension DefaultControlsViewController {
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
-            controlsViewHidden = {
+             let controlsHidden: Bool = {
                 let isPlayerAbsent = props.player == nil
                 let isControlsViewHidden = !controlsViewVisible
                 let isAirPlayInactive = !(props.player?.item.playable?.airplay.isActive ?? false)
                 
                 return isPlayerAbsent || (isControlsViewHidden && isAirPlayInactive)
             }()
+            controlsViewHidden = controlsHidden
             
             loading = props.player?.item.playable?.loading ?? false
             
-            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil
+            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil || controlsHidden
             
             playButtonAction = props.player?.item.playable?.playbackAction.play ?? .nop
             
-            pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil
+            pauseButtonHidden = props.player?.item.playable?.playbackAction.pause == nil || controlsHidden
             
             pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? .nop
             
-            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
+            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil || controlsHidden
             
             replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? .nop
             
-            nextButtonEnabled = props.player?.playlist?.next != nil
+            nextButtonEnabled = props.player?.playlist?.next != nil || controlsHidden
             
             nextButtonAction = props.player?.playlist?.next ?? .nop
             
-            prevButtonEnabled = props.player?.playlist?.prev != nil
+            prevButtonEnabled = props.player?.playlist?.prev != nil || controlsHidden
             
             prevButtonAction = props.player?.playlist?.prev ?? .nop
             
             let nextButtonDisabled = !nextButtonEnabled
             let prevButtonDisabled = !prevButtonEnabled
             
-            prevButtonHidden = nextButtonDisabled && prevButtonDisabled
+            prevButtonHidden = (nextButtonDisabled && prevButtonDisabled) || controlsHidden
             
-            nextButtonHidden = nextButtonDisabled && prevButtonDisabled
+            nextButtonHidden = (nextButtonDisabled && prevButtonDisabled) || controlsHidden
             
-            seekerViewHidden = props.player?.item.playable?.seekbar == nil
+            seekerViewHidden = props.player?.item.playable?.seekbar == nil || controlsHidden
             
             durationTextLabelAccessibilityLabel = {
                 guard let duration = props.player?.item.playable?.seekbar?.duration else { return "" }
                 return TimeFormatter.voiceOverReadable(from: duration) ?? ""
             }()
             
-            durationTextHidden = props.player?.item.playable?.seekbar == nil
+            durationTextHidden = props.player?.item.playable?.seekbar == nil || controlsHidden
             
             durationTextLabelText = {
                 guard let seekbar = props.player?.item.playable?.seekbar else { return "" }
                 return TimeFormatter.string(from: seekbar.duration)
             }()
             
-            seekBackButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
+            seekBackButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil || controlsHidden
             
-            seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil
+            seekForwardButtonHidden = props.player?.item.playable?.seekbar?.seeker.seekTo == nil || controlsHidden
             
             seekToSecondsAction = props.player?.item.playable?.seekbar?.seeker.seekTo ?? .nop
             
@@ -177,11 +178,11 @@ extension DefaultControlsViewController {
                 return hasNoTitle && hasNoSettings && hasNoPipButton && hasNoAirplayButton
             }()
             
-            sideBarViewHidden = props.player?.item.playable?.sideBarViewHidden ?? true
+            sideBarViewHidden = (props.player?.item.playable?.sideBarViewHidden ?? true) || controlsHidden
             
-            compasBodyViewHidden = props.player?.item.playable?.camera == nil
+            compasBodyViewHidden = props.player?.item.playable?.camera == nil || controlsHidden
             
-            compasDirectionViewHidden = props.player?.item.playable?.camera == nil
+            compasDirectionViewHidden = props.player?.item.playable?.camera == nil || controlsHidden
             
             compasDirectionViewTransform = {
                 guard let camera = props.player?.item.playable?.camera else { return CGAffineTransform.identity }
@@ -203,9 +204,9 @@ extension DefaultControlsViewController {
                 return camera.moveTo.bind(to: .init(horizontal: 0.0, vertical: 0.0))
             }()
             
-            cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil
+            cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil || controlsHidden
         
-            videoTitleLabelHidden = props.player?.item.playable == nil
+            videoTitleLabelHidden = props.player?.item.playable == nil || controlsHidden
             
             videoTitleLabelText = props.player?.item.playable?.title ?? ""
             
@@ -219,9 +220,9 @@ extension DefaultControlsViewController {
                 }
             }()
             
-            subtitlesTextLabelHidden = props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false
+            subtitlesTextLabelHidden = (props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false) || controlsHidden
             
-            thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil
+            thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil || controlsHidden
             
             thumbnailImageUrl = props.player?.item.playable?.thumbnail?.url
             
@@ -229,26 +230,26 @@ extension DefaultControlsViewController {
             
             errorLabelText = props.player?.item.nonplayable ?? props.player?.item.playable?.error?.message ?? ""
             
-            errorLabelHidden = (props.player?.item.nonplayable == nil) && (props.player?.item.playable?.error == nil)
+            errorLabelHidden = (props.player?.item.nonplayable == nil) && (props.player?.item.playable?.error == nil) || controlsHidden
             
-            retryButtonHidden = props.player?.item.playable?.error == nil
+            retryButtonHidden = props.player?.item.playable?.error == nil || controlsHidden
             
             retryButtonAction = props.player?.item.playable?.error?.retryAction ?? .nop
             
-            pipButtonHidden = props.player?.item.playable?.pictureInPictureControl.isUnsupported ?? true
+            pipButtonHidden = (props.player?.item.playable?.pictureInPictureControl.isUnsupported ?? true) || controlsHidden
             
             pipButtonEnabled = props.player?.item.playable?.pictureInPictureControl.possible != nil
             
             pipButtonAction = props.player?.item.playable?.pictureInPictureControl.possible ?? .nop
             
-            settingsButtonHidden = props.player?.item.playable?.settings.isHidden ?? true
+            settingsButtonHidden = (props.player?.item.playable?.settings.isHidden ?? true) || controlsHidden
             
             settingsButtonEnabled = props.player?.item.playable?.settings.enabled != nil
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? .nop
             
-            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
-            airplayButtonHidden = props.player?.item.playable?.airplay.isHidden ?? true
+            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false) || controlsHidden
+            airplayButtonHidden = (props.player?.item.playable?.airplay.isHidden ?? true) || controlsHidden
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             
