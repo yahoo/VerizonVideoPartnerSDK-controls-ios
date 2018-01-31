@@ -50,6 +50,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var settingsButton: UIButton!
     @IBOutlet private var airPlayView: AirPlayView!
     
+    @IBOutlet private var bottomItemsView: UIView!
     @IBOutlet private var liveIndicationView: UIView!
     @IBOutlet private var liveDotLabel: UILabel!
     
