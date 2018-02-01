@@ -64,6 +64,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var subtitlesEdgeTrailingConstrains: NSLayoutConstraint!
     @IBOutlet private var subtitlesPipTrailingConstrains: NSLayoutConstraint!
     
+    @IBOutlet private var bottomItemsAndSeekerAnimatedConstraint: NSLayoutConstraint!
+    @IBOutlet private var bottomItemsVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet private var bottomItemsInvisibleConstraint: NSLayoutConstraint!
+    
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
             sideBarView.props = sidebarProps.map { [weak self] in
@@ -92,6 +96,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     var task: URLSessionDataTask?
+    var animationsEnabled: Bool = true
     
     var uiProps: UIProps = UIProps(props: .noPlayer, controlsViewVisible: false)
     //swiftlint:disable function_body_length
@@ -103,7 +108,18 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         uiProps = UIProps(props: props,
                           controlsViewVisible: controlsViewVisible)
         
-        controlsView.isHidden = uiProps.controlsViewHidden
+        if animationsEnabled {
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.4
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            
+            seekerView.layer.add(animation, forKey: "position")
+            durationTextLabel.layer.add(animation, forKey: "position")
+            bottomItemsView.layer.add(animation, forKey: "position")
+            
+        }
+        
+        shadowView.isHidden = uiProps.controlsViewHidden
         isLoading = uiProps.loading
         
         playButton.isHidden = uiProps.playButtonHidden
@@ -115,7 +131,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         prevButton.isHidden = uiProps.prevButtonHidden
         prevButton.isEnabled = uiProps.prevButtonEnabled
         
-        seekerView.isHidden = uiProps.seekerViewHidden
+        //seekerView.isHidden = uiProps.seekerViewHidden
         seekerView.updateCurrentTime(text: uiProps.seekerViewCurrentTimeText)
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
@@ -123,10 +139,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.cuePoints = uiProps.seekerViewCuePoints
         seekerView.accessibilityLabel = uiProps.seekerViewAccessibilityLabel
         
-        bottomSeekBarConstraint.constant = {
-            let constant = traitCollection.userInterfaceIdiom == .pad ? 60 : 53
-            return .init(uiProps.seekbarPositionedAtBottom ? 10 : constant)
-        }()
+//        bottomSeekBarConstraint.constant = {
+//            let constant = traitCollection.userInterfaceIdiom == .pad ? 60 : 53
+//            return .init(uiProps.seekbarPositionedAtBottom ? 10 : constant)
+//        }()
         
         seekBackButton.isHidden = uiProps.seekBackButtonHidden
         seekForwardButton.isHidden = uiProps.seekForwardButtonHidden
@@ -142,7 +158,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         videoTitleLabel.text = uiProps.videoTitleLabelText
         
         durationTextLabel.text = uiProps.durationTextLabelText
-        durationTextLabel.isHidden = uiProps.durationTextHidden
+        //durationTextLabel.isHidden = uiProps.durationTextHidden
         durationTextLabel.accessibilityLabel = uiProps.durationTextLabelAccessibilityLabel
         
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
@@ -214,6 +230,37 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
         )
         airPlayView.isHidden = uiProps.airplayButtonHidden
+        
+        let allButotnsAndTitleShouldBeHidden = uiProps.videoTitleLabelHidden && uiProps.settingsButtonHidden && uiProps.pipButtonHidden && uiProps.airplayButtonHidden
+        let atleastOneButtonOrTitleShouldBeVisible = !uiProps.videoTitleLabelHidden || !uiProps.settingsButtonHidden || !uiProps.pipButtonHidden || !uiProps.airplayButtonHidden
+        
+        let allButtonsAndTitleAreHidden = videoTitleLabel.isHidden && settingsButton.isHidden && pipButton.isHidden && airPlayView.isHidden
+        let atleastOneButtonOrTitleIsVisible = !videoTitleLabel.isHidden || !settingsButton.isHidden || !pipButton.isHidden || !airPlayView.isHidden
+        
+        ////ПЕРЕДЕЛАТЬ К ХУЯМ!!!!!!!
+        if (atleastOneButtonOrTitleShouldBeVisible && atleastOneButtonOrTitleIsVisible) {
+            print("fade seeker")
+//            seekerView.performFadingAnimation(inHiddenState: uiProps.seekerViewHidden)
+//            durationTextLabel.performFadingAnimation(inHiddenState: uiProps.durationTextHidden)
+        }
+        if allButotnsAndTitleShouldBeHidden && uiProps.seekerViewHidden {
+            print("both hidden")
+            bottomItemsVisibleConstraint.isActive = false
+            bottomItemsInvisibleConstraint.isActive = false
+            bottomItemsAndSeekerAnimatedConstraint.isActive = true
+        }
+        if atleastOneButtonOrTitleShouldBeVisible && !uiProps.seekerViewHidden {
+            print("nothing hidden")
+            bottomItemsVisibleConstraint.isActive = true
+            bottomItemsInvisibleConstraint.isActive = false
+            bottomItemsAndSeekerAnimatedConstraint.isActive = false
+        }
+        if allButotnsAndTitleShouldBeHidden && !uiProps.seekerViewHidden {
+            print("onlyBottom items hidden")
+            bottomItemsVisibleConstraint.isActive = true
+            bottomItemsInvisibleConstraint.isActive = false
+            bottomItemsAndSeekerAnimatedConstraint.isActive = false
+        }
     }
     
     //swiftlint:enable function_body_length

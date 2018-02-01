@@ -59,12 +59,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.view.backgroundColor = .green
         vc.view.tintColor = .blue
         vc.props = props()
+        let propsDirector = PropsDirector()
         
+        propsDirector.buttonProps.append(contentsOf: propses())
+        if #available(iOS 10.0, *) {
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { (_) in
+                vc.props = propsDirector.updateProps()
+            }
+        }
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
         return true
     }
+}
+
+func propses() -> [ButtonsProps] {
+    let seekerState = DefaultControlsViewController.Props.Seekbar(
+        duration: 3600,
+        currentTime: 1800,
+        progress: 0.5,
+        buffered: 0.7,
+        seeker: Props.Seeker(
+            seekTo: .nop,
+            state: Props.State(
+                start: .nop,
+                update: .nop,
+                stop: .nop)))
+    return [
+        ButtonsProps(settingsState: .enabled(.nop), airplayState: .enabled, pipState: .possible(.nop), seekerState: seekerState, titleState: "Title"),
+        ButtonsProps(settingsState: .hidden, airplayState: .hidden, pipState: .unsupported, seekerState: nil, titleState: ""),
+        ButtonsProps(settingsState: .enabled(.nop), airplayState: .enabled, pipState: .possible(.nop), seekerState: seekerState, titleState: "Title"),
+        ButtonsProps(settingsState: .enabled(.nop), airplayState: .enabled, pipState: .possible(.nop), seekerState: nil, titleState: "Title"),
+        ButtonsProps(settingsState: .enabled(.nop), airplayState: .enabled, pipState: .possible(.nop), seekerState: seekerState, titleState: "Title"),
+        ButtonsProps(settingsState: .hidden, airplayState: .hidden, pipState: .unsupported, seekerState: seekerState, titleState: ""),
+        ButtonsProps(settingsState: .enabled(.nop), airplayState: .enabled, pipState: .possible(.nop), seekerState: seekerState, titleState: "Title")
+    ]
 }
 
