@@ -39,4 +39,12 @@ extension UIView {
                        in: Bundle(for: type(of: self)),
                        compatibleWith: traitCollection)!
     }
+    func performFadingAnimation(inHiddenState state: Bool) {
+        let animation = CATransition()
+        animation.type = kCATransitionFade
+        animation.duration = 0.4
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        layer.add(animation, forKey: "hidden")
+        isHidden = state
+    }
 }
