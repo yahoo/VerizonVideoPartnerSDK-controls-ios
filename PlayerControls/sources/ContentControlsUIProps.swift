@@ -35,7 +35,7 @@ extension DefaultControlsViewController {
         var seekToSecondsAction: CommandWith<Int>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
-        var seekbarPositionedAtBottom: Bool
+        var botoomItemsHidden: Bool
         
         var sideBarViewHidden: Bool
         
@@ -79,13 +79,6 @@ extension DefaultControlsViewController {
         
         var liveIndicationViewIsHidden: Bool
         var liveDotColor: UIColor?
-        
-        var bottomItemsHidden: Bool {
-            return pipButtonHidden
-                && airplayButtonHidden
-                && settingsButtonHidden
-                && (videoTitleLabelHidden || videoTitleLabelText == "")
-        }
         
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
@@ -173,13 +166,13 @@ extension DefaultControlsViewController {
             
             seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered.value ?? 0)
             
-            seekbarPositionedAtBottom = {
+            botoomItemsHidden = {
                 guard let playable = props.player?.item.playable else { return false }
                 let hasNoTitle = playable.title.count == 0
                 let hasNoSettings = playable.settings.isHidden
                 let hasNoPipButton = playable.pictureInPictureControl.isUnsupported
                 let hasNoAirplayButton = playable.airplay.isHidden
-                return hasNoTitle && hasNoSettings && hasNoPipButton && hasNoAirplayButton
+                return (hasNoTitle && hasNoSettings && hasNoPipButton && hasNoAirplayButton) || controlsHidden
             }()
             
             sideBarViewHidden = (props.player?.item.playable?.sideBarViewHidden ?? true) || controlsHidden
