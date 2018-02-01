@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06536931202320C100F65305 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06536930202320C100F65305 /* AnimationDelegate.swift */; };
 		0696270D1FD188A50098494A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696270C1FD188A50098494A /* Command.swift */; };
 		422017F41FE3D557002E4DE5 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422017F31FE3D557002E4DE5 /* Codable.swift */; };
 		427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427DA9121FFBA1E700698438 /* Defaultable.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06536930202320C100F65305 /* AnimationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		0696270C1FD188A50098494A /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		422017F31FE3D557002E4DE5 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0653692F2023207200F65305 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				06536930202320C100F65305 /* AnimationDelegate.swift */,
+			);
+			name = animations;
+			sourceTree = "<group>";
+		};
 		427DA9111FFBA12500698438 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				DA070BAF1F8B76B9007F407D /* airplay */,
+				0653692F2023207200F65305 /* animations */,
 				50F471331F5958D300C35AEF /* settings */,
 				50582F931E65CD8D00B18908 /* seeker control view */,
 				50582F921E65CD8500B18908 /* side bar */,
@@ -458,6 +469,7 @@
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				0696270D1FD188A50098494A /* Command.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
+				06536931202320C100F65305 /* AnimationDelegate.swift in Sources */,
 				422017F41FE3D557002E4DE5 /* Codable.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
 				50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */,
