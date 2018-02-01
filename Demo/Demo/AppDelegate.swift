@@ -44,7 +44,7 @@ func props() -> Props {
             settings: .enabled(.nop),
             sideBarViewHidden: true,
             thumbnail: nil,
-            title: "Long titel"))))
+            title: "Title"))))
 }
 
 @UIApplicationMain
