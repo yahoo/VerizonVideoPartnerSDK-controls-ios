@@ -68,6 +68,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var bottomItemsVisibleConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomItemsInvisibleConstraint: NSLayoutConstraint!
     
+    //@IBOutlet private var sideBarConstraints: AnimationsConstraint!
+    
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
             sideBarView.props = sidebarProps.map { [weak self] in
@@ -95,6 +97,12 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
+    var isApperared = false
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isApperared = true
+    }
+    
     var task: URLSessionDataTask?
     var animationsEnabled: Bool = true
     
@@ -108,16 +116,229 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         uiProps = UIProps(props: props,
                           controlsViewVisible: controlsViewVisible)
         
+        var afterSlideAnimationActions: [() -> ()] = []
+        func afterSlideAnimation(block: @escaping () -> ()) {
+            afterSlideAnimationActions.append(block)
+        }
+        
+        var afterFadeAnimationActions: [() -> ()] = []
+        func afterFadeAnimation(block: @escaping () -> ()) {
+            afterFadeAnimationActions.append(block)
+        }
+        
+        let allButtonsAndTitleAreHidden = (videoTitleLabel.isHidden || videoTitleLabel.text == "") && settingsButton.isHidden && pipButton.isHidden && airPlayView.isHidden
+        
         if animationsEnabled {
-            let animation = CABasicAnimation(keyPath: "position")
-            animation.duration = 0.4
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
             
-            seekerView.layer.add(animation, forKey: "position")
-            durationTextLabel.layer.add(animation, forKey: "position")
-            bottomItemsView.layer.add(animation, forKey: "position")
+            let animationPosition = CABasicAnimation(keyPath: "position")
+            animationPosition.duration = 0.4
+            animationPosition.delegate = AnimationDelegate(didStop: { _, completed in
+                guard completed else { return }
+                afterSlideAnimationActions.forEach{$0()}
+            })
+            
+            let animationOpacity = CABasicAnimation(keyPath: "opacity")
+            animationOpacity.duration = 0.4
+            animationOpacity.delegate = AnimationDelegate(didStop: { _, completed in
+                guard completed else { return }
+                afterFadeAnimationActions.forEach{$0()}
+            })
+            
+            sideBarView.layer.add(animationPosition, forKey: "position")
+            seekerView.layer.add(animationPosition, forKey: "position")
+            bottomItemsView.layer.add(animationPosition, forKey: "position")
+            ccTextLabel.layer.add(animationPosition, forKey: "position")
+            
+            shadowView.layer.add(animationOpacity, forKey: "opacity")
+            playButton.layer.add(animationOpacity, forKey: "opacity")
+            pauseButton.layer.add(animationOpacity, forKey: "opacity")
+            replayButton.layer.add(animationOpacity, forKey: "opacity")
+            nextButton.layer.add(animationOpacity, forKey: "opacity")
+            prevButton.layer.add(animationOpacity, forKey: "opacity")
+            seekBackButton.layer.add(animationOpacity, forKey: "opacity")
+            seekForwardButton.layer.add(animationOpacity, forKey: "opacity")
+            compasBodyView.layer.add(animationOpacity, forKey: "opacity")
+            compasDirectionView.layer.add(animationOpacity, forKey: "opacity")
+            retryButton.layer.add(animationOpacity, forKey: "opacity")
+            errorLabel.layer.add(animationOpacity, forKey: "opacity")
+            liveIndicationView.layer.add(animationOpacity, forKey: "opacity")
+            airplayActiveLabel.layer.add(animationOpacity, forKey: "opacity")
+        }
+        
+        if !isApperared {
+            shadowView.isHidden = uiProps.controlsViewHidden
+            playButton.isHidden = uiProps.playButtonHidden
+            pauseButton.isHidden = uiProps.pauseButtonHidden
+            replayButton.isHidden = uiProps.replayButtonHidden
+            
+            
+            seekBackButton.isHidden = uiProps.seekBackButtonHidden
+            seekForwardButton.isHidden = uiProps.seekForwardButtonHidden
+            compasBodyView.isHidden = uiProps.compasBodyViewHidden
+            compasDirectionView.isHidden = uiProps.compasDirectionViewHidden
+            retryButton.isHidden = uiProps.retryButtonHidden
+            errorLabel.isHidden = uiProps.errorLabelHidden
+            liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
+            airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden
+            
+            sideBarView.isHidden = uiProps.sideBarViewHidden
+        }
+        switch uiProps.bottomItemsHidden {
+        case true:
+            bottomItemsVisibleConstraint.isActive = false
+            bottomItemsInvisibleConstraint.isActive = true
+            afterSlideAnimation {
+                self.bottomItemsView.isHidden = true
+                self.bottomItemsView.subviews.forEach { $0.isHidden = true }
+                self.airplayPipTrailingConstrains.isActive = !self.uiProps.pipButtonHidden
+                self.airplayEdgeTrailingConstrains.isActive = self.uiProps.pipButtonHidden
+                self.subtitlesAirplayTrailingConstrains.isActive = !self.uiProps.airplayButtonHidden
+                self.subtitlesEdgeTrailingConstrains.isActive = self.uiProps.airplayButtonHidden && self.uiProps.pipButtonHidden
+                self.subtitlesPipTrailingConstrains.isActive = self.uiProps.airplayButtonHidden
+            }
+        case false:
+            self.bottomItemsView.isHidden = false
+            self.bottomItemsView.subviews.forEach { $0.isHidden = false }
+            airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
+            airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
+            subtitlesAirplayTrailingConstrains.isActive = !uiProps.airplayButtonHidden
+            subtitlesEdgeTrailingConstrains.isActive = uiProps.airplayButtonHidden && uiProps.pipButtonHidden
+            subtitlesPipTrailingConstrains.isActive = uiProps.airplayButtonHidden
+            bottomItemsVisibleConstraint.isActive = true
+            bottomItemsInvisibleConstraint.isActive = false
+        }
+        
+        switch uiProps.seekForwardButtonHidden {
+        case true:
+            seekForwardButton.alpha = 0
+            afterFadeAnimation {
+                self.retryButton.isHidden = true
+            }
+        case false:
+            seekForwardButton.isHidden = false
+            seekForwardButton.alpha = 1
+        }
+        
+        switch uiProps.seekBackButtonHidden {
+        case true:
+            seekBackButton.alpha = 0
+            afterFadeAnimation {
+                self.seekBackButton.isHidden = true
+            }
+        case false:
+            seekBackButton.isHidden = false
+            seekBackButton.alpha = 1
+        }
+        
+        switch uiProps.replayButtonHidden {
+        case true:
+            retryButton.alpha = 0
+            afterFadeAnimation {
+                self.retryButton.isHidden = true
+            }
+        case false:
+            retryButton.isHidden = false
+            retryButton.alpha = 1
+        }
+        
+        switch uiProps.pauseButtonHidden {
+        case true:
+            pauseButton.alpha = 0
+            afterFadeAnimation {
+                self.pauseButton.isHidden = true
+            }
+        case false:
+            pauseButton.isHidden = false
+            pauseButton.alpha = 1
+        }
+        
+        switch uiProps.playButtonHidden {
+        case true:
+            playButton.alpha = 0
+            afterFadeAnimation {
+                self.playButton.isHidden = true
+            }
+        case false:
+            playButton.isHidden = false
+            playButton.alpha = 1
+        }
+        
+        switch uiProps.sideBarViewHidden {
+        case true:
+//            sideBarConstraints.toggleToInVisible()
+            afterSlideAnimation {
+                self.sideBarView.isHidden = true
+            }
+        case false:
+            self.sideBarView.isHidden = false
+//            sideBarConstraints.toggleToVisible()
+        }
+        
+        switch  uiProps.seekerViewHidden {
+        case true:
+            if uiProps.bottomItemsHidden {
+                print("both hidden")
+                bottomItemsVisibleConstraint.isActive = false
+                bottomItemsInvisibleConstraint.isActive = false
+                bottomItemsAndSeekerAnimatedConstraint.isActive = true
+            } else {
+                print("fade seeker hide")
+                seekerView.performFadingAnimation(inHiddenState: uiProps.seekerViewHidden)
+                durationTextLabel.performFadingAnimation(inHiddenState: uiProps.durationTextHidden)
+            }
+            afterSlideAnimation {
+                self.seekerView.isHidden = true
+                self.seekerView.progress = self.uiProps.seekerViewProgress
+                self.seekerView.buffered = self.uiProps.seekerViewBuffered
+            }
+        case false:
+            self.seekerView.progress = self.uiProps.seekerViewProgress
+            self.seekerView.buffered = self.uiProps.seekerViewBuffered
+            if uiProps.bottomItemsHidden {
+                print("onlyBottom items hidden")
+                self.seekerView.isHidden = false
+                bottomItemsVisibleConstraint.isActive = false
+                bottomItemsInvisibleConstraint.isActive = true
+                bottomItemsAndSeekerAnimatedConstraint.isActive = false
+            } else if (!uiProps.bottomItemsHidden && !allButtonsAndTitleAreHidden) {
+                print("fade seeker appear")
+                seekerView.performFadingAnimation(inHiddenState: uiProps.seekerViewHidden)
+                durationTextLabel.performFadingAnimation(inHiddenState: uiProps.durationTextHidden)
+            } else {
+                print("nothing hidden")
+                self.seekerView.isHidden = false
+                bottomItemsVisibleConstraint.isActive = true
+                bottomItemsInvisibleConstraint.isActive = false
+                bottomItemsAndSeekerAnimatedConstraint.isActive = false
+            }
             
         }
+        seekerView.updateCurrentTime(text: uiProps.seekerViewCurrentTimeText)
+        
+        switch uiProps.nextButtonHidden {
+        case true:
+            nextButton.alpha = 0
+            afterSlideAnimation {
+                self.nextButton.isHidden = true
+            }
+        case false:
+            self.nextButton.isHidden = true
+            nextButton.alpha = 1
+        }
+        nextButton.isEnabled = uiProps.nextButtonEnabled
+        
+        switch uiProps.prevButtonHidden {
+        case true:
+            prevButton.alpha = 0
+            afterFadeAnimation {
+                self.prevButton.isHidden = true
+            }
+        case false:
+            self.prevButton.isHidden = true
+            prevButton.alpha = 1
+        }
+        prevButton.isEnabled = uiProps.prevButtonEnabled
+        
         
         shadowView.isHidden = uiProps.controlsViewHidden
         isLoading = uiProps.loading
@@ -213,10 +434,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         errorLabel.isHidden = uiProps.errorLabelHidden
         errorLabel.text = uiProps.errorLabelText
         
-        pipButton.isHidden = uiProps.pipButtonHidden
         pipButton.isEnabled = uiProps.pipButtonEnabled
         
-        settingsButton.isHidden = uiProps.settingsButtonHidden
         settingsButton.isEnabled = uiProps.settingsButtonEnabled
         
         liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
@@ -229,38 +448,17 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
                 highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
         )
-        airPlayView.isHidden = uiProps.airplayButtonHidden
+    }
+    
+    func setConstraints() {
         
-        let allButotnsAndTitleShouldBeHidden = uiProps.videoTitleLabelHidden && uiProps.settingsButtonHidden && uiProps.pipButtonHidden && uiProps.airplayButtonHidden
-        let atleastOneButtonOrTitleShouldBeVisible = !uiProps.videoTitleLabelHidden || !uiProps.settingsButtonHidden || !uiProps.pipButtonHidden || !uiProps.airplayButtonHidden
+        //what is needed: 1) seeker new state, bottomItems new and old state in visible and invisible
         
-        let allButtonsAndTitleAreHidden = videoTitleLabel.isHidden && settingsButton.isHidden && pipButton.isHidden && airPlayView.isHidden
-        let atleastOneButtonOrTitleIsVisible = !videoTitleLabel.isHidden || !settingsButton.isHidden || !pipButton.isHidden || !airPlayView.isHidden
-        
-        ////ПЕРЕДЕЛАТЬ К ХУЯМ!!!!!!!
-        if (atleastOneButtonOrTitleShouldBeVisible && atleastOneButtonOrTitleIsVisible) {
-            print("fade seeker")
-//            seekerView.performFadingAnimation(inHiddenState: uiProps.seekerViewHidden)
-//            durationTextLabel.performFadingAnimation(inHiddenState: uiProps.durationTextHidden)
-        }
-        if allButotnsAndTitleShouldBeHidden && uiProps.seekerViewHidden {
-            print("both hidden")
-            bottomItemsVisibleConstraint.isActive = false
-            bottomItemsInvisibleConstraint.isActive = false
-            bottomItemsAndSeekerAnimatedConstraint.isActive = true
-        }
-        if atleastOneButtonOrTitleShouldBeVisible && !uiProps.seekerViewHidden {
-            print("nothing hidden")
-            bottomItemsVisibleConstraint.isActive = true
-            bottomItemsInvisibleConstraint.isActive = false
-            bottomItemsAndSeekerAnimatedConstraint.isActive = false
-        }
-        if allButotnsAndTitleShouldBeHidden && !uiProps.seekerViewHidden {
-            print("onlyBottom items hidden")
-            bottomItemsVisibleConstraint.isActive = true
-            bottomItemsInvisibleConstraint.isActive = false
-            bottomItemsAndSeekerAnimatedConstraint.isActive = false
-        }
+        //bottom items go down && seeker follows
+        //bottom items go up && seeker follows
+        //seeker and bottom items go down
+        //seeker and bottom items go up
+        //seeker fades when bottom items are and will not be hidden
     }
     
     //swiftlint:enable function_body_length

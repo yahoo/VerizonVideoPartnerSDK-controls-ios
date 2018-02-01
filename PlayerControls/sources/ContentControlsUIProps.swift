@@ -81,6 +81,13 @@ extension DefaultControlsViewController {
         var liveIndicationViewIsHidden: Bool
         var liveDotColor: UIColor?
         
+        var bottomItemsHidden: Bool {
+            return pipButtonHidden
+                && airplayButtonHidden
+                && settingsButtonHidden
+                && (videoTitleLabelHidden || videoTitleLabelText == "")
+        }
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
