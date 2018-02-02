@@ -73,6 +73,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var sideBarVisibleConstraint: NSLayoutConstraint!
     @IBOutlet private var sideBarSeekerConstraint: NSLayoutConstraint!
     @IBOutlet private var sideBarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var bottomItemsHeightConstraint: NSLayoutConstraint!
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -282,7 +283,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         switch uiProps.sideBarViewHidden {
         case true:
-            if isApperared {
+            if !isApperared {
                 sideBarSeekerConstraint.isActive = false
                 sideBarVisibleConstraint.isActive = false
                 sideBarInvisibleConstraint.isActive = true
@@ -294,7 +295,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         case false:
             self.sideBarView.isHidden = false
-            if isApperared {
+            if !isApperared {
                 sideBarInvisibleConstraint.isActive = false
                 sideBarBottomConstraint.isActive = false
                 sideBarVisibleConstraint.isActive = true
@@ -376,9 +377,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         isLoading = uiProps.loading
         
         bottomItemsSeekerConstraint.constant = {
-            return .init(traitCollection.userInterfaceIdiom == .pad ? 5 : 1.5)
+            let constraint: CGFloat = uiProps.botoomItemsHidden ? 10 : 1.5
+            return .init(traitCollection.userInterfaceIdiom == .pad ? constraint : 1.5)
         }()
         
+        bottomItemsHeightConstraint.constant = {
+            let constraint: CGFloat = uiProps.botoomItemsHidden ? 62 : 58.5
+            return .init(traitCollection.userInterfaceIdiom == .pad ? constraint : 51.5)
+        }()
         
         switch uiProps.compasBodyViewHidden {
         case true:
