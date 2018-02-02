@@ -109,7 +109,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     var task: URLSessionDataTask?
-    var animationsEnabled: Bool = true
+    var animationsEnabled: Bool = false
+    var animationsDuration: CFTimeInterval = 0.4
     
     var uiProps: UIProps = UIProps(props: .noPlayer, controlsViewVisible: false)
     //swiftlint:disable function_body_length
@@ -136,14 +137,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         if animationsEnabled {
             
             let animationPosition = CABasicAnimation(keyPath: "position")
-            animationPosition.duration = 0.4
+            animationPosition.duration = animationsDuration
             animationPosition.delegate = AnimationDelegate(didStop: { _, completed in
                 guard completed else { return }
                 afterSlideAnimationActions.forEach{$0()}
             })
             
             let animationOpacity = CABasicAnimation(keyPath: "opacity")
-            animationOpacity.duration = 0.4
+            animationOpacity.duration = animationsDuration
             animationOpacity.delegate = AnimationDelegate(didStop: { _, completed in
                 guard completed else { return }
                 afterFadeAnimationActions.forEach{$0()}
