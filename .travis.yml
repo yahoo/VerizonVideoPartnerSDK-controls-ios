@@ -1,6 +1,7 @@
 language: swift
 osx_image: xcode9.2
 xcode_workspace: PlayerControls
+cache: SnapshotTests
 
 before_install:
 - brew update
@@ -12,3 +13,14 @@ before_install:
 script:
 - cd ..
 - fastlane test
+
+after_failure:
+- curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+- unzip awscli-bundle.zip
+- sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+- aws configure set default.region eu-west-2
+- aws configure set aws_access_key_id $ACCESS_KEY
+- aws configure set aws_secret_access_key $SECRET_ACCESS_KEY
+- aws s3 cp ./SnapshotTests/Tests/FailureDifferences s3://$S3_BUCKET/Failures/$TRAVIS_BRANCH/ --recursive --include "*.jpg" --exclude "*.DS_Store" --acl public-read
+# - create url for each responce for https://<bucket-name>.s3.amazonaws.com/<responce>
+# aws s3api list-objects --bucket aol-public --query 'Contents[].Key'  | tee keys.json
