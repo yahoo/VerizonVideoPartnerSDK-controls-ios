@@ -35,7 +35,7 @@ extension DefaultControlsViewController {
         var seekToSecondsAction: CommandWith<Int>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
-        var botoomItemsHidden: Bool
+        var bottomItemsHidden: Bool
         
         var sideBarViewHidden: Bool
         
@@ -166,7 +166,7 @@ extension DefaultControlsViewController {
             
             seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered.value ?? 0)
             
-            botoomItemsHidden = {
+            bottomItemsHidden = {
                 guard let playable = props.player?.item.playable else { return false }
                 let hasNoTitle = playable.title.count == 0
                 let hasNoSettings = playable.settings.isHidden
