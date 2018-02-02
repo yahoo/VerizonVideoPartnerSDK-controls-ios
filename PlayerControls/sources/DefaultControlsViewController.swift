@@ -184,8 +184,12 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             bottomItemsVisibleConstraint.isActive = false
             bottomItemsInvisibleConstraint.isActive = true
             afterSlideAnimation {
-                self.bottomItemsView.subviews.forEach { $0.isHidden = true }
                 self.bottomItemsView.isHidden = true
+                self.pipButton.isHidden = self.uiProps.pipButtonHidden
+                self.airPlayView.isHidden = self.uiProps.airplayButtonHidden
+                self.settingsButton.isHidden = self.uiProps.settingsButtonHidden
+                self.videoTitleLabel.isHidden = self.uiProps.videoTitleLabelHidden
+                
                 self.pipButton.isEnabled = self.uiProps.pipButtonEnabled
                 self.settingsButton.isEnabled = self.uiProps.settingsButtonEnabled
                 self.videoTitleLabel.text = self.uiProps.videoTitleLabelText
@@ -198,14 +202,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         case false:
             bottomItemsView.isHidden = false
-            pipButton.isEnabled = uiProps.pipButtonEnabled
-            settingsButton.isEnabled = uiProps.settingsButtonEnabled
-            videoTitleLabel.text = uiProps.videoTitleLabelText
-            
             pipButton.isHidden = uiProps.pipButtonHidden
             airPlayView.isHidden = uiProps.airplayButtonHidden
             settingsButton.isHidden = uiProps.settingsButtonHidden
             videoTitleLabel.isHidden = uiProps.videoTitleLabelHidden
+            
+            pipButton.isEnabled = uiProps.pipButtonEnabled
+            settingsButton.isEnabled = uiProps.settingsButtonEnabled
+            videoTitleLabel.text = uiProps.videoTitleLabelText
             
             airplayPipTrailingConstrains.isActive = !uiProps.pipButtonHidden
             airplayEdgeTrailingConstrains.isActive = uiProps.pipButtonHidden
@@ -284,24 +288,23 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         switch uiProps.sideBarViewHidden {
         case true:
-            if !isApperared {
-                sideBarSeekerConstraint.isActive = false
-                sideBarVisibleConstraint.isActive = false
-                sideBarInvisibleConstraint.isActive = true
-                sideBarBottomConstraint.constant =  view.frame.height - sideBarView.frame.height
-                sideBarBottomConstraint.isActive = true
-            }
+            sideBarVisibleConstraint.isActive = false
+            sideBarInvisibleConstraint.isActive = true
+            
+            sideBarBottomConstraint.isActive = true
+            //sideBarSeekerConstraint.isActive = false
+            sideBarBottomConstraint.constant =  view.frame.height - sideBarView.frame.height
+            
             afterSlideAnimation {
                 self.sideBarView.isHidden = true
             }
         case false:
             self.sideBarView.isHidden = false
-            if !isApperared {
-                sideBarInvisibleConstraint.isActive = false
-                sideBarBottomConstraint.isActive = false
-                sideBarVisibleConstraint.isActive = true
-                sideBarSeekerConstraint.isActive = true
-            }
+            sideBarVisibleConstraint.isActive = true
+            sideBarInvisibleConstraint.isActive = false
+
+            sideBarBottomConstraint.isActive = false
+            //sideBarSeekerConstraint.isActive = true
         }
         
         switch  uiProps.seekerViewHidden {
@@ -378,7 +381,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         isLoading = uiProps.loading
         
         bottomItemsSeekerConstraint.constant = {
-            let constraint: CGFloat = uiProps.botoomItemsHidden ? 10 : 1.5
+            let constraint: CGFloat = uiProps.botoomItemsHidden ? 30 : 1.5
             return .init(traitCollection.userInterfaceIdiom == .pad ? constraint : 1.5)
         }()
         
@@ -425,7 +428,23 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             ccTextLabel.alpha = 1
         }
         
-        //ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
+        switch uiProps.errorLabelHidden {
+        case true:
+            errorLabel.alpha = 0
+            afterFadeAnimation {
+                self.errorLabel.isHidden = false
+                self.errorLabel.text = self.uiProps.errorLabelText
+            }
+        case false:
+            errorLabel.isHidden = false
+            errorLabel.text = uiProps.errorLabelText
+            errorLabel.alpha = 1
+        }
+        
+        liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
+        liveDotLabel.textColor = uiProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
+        
+        airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText
 
         visibleControlsSubtitlesConstraint.constant = {
@@ -470,13 +489,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             thumbnailImageView.image = image
         }
         
-        errorLabel.isHidden = uiProps.errorLabelHidden
-        errorLabel.text = uiProps.errorLabelText
-        
-        liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
-        liveDotLabel.textColor = uiProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
-        
-        airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden
         airPlayView.props = AirPlayView.Props(
             icons: AirPlayView.Props.Icons(
                 normal: UIImage.init(named: "icon-airplay", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
