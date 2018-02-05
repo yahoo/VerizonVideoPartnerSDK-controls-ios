@@ -1,7 +1,7 @@
 //  Copyright © 2018 Oath. All rights reserved.
 
 import UIKit
-@testable import PlayerControls
+import PlayerControls
 
 typealias Props = ContentControlsViewController.Props
 func props() -> Props {
@@ -44,7 +44,8 @@ func props() -> Props {
             settings: .enabled(.nop),
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Title"))))
+            title: "Title")),
+        animationsEnabled: true))
 }
 
 @UIApplicationMain
@@ -60,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.props = props()
         vc.sidebarProps = sideProps()
         
-        vc.animationsEnabled = true
         vc.animationsDuration = 0.4
         
         let propsDirector = PropsDirector()
@@ -110,7 +110,8 @@ func seekerFadeAnimationScript() -> [DefaultControlsViewController.Props] {
 func noPlayerCase() -> DefaultControlsViewController.Props {
     return Props.player(Props.Player(
         playlist: nil,
-        item: Props.Item.nonplayable("Eror 404 player not found")))
+        item: Props.Item.nonplayable("Eror 404 player not found"),
+        animationsEnabled: true))
 }
 
 func everythingEmpty() -> DefaultControlsViewController.Props {
@@ -143,7 +144,8 @@ func everythingEmpty() -> DefaultControlsViewController.Props {
             settings: .hidden,
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: ""))))
+            title: "")),
+        animationsEnabled: true))
 }
 
 func bottomViewAndSeekerVisible() -> DefaultControlsViewController.Props {
@@ -186,7 +188,8 @@ func bottomViewAndSeekerVisible() -> DefaultControlsViewController.Props {
             settings: .enabled(.nop),
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Title"))))
+            title: "Title")),
+        animationsEnabled: true))
 }
 
 func onlySeekerVisible() -> DefaultControlsViewController.Props {
@@ -229,7 +232,8 @@ func onlySeekerVisible() -> DefaultControlsViewController.Props {
             settings: .hidden,
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: ""))))
+            title: "")),
+        animationsEnabled: true))
 }
 
 func onlyBottomItemsViewVisible() -> DefaultControlsViewController.Props {
@@ -262,7 +266,8 @@ func onlyBottomItemsViewVisible() -> DefaultControlsViewController.Props {
             settings: .enabled(.nop),
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Title"))))
+            title: "Title")),
+        animationsEnabled: true))
 }
 
 func sideProps() -> [SideBarView.ButtonProps]{

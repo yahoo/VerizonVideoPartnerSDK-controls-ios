@@ -108,8 +108,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     var task: URLSessionDataTask?
-    var animationsEnabled: Bool = false
-    var animationsDuration: CFTimeInterval = 0.4
+    public var animationsDuration: CFTimeInterval = 0.4
     
     var uiProps: UIProps = UIProps(props: .noPlayer, controlsViewVisible: false)
     //swiftlint:disable function_body_length
@@ -133,7 +132,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             afterFadeAnimationActions.append(block)
         }
 
-        if animationsEnabled {
+        if uiProps.animationsEnabled {
             
             let animationPosition = CABasicAnimation(keyPath: "position")
             animationPosition.duration = animationsDuration
@@ -502,7 +501,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
                 highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
         )
-        if !animationsEnabled {
+        if !uiProps.animationsEnabled {
             afterSlideAnimationActions.forEach{$0()}
             afterFadeAnimationActions.forEach{$0()}
         }
