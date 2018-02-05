@@ -318,12 +318,17 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 self.seekerView.updateCurrentTime(text: self.uiProps.seekerViewCurrentTimeText)
                 self.seekerView.height = self.traitCollection.userInterfaceIdiom == .pad ? 46 : 38
                 self.seekerView.accessibilityLabel = self.uiProps.seekerViewAccessibilityLabel
+                self.durationTextLabel.layer.removeAllAnimations()
                 self.durationTextLabel.isHidden = true
                 self.durationTextLabel.text = self.uiProps.durationTextLabelText
                 self.durationTextLabel.accessibilityLabel = self.uiProps.durationTextLabelAccessibilityLabel
             }
             
         case false:
+            if bottomItemsView.isHidden {
+                seekerView.layer.removeAnimation(forKey: "opacity")
+                durationTextLabel.layer.removeAnimation(forKey: "opacity")
+            }
             seekerView.updateCurrentTime(text: uiProps.seekerViewCurrentTimeText)
             seekerView.progress = uiProps.seekerViewProgress
             seekerView.buffered = uiProps.seekerViewBuffered
@@ -335,13 +340,12 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             durationTextLabel.text = uiProps.durationTextLabelText
             durationTextLabel.accessibilityLabel = uiProps.durationTextLabelAccessibilityLabel
             
-            
             if uiProps.bottomItemsHidden {
                 self.seekerView.isHidden = false
                 bottomItemsVisibleConstraint.isActive = false
                 bottomItemsInvisibleConstraint.isActive = true
                 bottomItemsAndSeekerAnimatedConstraint.isActive = false
-            } else  {
+            } else {
                 self.seekerView.isHidden = false
                 bottomItemsVisibleConstraint.isActive = true
                 bottomItemsInvisibleConstraint.isActive = false
@@ -352,32 +356,33 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         switch uiProps.nextButtonHidden {
         case true:
             nextButton.alpha = 0
+            nextButton.isEnabled = uiProps.nextButtonEnabled
             afterSlideAnimation {
                 self.nextButton.isHidden = true
             }
         case false:
             self.nextButton.isHidden = false
             nextButton.alpha = 1
+            nextButton.isEnabled = uiProps.nextButtonEnabled
         }
-        nextButton.isEnabled = uiProps.nextButtonEnabled
         
         switch uiProps.prevButtonHidden {
         case true:
             prevButton.alpha = 0
             afterFadeAnimation {
                 self.prevButton.isHidden = true
+                self.prevButton.isEnabled = self.uiProps.prevButtonEnabled
             }
         case false:
             self.prevButton.isHidden = false
             prevButton.alpha = 1
+            prevButton.isEnabled = uiProps.prevButtonEnabled
         }
-        prevButton.isEnabled = uiProps.prevButtonEnabled
         
         isLoading = uiProps.loading
         
         bottomItemsSeekerConstraint.constant = {
-            let constraint: CGFloat = uiProps.bottomItemsHidden ? 10 : 1.5
-            return .init(traitCollection.userInterfaceIdiom == .pad ? constraint : 1.5)
+            return .init(uiProps.bottomItemsHidden ? 10 : 1.5)
         }()
         
         bottomItemsHeightConstraint.constant = {
@@ -409,22 +414,21 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         compasDirectionView.transform = uiProps.compasDirectionViewTransform
         cameraPanGestureRecognizer.isEnabled = uiProps.cameraPanGestureIsEnabled
         
-        switch uiProps.subtitlesTextLabelHidden {
-        case true:
-            ccTextLabel.alpha = 0
-            afterFadeAnimation {
-                self.ccTextLabel.isHidden = true
-            }
-        case false:
-            ccTextLabel.isHidden = false
-            ccTextLabel.alpha = 1
-        }
+        ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
+        ccTextLabel.text = uiProps.subtitlesTextLabelText
+        
+        visibleControlsSubtitlesConstraint.constant = {
+            let constant = traitCollection.userInterfaceIdiom == .pad ? 130 : 110
+            var distance = uiProps.bottomItemsHidden && !uiProps.seekerViewHidden ? 60 : 30
+            
+            return .init(uiProps.controlsViewHidden || uiProps.bottomItemsHidden ? distance : constant)
+        }()
         
         switch uiProps.errorLabelHidden {
         case true:
             errorLabel.alpha = 0
             afterFadeAnimation {
-                self.errorLabel.isHidden = false
+                self.errorLabel.isHidden = true
                 self.errorLabel.text = self.uiProps.errorLabelText
             }
         case false:
@@ -433,18 +437,29 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             errorLabel.alpha = 1
         }
         
-        liveIndicationView.isHidden = uiProps.liveIndicationViewIsHidden
-        liveDotLabel.textColor = uiProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
+        switch uiProps.liveIndicationViewIsHidden {
+        case true:
+            liveIndicationView.alpha = 0
+            afterFadeAnimation {
+                self.liveIndicationView.isHidden = true
+                self.liveDotLabel.textColor = self.uiProps.liveDotColor ?? self.liveDotLabel.textColor ?? self.view.tintColor
+            }
+        case false:
+            liveIndicationView.isHidden = false
+            liveIndicationView.alpha = 1
+            liveDotLabel.textColor = uiProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
+        }
         
-        airplayActiveLabel.isHidden = uiProps.airplayActiveLabelHidden
-        ccTextLabel.text = uiProps.subtitlesTextLabelText
-
-        visibleControlsSubtitlesConstraint.constant = {
-            let constant = traitCollection.userInterfaceIdiom == .pad ? 130 : 110
-            var distance = uiProps.bottomItemsHidden && !uiProps.seekerViewHidden ? 45 : 30
-            
-            return .init(uiProps.controlsViewHidden || uiProps.bottomItemsHidden ? distance : constant)
-        }()
+        switch uiProps.airplayActiveLabelHidden {
+        case true:
+            airplayActiveLabel.alpha = 0
+            afterFadeAnimation {
+                self.airplayActiveLabel.isHidden = true
+            }
+        case false:
+            airplayActiveLabel.isHidden = false
+            airplayActiveLabel.alpha = 1
+        }
         
         thumbnailImageView.isHidden = uiProps.thumbnailImageViewHidden
         
