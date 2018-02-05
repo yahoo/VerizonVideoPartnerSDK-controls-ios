@@ -25,6 +25,7 @@ open class ContentControlsViewController: UIViewController {
         public struct Player: Codable {
             public var playlist: Playlist?
             public var item: Item = .nonplayable("")
+            public var animationsEnabled: Bool = false
             
             public init() {}
         }
