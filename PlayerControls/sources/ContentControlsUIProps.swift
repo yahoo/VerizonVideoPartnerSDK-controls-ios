@@ -81,6 +81,8 @@ extension DefaultControlsViewController {
         var liveIndicationViewIsHidden: Bool
         var liveDotColor: UIColor?
         
+        var animationsEnabled: Bool
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
@@ -254,6 +256,8 @@ extension DefaultControlsViewController {
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
             
             liveDotColor = props.player?.item.playable?.live.dotColor?.color ?? nil
+            
+            animationsEnabled = props.player?.animationsEnabled ?? false
             
             compassViewBelowLive = {
                 guard

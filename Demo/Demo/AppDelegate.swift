@@ -1,7 +1,7 @@
 //  Copyright © 2018 Oath. All rights reserved.
 
 import UIKit
-@testable import PlayerControls
+import PlayerControls
 
 typealias Props = ContentControlsViewController.Props
 func props() -> Props {
@@ -45,7 +45,8 @@ func props() -> Props {
             settings: .enabled(.nop),
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Title"))))
+            title: "Title")),
+        animationsEnabled: true))
 }
 
 @UIApplicationMain
@@ -61,209 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.props = props()
         vc.sidebarProps = sideProps()
         
-        vc.animationsEnabled = true
-        vc.animationsDuration = 0.4
-        
-        let propsDirector = PropsDirector()
-        propsDirector.endlessLoop = true
-        propsDirector.propsArray.append(props())
-        propsDirector.propsArray.append(contentsOf: seekerAndBotomItemsTransitionsScript())
-        propsDirector.propsArray.append(noPlayerCase())
-        
-        if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { (timer) in
-                guard let updatedProps = propsDirector.updateProps() else { timer.invalidate(); vc.props = props(); return }
-                vc.props = updatedProps
-            }
-        }
-
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
         return true
     }
-}
-
-func seekerAndBotomItemsTransitionsScript() -> [DefaultControlsViewController.Props] {
-    return [everythingEmpty(),
-            onlySeekerVisible(),
-            bottomViewAndSeekerVisible(),
-            onlyBottomItemsViewVisible(),
-            bottomViewAndSeekerVisible(),
-            onlySeekerVisible(),
-            onlyBottomItemsViewVisible(),
-            onlySeekerVisible(),
-            everythingEmpty(),
-            onlyBottomItemsViewVisible(),
-            everythingEmpty(),
-            bottomViewAndSeekerVisible()
-    ]
-}
-
-func seekerFadeAnimationScript() -> [DefaultControlsViewController.Props] {
-    return [bottomViewAndSeekerVisible(),
-            onlyBottomItemsViewVisible(),
-            bottomViewAndSeekerVisible()
-    ]
-}
-
-func noPlayerCase() -> DefaultControlsViewController.Props {
-    return Props.player(Props.Player(
-        playlist: nil,
-        item: Props.Item.nonplayable("Eror 404 player not found")))
-}
-
-func everythingEmpty() -> DefaultControlsViewController.Props {
-    return Props.player(Props.Player(
-        playlist: Props.Playlist(
-            next: .nop,
-            prev: .nop),
-        item: .playable(Props.Controls(
-            airplay: .hidden,
-            audible: Props.MediaGroupControl(options: []),
-            camera: Props.Camera(
-                angles: Props.Angles(
-                    horizontal: 0.0,
-                    vertical: 0.0),
-                moveTo: .nop),
-            error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Something not very short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
-            live: Props.Live(
-                isHidden: true,
-                dotColor: nil),
-            loading: false,
-            pictureInPictureControl: .unsupported,
-            playbackAction: .play(.nop),
-            seekbar: nil,
-            settings: .hidden,
-            sideBarViewHidden: false,
-            thumbnail: nil,
-            title: ""))))
-}
-
-func bottomViewAndSeekerVisible() -> DefaultControlsViewController.Props {
-    return Props.player(Props.Player(
-        playlist: Props.Playlist(
-            next: .nop,
-            prev: .nop),
-        item: .playable(Props.Controls(
-            airplay: .enabled,
-            audible: Props.MediaGroupControl(options: []),
-            camera: Props.Camera(
-                angles: Props.Angles(
-                    horizontal: 0.0,
-                    vertical: 0.0),
-                moveTo: .nop),
-            error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Something not very short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
-            live: Props.Live(
-                isHidden: true,
-                dotColor: nil),
-            loading: false,
-            pictureInPictureControl: .possible(.nop),
-            playbackAction: .play(.nop),
-            seekbar: Props.Seekbar(
-                duration: 3600,
-                currentTime: 1800,
-                progress: 0.5,
-                buffered: 0.7,
-                seeker: Props.Seeker(
-                    seekTo: .nop,
-                    state: Props.State(
-                        start: .nop,
-                        update: .nop,
-                        stop: .nop))),
-            settings: .enabled(.nop),
-            sideBarViewHidden: false,
-            thumbnail: nil,
-            title: "Title"))))
-}
-
-func onlySeekerVisible() -> DefaultControlsViewController.Props {
-    return Props.player(Props.Player(
-        playlist: Props.Playlist(
-            next: .nop,
-            prev: .nop),
-        item: .playable(Props.Controls(
-            airplay: .hidden,
-            audible: Props.MediaGroupControl(options: []),
-            camera: Props.Camera(
-                angles: Props.Angles(
-                    horizontal: 0.0,
-                    vertical: 0.0),
-                moveTo: .nop),
-            error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Something not very short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
-            live: Props.Live(
-                isHidden: true,
-                dotColor: nil),
-            loading: false,
-            pictureInPictureControl: .unsupported,
-            playbackAction: .play(.nop),
-            seekbar: Props.Seekbar(
-                duration: 3600,
-                currentTime: 1800,
-                progress: 0.5,
-                buffered: 0.7,
-                seeker: Props.Seeker(
-                    seekTo: .nop,
-                    state: Props.State(
-                        start: .nop,
-                        update: .nop,
-                        stop: .nop))),
-            settings: .hidden,
-            sideBarViewHidden: false,
-            thumbnail: nil,
-            title: ""))))
-}
-
-func onlyBottomItemsViewVisible() -> DefaultControlsViewController.Props {
-    return Props.player(Props.Player(
-        playlist: Props.Playlist(
-            next: .nop,
-            prev: .nop),
-        item: .playable(Props.Controls(
-            airplay: .enabled,
-            audible: Props.MediaGroupControl(options: []),
-            camera: Props.Camera(
-                angles: Props.Angles(
-                    horizontal: 0.0,
-                    vertical: 0.0),
-                moveTo: .nop),
-            error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Something not very short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
-            live: Props.Live(
-                isHidden: true,
-                dotColor: nil),
-            loading: false,
-            pictureInPictureControl: .possible(.nop),
-            playbackAction: .play(.nop),
-            seekbar: nil,
-            settings: .enabled(.nop),
-            sideBarViewHidden: false,
-            thumbnail: nil,
-            title: "Title"))))
 }
 
 func sideProps() -> [SideBarView.ButtonProps]{
@@ -277,7 +81,8 @@ func sideProps() -> [SideBarView.ButtonProps]{
         isEnabled: true,
         isSelected: false,
         icons: shareIcons,
-        handler: .nop)
+        handler: .nop,
+        accessibility: SideBarView.ButtonProps.Accessibility.empty)
     
     let addIcon = SideBarView.ButtonProps.Icons(
         normal: UIImage(named: "icon-add", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -288,7 +93,8 @@ func sideProps() -> [SideBarView.ButtonProps]{
         isEnabled: true,
         isSelected: false,
         icons: addIcon,
-        handler: .nop)
+        handler: .nop,
+        accessibility: SideBarView.ButtonProps.Accessibility.empty)
     
     let favoriteIcon = SideBarView.ButtonProps.Icons(
         normal: UIImage(named: "icon-fav", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -299,7 +105,8 @@ func sideProps() -> [SideBarView.ButtonProps]{
         isEnabled: true,
         isSelected: false,
         icons: favoriteIcon,
-        handler: .nop)
+        handler: .nop,
+        accessibility: SideBarView.ButtonProps.Accessibility.empty)
     
     let laterIcon = SideBarView.ButtonProps.Icons(
         normal: UIImage(named: "icon-later", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -310,7 +117,10 @@ func sideProps() -> [SideBarView.ButtonProps]{
         isEnabled: true,
         isSelected: false,
         icons: laterIcon,
-        handler: .nop)
+        handler: .nop,
+        accessibility: SideBarView.ButtonProps.Accessibility.empty)
     
     return [later, favorite, share, add]
 }
+
+
