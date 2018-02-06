@@ -1,4 +1,4 @@
-//  Copyright © 2017 One by AOL : Publishers. All rights reserved.
+//  Copyright © 2018 Oath. All rights reserved.
 
 import UIKit
 import PlayerControls
@@ -7,8 +7,8 @@ typealias Props = ContentControlsViewController.Props
 func props() -> Props {
     return Props.player(Props.Player(
         playlist: Props.Playlist(
-            next: nil,
-            prev: nil),
+            next: .nop,
+            prev: .nop),
         item: .playable(Props.Controls(
             airplay: .enabled,
             audible: Props.MediaGroupControl(options: []),
@@ -19,13 +19,13 @@ func props() -> Props {
                 moveTo: .nop),
             error: nil,
             legible: .external(
-                external: .available(state: .active(text: "Somthing short")),
+                external: .available(state: .active(text: "Something not very short")),
                 control: Props.MediaGroupControl(options: [Props.Option(
                     name: "Option1",
                     selected: true,
                     select: .nop)])),
             live: Props.Live(
-                isHidden: false,
+                isHidden: true,
                 dotColor: nil),
             loading: false,
             pictureInPictureControl: .possible(.nop),
@@ -42,9 +42,10 @@ func props() -> Props {
                         update: .nop,
                         stop: .nop))),
             settings: .enabled(.nop),
-            sideBarViewHidden: true,
+            sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Long titel"))))
+            title: "Title")),
+        animationsEnabled: true))
 }
 
 @UIApplicationMain
@@ -55,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let vc = DefaultControlsViewController()
-        vc.view.backgroundColor = .green
+        vc.view.backgroundColor = .red
         vc.view.tintColor = .blue
         vc.props = props()
         
