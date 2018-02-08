@@ -17,7 +17,7 @@ class CaseWithAdLoading: SnapshotTest {
                 remainingPlayTime: "9999:59",
                 currentValue: 0,
                 accessibilityLabel: ""),
-            tapAction: .nop,
+            click: .show(.nop),
             isLoading: true, airplayActiveViewHidden: true)
         return controller
     }

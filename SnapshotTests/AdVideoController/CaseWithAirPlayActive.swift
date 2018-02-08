@@ -17,7 +17,7 @@ class CaseWithAirPlayActive: SnapshotTest {
                 remainingPlayTime: "0:30",
                 currentValue: 0.5,
                 accessibilityLabel: ""),
-            tapAction: .nop,
+            click: .show(.nop),
             isLoading: false, airplayActiveViewHidden: false)
         return controller
     }
