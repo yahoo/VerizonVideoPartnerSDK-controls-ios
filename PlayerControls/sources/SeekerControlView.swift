@@ -8,6 +8,10 @@ final class SeekerControlView: UIView {
     @IBInspectable var text: String = "--:--" { didSet { currentTimeLabel.text = text } }
     @IBInspectable var draggingEnabled: Bool = true { didSet { setNeedsLayout() } }
     
+    typealias Progress = CGFloat
+    
+    var cuePoints: [Progress] = [] { didSet { setNeedsLayout() } }
+    
     var isCurrentTimeEnabled: Bool = true {
         didSet {
             guard let _ = currentTimeLabel else { return }
@@ -28,6 +32,8 @@ final class SeekerControlView: UIView {
     private var seekerBufferBackground: UIImageView!
     private var dragControl: UIImageView!
     private var currentTimeLabel: UILabel!
+    private var cuePointsViews: [UIImageView] = []
+    private var cuePointImage: UIImage!
     
     override func tintColorDidChange() {
         currentTimeLabel.textColor = tintColor
@@ -35,6 +41,8 @@ final class SeekerControlView: UIView {
     
     private func setup() {
         /* Initial setup. */ do {
+            cuePointImage = createImage(named: "cue-point")
+                
             dragControl = UIImageView()
             
             seekerFiller = UIImageView()
@@ -139,6 +147,22 @@ final class SeekerControlView: UIView {
             seekerBackground.frame.origin.x = dragControl.alignmentRect.maxX
             seekerBackground.center.y = dragControl.center.y
             seekerBackground.frame.size.width = frame.width - seekerBackground.frame.origin.x
+        }
+        
+        /* Cue points positioning. */ do {
+            cuePointsViews.forEach { $0.removeFromSuperview() }
+            cuePointsViews.removeAll()
+            cuePoints
+                .map { progress -> UIImageView in
+                    let imageView = UIImageView(image: cuePointImage)
+                    imageView.center.x = frame.width * progress
+                    imageView.center.y = seekerBackground.center.y
+                    imageView.sizeToFit()
+                    cuePointsViews.append(imageView)
+                    return imageView
+                }
+                .filter { $0.frame.minX < dragControl.frame.minX || $0.frame.maxX > dragControl.frame.maxX }
+                .forEach(addSubview)
         }
     }
     struct Callbacks {

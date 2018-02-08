@@ -119,6 +119,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.progress = uiProps.seekerViewProgress
         seekerView.buffered = uiProps.seekerViewBuffered
         seekerView.height = traitCollection.userInterfaceIdiom == .pad ? 46 : 38
+        seekerView.cuePoints = uiProps.seekerViewCuePoints
         seekerView.accessibilityLabel = uiProps.seekerViewAccessibilityLabel
         
         bottomSeekBarConstraint.constant = {
