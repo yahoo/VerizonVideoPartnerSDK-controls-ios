@@ -83,7 +83,8 @@ class CaseSeekbarWithAllControls: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: shareIcons,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         let addIcon = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-add", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -94,7 +95,8 @@ class CaseSeekbarWithAllControls: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: addIcon,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         let favoriteIcon = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-fav", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -105,7 +107,8 @@ class CaseSeekbarWithAllControls: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: favoriteIcon,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         let laterIcon = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-later", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -116,7 +119,8 @@ class CaseSeekbarWithAllControls: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: laterIcon,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         return [later, favorite, share, add]
     }

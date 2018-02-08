@@ -67,7 +67,8 @@ class CaseWithAirplayActive: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: shareIcons,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         let favoriteIcon = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-fav", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -78,7 +79,8 @@ class CaseWithAirplayActive: SnapshotTest {
             isEnabled: true,
             isSelected: false,
             icons: favoriteIcon,
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
         
         return [favorite, share]
     }
