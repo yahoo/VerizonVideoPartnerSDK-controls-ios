@@ -75,7 +75,7 @@ public final class AdVideoControls: UIViewController {
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
         
-        public enum ClickAction {
+        public enum ClickAction: Prism {
             case show(Command)
             case hide(Command)
         }

@@ -384,3 +384,31 @@ extension AdVideoControls.Props.MainAction: Codable {
         }
     }
 }
+
+extension AdVideoControls.Props.ClickAction: Codable {
+    
+    private enum Cases: String, Codable {
+        case show, hide
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: EnumCodingKeys.self)
+        let `case` = try values.decode(Cases.self, forKey: .case)
+        switch `case` {
+        case .show: self = .show(try values.decode(Command.self, forKey: .value))
+        case .hide: self = .hide(try values.decode(Command.self, forKey: .value))
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: EnumCodingKeys.self)
+        switch self {
+        case .show(let command):
+            try container.encode(Cases.show, forKey: .case)
+            try container.encode(command, forKey: .value)
+        case .hide(let command):
+            try container.encode(Cases.hide, forKey: .case)
+            try container.encode(command, forKey: .value)
+        }
+    }
+}
