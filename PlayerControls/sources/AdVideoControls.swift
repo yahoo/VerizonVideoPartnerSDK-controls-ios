@@ -26,7 +26,7 @@ public final class AdVideoControls: UIViewController {
     
     public var props: Props = Props(mainAction: .play(.nop),
                                     seeker: nil,
-                                    tapAction: nil,
+                                    click: .show(CommandWith { }),
                                     isLoading: true,
                                     airplayActiveViewHidden: true) {
         didSet {
@@ -66,14 +66,19 @@ public final class AdVideoControls: UIViewController {
     public struct Props: Codable {
         public static let `default` = Props(mainAction: .play(.nop),
                                             seeker: nil,
-                                            tapAction: nil,
+                                            click: .show(CommandWith { }),
                                             isLoading: true,
                                             airplayActiveViewHidden: true)
         public let mainAction: MainAction
         public let seeker: Seeker?
-        public let tapAction: Command?
+        public let click: ClickAction
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
+        
+        public enum ClickAction {
+            case show(Command)
+            case hide(Command)
+        }
         
         public enum MainAction: Prism {
             case play(Command)
@@ -93,12 +98,12 @@ public final class AdVideoControls: UIViewController {
         
         public init(mainAction: MainAction,
                     seeker: Seeker?,
-                    tapAction: Command?,
+                    click: ClickAction,
                     isLoading: Bool,
                     airplayActiveViewHidden: Bool) {
             self.mainAction = mainAction
             self.seeker = seeker
-            self.tapAction = tapAction
+            self.click = click
             self.isLoading = isLoading
             self.airplayActiveViewHidden = airplayActiveViewHidden
         }
@@ -123,7 +128,10 @@ public final class AdVideoControls: UIViewController {
         props.mainAction.pause?.perform()
     }
     
-    @IBAction private func viewTouched() { props.tapAction?.perform() }
+    @IBAction private func viewTouched() {
+        guard case .show(let show) = props.click else { return }
+        show.perform()
+    }
 }
 
 extension AdVideoControls {
@@ -136,3 +144,12 @@ extension AdVideoControls {
     }
 }
 
+import SafariServices
+
+extension AdVideoControls: SFSafariViewControllerDelegate {
+    @available(iOS 9.0, *)
+    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        guard case .hide(let hide) = props.click else { return }
+        hide.perform()
+    }
+}
