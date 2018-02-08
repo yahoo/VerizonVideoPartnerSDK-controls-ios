@@ -145,7 +145,7 @@ extension DefaultControlsViewController {
                 guard let currentTime = props.player?.item.playable?.seekbar?.currentTime else { return "" }
                 guard let currentTimeString = TimeFormatter.voiceOverReadable(from: currentTime) else { return "" }
                 guard let durationString =  TimeFormatter.voiceOverReadable(from: duration) else { return "" }
-                return "Track position \(currentTimeString) of \(durationString))"
+                return "Current position \(currentTimeString) of \(durationString))"
             }()
             
             startSeekAction = props.player?.item.playable?.seekbar?.seeker.state.start ?? .nop
