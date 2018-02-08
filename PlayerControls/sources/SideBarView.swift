@@ -20,7 +20,7 @@ func zip<A, B>(_ arrayA: [A], _ arrayB: [B]) -> [(A?, B?)] {
 /// Right side bar view.
 /// Fully configurable by 'SideBar.ButtonProps'
 public final class SideBarView: UIView {
-    public typealias Props = [SideBarView.ButtonProps]
+    public typealias Props = [ButtonProps]
     /// Side bar properties that will be rendered.
     public struct ButtonProps {
         /// Corresponds to UIButton 'enabled' property.
@@ -47,6 +47,17 @@ public final class SideBarView: UIView {
             }
         }
         
+        public var accessibility: Accessibility
+        public struct Accessibility {
+            public static let empty = Accessibility()
+            /// Corresponds to UIButton 'accessibilityLabel' property.
+            public var label: String?
+            /// Corresponds to UIButton 'accessibilityHint' property.
+            public var hint: String?
+            /// Corresponds to UIButton 'accessibilityTraits' property.
+            public var traits: UIAccessibilityTraits = UIAccessibilityTraitButton
+        }
+        
         /// Touch handler for button.
         public var handler: Command
         
@@ -54,11 +65,13 @@ public final class SideBarView: UIView {
         public init(isEnabled: Bool,
                     isSelected: Bool,
                     icons: Icons,
-                    handler: Command) {
+                    handler: Command,
+                    accessibility: Accessibility) {
             self.isEnabled = isEnabled
             self.isSelected = isSelected
             self.icons = icons
             self.handler = handler
+            self.accessibility = accessibility
         }        
         
         /// Empty button for space alignment
@@ -66,10 +79,11 @@ public final class SideBarView: UIView {
             isEnabled: false,
             isSelected: false,
             icons: .init(
-                normal: UIImage(),
+                normal: .init(),
                 selected: nil,
                 highlighted: nil),
-            handler: .nop)
+            handler: .nop,
+            accessibility: .empty)
     }
     var buttons: [UIButton] = []
     
@@ -118,6 +132,9 @@ public final class SideBarView: UIView {
                 button.setImage(prop.icons.normal, for: .normal)
                 button.setImage(prop.icons.selected, for: .selected)
                 button.setImage(prop.icons.highlighted, for: .highlighted)
+                button.accessibilityLabel = prop.accessibility.label
+                button.accessibilityHint = prop.accessibility.hint
+                button.accessibilityTraits = prop.accessibility.traits
                 button.sizeToFit()
             } else {
                 remove(button: button)
