@@ -8,9 +8,7 @@ final class SeekerControlView: UIView {
     @IBInspectable var text: String = "--:--" { didSet { currentTimeLabel.text = text } }
     @IBInspectable var draggingEnabled: Bool = true { didSet { setNeedsLayout() } }
     
-    typealias Progress = CGFloat
-    
-    var cuePoints: [Progress] = [] { didSet { setNeedsLayout() } }
+    var cuePoints: [ContentControlsViewController.Props.Progress] = [] { didSet { setNeedsLayout() } }
     
     var isCurrentTimeEnabled: Bool = true {
         didSet {
@@ -155,7 +153,7 @@ final class SeekerControlView: UIView {
             cuePoints
                 .map { progress -> UIImageView in
                     let imageView = UIImageView(image: cuePointImage)
-                    imageView.center.x = frame.width * progress
+                    imageView.center.x = frame.width * progress.value
                     imageView.center.y = seekerBackground.center.y
                     imageView.sizeToFit()
                     cuePointsViews.append(imageView)
