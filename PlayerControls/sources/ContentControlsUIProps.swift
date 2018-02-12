@@ -29,6 +29,7 @@ extension DefaultControlsViewController {
         var seekerViewProgress: CGFloat
         var seekerViewBuffered: CGFloat
         var seekerViewAccessibilityLabel: String
+        var seekerViewCuePoints: [Props.Progress]
         var startSeekAction: CommandWith<Props.Progress>
         var updateSeekAction: CommandWith<Props.Progress>
         var stopSeekAction: CommandWith<Props.Progress>
@@ -164,6 +165,8 @@ extension DefaultControlsViewController {
             seekerViewProgress = CGFloat(props.player?.item.playable?.seekbar?.progress.value ?? 0)
             
             seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered.value ?? 0)
+            
+            seekerViewCuePoints = props.player?.item.playable?.seekbar?.seeker.cuePoints ?? []
             
             seekbarPositionedAtBottom = {
                 guard let playable = props.player?.item.playable else { return false }

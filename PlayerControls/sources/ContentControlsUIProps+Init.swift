@@ -119,7 +119,8 @@ extension ContentControlsViewController.Props.State {
 }
 
 extension ContentControlsViewController.Props.Seeker {
-    public init(seekTo: CommandWith<ContentControlsViewController.Props.Seconds>?, state: ContentControlsViewController.Props.State) {
+    public init(cuePoints: [ContentControlsViewController.Props.Progress], seekTo: CommandWith<ContentControlsViewController.Props.Seconds>?, state: ContentControlsViewController.Props.State) {
+        self.cuePoints = cuePoints
         self.seekTo = seekTo
         self.state = state
     }

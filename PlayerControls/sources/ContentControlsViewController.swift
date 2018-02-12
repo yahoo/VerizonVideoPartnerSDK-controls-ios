@@ -161,6 +161,7 @@ extension ContentControlsViewController.Props {
     }
     
     public struct Seeker: Codable {
+        public var cuePoints: [Progress] = []
         public var seekTo: CommandWith<Seconds>?
         public var state: State = State()
         

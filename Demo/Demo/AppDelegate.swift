@@ -33,9 +33,10 @@ func props() -> Props {
             seekbar: Props.Seekbar(
                 duration: 3600,
                 currentTime: 1800,
-                progress: 0.5,
+                progress: 1,
                 buffered: 0.7,
                 seeker: Props.Seeker(
+                    cuePoints: [0, 0.5, 0.9, 1],
                     seekTo: .nop,
                     state: Props.State(
                         start: .nop,
