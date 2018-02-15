@@ -13,8 +13,8 @@ class CaseSeekbarWithAllControls: SnapshotTest {
         controller.props = DefaultControlsViewController.Props.player(
             DefaultControlsViewController.Props.Player { player in
                 player.playlist = DefaultControlsViewController.Props.Playlist()
-                player.playlist?.next = .nop
-                player.playlist?.prev = .nop
+                player.playlist?.next = nil
+                player.playlist?.prev = nil
                 player.item = DefaultControlsViewController.Props.Item.playable(
                     ContentControlsViewController.Props.Controls { controls in
                         
@@ -22,7 +22,7 @@ class CaseSeekbarWithAllControls: SnapshotTest {
                         controls.seekbar = .init()
                         controls.seekbar?.duration = 3600
                         controls.seekbar?.currentTime = 1800
-                        controls.seekbar?.progress = 0.5
+                        controls.seekbar?.progress = 0
                         controls.seekbar?.buffered = 0.75
                         controls.seekbar?.seeker.seekTo = .nop
                         
