@@ -14,15 +14,19 @@ Install required frameworks using command in terminal:
 
 `carthage update --platform iOS`
 
+Install fastlane:
+
+`bundle install`
+
 ## Launch Commands
 To launch snapshot tests on multiple devices:
 
-`fastlane verify`
+`bundle exec fastlane verify`
 
 To record new reference images:
 
-`fastlane record`
+`bundle exec fastlane record`
 
 To run all Unit tests and Snapshot tests:
 
-`fastlane test`
+`bundle exec fastlane test`
