@@ -75,17 +75,7 @@ class PropsDirector {
                 loading: false,
                 pictureInPictureControl: buttonProps.pipState,
                 playbackAction: .play(.nop),
-                seekbar: Props.Seekbar(
-                    duration: 3600,
-                    currentTime: 1800,
-                    progress: 0.5,
-                    buffered: 0.7,
-                    seeker: Props.Seeker(
-                        seekTo: .nop,
-                        state: Props.State(
-                            start: .nop,
-                            update: .nop,
-                            stop: .nop))),
+                seekbar: buttonProps.seekerState,
                 settings: buttonProps.settingsState,
                 sideBarViewHidden: false,
                 thumbnail: nil,

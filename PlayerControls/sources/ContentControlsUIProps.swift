@@ -227,7 +227,7 @@ extension DefaultControlsViewController {
                 }
             }()
             
-            subtitlesTextLabelHidden = (props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false) || controlsHidden
+            subtitlesTextLabelHidden = (props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false)
             
             thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil || controlsHidden
             
