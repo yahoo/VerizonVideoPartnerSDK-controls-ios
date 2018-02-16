@@ -5,7 +5,7 @@ xcode_workspace: PlayerControls
 before_install:
 - brew update
 - brew install sourcery
-- brew cask install fastlane
+- bundle install
 - cd SnapshotTests
 - carthage update --platform iOS
 
