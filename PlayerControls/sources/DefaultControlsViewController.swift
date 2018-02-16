@@ -108,7 +108,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     }
     
     var task: URLSessionDataTask?
-    public var animationsDuration: CFTimeInterval = 0.4
+    private var animationsDuration: CFTimeInterval = 0.4
     
     var uiProps: UIProps = UIProps(props: .noPlayer, controlsViewVisible: false)
     //swiftlint:disable function_body_length
