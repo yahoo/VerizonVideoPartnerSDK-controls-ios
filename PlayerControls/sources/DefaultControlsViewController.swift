@@ -654,5 +654,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func settingsButtonTouched() {
         uiProps.settingsButtonAction.perform()
+        onUserInteraction?.perform()
     }
 }
