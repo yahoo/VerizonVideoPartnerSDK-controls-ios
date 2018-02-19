@@ -4,9 +4,11 @@ import Foundation
 
 extension ContentControlsViewController.Props.Player {
     public init(playlist: ContentControlsViewController.Props.Playlist?,
-                item: ContentControlsViewController.Props.Item) {
+                item: ContentControlsViewController.Props.Item,
+                animationsEnabled: Bool) {
         self.playlist = playlist
         self.item = item
+        self.animationsEnabled = animationsEnabled
     }
 }
 

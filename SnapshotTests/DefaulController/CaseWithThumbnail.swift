@@ -3,7 +3,6 @@
 import SnappyShrimp
 @testable import PlayerControls
 
-
 class CaseWithThumbnail: SnapshotTest{
     
     var controller: DefaultControlsViewController {
