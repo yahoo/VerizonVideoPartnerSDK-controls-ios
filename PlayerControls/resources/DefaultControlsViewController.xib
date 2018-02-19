@@ -294,7 +294,7 @@ Title</string>
                         <constraint firstAttribute="trailing" secondItem="Uc8-v7-96O" secondAttribute="trailing" constant="0.5" id="Pzo-A9-BH0"/>
                         <constraint firstAttribute="trailing" secondItem="fAO-vH-cgi" secondAttribute="trailing" id="SFG-A0-7XF"/>
                         <constraint firstItem="8y7-Mc-uq8" firstAttribute="leading" secondItem="fi9-sW-1VX" secondAttribute="leading" id="Svu-2t-QSO"/>
-                        <constraint firstAttribute="trailing" secondItem="Uc8-v7-96O" secondAttribute="trailing" constant="-31" id="Yy9-r3-97c"/>
+                        <constraint firstAttribute="trailing" secondItem="Uc8-v7-96O" secondAttribute="leading" id="Yy9-r3-97c"/>
                         <constraint firstAttribute="bottom" secondItem="8y7-Mc-uq8" secondAttribute="top" id="bIH-ZD-ij1"/>
                         <constraint firstItem="8y7-Mc-uq8" firstAttribute="top" secondItem="fAO-vH-cgi" secondAttribute="bottom" constant="1.5" id="dM6-vN-wjR"/>
                         <constraint firstAttribute="trailing" secondItem="Im0-Vw-2gZ" secondAttribute="trailing" constant="17" id="eTt-xT-Hay"/>
@@ -343,8 +343,14 @@ Title</string>
                             <exclude reference="HWP-bD-q7I"/>
                             <exclude reference="MDB-2d-aWk"/>
                             <exclude reference="sZA-Tb-Cie"/>
+                            <exclude reference="7au-pl-AdU"/>
+                            <exclude reference="EEn-7U-jDF"/>
+                            <exclude reference="OYY-c7-642"/>
+                            <exclude reference="SFG-A0-7XF"/>
+                            <exclude reference="put-WR-Szd"/>
                             <exclude reference="g57-te-Fqp"/>
                             <exclude reference="hHz-DU-eUK"/>
+                            <exclude reference="bIH-ZD-ij1"/>
                             <exclude reference="2EN-h1-ldw"/>
                             <exclude reference="Bug-m8-Fqm"/>
                             <exclude reference="1RA-jh-Xfd"/>
@@ -356,16 +362,10 @@ Title</string>
                             <exclude reference="pG8-cM-rpN"/>
                             <exclude reference="F2z-D3-yET"/>
                             <exclude reference="iww-Ws-dSP"/>
-                            <exclude reference="7au-pl-AdU"/>
-                            <exclude reference="EEn-7U-jDF"/>
                             <exclude reference="DWa-IY-lCj"/>
                             <exclude reference="Pzo-A9-BH0"/>
                             <exclude reference="Yy9-r3-97c"/>
-                            <exclude reference="bIH-ZD-ij1"/>
                             <exclude reference="eTt-xT-Hay"/>
-                            <exclude reference="OYY-c7-642"/>
-                            <exclude reference="SFG-A0-7XF"/>
-                            <exclude reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
@@ -384,6 +384,10 @@ Title</string>
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
+                            <include reference="EEn-7U-jDF"/>
+                            <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
                             <include reference="g57-te-Fqp"/>
                             <include reference="hHz-DU-eUK"/>
                             <include reference="2EN-h1-ldw"/>
@@ -397,13 +401,9 @@ Title</string>
                             <include reference="pG8-cM-rpN"/>
                             <include reference="F2z-D3-yET"/>
                             <include reference="iww-Ws-dSP"/>
-                            <include reference="EEn-7U-jDF"/>
                             <include reference="DWa-IY-lCj"/>
                             <include reference="Pzo-A9-BH0"/>
                             <include reference="eTt-xT-Hay"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=regular">
@@ -422,6 +422,10 @@ Title</string>
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
+                            <include reference="EEn-7U-jDF"/>
+                            <include reference="OYY-c7-642"/>
+                            <include reference="SFG-A0-7XF"/>
+                            <include reference="put-WR-Szd"/>
                             <include reference="g57-te-Fqp"/>
                             <include reference="hHz-DU-eUK"/>
                             <include reference="2EN-h1-ldw"/>
@@ -435,13 +439,9 @@ Title</string>
                             <include reference="pG8-cM-rpN"/>
                             <include reference="F2z-D3-yET"/>
                             <include reference="iww-Ws-dSP"/>
-                            <include reference="EEn-7U-jDF"/>
                             <include reference="DWa-IY-lCj"/>
                             <include reference="Pzo-A9-BH0"/>
                             <include reference="eTt-xT-Hay"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                         </mask>
                     </variation>
                 </view>
