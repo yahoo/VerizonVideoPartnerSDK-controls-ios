@@ -120,6 +120,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         uiProps = UIProps(props: props,
                           controlsViewVisible: controlsViewVisible)
+        seekerView.cuePoints = uiProps.seekerViewCuePoints
         
         var afterSlideAnimationActions: [() -> ()] = []
         func afterSlideAnimation(block: @escaping () -> ()) {
