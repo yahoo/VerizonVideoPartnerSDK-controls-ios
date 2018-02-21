@@ -224,7 +224,7 @@ extension DefaultControlsViewController {
             
             subtitlesTextLabelHidden = (props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false)
             
-            thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil || controlsHidden
+            thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil
             
             thumbnailImageUrl = props.player?.item.playable?.thumbnail?.url
             
@@ -232,9 +232,9 @@ extension DefaultControlsViewController {
             
             errorLabelText = props.player?.item.nonplayable ?? props.player?.item.playable?.error?.message ?? ""
             
-            errorLabelHidden = (props.player?.item.nonplayable == nil) && (props.player?.item.playable?.error == nil) || controlsHidden
+            errorLabelHidden = (props.player?.item.nonplayable == nil) && (props.player?.item.playable?.error == nil)
             
-            retryButtonHidden = props.player?.item.playable?.error == nil || controlsHidden
+            retryButtonHidden = props.player?.item.playable?.error == nil
             
             retryButtonAction = props.player?.item.playable?.error?.retryAction ?? .nop
             
@@ -250,7 +250,7 @@ extension DefaultControlsViewController {
             
             settingsButtonAction = props.player?.item.playable?.settings.enabled ?? .nop
             
-            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false) || controlsHidden
+            airplayActiveLabelHidden = !(props.player?.item.playable?.airplay.isActive ?? false)
             airplayButtonHidden = (props.player?.item.playable?.airplay.isHidden ?? true) || controlsHidden
             
             liveIndicationViewIsHidden = props.player?.item.playable?.live.isHidden ?? true
