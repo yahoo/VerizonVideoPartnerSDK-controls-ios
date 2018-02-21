@@ -172,6 +172,17 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             airplayActiveLabel.layer.add(animationOpacity, forKey: "opacity")
         }
         
+        switch uiProps.controlsViewHidden {
+        case true:
+            shadowView.alpha = 0
+            afterFadeAnimation {
+                self.shadowView.isHidden = true
+            }
+        case false:
+            shadowView.isHidden = false
+            shadowView.alpha = shadowViewAlpha
+        }
+        
         switch uiProps.bottomItemsHidden {
         case true:
             bottomItemsVisibleConstraint.isActive = false
