@@ -257,7 +257,7 @@ extension DefaultControlsViewController {
             
             liveDotColor = props.player?.item.playable?.live.dotColor?.color ?? nil
             
-            animationsEnabled = props.player?.animationsEnabled ?? false
+            animationsEnabled = props.player?.item.playable?.animationsEnabled ?? false
             
             compassViewBelowLive = {
                 guard

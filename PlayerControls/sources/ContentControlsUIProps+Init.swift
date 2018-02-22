@@ -4,11 +4,9 @@ import Foundation
 
 extension ContentControlsViewController.Props.Player {
     public init(playlist: ContentControlsViewController.Props.Playlist?,
-                item: ContentControlsViewController.Props.Item,
-                animationsEnabled: Bool) {
+                item: ContentControlsViewController.Props.Item) {
         self.playlist = playlist
         self.item = item
-        self.animationsEnabled = animationsEnabled
     }
 }
 
@@ -33,7 +31,9 @@ extension ContentControlsViewController.Props.Controls {
                 settings: ContentControlsViewController.Props.Settings,
                 sideBarViewHidden: Bool,
                 thumbnail: ContentControlsViewController.Props.Thumbnail?,
-                title: String) {
+                title: String,
+                animationsEnabled: Bool) {
+        self.animationsEnabled = animationsEnabled
         self.title = title
         self.thumbnail = thumbnail
         self.sideBarViewHidden = sideBarViewHidden
