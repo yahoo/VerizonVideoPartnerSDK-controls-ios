@@ -259,33 +259,51 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         switch uiProps.replayButtonHidden {
         case true:
+            if !uiProps.playButtonHidden || !uiProps.pauseButtonHidden {
+                replayButton.layer.removeAnimation(forKey: "opacity")
+            }
             replayButton.alpha = 0
             afterFadeAnimation {
                 self.replayButton.isHidden = true
             }
         case false:
+            if !playButton.isHidden || !pauseButton.isHidden {
+                replayButton.layer.removeAnimation(forKey: "opacity")
+            }
             replayButton.isHidden = false
             replayButton.alpha = 1
         }
         
         switch uiProps.pauseButtonHidden {
         case true:
+            if !uiProps.playButtonHidden || !uiProps.replayButtonHidden {
+                pauseButton.layer.removeAnimation(forKey: "opacity")
+            }
             pauseButton.alpha = 0
             afterFadeAnimation {
                 self.pauseButton.isHidden = true
             }
         case false:
+            if !playButton.isHidden || !replayButton.isHidden {
+                pauseButton.layer.removeAnimation(forKey: "opacity")
+            }
             pauseButton.isHidden = false
             pauseButton.alpha = 1
         }
         
         switch uiProps.playButtonHidden {
         case true:
+            if !uiProps.replayButtonHidden || !uiProps.pauseButtonHidden {
+                playButton.layer.removeAnimation(forKey: "opacity")
+            }
             playButton.alpha = 0
             afterFadeAnimation {
                 self.playButton.isHidden = true
             }
         case false:
+            if !replayButton.isHidden || !pauseButton.isHidden {
+                playButton.layer.removeAnimation(forKey: "opacity")
+            }
             playButton.isHidden = false
             playButton.alpha = 1
         }
