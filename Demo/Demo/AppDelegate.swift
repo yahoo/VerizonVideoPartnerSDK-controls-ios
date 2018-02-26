@@ -45,8 +45,8 @@ func props() -> Props {
             settings: .enabled(.nop),
             sideBarViewHidden: false,
             thumbnail: nil,
-            title: "Title")),
-        animationsEnabled: true))
+            title: "Title",
+            animationsEnabled: true))))
 }
 
 @UIApplicationMain

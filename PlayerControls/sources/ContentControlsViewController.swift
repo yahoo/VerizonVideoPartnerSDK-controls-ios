@@ -25,7 +25,6 @@ open class ContentControlsViewController: UIViewController {
         public struct Player: Codable {
             public var playlist: Playlist?
             public var item: Item = .nonplayable("")
-            public var animationsEnabled: Bool = false
             
             public init() {}
         }
@@ -50,6 +49,7 @@ extension ContentControlsViewController.Props {
     public struct Controls: Codable {
         
         public var title: String = ""
+        public var animationsEnabled: Bool = false
         public var loading: Bool = false
         public var playbackAction: Playback = .none
         public var live: Live = Live()
