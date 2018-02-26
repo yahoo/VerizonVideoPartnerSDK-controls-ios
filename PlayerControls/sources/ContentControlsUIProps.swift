@@ -105,7 +105,7 @@ extension DefaultControlsViewController {
             
             pauseButtonAction = props.player?.item.playable?.playbackAction.pause ?? .nop
             
-            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil || controlsHidden
+            replayButtonHidden = props.player?.item.playable?.playbackAction.replay == nil
             
             replayButtonAction = props.player?.item.playable?.playbackAction.replay ?? .nop
             
