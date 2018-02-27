@@ -22,7 +22,9 @@ script:
 after_failure:
 - aws s3 rm --recursive s3://$S3_BUCKET/Failures/$TRAVIS_BRANCH/
 - aws s3 cp ./SnapshotTests/Tests/FailureDifferences s3://$S3_BUCKET/Failures/$TRAVIS_BRANCH/ --recursive --include "*.jpg" --exclude "*.DS_Store" --acl public-read
-- aws s3api list-objects --bucket aol-public --query 'Contents[].Key'  | tee keys.json
+- aws s3api list-objects --bucket aol-public --query 'Contents[].Key' --prefix Failures/$TRAVIS_BRANCH | tee keys.json
+- bundle exec danger --verbose
 
 after_success:
 - aws s3 rm --recursive s3://$S3_BUCKET/Failures/$TRAVIS_BRANCH/
+- bundle exec danger --verbose
