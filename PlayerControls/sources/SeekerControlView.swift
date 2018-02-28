@@ -148,19 +148,27 @@ final class SeekerControlView: UIView {
         }
         
         /* Cue points positioning. */ do {
-            cuePointsViews.forEach { $0.removeFromSuperview() }
-            cuePointsViews.removeAll()
-            cuePoints
-                .map { progress -> UIImageView in
+            if cuePoints.count > cuePointsViews.count {
+                for _ in 1...(cuePoints.count - cuePointsViews.count) {
                     let imageView = UIImageView(image: cuePointImage)
-                    imageView.center.x = frame.width * progress.value
-                    imageView.center.y = seekerBackground.center.y
-                    imageView.sizeToFit()
                     cuePointsViews.append(imageView)
-                    return imageView
+                    addSubview(imageView)
                 }
-                .filter { $0.frame.minX < dragControl.frame.minX || $0.frame.maxX > dragControl.frame.maxX }
-                .forEach(addSubview)
+            }
+            
+            if cuePoints.count < cuePointsViews.count {
+                for _ in 1...(cuePointsViews.count - cuePoints.count) {
+                    let imageView = cuePointsViews.removeLast()
+                    imageView.removeFromSuperview()
+                }
+            }
+            
+            for (index, imageView) in cuePointsViews.enumerated() {
+                imageView.isHidden = (imageView.frame.minX < dragControl.frame.minX || imageView.frame.maxX > dragControl.frame.maxX) == false
+                imageView.center.x = frame.width * cuePoints[index].value
+                imageView.center.y = seekerBackground.center.y
+                imageView.sizeToFit()
+            }
         }
     }
     struct Callbacks {
