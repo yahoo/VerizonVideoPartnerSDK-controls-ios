@@ -127,6 +127,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     var task: URLSessionDataTask?
     private var animationsDuration: CFTimeInterval = 0.4
     
+    var shouldHideHomeIndicator = true
+    
+    @available(iOS 11.0, *)
+    override public func prefersHomeIndicatorAutoHidden() -> Bool
+    {
+        return shouldHideHomeIndicator
+    }
+    
     var uiProps: UIProps = UIProps(props: .noPlayer, controlsViewVisible: false)
     //swiftlint:disable function_body_length
     //swiftlint:disable cyclomatic_complexity
@@ -550,6 +558,15 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         if !uiProps.animationsEnabled || !state.controlsAnimationPossible {
             afterSlideAnimationActions.forEach{$0()}
             afterFadeAnimationActions.forEach{$0()}
+        }
+        if #available(iOS 11.0, *)  {
+            if uiProps.controlsViewHidden {
+                shouldHideHomeIndicator = true
+                setNeedsUpdateOfHomeIndicatorAutoHidden()
+            } else {
+                shouldHideHomeIndicator = false
+                setNeedsUpdateOfHomeIndicatorAutoHidden()
+            }
         }
     }
     
