@@ -62,6 +62,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var subtitlesAirplayTrailingConstrains: NSLayoutConstraint!
     @IBOutlet private var subtitlesEdgeTrailingConstrains: NSLayoutConstraint!
     @IBOutlet private var subtitlesPipTrailingConstrains: NSLayoutConstraint!
+    @IBOutlet private var liveViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet private var bottomItemsAndSeekerAnimatedConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomItemsVisibleConstraint: NSLayoutConstraint!
@@ -335,11 +336,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         switch uiProps.sideBarViewHidden {
         case true:
+            sideBarBottomConstraint.constant = {
+                guard #available(iOS 11, *) else { return view.frame.height - sideBarView.frame.height }
+                return view.frame.height - sideBarView.frame.height - view.safeAreaInsets.top
+            }()
             sideBarVisibleConstraint.isActive = false
             sideBarInvisibleConstraint.isActive = true
             
             sideBarBottomConstraint.isActive = true
-            sideBarBottomConstraint.constant =  view.frame.height - sideBarView.frame.height
             
             afterSlideAnimation {
                 self.sideBarView.isHidden = true
@@ -466,6 +470,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
         compasDirectionView.transform = uiProps.compasDirectionViewTransform
         cameraPanGestureRecognizer.isEnabled = uiProps.cameraPanGestureIsEnabled
+        if #available(iOS 11.0, *) {
+            compassBodyNoLiveTopConstraint.constant = 20
+            liveViewTopConstraint.constant = 20
+        } else {
+            compassBodyNoLiveTopConstraint.constant = prefersStatusBarHidden ? 20 : 40
+            liveViewTopConstraint.constant = prefersStatusBarHidden ? 20 : 40
+        }
         
         ccTextLabel.isHidden = uiProps.subtitlesTextLabelHidden
         ccTextLabel.text = uiProps.subtitlesTextLabelText
