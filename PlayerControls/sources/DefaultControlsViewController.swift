@@ -101,10 +101,27 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
-    var isApperared = false
+    private var state = State()
+    struct State {
+        var hasAppeared = false
+        var isTransitioning = false
+        
+        var controlsAnimationPossible: Bool {
+            return hasAppeared && !isTransitioning
+        }
+    }
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        isApperared = true
+        state.hasAppeared = true
+    }
+    
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        state.isTransitioning = true
+        coordinator.animateAlongsideTransition(in: nil, animation: nil) { _ in
+            self.state.isTransitioning = false
+        }
     }
     
     var task: URLSessionDataTask?
@@ -131,8 +148,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         func afterFadeAnimation(block: @escaping () -> ()) {
             afterFadeAnimationActions.append(block)
         }
-
-        if uiProps.animationsEnabled {
+        
+        if uiProps.animationsEnabled && state.controlsAnimationPossible {
             
             let animationPosition = CABasicAnimation(keyPath: "position")
             animationPosition.duration = animationsDuration
@@ -530,7 +547,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
                 highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
         )
-        if !uiProps.animationsEnabled {
+        if !uiProps.animationsEnabled || !state.controlsAnimationPossible {
             afterSlideAnimationActions.forEach{$0()}
             afterFadeAnimationActions.forEach{$0()}
         }
