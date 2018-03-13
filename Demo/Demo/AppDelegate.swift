@@ -5,7 +5,8 @@ import UIKit
 import PlayerControls
 
 typealias Props = ContentControlsViewController.Props
-func props() -> Props {
+
+func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props {
     return Props.player(Props.Player(
         playlist: Props.Playlist(
             next: .nop,
@@ -34,8 +35,8 @@ func props() -> Props {
             seekbar: Props.Seekbar(
                 duration: 3600,
                 currentTime: 1800,
-                progress: 1,
-                buffered: 0.7,
+                progress: progress,
+                buffered: 1,
                 seeker: Props.Seeker(
                     cuePoints: [0, 0.5, 0.9, 1],
                     seekTo: .nop,
@@ -62,6 +63,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.view.tintColor = .blue
         vc.props = props()
         vc.sidebarProps = sideProps()
+        
+        if #available(iOS 10.0, *) {
+            var progress: CGFloat = 0.0
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (timer) in
+                if vc.props.player?.item.playable?.seekbar?.progress.value == 1.0  {
+                    progress = 0
+                }
+                progress += 0.01
+                vc.props = props(progress: ContentControlsViewController.Props.Progress(progress))
+            }
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = vc
@@ -123,5 +135,4 @@ func sideProps() -> [SideBarView.ButtonProps]{
     
     return [later, favorite, share, add]
 }
-
 
