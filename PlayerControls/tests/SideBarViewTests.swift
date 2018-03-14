@@ -1,4 +1,5 @@
-//  Copyright © 2016 One by Aol : Publishers. All rights reserved.
+//  Copyright 2018, Oath Inc.
+//  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 
 import XCTest
 import UIKit
