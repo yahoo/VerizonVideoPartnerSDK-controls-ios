@@ -1,0 +1,113 @@
+import Foundation
+
+fileprivate enum EnumCodingKeys: String, CodingKey { case `case`, value }
+
+{% macro value enum %}
+public enum Cases: String, Codable {
+{% for case in enum.cases %}
+case {{ case.name }}
+{% endfor %}
+}
+{% endmacro %}
+
+{% macro error enum%}
+{% for case in enum.cases %}
+    {% if case.associatedValues.first.typeName.description == "UIImage" %}
+        public enum ErrorImage: Swift.Error {
+            case encodeRawImage(UIImage)
+            case decodeRawImage
+        }
+    {% endif %}
+{% endfor %}
+{% endmacro %}
+
+{% macro structForMultyValue enum %}
+{% for case in enum.cases %}
+    {% if case.associatedValues.all.count > 1 %}
+        public struct {{ case.name|capitalize }}Controls: Codable {
+            {% for associatedValue in case.associatedValues %}
+                let {{ associatedValue.localName }}{% if not forloop.last %}{% endif %}: {{ associatedValue.type.name }}
+            {% endfor %}
+}
+    {% endif %}
+{% endfor %}
+{% endmacro %}
+
+{% macro init enum %}
+public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: EnumCodingKeys.self)
+    let `case` = try values.decode(Cases.self, forKey: .case)
+    switch `case` {
+    {% for case in enum.cases %}
+    case .{{ case.name }}:
+        {% if case.hasAssociatedValue %}
+            {% if case.associatedValues.all.count > 1 %}
+                let {{ case.name }}Controls = try values.decode({{ case.name|capitalize }}Controls.self, forKey: .value)
+                self = .{{ case.name }}({% for associatedValue in case.associatedValues %}{{ associatedValue.localName }}: {{ case.name }}Controls.{{associatedValue.localName}}{% if not forloop.last %},{% endif %}{% endfor %})
+            {% else %}
+                {% if case.associatedValues.first.typeName.description == "UIImage" %}
+                    throw ErrorImage.decodeRawImage
+                {% else %}
+                    {% if case.associatedValues.isOptional %}
+                        self = .{{ case.name }}({% if case.associatedValues.first.localName != nil %} {{ case.associatedValues.first.localName }}:{% endif %} try values.decode({% if case.associatedValues.first.type.name != nil %} {{ case.associatedValues.first.type.name }}.self{% else %}{{ case.associatedValues.first.typeName }}.self{% endif %}, forKey: .value))
+                    {% else %}
+                    self = .{{ case.name }}({% if case.associatedValues.first.localName != nil %} {{ case.associatedValue.first.localName }}:{% endif %}try values.decode({{ case.associatedValues.first.type.name }}.self, forKey: .value))
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% else %}
+            self = .{{ case.name }}
+    {% endif %}
+{% endfor %}
+}
+return
+}
+{% endmacro %}
+
+
+{% macro encode enum %}
+public func encode(to encoder: Encoder) throws {
+var container = encoder.container(keyedBy: EnumCodingKeys.self)
+switch self {
+{% for case in enum.cases %}
+    {% if case.hasAssociatedValue %}
+        {% if case.associatedValues.all.count > 1 %}
+            case .{{ case.name }}({% for associatedValue in case.associatedValues %} let {{ associatedValue.localName }}{% if not forloop.last %},{% endif %}{% endfor %}):
+            let {{ case.name }}Controls = {{ case.name|capitalize }}Controls({% for associatedValue in case.associatedValues %} {{ associatedValue.localName }}: {{ associatedValue.localName }}{% if not forloop.last %},{% endif %}{% endfor %})
+            try container.encode(Cases.{{ case.name }}, forKey: .case)
+            try container.encode({{ case.name }}Controls, forKey: .value)
+        {% else %}
+            case .{{ case.name }}(let variable):
+            {% if case.associatedValues.first.typeName.description == "UIImage" %}
+                throw ErrorImage.encodeRawImage(variable)
+            {% else %}
+            try container.encode(Cases.{{ case.name }}, forKey: .case)
+            try container.encode(variable, forKey: .value)
+            {% endif %}
+        {% endif %}
+    {% else %}
+        case .{{ case.name }}:
+        try container.encode(Cases.{{ case.name }}, forKey: .case)
+    {% endif %}
+{% endfor %}
+}
+}
+{% endmacro %}
+
+
+{% for enum in types.implementing.AutoCodable|enum %}
+
+extension {{ enum.name }}: Codable {
+
+{% call value enum %}
+
+{% call error enum%}
+
+{% call structForMultyValue enum %}
+
+{% call init enum %}
+
+{% call encode enum %}
+
+}
+{% endfor %}

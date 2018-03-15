@@ -3,8 +3,6 @@
 
 import Foundation
 import CoreMedia
-///Generate prism for confirmed enum
-public protocol Prism {}
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
@@ -17,7 +15,7 @@ open class ContentControlsViewController: UIViewController {
         }
     }
     
-    public enum Props: Prism {
+    public enum Props {
         case noPlayer
         
         case player(Player)
@@ -38,7 +36,7 @@ open class ContentControlsViewController: UIViewController {
             public init() {}
         }
         
-        public enum Item: Prism {
+        public enum Item {
             case playable(Controls)
             case nonplayable(String)
         }
@@ -80,7 +78,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public enum AirPlay: Prism {
+    public enum AirPlay {
         case hidden
         case enabled
         case active
@@ -94,12 +92,12 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public enum External: Prism {
+    public enum External {
         case none
         case unavailable
         case available(state: State)
         
-        public enum State: Prism {
+        public enum State {
             case active(text: String?), loading, inactive, error
         }
     }
@@ -132,13 +130,13 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public enum PictureInPictureControl: Prism {
+    public enum PictureInPictureControl {
         case unsupported
         case impossible
         case possible(Command)
     }
     
-    public enum Playback: Prism {
+    public enum Playback {
         case none
         case play(Command)
         case pause(Command)
@@ -171,18 +169,18 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public enum Subtitles: Prism {
+    public enum Subtitles {
         case `internal`(MediaGroupControl?)
         case external(external: External, control: MediaGroupControl)
     }
     
-    public enum Settings: Prism {
+    public enum Settings {
         case hidden
         case disabled
         case enabled(Command)
     }
     
-    public enum Thumbnail: Prism {
+    public enum Thumbnail {
         case url(URL) //swiftlint:disable:this type_name
         case image(UIImage)
     }

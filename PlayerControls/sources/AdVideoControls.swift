@@ -77,12 +77,12 @@ public final class AdVideoControls: UIViewController {
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
         
-        public enum ClickAction: Prism {
+        public enum ClickAction: Prism, AutoCodable {
             case show(Command)
             case hide(Command)
         }
         
-        public enum MainAction: Prism {
+        public enum MainAction: Prism, AutoCodable {
             case play(Command)
             case pause(Command)
         }
