@@ -37,7 +37,7 @@ open class ContentControlsViewController: UIViewController {
         }
         
         public enum Item {
-            case playable(Controls)
+            case playable(ContentControlsViewController.Props.Controls)
             case nonplayable(String)
         }
     }

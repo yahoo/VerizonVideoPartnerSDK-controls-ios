@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		06536931202320C100F65305 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06536930202320C100F65305 /* AnimationDelegate.swift */; };
 		0696270D1FD188A50098494A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696270C1FD188A50098494A /* Command.swift */; };
-		4222DD61204F0F180008E763 /* Autogeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222DD60204F0F180008E763 /* Autogeneratable.swift */; };
+		4222DD61204F0F180008E763 /* Props+Autogeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */; };
 		427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427DA9121FFBA1E700698438 /* Defaultable.swift */; };
-		429BDDCB2034699700DFF55B /* Codable.stencil in Sources */ = {isa = PBXBuildFile; fileRef = 429BDDC920344E4F00DFF55B /* Codable.stencil */; };
 		429C3D341FFBA54200B72272 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3D331FFBA54200B72272 /* Color.swift */; };
 		42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */; };
 		50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */; };
@@ -42,10 +41,12 @@
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
 		50F4715B1F5D764700C35AEF /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */; };
+		A66D2361206E85DE00566149 /* Autogeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D2360206E85DE00566149 /* Autogeneratable.swift */; };
+		A66D238D2072064700566149 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = A66D238B2072064700566149 /* EnumPrism.stencil */; };
+		A66D238E2072064700566149 /* Codable.stencil in Sources */ = {isa = PBXBuildFile; fileRef = A66D238C2072064700566149 /* Codable.stencil */; };
 		DA036B621FB20A5900BD0728 /* AirPlayActiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */; };
 		DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */; };
 		DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA070BB01F8B776A007F407D /* AirPlayView.swift */; };
-		DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */ = {isa = PBXBuildFile; fileRef = DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -56,9 +57,9 @@
 			fileType = pattern.proxy;
 			isEditable = 1;
 			outputFiles = (
-				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE).generated.swift",
+				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE)_${TARGET_NAME}.generated.swift",
 			);
-			script = "sh sources/stencil.sh \"${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\" \"${DERIVED_SOURCES_DIR}/${INPUT_FILE_BASE}.generated.swift\"";
+			script = "sourcery --sources sources \\\n         --sources build_scripts/code_generation/Autogeneratable.swift \\\n         --templates build_scripts/code_generation/${INPUT_FILE_BASE}.stencil \\\n         --output ${DERIVED_SOURCES_DIR}/${INPUT_FILE_BASE}_${TARGET_NAME}.generated.swift";
 		};
 /* End PBXBuildRule section */
 
@@ -75,9 +76,8 @@
 /* Begin PBXFileReference section */
 		06536930202320C100F65305 /* AnimationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		0696270C1FD188A50098494A /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		4222DD60204F0F180008E763 /* Autogeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autogeneratable.swift; sourceTree = "<group>"; };
+		4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Props+Autogeneratable.swift"; sourceTree = "<group>"; };
 		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
-		429BDDC920344E4F00DFF55B /* Codable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Codable.stencil; path = templates/Codable.stencil; sourceTree = SOURCE_ROOT; };
 		429C3D331FFBA54200B72272 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		42A7F6571FEC156400CE39C0 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentControlsUIProps+Init.swift"; sourceTree = "<group>"; };
@@ -112,10 +112,12 @@
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingHeaderView.xib; path = resources/SettingHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		A66D2360206E85DE00566149 /* Autogeneratable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Autogeneratable.swift; path = build_scripts/code_generation/Autogeneratable.swift; sourceTree = SOURCE_ROOT; };
+		A66D238B2072064700566149 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EnumPrism.stencil; path = build_scripts/code_generation/EnumPrism.stencil; sourceTree = SOURCE_ROOT; };
+		A66D238C2072064700566149 /* Codable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Codable.stencil; path = build_scripts/code_generation/Codable.stencil; sourceTree = SOURCE_ROOT; };
 		DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AirPlayActiveView.xib; path = resources/AirPlayActiveView.xib; sourceTree = SOURCE_ROOT; };
 		DA036B631FB20BBB00BD0728 /* AirPlayActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayActiveView.swift; sourceTree = "<group>"; };
 		DA070BB01F8B776A007F407D /* AirPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayView.swift; sourceTree = "<group>"; };
-		DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EnumPrism.stencil; path = templates/EnumPrism.stencil; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +177,7 @@
 		50582F5D1E65C41900B18908 /* PlayerControls */ = {
 			isa = PBXGroup;
 			children = (
-				DAB9AEEA1F542C460050B940 /* templates */,
+				A66D2366206E870D00566149 /* templates */,
 				50A5A5B61E6F13B300C15E12 /* resources */,
 				50582F661E65C64B00B18908 /* sources */,
 				50582F991E65D55F00B18908 /* support */,
@@ -288,12 +290,13 @@
 		50582FB31E65E5B900B18908 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				A66D2360206E85DE00566149 /* Autogeneratable.swift */,
 				429C3D331FFBA54200B72272 /* Color.swift */,
 				427DA9121FFBA1E700698438 /* Defaultable.swift */,
 				50582F731E65C79D00B18908 /* Utils.swift */,
 				0696270C1FD188A50098494A /* Command.swift */,
 				50582FB11E65DEF800B18908 /* Recorder.swift */,
-				4222DD60204F0F180008E763 /* Autogeneratable.swift */,
+				4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -320,6 +323,15 @@
 			name = settings;
 			sourceTree = "<group>";
 		};
+		A66D2366206E870D00566149 /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				A66D238C2072064700566149 /* Codable.stencil */,
+				A66D238B2072064700566149 /* EnumPrism.stencil */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
 		DA070BAF1F8B76B9007F407D /* airplay */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,15 +347,6 @@
 				DA036B611FB20A5900BD0728 /* AirPlayActiveView.xib */,
 			);
 			name = airplay;
-			sourceTree = "<group>";
-		};
-		DAB9AEEA1F542C460050B940 /* templates */ = {
-			isa = PBXGroup;
-			children = (
-				429BDDC920344E4F00DFF55B /* Codable.stencil */,
-				DA73095C1F5FD3AD000A7364 /* EnumPrism.stencil */,
-			);
-			path = templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,14 +470,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA73095D1F5FD3AD000A7364 /* EnumPrism.stencil in Sources */,
-				429BDDCB2034699700DFF55B /* Codable.stencil in Sources */,
 				50582F811E65CA0F00B18908 /* AdVideoControls.swift in Sources */,
 				50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */,
 				0696270D1FD188A50098494A /* Command.swift in Sources */,
+				A66D2361206E85DE00566149 /* Autogeneratable.swift in Sources */,
 				50582F7E1E65C96100B18908 /* SeekGestureRecognizer.swift in Sources */,
 				06536931202320C100F65305 /* AnimationDelegate.swift in Sources */,
-				4222DD61204F0F180008E763 /* Autogeneratable.swift in Sources */,
+				4222DD61204F0F180008E763 /* Props+Autogeneratable.swift in Sources */,
 				50582F8C1E65CBE600B18908 /* Timer.swift in Sources */,
 				50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */,
 				50582F861E65CA5F00B18908 /* TimeFormatter.swift in Sources */,
@@ -492,6 +494,8 @@
 				50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
+				A66D238E2072064700566149 /* Codable.stencil in Sources */,
+				A66D238D2072064700566149 /* EnumPrism.stencil in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

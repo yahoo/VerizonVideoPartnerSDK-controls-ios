@@ -1,15 +1,7 @@
-//
-//  Autogeneratable.swift
-//  PlayerControls
-//
-//  Created by Andrey Doroshko on 3/6/18.
-//  Copyright © 2018 One by AOL : Publishers. All rights reserved.
-//
+//  Copyright 2018, Oath Inc.
+//  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 
 import Foundation
-
-public protocol Prism {}
-public protocol AutoCodable {}
 
 extension ContentControlsViewController.Props: Prism, AutoCodable {}
 extension ContentControlsViewController.Props.Item: Prism, AutoCodable {}

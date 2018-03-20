@@ -1,0 +1,3 @@
+[submodule "PlayerControls/build_scripts"]
+	path = PlayerControls/build_scripts
+	url = git@github.com:aol-public/OneMobileSDK-build-scripts-ios.git
