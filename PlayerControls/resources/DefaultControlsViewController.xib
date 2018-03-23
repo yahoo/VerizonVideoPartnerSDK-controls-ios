@@ -67,7 +67,7 @@
                 <action selector="onEmptySpaceTap" destination="-1" id="1yi-FP-bhE"/>
             </connections>
         </tapGestureRecognizer>
-        <view contentMode="scaleToFill" id="rFH-6N-3gH">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="rFH-6N-3gH">
             <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -331,16 +331,11 @@ Title</string>
                             <exclude reference="73i-r1-qKj"/>
                             <exclude reference="djN-u7-nkt"/>
                             <exclude reference="cNh-R2-LdG"/>
-                            <exclude reference="fAO-vH-cgi"/>
                         </mask>
                         <mask key="constraints">
                             <exclude reference="HWP-bD-q7I"/>
                             <exclude reference="MDB-2d-aWk"/>
                             <exclude reference="sZA-Tb-Cie"/>
-                            <exclude reference="EEn-7U-jDF"/>
-                            <exclude reference="OYY-c7-642"/>
-                            <exclude reference="SFG-A0-7XF"/>
-                            <exclude reference="put-WR-Szd"/>
                             <exclude reference="2EN-h1-ldw"/>
                             <exclude reference="Bug-m8-Fqm"/>
                             <exclude reference="1RA-jh-Xfd"/>
@@ -368,16 +363,11 @@ Title</string>
                             <include reference="73i-r1-qKj"/>
                             <include reference="djN-u7-nkt"/>
                             <include reference="cNh-R2-LdG"/>
-                            <include reference="fAO-vH-cgi"/>
                         </mask>
                         <mask key="constraints">
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
-                            <include reference="EEn-7U-jDF"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                             <include reference="2EN-h1-ldw"/>
                             <include reference="Bug-m8-Fqm"/>
                             <include reference="1RA-jh-Xfd"/>
@@ -405,16 +395,11 @@ Title</string>
                             <include reference="73i-r1-qKj"/>
                             <include reference="djN-u7-nkt"/>
                             <include reference="cNh-R2-LdG"/>
-                            <include reference="fAO-vH-cgi"/>
                         </mask>
                         <mask key="constraints">
                             <include reference="HWP-bD-q7I"/>
                             <include reference="MDB-2d-aWk"/>
                             <include reference="sZA-Tb-Cie"/>
-                            <include reference="EEn-7U-jDF"/>
-                            <include reference="OYY-c7-642"/>
-                            <include reference="SFG-A0-7XF"/>
-                            <include reference="put-WR-Szd"/>
                             <include reference="2EN-h1-ldw"/>
                             <include reference="Bug-m8-Fqm"/>
                             <include reference="1RA-jh-Xfd"/>
