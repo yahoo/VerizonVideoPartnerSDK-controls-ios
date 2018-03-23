@@ -75,6 +75,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var sideBarSeekerConstraint: NSLayoutConstraint!
     @IBOutlet private var sideBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomItemsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private var seekerToSafeAreaConstraint: NSLayoutConstraint!
     
     public var sidebarProps: SideBarView.Props = [] {
         didSet {
@@ -215,10 +216,19 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                     setupBottomItems()
                     setupBottomItemsConstraints()
                 }
+                if !currentUIProps.seekerViewHidden && !nextUIProps.seekerViewHidden {
+                    addAnimation(view: seekerView, keyPath: "position") {}
+                }
+                
                 bottomItemsVisibleConstraint.isActive = false
                 bottomItemsInvisibleConstraint.isActive = true
             case (true, false):
                 addAnimation(view: bottomItemsView, keyPath: "position") {}
+                
+                if !currentUIProps.seekerViewHidden && !nextUIProps.seekerViewHidden {
+                    addAnimation(view: seekerView, keyPath: "position") {}
+                }
+                
                 setupBottomItems()
                 setupBottomItemsConstraints()
                 
@@ -227,16 +237,23 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             case (false, false):
                 setupBottomItemsConstraints()
                 setupBottomItems()
-                guard bottomItemsView.layer.animationKeys() == nil || state.isTransitioning else { return }
+                guard bottomItemsView.layer.animationKeys() == nil &&
+                    seekerView.layer.animationKeys() == nil ||
+                    state.isTransitioning else { return }
                 bottomItemsVisibleConstraint.isActive = !nextUIProps.bottomItemsHidden
                 bottomItemsInvisibleConstraint.isActive = nextUIProps.bottomItemsHidden
             case (true, true):
-                guard bottomItemsView.layer.animationKeys() == nil || state.isTransitioning else { return }
+                guard bottomItemsView.layer.animationKeys() == nil &&
+                    seekerView.layer.animationKeys() == nil ||
+                    state.isTransitioning else { return }
                 bottomItemsVisibleConstraint.isActive = !nextUIProps.bottomItemsHidden
                 bottomItemsInvisibleConstraint.isActive = nextUIProps.bottomItemsHidden
                 setupBottomItemsConstraints()
                 setupBottomItems()
             }
+            bottomItemsHeightConstraint.constant = {
+                return .init(traitCollection.userInterfaceIdiom == .pad ? 58.5 : 51.5)
+            }()
         }
         
         func renderSeekerView() {
@@ -253,35 +270,45 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 if nextUIProps.bottomItemsHidden {
                     addAnimation(view: seekerView, keyPath: "position") {
                         self.seekerView.isHidden = true
+                        self.seekerView.alpha = 0
                         setupSeekerView()
                     }
-                    
+                    seekerToSafeAreaConstraint.isActive = false
+                    bottomItemsSeekerConstraint.isActive = true
                     bottomItemsVisibleConstraint.isActive = false
                     bottomItemsInvisibleConstraint.isActive = false
                     bottomItemsAndSeekerAnimatedConstraint.isActive = true
                 } else {
                     addAnimation(view: seekerView, keyPath: "opacity", onComplete: setupSeekerView)
+                    if currentUIProps.bottomItemsHidden {
+                        addAnimation(view: seekerView, keyPath: "position", onComplete: setupSeekerView)
+                    }
                     bottomItemsAndSeekerAnimatedConstraint.isActive = false
+                    seekerToSafeAreaConstraint.isActive = false
+                    bottomItemsSeekerConstraint.isActive = true
                     seekerView.alpha = 0
                 }
-                
             case (true, false):
-                if !currentUIProps.bottomItemsHidden {
-                    addAnimation(view: seekerView, keyPath: "opacity") {}
-                } else {
+                if currentUIProps.bottomItemsHidden {
                     addAnimation(view: seekerView, keyPath: "position") {}
+                } else {
+                    addAnimation(view: seekerView, keyPath: "opacity") {}
                 }
                 setupSeekerView()
                 
                 if nextUIProps.bottomItemsHidden {
                     seekerView.isHidden = false
                     seekerView.alpha = 1
+                    seekerToSafeAreaConstraint.isActive = true
+                    bottomItemsSeekerConstraint.isActive = false
                     bottomItemsVisibleConstraint.isActive = false
                     bottomItemsInvisibleConstraint.isActive = true
                     bottomItemsAndSeekerAnimatedConstraint.isActive = false
                 } else {
                     seekerView.isHidden = false
                     seekerView.alpha = 1
+                    seekerToSafeAreaConstraint.isActive = false
+                    bottomItemsSeekerConstraint.isActive = true
                     bottomItemsVisibleConstraint.isActive = true
                     bottomItemsInvisibleConstraint.isActive = false
                     bottomItemsAndSeekerAnimatedConstraint.isActive = false
@@ -290,6 +317,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 setupSeekerView()
                 guard seekerView.layer.animationKeys() == nil || state.isTransitioning else { return }
                 seekerView.isHidden = nextUIProps.seekerViewHidden
+                seekerView.alpha = 0
                 if nextUIProps.bottomItemsHidden {
                     bottomItemsVisibleConstraint.isActive = false
                     bottomItemsInvisibleConstraint.isActive = false
@@ -301,29 +329,28 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 }
             case (false, false):
                 setupSeekerView()
-                guard seekerView.layer.animationKeys() == nil && !state.isTransitioning else { return }
-                guard currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden else { return }
                 if nextUIProps.bottomItemsHidden {
-                    addAnimation(view: seekerView, keyPath: "position") {}
+                    seekerToSafeAreaConstraint.isActive = true
+                    bottomItemsSeekerConstraint.isActive = false
+                } else {
+                    seekerToSafeAreaConstraint.isActive = false
+                    bottomItemsSeekerConstraint.isActive = true
+                }
+                guard seekerView.layer.animationKeys() == nil && !state.isTransitioning else { return }
+                seekerView.alpha = 1
+                seekerView.isHidden = nextUIProps.seekerViewHidden
+                guard currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden else { return }
+                addAnimation(view: seekerView, keyPath: "position") {}
+                if nextUIProps.bottomItemsHidden {
                     bottomItemsVisibleConstraint.isActive = false
                     bottomItemsInvisibleConstraint.isActive = true
                     bottomItemsAndSeekerAnimatedConstraint.isActive = false
                 } else {
-                    addAnimation(view: seekerView, keyPath: "position") {}
                     bottomItemsVisibleConstraint.isActive = true
                     bottomItemsInvisibleConstraint.isActive = false
                     bottomItemsAndSeekerAnimatedConstraint.isActive = false
                 }
-                seekerView.isHidden = nextUIProps.seekerViewHidden
             }
-            bottomItemsSeekerConstraint.constant = {
-                return .init(nextUIProps.bottomItemsHidden ? 10 : 1.5)
-            }()
-            
-            bottomItemsHeightConstraint.constant = {
-                let constraint: CGFloat = nextUIProps.bottomItemsHidden ? 62 : 58.5
-                return .init(traitCollection.userInterfaceIdiom == .pad ? constraint : 51.5)
-            }()
         }
         func renderDurationLabel() {
             func setupDurationLabel() {
@@ -353,10 +380,19 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 durationTextLabel.isHidden = false
                 durationTextLabel.alpha = 1
                 setupDurationLabel()
-            default:
+            case (true, true):
                 setupDurationLabel()
                 guard durationTextLabel.layer.animationKeys() == nil || state.isTransitioning else { return }
-                durationTextLabel.isHidden = nextUIProps.durationTextHidden
+                durationTextLabel.isHidden = true
+                durationTextLabel.alpha = 0
+            case (false, false):
+                setupDurationLabel()
+                guard durationTextLabel.layer.animationKeys() == nil && !state.isTransitioning else { return }
+                if currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden {
+                    addAnimation(view: durationTextLabel, keyPath: "position") {}
+                }
+                durationTextLabel.isHidden = false
+                durationTextLabel.alpha = 1
             }
         }
         
@@ -387,6 +423,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 sideBarVisibleConstraint.isActive = !nextUIProps.sideBarViewHidden
                 sideBarInvisibleConstraint.isActive = nextUIProps.sideBarViewHidden
                 sideBarBottomConstraint.isActive = nextUIProps.sideBarViewHidden
+                sideBarBottomConstraint.constant = {
+                    guard #available(iOS 11, *) else { return view.frame.height - sideBarView.frame.height }
+                    return view.frame.height - sideBarView.frame.height - view.safeAreaInsets.top
+                }()
             }
         }
         
@@ -408,6 +448,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard playButton.layer.animationKeys() == nil else { return }
                 playButton.isHidden = nextUIProps.playButtonHidden
+                playButton.alpha = nextUIProps.playButtonHidden ? 0 : 1
             }
         }
         func renderPauseButton() {
@@ -428,6 +469,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard pauseButton.layer.animationKeys() == nil else { return }
                 pauseButton.isHidden = nextUIProps.pauseButtonHidden
+                pauseButton.alpha = nextUIProps.pauseButtonHidden ? 0 : 1
             }
         }
         func renderReplayButton() {
@@ -449,6 +491,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard replayButton.layer.animationKeys() == nil else { return }
                 replayButton.isHidden = nextUIProps.replayButtonHidden
+                replayButton.alpha = nextUIProps.replayButtonHidden ? 0 : 1
             }
         }
         func renderRetryButton() {
@@ -483,6 +526,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard nextButton.layer.animationKeys() == nil else { return }
                 nextButton.isHidden = nextUIProps.nextButtonHidden
+                nextButton.alpha = nextUIProps.nextButtonHidden ? 0 : 1
                 nextButton.isEnabled = nextUIProps.nextButtonEnabled
             }
         }
@@ -502,6 +546,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard prevButton.layer.animationKeys() == nil else { return }
                 prevButton.isHidden = nextUIProps.prevButtonHidden
+                prevButton.alpha = nextUIProps.prevButtonHidden ? 0 : 1
                 prevButton.isEnabled = nextUIProps.prevButtonEnabled
             }
         }
@@ -522,6 +567,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard errorLabel.layer.animationKeys() == nil else { return }
                 errorLabel.isHidden = nextUIProps.errorLabelHidden
+                errorLabel.alpha = nextUIProps.errorLabelHidden ? 0 : 1
                 errorLabel.text = nextUIProps.errorLabelText
             }
         }
@@ -539,6 +585,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard airplayActiveLabel.layer.animationKeys() == nil else { return }
                 airplayActiveLabel.isHidden = nextUIProps.airplayActiveLabelHidden
+                airplayActiveLabel.alpha = nextUIProps.airplayActiveLabelHidden ? 0 : 1
             }
         }
         func renderSeekForwardButton() {
@@ -555,6 +602,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard seekForwardButton.layer.animationKeys() == nil else { return }
                 seekForwardButton.isHidden = nextUIProps.seekForwardButtonHidden
+                seekForwardButton.alpha = nextUIProps.seekForwardButtonHidden ? 0 : 1
             }
         }
         func renderSeekBackButton() {
@@ -569,8 +617,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 seekBackButton.isHidden = false
                 seekBackButton.alpha = 1
             default:
-                guard seekForwardButton.layer.animationKeys() == nil else { return }
+                guard seekBackButton.layer.animationKeys() == nil else { return }
                 seekBackButton.isHidden = nextUIProps.seekBackButtonHidden
+                seekBackButton.alpha = nextUIProps.seekBackButtonHidden ? 0 : 1
             }
         }
         
@@ -590,6 +639,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard liveIndicationView.layer.animationKeys() == nil else { return }
                 liveIndicationView.isHidden = nextUIProps.liveIndicationViewIsHidden
+                liveIndicationView.alpha = nextUIProps.liveIndicationViewIsHidden ? 0 : 1
                 liveDotLabel.textColor = nextUIProps.liveDotColor ?? liveDotLabel.textColor ?? view.tintColor
             }
         }
@@ -608,6 +658,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard compasBodyView.layer.animationKeys() == nil else { return }
                 compasBodyView.isHidden = nextUIProps.compasBodyViewHidden
+                compasBodyView.alpha = nextUIProps.compasBodyViewHidden ? 0 : 1
             }
         }
         func renderCompasDirectionView() {
@@ -624,6 +675,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             default:
                 guard compasDirectionView.layer.animationKeys() == nil else { return }
                 compasDirectionView.isHidden = nextUIProps.compasDirectionViewHidden
+                compasDirectionView.alpha = nextUIProps.compasDirectionViewHidden ? 0 : 1
             }
         }
         compasDirectionView.transform = nextUIProps.compasDirectionViewTransform
@@ -631,7 +683,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         func renderCCTextLabel() {
             let isSeekerOrBottomItemsViewMoved = {
-                return currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden &&
+                return currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden ||
                     currentUIProps.seekerViewHidden != nextUIProps.seekerViewHidden
             }()
             if isSeekerOrBottomItemsViewMoved {
