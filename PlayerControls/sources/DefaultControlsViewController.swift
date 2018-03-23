@@ -113,6 +113,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         }
     }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        state.hasAppeared = false
+    }
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         state.hasAppeared = true
