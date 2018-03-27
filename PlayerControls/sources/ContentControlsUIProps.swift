@@ -99,7 +99,11 @@ extension DefaultControlsViewController {
             
             loading = props.player?.item.playable?.loading ?? false
             
-            playButtonHidden = props.player?.item.playable?.playbackAction.play == nil || controlsHidden
+            playButtonHidden = {
+                let emptyPlaybackAcion = props.player?.item.playable?.playbackAction.play == nil
+                let thumbnailHidden = props.player?.item.playable?.thumbnail?.url == nil
+                return (emptyPlaybackAcion || controlsHidden) && thumbnailHidden
+            }()
             
             playButtonAction = props.player?.item.playable?.playbackAction.play ?? .nop
             
