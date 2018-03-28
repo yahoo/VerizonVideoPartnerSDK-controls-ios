@@ -204,11 +204,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 videoTitleLabel.text = nextUIProps.videoTitleLabelText
             }
             func setupBottomItemsConstraints() {
-                airplayPipTrailingConstrains.isActive = !nextUIProps.pipButtonHidden
-                airplayEdgeTrailingConstrains.isActive = nextUIProps.pipButtonHidden
+                airplayPipTrailingConstrains.isActive = !nextUIProps.pipButtonHidden && !nextUIProps.airplayButtonHidden
+                airplayEdgeTrailingConstrains.isActive = nextUIProps.pipButtonHidden && !nextUIProps.airplayButtonHidden
                 subtitlesAirplayTrailingConstrains.isActive = !nextUIProps.airplayButtonHidden
-                subtitlesEdgeTrailingConstrains.isActive = nextUIProps.airplayButtonHidden && nextUIProps.pipButtonHidden
-                subtitlesPipTrailingConstrains.isActive = nextUIProps.airplayButtonHidden
+                subtitlesEdgeTrailingConstrains.isActive = nextUIProps.airplayButtonHidden && nextUIProps.pipButtonHidden && !nextUIProps.settingsButtonHidden
+                subtitlesPipTrailingConstrains.isActive = nextUIProps.airplayButtonHidden && !nextUIProps.pipButtonHidden
             }
             switch (currentUIProps.bottomItemsHidden, nextUIProps.bottomItemsHidden) {
             case (false, true):
@@ -413,10 +413,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             case (true, false):
                 addAnimation(view: sideBarView, keyPath: "position") {}
                 sideBarView.isHidden = false
-                sideBarVisibleConstraint.isActive = true
                 sideBarInvisibleConstraint.isActive = false
-                
                 sideBarBottomConstraint.isActive = false
+                sideBarVisibleConstraint.isActive = true
             default:
                 guard sideBarView.layer.animationKeys() == nil || state.isTransitioning else { return }
                 sideBarView.isHidden = nextUIProps.sideBarViewHidden
@@ -694,7 +693,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             
             visibleControlsSubtitlesConstraint.constant = {
                 let constant = traitCollection.userInterfaceIdiom == .pad ? 130 : 110
-                var distance = nextUIProps.bottomItemsHidden && !nextUIProps.seekerViewHidden ? 60 : 30
+                let distance = nextUIProps.bottomItemsHidden && !nextUIProps.seekerViewHidden ? 60 : 30
                 
                 return .init(nextUIProps.controlsViewHidden || nextUIProps.bottomItemsHidden ? distance : constant)
             }()
