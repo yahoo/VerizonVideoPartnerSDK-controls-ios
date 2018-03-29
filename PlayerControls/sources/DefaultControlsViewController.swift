@@ -108,9 +108,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     struct State {
         var hasAppeared = false
         var isTransitioning = false
+        var isSeekingInProgress = false
         
         var controlsAnimationPossible: Bool {
-            return hasAppeared
+            return hasAppeared && !isSeekingInProgress
         }
     }
     
@@ -882,6 +883,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     private func startSeek(from progress: CGFloat) {
         currentUIProps.startSeekAction.perform(with: .init(progress))
         onUserInteraction?.perform()
+        state.isSeekingInProgress = true
     }
     
     private func updateSeek(to progress: CGFloat) {
@@ -892,6 +894,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     private func stopSeek(at progress: CGFloat) {
         currentUIProps.stopSeekAction.perform(with: .init(progress))
         onUserInteraction?.perform()
+        state.isSeekingInProgress = false
     }
     
     @IBAction private func seekForwardButtonTouched() {
