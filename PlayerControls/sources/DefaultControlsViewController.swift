@@ -423,10 +423,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 sideBarVisibleConstraint.isActive = !nextUIProps.sideBarViewHidden
                 sideBarInvisibleConstraint.isActive = nextUIProps.sideBarViewHidden
                 sideBarBottomConstraint.isActive = nextUIProps.sideBarViewHidden
-                sideBarBottomConstraint.constant = {
-                    guard #available(iOS 11, *) else { return view.frame.height - sideBarView.frame.height }
-                    return view.frame.height - sideBarView.frame.height - view.safeAreaInsets.top
-                }()
             }
         }
         
