@@ -48,7 +48,8 @@ func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props 
             sideBarViewHidden: false,
             thumbnail: nil,
             title: "Title",
-            animationsEnabled: true))))
+            animationsEnabled: true,
+            fullScreenContent: .nop))))
 }
 
 @UIApplicationMain

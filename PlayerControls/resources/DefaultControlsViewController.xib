@@ -28,6 +28,7 @@
                 <outlet property="compasDirectionView" destination="6eW-2a-aeL" id="Anp-D7-5hp"/>
                 <outlet property="compassBodyBelowLiveTopConstraint" destination="qaS-Tx-ZER" id="zYF-dC-uGB"/>
                 <outlet property="compassBodyNoLiveTopConstraint" destination="mIu-gb-Ffc" id="uoM-nz-rEp"/>
+                <outlet property="contentFullScreenGestureRecognizer" destination="tba-DC-Y3K" id="jdL-pL-AqW"/>
                 <outlet property="controlsView" destination="fi9-sW-1VX" id="dg0-wz-bBh"/>
                 <outlet property="durationTextLabel" destination="Im0-Vw-2gZ" id="7UT-l7-dfO"/>
                 <outlet property="errorLabel" destination="UtD-cb-Wlb" id="ebo-gb-gDd"/>
@@ -36,6 +37,7 @@
                 <outlet property="liveViewTopConstraint" destination="8xl-GB-75a" id="u7k-aX-8EW"/>
                 <outlet property="loadingImageView" destination="ikX-6f-FSq" id="VZj-CY-bUg"/>
                 <outlet property="nextButton" destination="ida-wI-kAP" id="VKy-6n-hIb"/>
+                <outlet property="onEmptySpaceGestureRecognizer" destination="ydI-nT-cAb" id="cXk-b0-rkL"/>
                 <outlet property="pauseButton" destination="KeK-cX-xXB" id="ItP-y0-YdS"/>
                 <outlet property="pipButton" destination="tGV-rG-prj" id="lzF-NF-w8X"/>
                 <outlet property="playButton" destination="U8A-X2-cyf" id="PIP-Q8-Upy"/>
@@ -65,7 +67,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tapGestureRecognizer id="ydI-nT-cAb">
             <connections>
-                <action selector="onEmptySpaceTap" destination="-1" id="1yi-FP-bhE"/>
+                <action selector="onEmptySpaceTap:" destination="-1" id="KGg-b9-Ppg"/>
             </connections>
         </tapGestureRecognizer>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="rFH-6N-3gH">
@@ -446,6 +448,7 @@ Title</string>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="ydI-nT-cAb" appends="YES" id="w9x-Nr-aVL"/>
                 <outletCollection property="gestureRecognizers" destination="ZiF-3w-BsH" appends="YES" id="gz4-El-Rax"/>
+                <outletCollection property="gestureRecognizers" destination="tba-DC-Y3K" appends="YES" id="yAJ-n6-6rI"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="51.5"/>
         </view>
@@ -454,6 +457,11 @@ Title</string>
                 <action selector="onCameraPanWith:" destination="-1" id="RBn-Hb-4of"/>
             </connections>
         </panGestureRecognizer>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="tba-DC-Y3K">
+            <connections>
+                <action selector="onEmptySpaceDoubleTap:" destination="-1" id="wYu-uK-JoJ"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="compas-body" width="30" height="30"/>

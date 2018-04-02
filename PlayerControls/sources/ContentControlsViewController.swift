@@ -65,6 +65,7 @@ extension ContentControlsViewController.Props {
         public var audible: MediaGroupControl?
         public var settings: Settings = .disabled
         public var airplay: AirPlay = .enabled
+        public var contentFullScreen: Command = .nop
 
         public init() {}
     }

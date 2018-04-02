@@ -46,7 +46,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var sideBarView: SideBarView!
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
+    
+    @IBOutlet private var onEmptySpaceGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var contentFullScreenGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
+    
     @IBOutlet private var pipButton: UIButton!
     @IBOutlet private var settingsButton: UIButton!
     @IBOutlet private var airPlayView: AirPlayView!
@@ -102,6 +106,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         seekerView.callbacks.onDragFinished = CommandWith { [unowned self] value in
             self.stopSeek(at: value)
         }
+        
+        onEmptySpaceGestureRecognizer.require(toFail: contentFullScreenGestureRecognizer)
+        
+        contentFullScreenGestureRecognizer.delegate = self
     }
     
     private var state = State()
@@ -904,8 +912,12 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         onUserInteraction?.perform()
     }
     
-    @IBAction private func onEmptySpaceTap() {
+    @IBAction private func onEmptySpaceTap(_ sender: UITapGestureRecognizer) {
         onTapEvent?.perform()
+    }
+    
+    @IBAction private func onEmptySpaceDoubleTap(_ sender: UITapGestureRecognizer) {
+        currentUIProps.contentFullScreenAction.perform()
     }
     
     @IBAction private func onCameraPan(with recognizer: UIPanGestureRecognizer) {
@@ -932,5 +944,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func settingsButtonTouched() {
         currentUIProps.settingsButtonAction.perform()
+    }
+}
+
+extension DefaultControlsViewController: UIGestureRecognizerDelegate {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view is UIButton {
+            return false
+        }
+        return true
     }
 }
