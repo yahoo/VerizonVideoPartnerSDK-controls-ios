@@ -949,9 +949,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
 
 extension DefaultControlsViewController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view is UIButton {
-            return false
-        }
-        return true
+        return !(touch.view is UIButton)
     }
 }

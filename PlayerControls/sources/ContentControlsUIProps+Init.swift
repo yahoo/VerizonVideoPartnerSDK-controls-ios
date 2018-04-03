@@ -34,8 +34,8 @@ extension ContentControlsViewController.Props.Controls {
                 thumbnail: ContentControlsViewController.Props.Thumbnail?,
                 title: String,
                 animationsEnabled: Bool,
-                fullScreenContent: Command) {
-        self.contentFullScreen = fullScreenContent
+                contentFullScreen: Command) {
+        self.contentFullScreen = contentFullScreen
         self.animationsEnabled = animationsEnabled
         self.title = title
         self.thumbnail = thumbnail
