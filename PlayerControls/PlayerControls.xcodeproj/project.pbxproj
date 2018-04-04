@@ -59,7 +59,7 @@
 			outputFiles = (
 				"$(DERIVED_SOURCES_DIR)/$(INPUT_FILE_BASE)_${TARGET_NAME}.generated.swift",
 			);
-			script = "sourcery --sources sources \\\n         --sources build_scripts/code_generation/Autogeneratable.swift \\\n         --templates build_scripts/code_generation/${INPUT_FILE_BASE}.stencil \\\n         --output ${DERIVED_SOURCES_DIR}/${INPUT_FILE_BASE}_${TARGET_NAME}.generated.swift";
+			script = "sh build_scripts/code_generation/stencil_build_rule.sh sources build_scripts/code_generation";
 		};
 /* End PBXBuildRule section */
 
