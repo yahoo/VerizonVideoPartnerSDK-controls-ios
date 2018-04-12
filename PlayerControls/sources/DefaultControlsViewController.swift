@@ -141,7 +141,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     
     var task: URLSessionDataTask?
-    private var animationsDuration: CFTimeInterval = 0.4
+    public var animationsDuration: CFTimeInterval = 0.3
     
     var shouldHideHomeIndicator = true
     
