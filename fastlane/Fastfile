@@ -1,6 +1,6 @@
 # All lines starting with a # are ignored when running `fastlane`
 
-fastlane_version '2.63.0'
+fastlane_version '2.83.0'
 
 default_platform :ios
 
@@ -10,7 +10,19 @@ platform :ios do
     scan(
       fail_build: true,
       scheme: 'Verify Snapshots',
-      devices: ['iPhone 8', 'iPhone 8 Plus', 'iPad Pro (12.9-inch)']
+      device: 'iPhone 8' 
+    )
+    scan(
+      fail_build: true,
+      skip_build: true,
+      scheme: 'Verify Snapshots',
+      device: 'iPhone 8 Plus' 
+    )
+    scan(
+      fail_build: true,
+      skip_build: true,
+      scheme: 'Verify Snapshots',
+      device: 'iPad Pro (12.9-inch)' 
     )
   end
 
@@ -19,7 +31,19 @@ platform :ios do
     scan(
       fail_build: false,
       scheme: 'Record Snapshots',
-      devices: ['iPhone 8', 'iPhone 8 Plus', 'iPad Pro (12.9-inch)']
+      device: 'iPhone 8' 
+    )
+    scan(
+      fail_build: false,
+      skip_build: true,
+      scheme: 'Record Snapshots',
+      device: 'iPhone 8 Plus' 
+    )
+    scan(
+      fail_build: false,
+      skip_build: true,
+      scheme: 'Record Snapshots',
+      device: 'iPad Pro (12.9-inch)' 
     )
   end
   desc 'Runs all existing tests, including snapshot tests and PlayerControls Unit tests'
@@ -27,7 +51,19 @@ platform :ios do
     scan(
       fail_build: true,
       scheme: 'Tests',
-      devices: ['iPhone 8', 'iPhone 8 Plus', 'iPad Pro (12.9-inch)']
+      device: 'iPhone 8' 
+    )
+    scan(
+      fail_build: true,
+      skip_build: true,
+      scheme: 'Tests',
+      device: 'iPhone 8 Plus' 
+    )
+    scan(
+      fail_build: true,
+      skip_build: true,
+      scheme: 'Tests',
+      device: 'iPad Pro (12.9-inch)' 
     )
   end
 end
