@@ -7,6 +7,19 @@ import PlayerControls
 typealias Props = ContentControlsViewController.Props
 
 func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props {
+    func backgroundColor() {
+        guard let view = UIApplication.shared.windows.first?.rootViewController?.view else { return }
+        switch view.backgroundColor {
+        case UIColor.red?:
+            view.backgroundColor = .blue
+            view.tintColor = .red
+        case UIColor.blue?:
+            view.backgroundColor = .red
+            view.tintColor = .blue
+        default:
+            break
+        }
+    }
     return Props.player(Props.Player(
         playlist: Props.Playlist(
             next: .nop,
@@ -48,7 +61,8 @@ func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props 
             sideBarViewHidden: false,
             thumbnail: nil,
             title: "Title",
-            animationsEnabled: true))))
+            animationsEnabled: true,
+            contentFullScreen: .init(action: backgroundColor)))))
 }
 
 @UIApplicationMain
@@ -135,4 +149,3 @@ func sideProps() -> [SideBarView.ButtonProps]{
     
     return [later, favorite, share, add]
 }
-

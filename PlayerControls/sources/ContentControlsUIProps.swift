@@ -84,6 +84,7 @@ extension DefaultControlsViewController {
         var liveDotColor: UIColor?
         
         var animationsEnabled: Bool
+        var contentFullScreenAction: Command
         
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
@@ -272,6 +273,8 @@ extension DefaultControlsViewController {
                     else { return false }
                 return true
             }()
+            
+            contentFullScreenAction = props.player?.item.playable?.contentFullScreen ?? .nop
         }
     }
 }

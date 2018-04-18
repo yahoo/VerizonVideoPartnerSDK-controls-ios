@@ -33,7 +33,9 @@ extension ContentControlsViewController.Props.Controls {
                 sideBarViewHidden: Bool,
                 thumbnail: ContentControlsViewController.Props.Thumbnail?,
                 title: String,
-                animationsEnabled: Bool) {
+                animationsEnabled: Bool,
+                contentFullScreen: Command) {
+        self.contentFullScreen = contentFullScreen
         self.animationsEnabled = animationsEnabled
         self.title = title
         self.thumbnail = thumbnail
