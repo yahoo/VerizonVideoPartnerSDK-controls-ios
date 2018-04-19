@@ -1,6 +1,8 @@
-# All lines starting with a # are ignored when running `fastlane`
-
 fastlane_version '2.83.0'
+
+before_all do |lane, options|
+  xcversion(version: '9.3')
+end
 
 default_platform :ios
 
@@ -11,19 +13,19 @@ platform :ios do
       fail_build: true,
       scheme: 'Verify Snapshots',
       device: 'iPhone 8' 
-    )
+      )
     scan(
       fail_build: true,
       skip_build: true,
       scheme: 'Verify Snapshots',
       device: 'iPhone 8 Plus' 
-    )
+      )
     scan(
       fail_build: true,
       skip_build: true,
       scheme: 'Verify Snapshots',
       device: 'iPad Pro (12.9-inch)' 
-    )
+      )
   end
 
   desc 'Rewrites all existing snapshots on selected devices'
@@ -32,38 +34,39 @@ platform :ios do
       fail_build: false,
       scheme: 'Record Snapshots',
       device: 'iPhone 8' 
-    )
+      )
     scan(
       fail_build: false,
       skip_build: true,
       scheme: 'Record Snapshots',
       device: 'iPhone 8 Plus' 
-    )
+      )
     scan(
       fail_build: false,
       skip_build: true,
       scheme: 'Record Snapshots',
       device: 'iPad Pro (12.9-inch)' 
-    )
+      )
   end
+  
   desc 'Runs all existing tests, including snapshot tests and PlayerControls Unit tests'
   lane :test do
     scan(
       fail_build: true,
       scheme: 'Tests',
       device: 'iPhone 8' 
-    )
+      )
     scan(
       fail_build: true,
       skip_build: true,
       scheme: 'Tests',
       device: 'iPhone 8 Plus' 
-    )
+      )
     scan(
       fail_build: true,
       skip_build: true,
       scheme: 'Tests',
       device: 'iPad Pro (12.9-inch)' 
-    )
+      )
   end
 end
