@@ -40,8 +40,6 @@ class CaseSeekbarWithAllControls: SnapshotTest {
                         controls.settings = .enabled(.nop)
                         controls.pictureInPictureControl = .possible(.nop)
                         controls.airplay = .enabled
-                        
-                        controls.legible = .`internal`(nil)
                 })
         })
         controller.sidebarProps = sideProps()

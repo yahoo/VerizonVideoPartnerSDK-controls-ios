@@ -34,7 +34,6 @@ class CaseWithThumbnail: SnapshotTest{
                         controls.pictureInPictureControl = .unsupported
                         controls.airplay = .hidden
                         
-                        controls.legible = .`internal`(nil)
                         controls.thumbnail = DefaultControlsViewController.Props.Thumbnail.image(UIImage(named: "thumbnail", in: Bundle(for: CaseWithThumbnail.self), compatibleWith: nil)!)
                 })
         })

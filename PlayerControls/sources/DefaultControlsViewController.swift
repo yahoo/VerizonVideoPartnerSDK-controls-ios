@@ -31,7 +31,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var shadowView: UIView!
     @IBOutlet private var compasDirectionView: UIView!
     @IBOutlet private var compasBodyView: UIView!
-    @IBOutlet private var ccTextLabel: UILabel!
     @IBOutlet private var playButton: UIButton!
     @IBOutlet private var pauseButton: UIButton!
     @IBOutlet private var replayButton: UIButton!
@@ -59,7 +58,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var liveIndicationView: UIView!
     @IBOutlet private var liveDotLabel: UILabel!
     
-    @IBOutlet private var visibleControlsSubtitlesConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyBelowLiveTopConstraint: NSLayoutConstraint!
     @IBOutlet private var compassBodyNoLiveTopConstraint: NSLayoutConstraint!
     @IBOutlet private var airplayPipTrailingConstrains: NSLayoutConstraint!
@@ -685,25 +683,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         compasDirectionView.transform = nextUIProps.compasDirectionViewTransform
         cameraPanGestureRecognizer.isEnabled = nextUIProps.cameraPanGestureIsEnabled
         
-        func renderCCTextLabel() {
-            let isSeekerOrBottomItemsViewMoved = {
-                return currentUIProps.bottomItemsHidden != nextUIProps.bottomItemsHidden ||
-                    currentUIProps.seekerViewHidden != nextUIProps.seekerViewHidden
-            }()
-            if isSeekerOrBottomItemsViewMoved {
-                addAnimation(view: ccTextLabel, keyPath: "position") {}
-            }
-            ccTextLabel.isHidden = nextUIProps.subtitlesTextLabelHidden
-            ccTextLabel.text = nextUIProps.subtitlesTextLabelText
-            
-            visibleControlsSubtitlesConstraint.constant = {
-                let constant = traitCollection.userInterfaceIdiom == .pad ? 130 : 110
-                let distance = nextUIProps.bottomItemsHidden && !nextUIProps.seekerViewHidden ? 60 : 30
-                
-                return .init(nextUIProps.controlsViewHidden || nextUIProps.bottomItemsHidden ? distance : constant)
-            }()
-        }
-        
         func renderThumbnailImage() {
             thumbnailImageView.isHidden = nextUIProps.thumbnailImageViewHidden
             
@@ -781,7 +760,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         renderAirplayActiveLabel()
         renderSeekForwardButton()
         renderSeekBackButton()
-        renderCCTextLabel()
         renderLiveIndicatorView()
         renderCompasBodyView()
         renderCompasDirectionView()

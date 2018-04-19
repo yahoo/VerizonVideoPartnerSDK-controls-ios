@@ -75,12 +75,9 @@ extension ContentControlsViewController {
         if let audible = controls.audible {
             appendSection(with: "AUDIO", group: audible)
         }
-
-        switch controls.legible {
-        case .external(_ , let group):
-            appendSection(with: "SUBTITLES", group: group)
-        case .`internal`(let group):
-            appendSection(with: "SUBTITLES", group: group)
+        
+        if let legible = controls.legible {
+            appendSection(with: "SUBTITLES", group: legible)
         }
         
         return SettingsViewController.Props(

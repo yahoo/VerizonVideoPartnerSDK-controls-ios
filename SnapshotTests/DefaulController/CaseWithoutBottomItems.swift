@@ -31,8 +31,6 @@ class CaseWithoutBottomItems: SnapshotTest  {
                         controls.settings = .hidden
                         controls.pictureInPictureControl = .unsupported
                         controls.airplay = .hidden
-                        
-                        controls.legible = .`internal`(nil)
                 })
         })
         

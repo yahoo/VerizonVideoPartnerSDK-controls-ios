@@ -61,7 +61,7 @@ extension ContentControlsViewController.Props {
         public var sideBarViewHidden: Bool = true
         public var error: Error?
         public var pictureInPictureControl: PictureInPictureControl = .impossible
-        public var legible: Subtitles = .internal(nil)
+        public var legible: MediaGroupControl?
         public var audible: MediaGroupControl?
         public var settings: Settings = .disabled
         public var airplay: AirPlay = .enabled
@@ -168,11 +168,6 @@ extension ContentControlsViewController.Props {
         public var state: State = State()
         
         public init() {}
-    }
-    
-    public enum Subtitles {
-        case `internal`(MediaGroupControl?)
-        case external(external: External, control: MediaGroupControl)
     }
     
     public enum Settings {
