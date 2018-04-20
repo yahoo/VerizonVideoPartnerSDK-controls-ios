@@ -57,9 +57,6 @@ extension DefaultControlsViewController {
         var durationTextHidden: Bool
         var durationTextLabelText: String
         
-        var subtitlesTextLabelHidden: Bool
-        var subtitlesTextLabelText: String
-        
         var thumbnailImageViewHidden: Bool
         var thumbnailImageUrl: URL?
         var thumbnailImage: UIImage?
@@ -218,18 +215,6 @@ extension DefaultControlsViewController {
             videoTitleLabelHidden = props.player?.item.playable == nil || controlsHidden
             
             videoTitleLabelText = props.player?.item.playable?.title ?? ""
-            
-            subtitlesTextLabelText = {
-                guard let state = props.player?.item.playable?.legible.external?.external.available  else { return "" }
-                switch state {
-                case .inactive: return ""
-                case .loading: return "Loading..."
-                case .active(let text): return text ?? ""
-                case .error: return "Cannot load subtitles."
-                }
-            }()
-            
-            subtitlesTextLabelHidden = (props.player?.item.playable?.legible.external?.external.available?.isInactive ?? false)
             
             thumbnailImageViewHidden = props.player?.item.playable?.thumbnail?.url == nil
             

@@ -23,7 +23,7 @@ extension ContentControlsViewController.Props.Controls {
                 audible: ContentControlsViewController.Props.MediaGroupControl?,
                 camera: ContentControlsViewController.Props.Camera?,
                 error: ContentControlsViewController.Props.Error?,
-                legible: ContentControlsViewController.Props.Subtitles,
+                legible: ContentControlsViewController.Props.MediaGroupControl?,
                 live: ContentControlsViewController.Props.Live,
                 loading: Bool,
                 pictureInPictureControl: ContentControlsViewController.Props.PictureInPictureControl,

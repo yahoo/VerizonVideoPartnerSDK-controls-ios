@@ -33,12 +33,7 @@ func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props 
                     vertical: 0.0),
                 moveTo: .nop),
             error: nil,
-            legible: .external(
-                external: .available(state: .active(text: "Something not very short")),
-                control: Props.MediaGroupControl(options: [Props.Option(
-                    name: "Option1",
-                    selected: true,
-                    select: .nop)])),
+            legible: Props.MediaGroupControl(options: []),
             live: Props.Live(
                 isHidden: true,
                 dotColor: nil),

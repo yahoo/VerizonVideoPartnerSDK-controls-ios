@@ -37,8 +37,6 @@ class CaseWithAirplayActive: SnapshotTest {
                         controls.pictureInPictureControl = .impossible
                         
                         controls.airplay = .active
-                        
-                        controls.legible = .`internal`(nil)
                 })
         })
         controller.sidebarProps = sideProps()
