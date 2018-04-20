@@ -141,7 +141,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     
     var task: URLSessionDataTask?
-    public var animationsDuration: CFTimeInterval = 0.3
+    public var controlsAppearanceAnimationDuration: CFTimeInterval = 0.25
+    public var controlsDisappearanceAnimationDuration: CFTimeInterval = 0.35
     
     var shouldHideHomeIndicator = true
     
@@ -168,7 +169,14 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 return
             }
             let animation = CABasicAnimation(keyPath: keyPath)
-            animation.duration = animationsDuration
+            let controlsBecomeVisible = {
+                return currentUIProps.controlsViewHidden && !nextUIProps.controlsViewHidden
+            }()
+            let duration = controlsBecomeVisible
+                ? controlsAppearanceAnimationDuration
+                : controlsDisappearanceAnimationDuration
+            
+            animation.duration = duration
             animation.delegate = AnimationDelegate(didStop: { _, completed in
                 guard completed else { return }
                 onComplete()
