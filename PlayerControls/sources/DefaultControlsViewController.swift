@@ -46,6 +46,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
     
+    @IBOutlet private var brandedContentTitleLabel: UILabel!
+    
     @IBOutlet private var onEmptySpaceGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var contentFullScreenGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
@@ -654,6 +656,25 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         }
         
+        func renderBrandedContentTitle() {
+            brandedContentTitleLabel.text = currentUIProps.brandedContentTitle
+            switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
+            case (false, true):
+                addAnimation(view: brandedContentTitleLabel, keyPath: "opacity") {
+                    self.brandedContentTitleLabel.isHidden = true
+                }
+                brandedContentTitleLabel.alpha = 0
+            case (true, false):
+                addAnimation(view: brandedContentTitleLabel, keyPath: "opacity") {}
+                brandedContentTitleLabel.isHidden = false
+                brandedContentTitleLabel.alpha = 1
+            default:
+                guard brandedContentTitleLabel.layer.animationKeys() == nil else { return }
+                brandedContentTitleLabel.isHidden = nextUIProps.isBrandedContentHidden
+                brandedContentTitleLabel.alpha = nextUIProps.isBrandedContentHidden ? 0 : 1
+            }
+        }
+        
         func renderCompasBodyView() {
             switch (currentUIProps.compasBodyViewHidden, nextUIProps.compasBodyViewHidden) {
             case (false, true):
@@ -772,6 +793,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         renderCompasBodyView()
         renderCompasDirectionView()
         renderThumbnailImage()
+        renderBrandedContentTitle()
         
         currentUIProps = nextUIProps
     }

@@ -66,7 +66,8 @@ extension ContentControlsViewController.Props {
         public var settings: Settings = .disabled
         public var airplay: AirPlay = .enabled
         public var contentFullScreen: Command = .nop
-
+        public var brandedContent: BrandedContent?
+        
         public init() {}
     }
     
@@ -187,6 +188,16 @@ extension ContentControlsViewController.Props {
         public let value: NativeValue
         public init(_ value: NativeValue) {
             self.value = min(max(value.isNaN ? 0 : value, 0), 1)
+        }
+    }
+    
+    public struct BrandedContent: Codable {
+        public let advertisementText: String
+        public let clickUrl: URL
+        
+        public init(advertisementText: String, clickUrl: URL) {
+            self.advertisementText = advertisementText
+            self.clickUrl = clickUrl
         }
     }
 }

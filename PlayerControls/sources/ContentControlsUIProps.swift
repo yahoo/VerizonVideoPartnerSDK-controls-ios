@@ -83,6 +83,9 @@ extension DefaultControlsViewController {
         var animationsEnabled: Bool
         var contentFullScreenAction: Command
         
+        var isBrandedContentHidden: Bool
+        var brandedContentTitle: String
+        
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
         init(props: Props, controlsViewVisible: Bool) {
@@ -260,6 +263,9 @@ extension DefaultControlsViewController {
             }()
             
             contentFullScreenAction = props.player?.item.playable?.contentFullScreen ?? .nop
+            
+            isBrandedContentHidden = props.player?.item.playable?.brandedContent == nil
+            brandedContentTitle = props.player?.item.playable?.brandedContent?.advertisementText ?? ""
         }
     }
 }
