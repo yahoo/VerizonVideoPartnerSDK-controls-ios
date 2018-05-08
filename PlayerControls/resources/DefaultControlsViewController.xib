@@ -50,6 +50,7 @@
                 <outlet property="seekerView" destination="fAO-vH-cgi" id="mC9-GB-wqD"/>
                 <outlet property="settingsButton" destination="Ddy-Jb-aVD" id="iE1-re-XF5"/>
                 <outlet property="shadowView" destination="m54-Yx-R7K" id="Dks-zZ-ydL"/>
+                <outlet property="showBrandedContentButton" destination="ce0-uI-sPL" id="v9G-hQ-Q9p"/>
                 <outlet property="sideBarBottomConstraint" destination="coa-PV-KiP" id="aw7-zz-bPT"/>
                 <outlet property="sideBarInvisibleConstraint" destination="xts-BM-Eo3" id="zTC-AY-9Wa"/>
                 <outlet property="sideBarSeekerConstraint" destination="EEn-7U-jDF" id="m3S-Fa-6x6"/>
@@ -272,15 +273,26 @@ Title</string>
                             <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-uI-sPL">
+                            <rect key="frame" x="342" y="165" width="99" height="30"/>
+                            <state key="normal" title="Show web site">
+                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="showWebSiteButtonTouched" destination="-1" eventType="touchUpInside" id="N80-k0-dww"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
+                        <constraint firstItem="Uc8-v7-96O" firstAttribute="leading" secondItem="ce0-uI-sPL" secondAttribute="trailing" constant="8.5" id="11D-Xb-rO8"/>
                         <constraint firstItem="U8A-X2-cyf" firstAttribute="leading" secondItem="cNh-R2-LdG" secondAttribute="trailing" constant="6" id="1RA-jh-Xfd"/>
                         <constraint firstItem="KeK-cX-xXB" firstAttribute="centerX" secondItem="U8A-X2-cyf" secondAttribute="centerX" id="2EN-h1-ldw"/>
                         <constraint firstItem="djN-u7-nkt" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="79p-mr-0NO"/>
                         <constraint firstItem="KeK-cX-xXB" firstAttribute="centerY" secondItem="U8A-X2-cyf" secondAttribute="centerY" id="Bug-m8-Fqm"/>
                         <constraint firstItem="Uc8-v7-96O" firstAttribute="top" secondItem="fi9-sW-1VX" secondAttribute="top" id="DWa-IY-lCj"/>
+                        <constraint firstItem="fAO-vH-cgi" firstAttribute="top" secondItem="ce0-uI-sPL" secondAttribute="bottom" constant="8" id="Dc2-Jn-dgg"/>
                         <constraint firstItem="fAO-vH-cgi" firstAttribute="top" secondItem="Uc8-v7-96O" secondAttribute="bottom" priority="750" constant="-23" id="EEn-7U-jDF"/>
                         <constraint firstItem="ida-wI-kAP" firstAttribute="centerY" secondItem="djN-u7-nkt" secondAttribute="centerY" id="F2z-D3-yET"/>
                         <constraint firstItem="73i-r1-qKj" firstAttribute="centerY" secondItem="cNh-R2-LdG" secondAttribute="centerY" id="HWP-bD-q7I"/>

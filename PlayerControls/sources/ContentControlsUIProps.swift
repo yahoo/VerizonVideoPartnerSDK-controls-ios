@@ -2,6 +2,7 @@
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 
 import Foundation
+import SafariServices
 
 extension DefaultControlsViewController {
     struct UIProps {
@@ -85,6 +86,7 @@ extension DefaultControlsViewController {
         
         var isBrandedContentHidden: Bool
         var brandedContentTitle: String
+        var brandedContentCommand: CommandWith<SFSafariViewControllerDelegate>
         
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
@@ -266,6 +268,7 @@ extension DefaultControlsViewController {
             
             isBrandedContentHidden = props.player?.item.playable?.brandedContent == nil
             brandedContentTitle = props.player?.item.playable?.brandedContent?.advertisementText ?? ""
+            brandedContentCommand = props.player?.item.playable?.brandedContent?.action ?? .nop
         }
     }
 }

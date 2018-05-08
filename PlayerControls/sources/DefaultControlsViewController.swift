@@ -1,4 +1,5 @@
 import MediaPlayer
+import SafariServices
 //  Copyright 2018, Oath Inc.
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 /// This class contains all controls that
@@ -47,6 +48,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var retryButton: UIButton!
     
     @IBOutlet private var brandedContentTitleLabel: UILabel!
+    @IBOutlet private var showBrandedContentButton: UIButton!
     
     @IBOutlet private var onEmptySpaceGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var contentFullScreenGestureRecognizer: UITapGestureRecognizer!
@@ -675,6 +677,24 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         }
         
+        func renderShowBrandedContentPageButton() {
+            switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
+            case (false, true):
+                addAnimation(view: showBrandedContentButton, keyPath: "opacity") {
+                    self.showBrandedContentButton.isHidden = true
+                }
+                showBrandedContentButton.alpha = 0
+            case (true, false):
+                addAnimation(view: showBrandedContentButton, keyPath: "opacity") {}
+                showBrandedContentButton.isHidden = false
+                showBrandedContentButton.alpha = 1
+            default:
+                guard showBrandedContentButton.layer.animationKeys() == nil else { return }
+                showBrandedContentButton.isHidden = nextUIProps.isBrandedContentHidden
+                showBrandedContentButton.alpha = nextUIProps.isBrandedContentHidden ? 0 : 1
+            }
+        }
+        
         func renderCompasBodyView() {
             switch (currentUIProps.compasBodyViewHidden, nextUIProps.compasBodyViewHidden) {
             case (false, true):
@@ -794,6 +814,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         renderCompasDirectionView()
         renderThumbnailImage()
         renderBrandedContentTitle()
+        renderShowBrandedContentPageButton()
         
         currentUIProps = nextUIProps
     }
@@ -952,6 +973,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func settingsButtonTouched() {
         currentUIProps.settingsButtonAction.perform()
+    }
+
+    @IBAction private func showWebSiteButtonTouched() {
+        currentUIProps.brandedContentCommand.perform(with: self)
+        onUserInteraction?.perform()
     }
 }
 

@@ -3,6 +3,7 @@
 
 import Foundation
 import CoreMedia
+import SafariServices
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
@@ -192,13 +193,11 @@ extension ContentControlsViewController.Props {
     }
     
     public struct BrandedContent: Codable {
-        public let advertisementText: String
-        public let clickUrl: URL
+        public var advertisementText: String = ""
+        public var action: CommandWith<SFSafariViewControllerDelegate
+            > = .nop
         
-        public init(advertisementText: String, clickUrl: URL) {
-            self.advertisementText = advertisementText
-            self.clickUrl = clickUrl
-        }
+        public init() {}
     }
 }
 
@@ -213,5 +212,11 @@ extension ContentControlsViewController.Props.Progress: ExpressibleByFloatLitera
     public typealias FloatLiteralType = Double
     public init(floatLiteral value: FloatLiteralType) {
         self.init(NativeValue(value))
+    }
+}
+
+extension ContentControlsViewController: SFSafariViewControllerDelegate {
+    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        props.player?.item.playable?.brandedContent?.action.perform(with: self)
     }
 }
