@@ -194,8 +194,7 @@ extension ContentControlsViewController.Props {
     
     public struct BrandedContent: Codable {
         public var advertisementText: String = ""
-        public var action: CommandWith<SFSafariViewControllerDelegate
-            > = .nop
+        public var action: CommandWith<SFSafariViewControllerDelegate> = .nop
         
         public init() {}
     }

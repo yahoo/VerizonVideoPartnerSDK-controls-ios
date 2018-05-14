@@ -31,6 +31,10 @@ class CaseWithoutBottomItems: SnapshotTest  {
                         controls.settings = .hidden
                         controls.pictureInPictureControl = .unsupported
                         controls.airplay = .hidden
+                        
+                        controls.brandedContent = .init{
+                            $0.advertisementText = "Some looooong looooong title"
+                        }
                 })
         })
         

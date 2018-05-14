@@ -57,7 +57,11 @@ func props(progress: ContentControlsViewController.Props.Progress = 0) -> Props 
             thumbnail: nil,
             title: "Title",
             animationsEnabled: true,
-            contentFullScreen: .init(action: backgroundColor)))))
+            contentFullScreen: .init(action: backgroundColor),
+            brandedContent: Props.BrandedContent {
+                $0.advertisementText = "Short text"
+                $0.action = .nop
+        }))))
 }
 
 @UIApplicationMain

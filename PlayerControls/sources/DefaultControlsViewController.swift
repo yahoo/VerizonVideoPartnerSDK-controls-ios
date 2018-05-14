@@ -1,5 +1,4 @@
 import MediaPlayer
-import SafariServices
 //  Copyright 2018, Oath Inc.
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 /// This class contains all controls that
@@ -47,7 +46,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
     
-    @IBOutlet private var brandedContentTitleLabel: UILabel!
     @IBOutlet private var showBrandedContentButton: UIButton!
     
     @IBOutlet private var onEmptySpaceGestureRecognizer: UITapGestureRecognizer!
@@ -658,26 +656,10 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         }
         
-        func renderBrandedContentTitle() {
-            brandedContentTitleLabel.text = currentUIProps.brandedContentTitle
-            switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
-            case (false, true):
-                addAnimation(view: brandedContentTitleLabel, keyPath: "opacity") {
-                    self.brandedContentTitleLabel.isHidden = true
-                }
-                brandedContentTitleLabel.alpha = 0
-            case (true, false):
-                addAnimation(view: brandedContentTitleLabel, keyPath: "opacity") {}
-                brandedContentTitleLabel.isHidden = false
-                brandedContentTitleLabel.alpha = 1
-            default:
-                guard brandedContentTitleLabel.layer.animationKeys() == nil else { return }
-                brandedContentTitleLabel.isHidden = nextUIProps.isBrandedContentHidden
-                brandedContentTitleLabel.alpha = nextUIProps.isBrandedContentHidden ? 0 : 1
-            }
-        }
-        
         func renderShowBrandedContentPageButton() {
+            showBrandedContentButton.layer.cornerRadius = showBrandedContentButton.frame.height / 2
+            showBrandedContentButton.setTitle(currentUIProps.brandedContentTitle,
+                                              for: .normal)
             switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
             case (false, true):
                 addAnimation(view: showBrandedContentButton, keyPath: "opacity") {
@@ -813,7 +795,6 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         renderCompasBodyView()
         renderCompasDirectionView()
         renderThumbnailImage()
-        renderBrandedContentTitle()
         renderShowBrandedContentPageButton()
         
         currentUIProps = nextUIProps
