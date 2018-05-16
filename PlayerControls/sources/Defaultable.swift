@@ -24,3 +24,4 @@ extension ContentControlsViewController.Props.Controls: Defaultable { }
 extension ContentControlsViewController.Props.MediaGroupControl: Defaultable { }
 extension ContentControlsViewController.Props.Option: Defaultable { }
 extension ContentControlsViewController.Props.Playlist: Defaultable { }
+extension ContentControlsViewController.Props.BrandedContent: Defaultable { }

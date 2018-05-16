@@ -34,7 +34,8 @@ extension ContentControlsViewController.Props.Controls {
                 thumbnail: ContentControlsViewController.Props.Thumbnail?,
                 title: String,
                 animationsEnabled: Bool,
-                contentFullScreen: Command) {
+                contentFullScreen: Command,
+                brandedContent: ContentControlsViewController.Props.BrandedContent?) {
         self.contentFullScreen = contentFullScreen
         self.animationsEnabled = animationsEnabled
         self.title = title
@@ -51,6 +52,7 @@ extension ContentControlsViewController.Props.Controls {
         self.error = error
         self.audible = audible
         self.airplay = airplay
+        self.brandedContent = brandedContent
     }
 }
 

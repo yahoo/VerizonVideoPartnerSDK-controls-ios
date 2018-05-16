@@ -3,6 +3,7 @@
 
 import Foundation
 import CoreMedia
+import SafariServices
 /// Base class for implementing custom content
 /// video controls.
 open class ContentControlsViewController: UIViewController {
@@ -66,7 +67,8 @@ extension ContentControlsViewController.Props {
         public var settings: Settings = .disabled
         public var airplay: AirPlay = .enabled
         public var contentFullScreen: Command = .nop
-
+        public var brandedContent: BrandedContent?
+        
         public init() {}
     }
     
@@ -189,6 +191,13 @@ extension ContentControlsViewController.Props {
             self.value = min(max(value.isNaN ? 0 : value, 0), 1)
         }
     }
+    
+    public struct BrandedContent: Codable {
+        public var advertisementText: String = ""
+        public var action: CommandWith<SFSafariViewControllerDelegate> = .nop
+        
+        public init() {}
+    }
 }
 
 extension ContentControlsViewController.Props.Progress: ExpressibleByIntegerLiteral {
@@ -202,5 +211,11 @@ extension ContentControlsViewController.Props.Progress: ExpressibleByFloatLitera
     public typealias FloatLiteralType = Double
     public init(floatLiteral value: FloatLiteralType) {
         self.init(NativeValue(value))
+    }
+}
+
+extension ContentControlsViewController: SFSafariViewControllerDelegate {
+    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        props.player?.item.playable?.brandedContent?.action.perform(with: self)
     }
 }

@@ -12,4 +12,3 @@ extension ContentControlsViewController.Props.PictureInPictureControl: Prism, Au
 extension ContentControlsViewController.Props.Playback: Prism, AutoCodable {}
 extension ContentControlsViewController.Props.Settings: Prism, AutoCodable {}
 extension ContentControlsViewController.Props.Thumbnail: Prism, AutoCodable {}
-

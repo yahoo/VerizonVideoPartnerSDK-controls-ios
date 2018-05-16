@@ -3,6 +3,7 @@
 
 import Foundation
 import MediaPlayer
+import SafariServices
 
 /// This class contains all controls that are used
 /// for advertisement video playback.
@@ -28,7 +29,7 @@ public final class AdVideoControls: UIViewController {
     
     public var props: Props = Props(mainAction: .play(.nop),
                                     seeker: nil,
-                                    click: .show(CommandWith { }),
+                                    click: .nop,
                                     isLoading: true,
                                     airplayActiveViewHidden: true) {
         didSet {
@@ -68,19 +69,14 @@ public final class AdVideoControls: UIViewController {
     public struct Props: Codable {
         public static let `default` = Props(mainAction: .play(.nop),
                                             seeker: nil,
-                                            click: .show(CommandWith { }),
+                                            click: .nop,
                                             isLoading: true,
                                             airplayActiveViewHidden: true)
         public let mainAction: MainAction
         public let seeker: Seeker?
-        public let click: ClickAction
+        public let click: CommandWith<SFSafariViewControllerDelegate>
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
-        
-        public enum ClickAction: Prism, AutoCodable {
-            case show(Command)
-            case hide(Command)
-        }
         
         public enum MainAction: Prism, AutoCodable {
             case play(Command)
@@ -100,7 +96,7 @@ public final class AdVideoControls: UIViewController {
         
         public init(mainAction: MainAction,
                     seeker: Seeker?,
-                    click: ClickAction,
+                    click: CommandWith<SFSafariViewControllerDelegate>,
                     isLoading: Bool,
                     airplayActiveViewHidden: Bool) {
             self.mainAction = mainAction
@@ -131,8 +127,7 @@ public final class AdVideoControls: UIViewController {
     }
     
     @IBAction private func viewTouched() {
-        guard case .show(let show) = props.click else { return }
-        show.perform()
+        props.click.perform(with: self)
     }
 }
 
@@ -146,12 +141,9 @@ extension AdVideoControls {
     }
 }
 
-import SafariServices
-
 extension AdVideoControls: SFSafariViewControllerDelegate {
     @available(iOS 9.0, *)
     public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        guard case .hide(let hide) = props.click else { return }
-        hide.perform()
+        props.click.perform(with: self)
     }
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,6 +50,7 @@
                 <outlet property="seekerView" destination="fAO-vH-cgi" id="mC9-GB-wqD"/>
                 <outlet property="settingsButton" destination="Ddy-Jb-aVD" id="iE1-re-XF5"/>
                 <outlet property="shadowView" destination="m54-Yx-R7K" id="Dks-zZ-ydL"/>
+                <outlet property="showBrandedContentButton" destination="ce0-uI-sPL" id="v9G-hQ-Q9p"/>
                 <outlet property="sideBarBottomConstraint" destination="coa-PV-KiP" id="aw7-zz-bPT"/>
                 <outlet property="sideBarInvisibleConstraint" destination="xts-BM-Eo3" id="zTC-AY-9Wa"/>
                 <outlet property="sideBarSeekerConstraint" destination="EEn-7U-jDF" id="m3S-Fa-6x6"/>
@@ -100,6 +102,9 @@
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compas-direction" translatesAutoresizingMaskIntoConstraints="NO" id="6eW-2a-aeL">
                             <rect key="frame" x="10" y="20" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="6eW-2a-aeL" secondAttribute="height" multiplier="1:1" id="ZWF-9F-iFd"/>
+                            </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVE-Q8-zOG">
                             <rect key="frame" x="193" y="113" width="95" height="95"/>
@@ -265,6 +270,23 @@ Title</string>
                                 </mask>
                             </variation>
                         </view>
+                        <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-uI-sPL">
+                            <rect key="frame" x="21" y="16" width="144" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="0.5939640410958904" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration" identifier="Branded Content Button"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="contentEdgeInsets" minX="15" minY="6" maxX="10" maxY="6"/>
+                            <inset key="titleEdgeInsets" minX="-5" minY="0.0" maxX="5" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Show web site" image="open-web-page">
+                                <color key="titleColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="open-web-page"/>
+                            <state key="highlighted" image="open-web-page"/>
+                            <connections>
+                                <action selector="showWebSiteButtonTouched" destination="-1" eventType="touchUpInside" id="N80-k0-dww"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
@@ -402,7 +424,10 @@ Title</string>
                 <constraint firstItem="UtD-cb-Wlb" firstAttribute="centerY" secondItem="fi9-sW-1VX" secondAttribute="centerY" constant="-60" id="Jcc-XU-IcT">
                     <variation key="heightClass=regular-widthClass=regular" constant="-120"/>
                 </constraint>
+                <constraint firstItem="ce0-uI-sPL" firstAttribute="top" secondItem="deC-QD-Vef" secondAttribute="top" constant="16" id="K6F-Ht-Fg5"/>
+                <constraint firstItem="ce0-uI-sPL" firstAttribute="leading" secondItem="deC-QD-Vef" secondAttribute="leading" constant="21" id="OZY-t2-Qqo"/>
                 <constraint firstItem="kPK-Sh-8jh" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="QGR-7P-ruj"/>
+                <constraint firstItem="deC-QD-Vef" firstAttribute="top" secondItem="6eW-2a-aeL" secondAttribute="top" constant="-20" id="U8I-kg-5Cg"/>
                 <constraint firstAttribute="bottom" secondItem="NKq-bU-tvG" secondAttribute="bottom" id="Vog-pm-tOS"/>
                 <constraint firstItem="IVo-gm-8qs" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="ZsG-TS-eKR"/>
                 <constraint firstItem="NKq-bU-tvG" firstAttribute="leading" secondItem="rFH-6N-3gH" secondAttribute="leading" id="cUc-Ko-vsy"/>
@@ -410,6 +435,7 @@ Title</string>
                 <constraint firstAttribute="bottom" secondItem="Uc8-v7-96O" secondAttribute="bottom" constant="70" id="coa-PV-KiP"/>
                 <constraint firstItem="UtD-cb-Wlb" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="daT-2G-R8Z"/>
                 <constraint firstItem="deC-QD-Vef" firstAttribute="trailing" secondItem="fi9-sW-1VX" secondAttribute="trailing" id="eNx-qY-amb"/>
+                <constraint firstItem="deC-QD-Vef" firstAttribute="leading" secondItem="6eW-2a-aeL" secondAttribute="leading" constant="-10" id="f4a-u3-z6K"/>
                 <constraint firstItem="IVo-gm-8qs" firstAttribute="centerY" secondItem="deC-QD-Vef" secondAttribute="centerY" constant="0.16666666666668561" id="g2S-a8-EXu"/>
                 <constraint firstAttribute="trailing" secondItem="NKq-bU-tvG" secondAttribute="trailing" id="giY-J7-3C9"/>
                 <constraint firstAttribute="bottom" secondItem="m54-Yx-R7K" secondAttribute="bottom" id="iOy-aw-CDH"/>
@@ -434,7 +460,7 @@ Title</string>
                 <outletCollection property="gestureRecognizers" destination="ZiF-3w-BsH" appends="YES" id="gz4-El-Rax"/>
                 <outletCollection property="gestureRecognizers" destination="tba-DC-Y3K" appends="YES" id="yAJ-n6-6rI"/>
             </connections>
-            <point key="canvasLocation" x="32.5" y="51.5"/>
+            <point key="canvasLocation" x="32" y="51"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="ZiF-3w-BsH">
             <connections>
@@ -467,5 +493,6 @@ Title</string>
         <image name="icon-replay-glow" width="91" height="91"/>
         <image name="icon-sub" width="32" height="32"/>
         <image name="icon-sub-active" width="32" height="32"/>
+        <image name="open-web-page" width="14" height="13"/>
     </resources>
 </document>

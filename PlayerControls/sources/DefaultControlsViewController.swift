@@ -46,6 +46,8 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
     
+    @IBOutlet private var showBrandedContentButton: UIButton!
+    
     @IBOutlet private var onEmptySpaceGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var contentFullScreenGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var cameraPanGestureRecognizer: UIPanGestureRecognizer!
@@ -654,6 +656,27 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             }
         }
         
+        func renderShowBrandedContentPageButton() {
+            showBrandedContentButton.layer.cornerRadius = showBrandedContentButton.frame.height / 2
+            showBrandedContentButton.setTitle(currentUIProps.brandedContentTitle,
+                                              for: .normal)
+            switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
+            case (false, true):
+                addAnimation(view: showBrandedContentButton, keyPath: "opacity") {
+                    self.showBrandedContentButton.isHidden = true
+                }
+                showBrandedContentButton.alpha = 0
+            case (true, false):
+                addAnimation(view: showBrandedContentButton, keyPath: "opacity") {}
+                showBrandedContentButton.isHidden = false
+                showBrandedContentButton.alpha = 1
+            default:
+                guard showBrandedContentButton.layer.animationKeys() == nil else { return }
+                showBrandedContentButton.isHidden = nextUIProps.isBrandedContentHidden
+                showBrandedContentButton.alpha = nextUIProps.isBrandedContentHidden ? 0 : 1
+            }
+        }
+        
         func renderCompasBodyView() {
             switch (currentUIProps.compasBodyViewHidden, nextUIProps.compasBodyViewHidden) {
             case (false, true):
@@ -772,6 +795,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         renderCompasBodyView()
         renderCompasDirectionView()
         renderThumbnailImage()
+        renderShowBrandedContentPageButton()
         
         currentUIProps = nextUIProps
     }
@@ -930,6 +954,11 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     @IBAction private func settingsButtonTouched() {
         currentUIProps.settingsButtonAction.perform()
+    }
+
+    @IBAction private func showWebSiteButtonTouched() {
+        currentUIProps.brandedContentCommand.perform(with: self)
+        onUserInteraction?.perform()
     }
 }
 
