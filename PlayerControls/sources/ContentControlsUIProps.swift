@@ -85,8 +85,9 @@ extension DefaultControlsViewController {
         var contentFullScreenAction: Command
         
         var isBrandedContentHidden: Bool
+        var isBrandedContentClickable: Bool
         var brandedContentTitle: String
-        var brandedContentCommand: CommandWith<SFSafariViewControllerDelegate>
+        var brandedContentCommand: CommandWith<SFSafariViewControllerDelegate>?
         
         //swiftlint:disable function_body_length
         //swiftlint:disable cyclomatic_complexity
@@ -216,7 +217,7 @@ extension DefaultControlsViewController {
             }()
             
             cameraPanGestureIsEnabled = props.player?.item.playable?.camera != nil || controlsHidden
-        
+            
             videoTitleLabelHidden = props.player?.item.playable == nil || controlsHidden
             
             videoTitleLabelText = props.player?.item.playable?.title ?? ""
@@ -267,7 +268,11 @@ extension DefaultControlsViewController {
             contentFullScreenAction = props.player?.item.playable?.contentFullScreen ?? .nop
             
             isBrandedContentHidden = props.player?.item.playable?.brandedContent == nil
+            
+            isBrandedContentClickable = props.player?.item.playable?.brandedContent?.action != nil
+            
             brandedContentTitle = props.player?.item.playable?.brandedContent?.advertisementText ?? ""
+            
             brandedContentCommand = props.player?.item.playable?.brandedContent?.action ?? .nop
         }
     }

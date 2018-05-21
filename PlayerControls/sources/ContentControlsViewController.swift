@@ -91,7 +91,7 @@ extension ContentControlsViewController.Props {
         /// Angles of current camera position - measured in radians.
         public var angles: Angles = Angles()
         public var moveTo: CommandWith<Angles> = .nop
-
+        
         public init() {}
     }
     
@@ -152,7 +152,7 @@ extension ContentControlsViewController.Props {
         public var progress: Progress = 0
         public var buffered: Progress = 0
         public var seeker: Seeker = Seeker()
-    
+        
         public init() {}
     }
     
@@ -194,7 +194,7 @@ extension ContentControlsViewController.Props {
     
     public struct BrandedContent: Codable {
         public var advertisementText: String = ""
-        public var action: CommandWith<SFSafariViewControllerDelegate> = .nop
+        public var action: CommandWith<SFSafariViewControllerDelegate>? = nil
         
         public init() {}
     }
@@ -216,6 +216,6 @@ extension ContentControlsViewController.Props.Progress: ExpressibleByFloatLitera
 
 extension ContentControlsViewController: SFSafariViewControllerDelegate {
     public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        props.player?.item.playable?.brandedContent?.action.perform(with: self)
+        props.player?.item.playable?.brandedContent?.action?.perform(with: self)
     }
 }

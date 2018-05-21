@@ -660,6 +660,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             showBrandedContentButton.layer.cornerRadius = showBrandedContentButton.frame.height / 2
             showBrandedContentButton.setTitle(currentUIProps.brandedContentTitle,
                                               for: .normal)
+            let image = nextUIProps.isBrandedContentClickable
+                ? UIImage(named: "open-web-page", in: Bundle(for: type(of: self)), compatibleWith: nil)
+                : nil
+            showBrandedContentButton.setImage(image, for: .normal)
+            showBrandedContentButton.setImage(image, for: .selected)
+            showBrandedContentButton.setImage(image, for: .highlighted)
+            
             switch (currentUIProps.isBrandedContentHidden, nextUIProps.isBrandedContentHidden) {
             case (false, true):
                 addAnimation(view: showBrandedContentButton, keyPath: "opacity") {
@@ -955,9 +962,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBAction private func settingsButtonTouched() {
         currentUIProps.settingsButtonAction.perform()
     }
-
+    
     @IBAction private func showWebSiteButtonTouched() {
-        currentUIProps.brandedContentCommand.perform(with: self)
+        currentUIProps.brandedContentCommand?.perform(with: self)
         onUserInteraction?.perform()
     }
 }
