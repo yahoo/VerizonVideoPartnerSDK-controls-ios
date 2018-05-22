@@ -34,6 +34,7 @@ class CaseWithoutBottomItems: SnapshotTest  {
                         
                         controls.brandedContent = .init{
                             $0.advertisementText = "Some looooong looooong title"
+                            $0.action = .nop
                         }
                 })
         })
@@ -43,6 +44,7 @@ class CaseWithoutBottomItems: SnapshotTest  {
     
     func test() {
         if #available(iOS 10.0, *) {
+            verify(controller, for: Device.iPhoneSE.portrait)
             verify(controller, for: Device.iPadPro9.portrait.fullScreen)
         }
         if #available(iOS 11.0, *) {

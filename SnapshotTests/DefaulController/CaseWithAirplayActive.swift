@@ -31,12 +31,14 @@ class CaseWithAirplayActive: SnapshotTest {
                         
                         controls.sideBarViewHidden = false
                         
-                        controls.camera = DefaultControlsViewController.Props.Camera()
-                        
                         controls.settings = .disabled
                         controls.pictureInPictureControl = .impossible
-                        
                         controls.airplay = .active
+                        
+                        controls.brandedContent = .init{
+                            $0.advertisementText = "Some looooong looooong title"
+                            $0.action = nil
+                        }
                 })
         })
         controller.sidebarProps = sideProps()
@@ -46,6 +48,7 @@ class CaseWithAirplayActive: SnapshotTest {
     func test() {
         if #available(iOS 11.0, *) {
             verify(controller, for: Device.iPhoneX.landscapeRight)
+            verify(controller, for: Device.iPhoneSE.portrait)
         }
         if #available(iOS 11.0, *) {
             verify(controller, for: Device.iPadPro9.portrait.oneThird)

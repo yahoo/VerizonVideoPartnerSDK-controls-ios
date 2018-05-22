@@ -1,7 +1,7 @@
 fastlane_version '2.83.0'
 
 before_all do |lane, options|
-  xcversion(version: '9.3')
+  xcversion(version: '~> 9.3')
 end
 
 default_platform :ios
