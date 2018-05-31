@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -427,7 +427,6 @@ Title</string>
                 <constraint firstItem="ce0-uI-sPL" firstAttribute="top" secondItem="deC-QD-Vef" secondAttribute="top" constant="16" id="K6F-Ht-Fg5"/>
                 <constraint firstItem="ce0-uI-sPL" firstAttribute="leading" secondItem="deC-QD-Vef" secondAttribute="leading" constant="21" id="OZY-t2-Qqo"/>
                 <constraint firstItem="kPK-Sh-8jh" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="QGR-7P-ruj"/>
-                <constraint firstItem="deC-QD-Vef" firstAttribute="top" secondItem="6eW-2a-aeL" secondAttribute="top" constant="-20" id="U8I-kg-5Cg"/>
                 <constraint firstAttribute="bottom" secondItem="NKq-bU-tvG" secondAttribute="bottom" id="Vog-pm-tOS"/>
                 <constraint firstItem="IVo-gm-8qs" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="ZsG-TS-eKR"/>
                 <constraint firstItem="NKq-bU-tvG" firstAttribute="leading" secondItem="rFH-6N-3gH" secondAttribute="leading" id="cUc-Ko-vsy"/>
@@ -435,7 +434,6 @@ Title</string>
                 <constraint firstAttribute="bottom" secondItem="Uc8-v7-96O" secondAttribute="bottom" constant="70" id="coa-PV-KiP"/>
                 <constraint firstItem="UtD-cb-Wlb" firstAttribute="centerX" secondItem="deC-QD-Vef" secondAttribute="centerX" id="daT-2G-R8Z"/>
                 <constraint firstItem="deC-QD-Vef" firstAttribute="trailing" secondItem="fi9-sW-1VX" secondAttribute="trailing" id="eNx-qY-amb"/>
-                <constraint firstItem="deC-QD-Vef" firstAttribute="leading" secondItem="6eW-2a-aeL" secondAttribute="leading" constant="-10" id="f4a-u3-z6K"/>
                 <constraint firstItem="IVo-gm-8qs" firstAttribute="centerY" secondItem="deC-QD-Vef" secondAttribute="centerY" constant="0.16666666666668561" id="g2S-a8-EXu"/>
                 <constraint firstAttribute="trailing" secondItem="NKq-bU-tvG" secondAttribute="trailing" id="giY-J7-3C9"/>
                 <constraint firstAttribute="bottom" secondItem="m54-Yx-R7K" secondAttribute="bottom" id="iOy-aw-CDH"/>
