@@ -4,7 +4,7 @@
 import UIKit
 import MediaPlayer
 
-#if (arch(i386) || arch(x86_64)) && os(iOS)
+#if targetEnvironment(simulator)
     typealias AirPlayButton = AirPlayMock
 #else
     typealias AirPlayButton = MPVolumeView

@@ -88,7 +88,7 @@ public final class SideBarView: UIView {
     }
     var buttons: [UIButton] = []
     
-    func sideButtonClicked(sender: UIButton) {
+    @objc func sideButtonClicked(sender: UIButton) {
         guard let index = buttons.index(of: sender) else {
             fatalError("Not found button in array!")
         }

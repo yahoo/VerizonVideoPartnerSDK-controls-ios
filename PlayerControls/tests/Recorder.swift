@@ -54,7 +54,8 @@ extension Recorder {
     }
     
     func hook(_ name:String) -> (() -> ()) {
-        return hook(name) { _,_ in return true }
+        let h00k = hook(name) { (val1: Void,val2: Void) in return true }
+        return { h00k(()) }
     }
     
     func hook<T: Equatable>(_ name:String) -> ((T?) -> ()) {

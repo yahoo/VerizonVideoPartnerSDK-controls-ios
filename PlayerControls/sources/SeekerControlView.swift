@@ -181,7 +181,7 @@ final class SeekerControlView: UIView {
     
     var callbacks: Callbacks = Callbacks()
     
-    func ringIsDragged(recognizer: SeekGestureRecognizer) {
+    @objc func ringIsDragged(recognizer: SeekGestureRecognizer) {
         switch recognizer.state {
         case .began: callbacks.onDragStarted?.perform(with: recognizer.progress)
         case .changed: callbacks.onDragChanged?.perform(with: recognizer.progress)
