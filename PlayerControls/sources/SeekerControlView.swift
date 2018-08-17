@@ -216,10 +216,11 @@ final class SeekerControlView: UIView {
                                 dragControlColor: Color?) {
         currentTimeLabel.textColor = currentTimeColor?.color ?? tintColor
         seekerFiller.tintColor = seekerFillerColor?.color ?? tintColor
-        seekerBackground.tintColor = progressColor?.color ?? tintColor
+        seekerBackground.tintColor = progressColor?.color ?? .white
         seekerBufferBackground.tintColor = bufferedColor?.color ?? tintColor
         dragControl.tintColor = dragControlColor?.color ?? tintColor
         cuePointsViews.forEach { $0.tintColor = seekerViewCuePoints?.color ?? tintColor }
+        
         customCurrentTimeColor = currentTimeColor?.color
     }
 }
