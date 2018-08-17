@@ -106,12 +106,29 @@ extension ContentControlsViewController.Props.Seekbar {
                 currentTime: ContentControlsViewController.Props.Seconds,
                 progress: ContentControlsViewController.Props.Progress,
                 buffered: ContentControlsViewController.Props.Progress,
-                seeker: ContentControlsViewController.Props.Seeker) {
+                seeker: ContentControlsViewController.Props.Seeker,
+                seekbarColors: ContentControlsViewController.Props.SeekbarColors? = nil) {
         self.duration = duration
         self.currentTime = currentTime
         self.progress = progress
         self.buffered = buffered
         self.seeker = seeker
+        self.seekbarColors = seekbarColors
+    }
+}
+extension ContentControlsViewController.Props.SeekbarColors {
+    public init(currentTimeColor: Color? = nil,
+                progressColor: Color? = nil,
+                bufferedColor: Color? = nil,
+                fillerColor: Color? = nil,
+                cuePointsColor: Color? = nil,
+                dragControlColor: Color? = nil) {
+        self.currentTimeColor = currentTimeColor
+        self.progressColor = progressColor
+        self.bufferedColor = bufferedColor
+        self.fillerColor = fillerColor
+        self.cuePointsColor = cuePointsColor
+        self.dragControlColor = dragControlColor
     }
 }
 

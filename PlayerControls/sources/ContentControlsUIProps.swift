@@ -33,14 +33,23 @@ extension DefaultControlsViewController {
         var seekerViewBuffered: CGFloat
         var seekerViewAccessibilityLabel: String
         var seekerViewCuePoints: [Props.Progress]
+        
+        var seekerViewCurrentTimeColor: Color?
+        var seekerViewProgressColor: Color?
+        var seekerViewBufferedColor: Color?
+        var seekerViewCuePointsColor: Color?
+        var seekerViewFillerColor: Color?
+        var seekerViewDurationColor: Color?
+        var seekerViewDragControlColor: Color?
+        
         var startSeekAction: CommandWith<Props.Progress>
         var updateSeekAction: CommandWith<Props.Progress>
         var stopSeekAction: CommandWith<Props.Progress>
         var seekToSecondsAction: CommandWith<Int>
         var seekBackButtonHidden: Bool
         var seekForwardButtonHidden: Bool
-        var bottomItemsHidden: Bool
         
+        var bottomItemsHidden: Bool
         var sideBarViewHidden: Bool
         
         var compasBodyViewHidden: Bool
@@ -180,6 +189,18 @@ extension DefaultControlsViewController {
             seekerViewBuffered = CGFloat(props.player?.item.playable?.seekbar?.buffered.value ?? 0)
             
             seekerViewCuePoints = props.player?.item.playable?.seekbar?.seeker.cuePoints ?? []
+            
+            seekerViewCurrentTimeColor = props.player?.item.playable?.seekbar?.seekbarColors?.currentTimeColor
+            
+            seekerViewProgressColor = props.player?.item.playable?.seekbar?.seekbarColors?.progressColor
+            
+            seekerViewBufferedColor = props.player?.item.playable?.seekbar?.seekbarColors?.bufferedColor
+            
+            seekerViewFillerColor = props.player?.item.playable?.seekbar?.seekbarColors?.fillerColor
+            
+            seekerViewCuePointsColor = props.player?.item.playable?.seekbar?.seekbarColors?.cuePointsColor
+            
+            seekerViewDragControlColor = props.player?.item.playable?.seekbar?.seekbarColors?.dragControlColor
             
             bottomItemsHidden = {
                 guard let playable = props.player?.item.playable else { return false }

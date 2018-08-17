@@ -281,6 +281,13 @@ public final class DefaultControlsViewController: ContentControlsViewController 
                 seekerView.height = self.traitCollection.userInterfaceIdiom == .pad ? 46 : 38
                 seekerView.accessibilityLabel = nextUIProps.seekerViewAccessibilityLabel
                 seekerView.cuePoints = nextUIProps.seekerViewCuePoints
+                seekerView.updateSeekerViewColors(
+                    currentTimeColor: nextUIProps.seekerViewCurrentTimeColor,
+                    progressColor: nextUIProps.seekerViewProgressColor,
+                    bufferedColor: nextUIProps.seekerViewBufferedColor,
+                    seekerFillerColor: nextUIProps.seekerViewFillerColor,
+                    seekerViewCuePoints: nextUIProps.seekerViewCuePointsColor,
+                    dragControlColor: nextUIProps.seekerViewDragControlColor)
             }
             switch (currentUIProps.seekerViewHidden, nextUIProps.seekerViewHidden) {
             case (false, true):
