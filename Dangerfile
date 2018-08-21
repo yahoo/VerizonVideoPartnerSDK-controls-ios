@@ -2,6 +2,18 @@
 require 'json'
 require 'active_support/core_ext/string/output_safety'
 
+warn 'Big PR - break it to smaller PRs.' if git.lines_of_code > 500
+
+warn 'This PR does not have any assignees yet.' unless github.pr_json['assignee']
+
+warn 'PR is marked as Work In Progress.' if github.pr_title.include? "WIP"
+
+build_type = ENV['TRAVIS_EVENT_TYPE']
+if build_type.eql? "pull_request"
+	branch_name = ENV['TRAVIS_PULL_REQUEST_BRANCH']
+	fail 'Please, attach JIRA ticket link to the branch name' unless branch_name[/OMSDK-[0-9]{3,}\/.{3,}/]
+end
+
 if File.exist?('keys.json')
     file = File.read('keys.json')
     data = JSON.parse(file)

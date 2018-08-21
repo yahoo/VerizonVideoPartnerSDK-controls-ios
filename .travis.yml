@@ -14,8 +14,8 @@ script:
 - fastlane test
 
 after_failure:
-- if [ $TRAVIS_PULL_REQUEST_SLUG == "aol-public/OneMobileSDK-controls-ios" ]; then . manage-diffs.sh; fi
+- if [[ $TRAVIS_PULL_REQUEST_SLUG == "aol-public/OneMobileSDK-controls-ios" ]]; then . manage-diffs.sh; fi
 
 
 after_success:
-- if [ "$TRAVIS_PULL_REQUEST_SLUG" == "aol-public/OneMobileSDK-controls-ios" ]; then . manage-diffs.sh; fi
+- if [[ $TRAVIS_PULL_REQUEST_SLUG == "aol-public/OneMobileSDK-controls-ios" ]]; then . manage-diffs.sh; fi
