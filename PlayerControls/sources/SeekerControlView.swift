@@ -20,6 +20,14 @@ final class SeekerControlView: UIView {
         }
     }
     
+    private var customCurrentTimeColor: UIColor?
+    
+    override func tintColorDidChange() {
+        if customCurrentTimeColor == nil {
+            currentTimeLabel.textColor = tintColor
+        }
+    }
+    
     private var width: CGFloat {
         return frame.width - dragControl.alignmentRect.width
     }
@@ -34,10 +42,6 @@ final class SeekerControlView: UIView {
     private var currentTimeLabel: UILabel!
     private var cuePointsViews: [UIImageView] = []
     private var cuePointImage: UIImage!
-    
-    override func tintColorDidChange() {
-        currentTimeLabel.textColor = tintColor
-    }
     
     private func setup() {
         /* Initial setup. */ do {
@@ -203,6 +207,21 @@ final class SeekerControlView: UIView {
     func updateCurrentTime(text: String) {
         currentTimeLabel.text = text
         currentTimeLabel.sizeToFit()
+    }
+    func updateSeekerViewColors(currentTimeColor: Color?,
+                                progressColor: Color?,
+                                bufferedColor: Color?,
+                                seekerFillerColor: Color?,
+                                seekerViewCuePoints: Color?,
+                                dragControlColor: Color?) {
+        currentTimeLabel.textColor = currentTimeColor?.color ?? tintColor
+        seekerFiller.tintColor = seekerFillerColor?.color ?? tintColor
+        seekerBackground.tintColor = progressColor?.color ?? .white
+        seekerBufferBackground.tintColor = bufferedColor?.color ?? tintColor
+        dragControl.tintColor = dragControlColor?.color ?? tintColor
+        cuePointsViews.forEach { $0.tintColor = seekerViewCuePoints?.color ?? tintColor }
+        
+        customCurrentTimeColor = currentTimeColor?.color
     }
 }
 

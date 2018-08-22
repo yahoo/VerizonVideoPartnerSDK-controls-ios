@@ -152,6 +152,17 @@ extension ContentControlsViewController.Props {
         public var progress: Progress = 0
         public var buffered: Progress = 0
         public var seeker: Seeker = Seeker()
+        public var seekbarColors: SeekbarColors?
+        
+        public init() {}
+    }
+    public struct SeekbarColors: Codable {
+        public var currentTimeColor: Color?
+        public var progressColor: Color?
+        public var bufferedColor: Color?
+        public var fillerColor: Color?
+        public var cuePointsColor: Color?
+        public var dragControlColor: Color?
         
         public init() {}
     }
