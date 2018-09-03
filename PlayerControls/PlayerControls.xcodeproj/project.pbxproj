@@ -12,7 +12,6 @@
 		4222DD61204F0F180008E763 /* Props+Autogeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */; };
 		427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427DA9121FFBA1E700698438 /* Defaultable.swift */; };
 		429C3D341FFBA54200B72272 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3D331FFBA54200B72272 /* Color.swift */; };
-		42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */; };
 		50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */; };
 		50582F6E1E65C64B00B18908 /* ContentControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F691E65C64B00B18908 /* ContentControlsViewController.swift */; };
 		50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F6A1E65C64B00B18908 /* DefaultControlsViewController.swift */; };
@@ -79,7 +78,6 @@
 		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		429C3D331FFBA54200B72272 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		42A7F6571FEC156400CE39C0 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
-		42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentControlsUIProps+Init.swift"; sourceTree = "<group>"; };
 		50582F5B1E65C41900B18908 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50582F5F1E65C41900B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentControlsUIProps.swift; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 				50582F921E65CD8500B18908 /* side bar */,
 				50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */,
 				50582F691E65C64B00B18908 /* ContentControlsViewController.swift */,
-				42A7F6591FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift */,
 				50582F911E65CD7B00B18908 /* default */,
 			);
 			name = "content controls";
@@ -488,7 +485,6 @@
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
 				DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */,
 				429C3D341FFBA54200B72272 /* Color.swift in Sources */,
-				42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */,
 				50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
