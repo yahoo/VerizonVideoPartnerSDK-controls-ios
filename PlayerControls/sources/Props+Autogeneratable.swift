@@ -3,12 +3,12 @@
 
 import Foundation
 
-extension ContentControlsViewController.Props: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.Item: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.AirPlay: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.External: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.External.State: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.PictureInPictureControl: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.Playback: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.Settings: Prism, AutoCodable {}
-extension ContentControlsViewController.Props.Thumbnail: Prism, AutoCodable {}
+extension ContentControlsViewController.Props: Prism {}
+extension ContentControlsViewController.Props.Item: Prism {}
+extension ContentControlsViewController.Props.AirPlay: Prism {}
+extension ContentControlsViewController.Props.External: Prism {}
+extension ContentControlsViewController.Props.External.State: Prism {}
+extension ContentControlsViewController.Props.PictureInPictureControl: Prism {}
+extension ContentControlsViewController.Props.Playback: Prism {}
+extension ContentControlsViewController.Props.Settings: Prism {}
+extension ContentControlsViewController.Props.Thumbnail: Prism {}
