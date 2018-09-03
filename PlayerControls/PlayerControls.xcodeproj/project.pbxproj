@@ -36,7 +36,6 @@
 		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
 		50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471341F5958E900C35AEF /* SettingsViewController.swift */; };
 		50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F471361F59590B00C35AEF /* SettingsViewController.xib */; };
-		50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */; };
 		50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4713A1F5980A000C35AEF /* SettingCell.swift */; };
 		50F4713D1F5981E800C35AEF /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F4713C1F5981E800C35AEF /* SettingCell.xib */; };
 		50F471591F5D763500C35AEF /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471581F5D763500C35AEF /* SettingHeaderView.swift */; };
@@ -107,7 +106,6 @@
 		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
 		50F471341F5958E900C35AEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		50F471361F59590B00C35AEF /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = resources/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
-		50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+TableView.swift"; sourceTree = "<group>"; };
 		50F4713A1F5980A000C35AEF /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		50F4713C1F5981E800C35AEF /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingCell.xib; path = resources/SettingCell.xib; sourceTree = SOURCE_ROOT; };
 		50F471581F5D763500C35AEF /* SettingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				50F471341F5958E900C35AEF /* SettingsViewController.swift */,
-				50F471381F597F0700C35AEF /* SettingsViewController+TableView.swift */,
 				50F471361F59590B00C35AEF /* SettingsViewController.xib */,
 				50F471581F5D763500C35AEF /* SettingHeaderView.swift */,
 				50F4715A1F5D764700C35AEF /* SettingHeaderView.xib */,
@@ -493,7 +490,6 @@
 				429C3D341FFBA54200B72272 /* Color.swift in Sources */,
 				42A7F65A1FEC230D00CE39C0 /* ContentControlsUIProps+Init.swift in Sources */,
 				50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */,
-				50F471391F597F0700C35AEF /* SettingsViewController+TableView.swift in Sources */,
 				50582F6C1E65C64B00B18908 /* ContentControlsUIProps.swift in Sources */,
 				50582F7C1E65C93400B18908 /* SeekerControlView.swift in Sources */,
 				A66D238E2072064700566149 /* Codable.stencil in Sources */,
