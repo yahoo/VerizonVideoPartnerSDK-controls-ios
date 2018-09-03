@@ -77,7 +77,6 @@
 		4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Props+Autogeneratable.swift"; sourceTree = "<group>"; };
 		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		429C3D331FFBA54200B72272 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		42A7F6571FEC156400CE39C0 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		50582F5B1E65C41900B18908 /* PlayerControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayerControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50582F5F1E65C41900B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50582F671E65C64B00B18908 /* ContentControlsUIProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentControlsUIProps.swift; sourceTree = "<group>"; };
@@ -143,21 +142,12 @@
 			name = animations;
 			sourceTree = "<group>";
 		};
-		427DA9111FFBA12500698438 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				42A7F6571FEC156400CE39C0 /* Defaultable.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		50582F511E65C41900B18908 = {
 			isa = PBXGroup;
 			children = (
 				50582F5D1E65C41900B18908 /* PlayerControls */,
 				50582F5C1E65C41900B18908 /* Products */,
 				50582FAC1E65DDBA00B18908 /* Frameworks */,
-				427DA9111FFBA12500698438 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,7 +168,7 @@
 				50582F661E65C64B00B18908 /* sources */,
 				50582F991E65D55F00B18908 /* support */,
 			);
-			path = PlayerControls;
+			name = PlayerControls;
 			sourceTree = "<group>";
 		};
 		50582F661E65C64B00B18908 /* sources */ = {
@@ -323,7 +313,8 @@
 				A66D238C2072064700566149 /* Codable.stencil */,
 				A66D238B2072064700566149 /* EnumPrism.stencil */,
 			);
-			path = templates;
+			name = templates;
+			path = build_scripts;
 			sourceTree = "<group>";
 		};
 		DA070BAF1F8B76B9007F407D /* airplay */ = {
