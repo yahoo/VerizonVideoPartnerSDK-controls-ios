@@ -23,14 +23,14 @@ open class ContentControlsViewController: UIViewController {
         
         case pictureInPicture
         
-        public struct Player: Codable {
+        public struct Player {
             public var playlist: Playlist?
             public var item: Item = .nonplayable("")
             
             public init() {}
         }
         
-        public struct Playlist: Codable {
+        public struct Playlist  {
             public var next: Command?
             public var prev: Command?
             
@@ -47,7 +47,7 @@ open class ContentControlsViewController: UIViewController {
 extension ContentControlsViewController.Props {
     public typealias Seconds = Int
     
-    public struct Controls: Codable {
+    public struct Controls {
         
         public var title: String = ""
         public var animationsEnabled: Bool = false
@@ -72,7 +72,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct Angles: Codable {
+    public struct Angles {
         /// zero - center, positive - right part, negative - left part.
         public var horizontal: Float = 0.0
         /// zero - horizon, positive - above horizon, negative - below
@@ -87,7 +87,7 @@ extension ContentControlsViewController.Props {
         case active
     }
     
-    public struct Camera: Codable {
+    public struct Camera {
         /// Angles of current camera position - measured in radians.
         public var angles: Angles = Angles()
         public var moveTo: CommandWith<Angles> = .nop
@@ -105,27 +105,27 @@ extension ContentControlsViewController.Props {
         }
     }
     
-    public struct Error: Codable {
+    public struct Error {
         public var message: String = ""
         public var retryAction: Command?
         
         public init() {}
     }
     
-    public struct Live: Codable {
+    public struct Live {
         public var isHidden: Bool = true
         public var dotColor: Color?
         
         public init() {}
     }
     
-    public struct MediaGroupControl: Codable {
+    public struct MediaGroupControl {
         public var options: [Option] = []
         
         public init() {}
     }
     
-    public struct Option: Codable {
+    public struct Option {
         public var name: String = ""
         public var selected: Bool = false
         public var select: Command = .nop
@@ -146,7 +146,7 @@ extension ContentControlsViewController.Props {
         case replay(Command)
     }
     
-    public struct Seekbar: Codable {
+    public struct Seekbar {
         public var duration: Seconds = 0
         public var currentTime: Seconds = 0
         public var progress: Progress = 0
@@ -156,7 +156,7 @@ extension ContentControlsViewController.Props {
         
         public init() {}
     }
-    public struct SeekbarColors: Codable {
+    public struct SeekbarColors {
         public var currentTimeColor: Color?
         public var progressColor: Color?
         public var bufferedColor: Color?
@@ -167,7 +167,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct State: Codable {
+    public struct State {
         public var start: CommandWith<Progress> = .nop
         public var update: CommandWith<Progress> = .nop
         public var stop: CommandWith<Progress> = .nop
@@ -175,7 +175,7 @@ extension ContentControlsViewController.Props {
         public init() {}
     }
     
-    public struct Seeker: Codable {
+    public struct Seeker {
         public var cuePoints: [Progress] = []
         public var seekTo: CommandWith<Seconds>?
         public var state: State = State()
@@ -194,7 +194,7 @@ extension ContentControlsViewController.Props {
         case image(UIImage)
     }
     
-    public struct Progress: Codable {
+    public struct Progress {
         public typealias NativeValue = CGFloat
         
         public let value: NativeValue
@@ -203,7 +203,7 @@ extension ContentControlsViewController.Props {
         }
     }
     
-    public struct BrandedContent: Codable {
+    public struct BrandedContent {
         public var advertisementText: String = ""
         public var action: CommandWith<SFSafariViewControllerDelegate>? = nil
         
