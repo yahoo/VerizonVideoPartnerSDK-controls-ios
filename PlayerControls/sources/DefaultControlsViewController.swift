@@ -149,7 +149,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     var shouldHideHomeIndicator = true
     
     @available(iOS 11.0, *)
-    override public func prefersHomeIndicatorAutoHidden() -> Bool
+    override public var prefersHomeIndicatorAutoHidden: Bool
     {
         return shouldHideHomeIndicator
     }
@@ -160,7 +160,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let controlsViewVisible = controlsShouldBeVisible || UIAccessibilityIsVoiceOverRunning()
+        let controlsViewVisible = controlsShouldBeVisible || UIAccessibility.isVoiceOverRunning
         
         let nextUIProps = UIProps(props: props,
                                   controlsViewVisible: controlsViewVisible)

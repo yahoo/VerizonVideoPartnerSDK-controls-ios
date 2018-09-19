@@ -56,7 +56,7 @@ public final class SideBarView: UIView {
             /// Corresponds to UIButton 'accessibilityHint' property.
             public var hint: String?
             /// Corresponds to UIButton 'accessibilityTraits' property.
-            public var traits: UIAccessibilityTraits = UIAccessibilityTraitButton
+            public var traits: UIAccessibilityTraits = UIAccessibilityTraits.button
         }
         
         /// Touch handler for button.
@@ -157,7 +157,7 @@ public final class SideBarView: UIView {
     public override var intrinsicContentSize: CGSize {
         let maxWidth = buttons.reduce(CGFloat.leastNormalMagnitude) { max($0, $1.frame.width) }
         
-        return CGSize(width: maxWidth, height: UIViewNoIntrinsicMetric)
+        return CGSize(width: maxWidth, height: UIView.noIntrinsicMetric)
     }
 }
 

@@ -42,7 +42,7 @@ class CaseSeekbarWithAllControls: SnapshotTest {
                         controls.airplay = .enabled
                 })
         })
-        controller.sidebarProps = sideProps()
+        controller.sidebarProps = sideProps
         return controller
     }
     
@@ -71,7 +71,7 @@ class CaseSeekbarWithAllControls: SnapshotTest {
         verify(controller, for: Device.iPadPro12.landscape.half)
     }
     
-    func sideProps() -> [SideBarView.ButtonProps]{
+    let sideProps: [SideBarView.ButtonProps] = {
         
         let shareIcons = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-share", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -122,7 +122,7 @@ class CaseSeekbarWithAllControls: SnapshotTest {
             accessibility: .empty)
         
         return [later, favorite, share, add]
-    }
+    }()
 }
 
 
