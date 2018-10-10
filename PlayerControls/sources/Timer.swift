@@ -14,7 +14,7 @@ public class Timer {
                                       userInfo: nil,
                                       repeats: false)
         // http://bynomial.com/blog/?p=67
-        RunLoop.main.add(self.timer, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(self.timer, forMode: RunLoop.Mode.common)
     }
     
     @objc private func onFire() {

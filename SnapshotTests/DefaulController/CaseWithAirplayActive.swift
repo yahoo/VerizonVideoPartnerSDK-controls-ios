@@ -41,7 +41,7 @@ class CaseWithAirplayActive: SnapshotTest {
                         }
                 })
         })
-        controller.sidebarProps = sideProps()
+        controller.sidebarProps = sideProps
         return controller
     }
     
@@ -58,7 +58,7 @@ class CaseWithAirplayActive: SnapshotTest {
         }
     }
     
-    func sideProps() -> [SideBarView.ButtonProps]{
+    let sideProps: [SideBarView.ButtonProps] = {
         
         let shareIcons = SideBarView.ButtonProps.Icons(
             normal: UIImage(named: "icon-share", in: Bundle(for: SideBarView.self), compatibleWith: nil)!,
@@ -85,6 +85,6 @@ class CaseWithAirplayActive: SnapshotTest {
             accessibility: .empty)
         
         return [favorite, share]
-    }
+    }()
 }
 

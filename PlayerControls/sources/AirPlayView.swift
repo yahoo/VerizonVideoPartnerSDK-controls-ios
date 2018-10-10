@@ -66,7 +66,7 @@ class AirPlayMock: UIButton {
     
     var showsVolumeSlider: Bool = false
     
-    func setRouteButtonImage(_ image: UIImage?, for controlState: UIControlState) {
+    func setRouteButtonImage(_ image: UIImage?, for controlState: UIControl.State) {
         setImage(image, for: controlState)
     }
     
