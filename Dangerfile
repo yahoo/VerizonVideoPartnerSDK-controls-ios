@@ -14,6 +14,9 @@ if build_type.eql? "pull_request"
 	fail 'Please, attach JIRA ticket link to the branch name' unless branch_name[/OMSDK-[0-9]{3,}\/.{3,}/]
 end
 
+warn 'Please, set correct Jira link in the PR comment.' if 
+github.pr_body.include? "[JIRA Ticket](xxx)"
+
 if File.exist?('keys.json')
     file = File.read('keys.json')
     data = JSON.parse(file)

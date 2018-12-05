@@ -1,3 +1,7 @@
-@aol-public/mobile-sdk-team: Ready for review.
+<!-- Please describe all the changes that were done in this PR. -->
+## Changes
 
-[JIRA Issue](https://jira.ouroath.com/browse/OMSDK-XXXX)
+<!-- Remove this if there is no ticket for this PR. -->
+[JIRA Ticket](xxx)
+
+@OathAdPlatforms/mobile-sdk-developers: Please review.

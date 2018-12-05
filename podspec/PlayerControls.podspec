@@ -4,13 +4,13 @@ Pod::Spec.new do |s|
   s.summary          = 'Data-driven player controls for content and advertisement videos.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
   s.platform         = :ios
-  s.swift_version    = '4.1'
+  s.swift_version    = '4.2'
   
   s.description      = <<-DESC
   Player controls include design (layout and assets) and data structures that describe player controls.
 DESC
 
-  s.homepage         = 'https://github.com/aol-public/OneMobileSDK-controls-ios'
+  s.homepage         = 'https://github.com/OathAdPlatforms/OneMobileSDK-controls-ios'
   s.authors          = {
     'Andrey Moskvin' => 'andrey.moskvin@oath.com',
     'Alexey Demedetskiy' => 'alexey.demedetskiy@oath.com',
@@ -19,7 +19,7 @@ DESC
     'Vladyslav Anokhin' => 'vladyslav.anokhin@oath.com'
   }
 
-  s.source = { :git => 'https://github.com/aol-public/OneMobileSDK-controls-ios.git',
+  s.source = { :git => 'https://github.com/OathAdPlatforms/OneMobileSDK-controls-ios.git',
                :tag => s.version.to_s,
                :submodules => true }   
   s.source_files     = 'PlayerControls/**/*.swift'
