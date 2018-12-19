@@ -41,7 +41,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     @IBOutlet private var seekForwardButton: UIButton!
     @IBOutlet private var seekBackButton: UIButton!
     @IBOutlet private var videoTitleLabel: UILabel!
-    @IBOutlet private var loadingImageView: UIImageView!
+    @IBOutlet private var loadingImageView: LoadingImageView!
     @IBOutlet private var sideBarView: SideBarView!
     @IBOutlet private var errorLabel: UILabel!
     @IBOutlet private var retryButton: UIButton!
@@ -187,7 +187,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
             view.layer.add(animation, forKey: keyPath)
         }
         
-        isLoading = nextUIProps.loading
+        loadingImageView.isLoading = nextUIProps.loading
         
         func renderShadowView() {
             switch (currentUIProps.controlsViewHidden, nextUIProps.controlsViewHidden) {
@@ -819,19 +819,7 @@ public final class DefaultControlsViewController: ContentControlsViewController 
     
     /// Alpha for shadow view.
     public var shadowViewAlpha = 0.3 as CGFloat
-    
     /// Shadow view on beneath controls.
-    @IBInspectable var isLoading: Bool = false {
-        didSet {
-            guard isViewLoaded else { return }
-            
-            loadingImageView.isHidden = !isLoading
-            
-            isLoading
-                ? loadingImageView.enableRotation()
-                : loadingImageView.disableRotation()
-        }
-    }
     
     public var onPlayEvent: Command?
     public var onPauseEvent: Command?
