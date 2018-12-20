@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06536931202320C100F65305 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06536930202320C100F65305 /* AnimationDelegate.swift */; };
 		0696270D1FD188A50098494A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696270C1FD188A50098494A /* Command.swift */; };
+		06EE6C8F21CAB688005A8329 /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE6C8E21CAB688005A8329 /* LoadingImageView.swift */; };
 		4222DD61204F0F180008E763 /* Props+Autogeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */; };
 		427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427DA9121FFBA1E700698438 /* Defaultable.swift */; };
 		429C3D341FFBA54200B72272 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C3D331FFBA54200B72272 /* Color.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		06536930202320C100F65305 /* AnimationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		0696270C1FD188A50098494A /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		06EE6C8E21CAB688005A8329 /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
 		4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Props+Autogeneratable.swift"; sourceTree = "<group>"; };
 		427DA9121FFBA1E700698438 /* Defaultable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
 		429C3D331FFBA54200B72272 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			name = animations;
 			sourceTree = "<group>";
 		};
+		06EE6C8B21CAB658005A8329 /* loading image */ = {
+			isa = PBXGroup;
+			children = (
+				06EE6C8E21CAB688005A8329 /* LoadingImageView.swift */,
+			);
+			path = "loading image";
+			sourceTree = "<group>";
+		};
 		50582F511E65C41900B18908 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 		50582F661E65C64B00B18908 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				06EE6C8B21CAB658005A8329 /* loading image */,
 				50582FB31E65E5B900B18908 /* utils */,
 				50582F8E1E65CD5300B18908 /* visibility controller */,
 				50582F8D1E65CD4100B18908 /* time formatter */,
@@ -472,6 +483,7 @@
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
 				DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
+				06EE6C8F21CAB688005A8329 /* LoadingImageView.swift in Sources */,
 				50F4713B1F5980A000C35AEF /* SettingCell.swift in Sources */,
 				50582F8A1E65CBE600B18908 /* ControlsVisibilityController.swift in Sources */,
 				DA036B641FB20BBB00BD0728 /* AirPlayActiveView.swift in Sources */,

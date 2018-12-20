@@ -55,7 +55,7 @@ public final class AdVideoControls: UIViewController {
         pauseButton.isHidden = !playButton.isHidden
         
         loadingImageView.isHidden = !props.isLoading
-        props.isLoading ? loadingImageView.enableRotation() : loadingImageView.disableRotation()
+        loadingImageView.isLoading = props.isLoading
         
         seekerView.progress = CGFloat(props.seeker?.currentValue ?? 0.0)
         seekerView.text = props.seeker?.remainingPlayTime ?? ""
@@ -107,7 +107,7 @@ public final class AdVideoControls: UIViewController {
         }
     }
     
-    @IBOutlet private var loadingImageView: UIImageView!
+    @IBOutlet private var loadingImageView: LoadingImageView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
