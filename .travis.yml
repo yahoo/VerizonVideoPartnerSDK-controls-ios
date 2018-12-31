@@ -1,4 +1,5 @@
-language: swift
+os: osx
+language: objective-c
 osx_image: xcode10.1
 xcode_workspace: PlayerControls
 
@@ -11,11 +12,11 @@ before_install:
 
 script:
 - cd ..
-- fastlane test
+- bundle exec fastlane test
+- bundle exec fastlane lint_current_podspec
 
 after_failure:
 - if [[ $TRAVIS_PULL_REQUEST_SLUG == "OathAdPlatforms/OneMobileSDK-controls-ios" ]]; then . manage-diffs.sh; fi
-
 
 after_success:
 - if [[ $TRAVIS_PULL_REQUEST_SLUG == "OathAdPlatforms/OneMobileSDK-controls-ios" ]]; then . manage-diffs.sh; fi
