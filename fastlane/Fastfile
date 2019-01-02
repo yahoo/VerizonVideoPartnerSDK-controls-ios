@@ -1,4 +1,5 @@
 fastlane_version '2.83.0'
+actions_path '../PlayerControls/build_scripts/cocoapods/'
 
 before_all do |lane, options|
   xcversion(version: '~> 10')
@@ -68,5 +69,12 @@ platform :ios do
       scheme: 'Tests',
       device: 'iPad Pro (12.9-inch)' 
       )
+  end
+
+  desc 'Lint current podspec'
+  lane :lint_current_podspec do
+    lint_podspec(
+      podspec_path: './podspec/PlayerControls.podspec',
+      sources_repo: 'https://github.com/VerizonAdPlatforms/OneMobileSDK-releases-iOS')
   end
 end
