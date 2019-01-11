@@ -42,7 +42,7 @@ public class ControlsPresentationController {
         fire = CommandWith { [weak self] in self?.timerFired() }
         
         
-        // At the end. self -> Timer -> OneMobileSDK.Timer -> [weak self]
+        // At the end. self -> Timer -> VerizonVideoPartnerSDK.Timer -> [weak self]
         // No retain cycle here.
     }
     

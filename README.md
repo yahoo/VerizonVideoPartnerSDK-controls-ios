@@ -1,5 +1,5 @@
-# OneMobileSDK-controls-ios
-Public iOS implementation of the OneMobileSDK default custom controls interface... demonstrating how customers can implement their own custom video player controls.
+# VerizonVideoPartnerSDK-controls-ios
+Public iOS implementation of the VerizonVideoPartnerSDK default custom controls interface... demonstrating how customers can implement their own custom video player controls.
 
 # Required tools
 Before build the project install next tools.
