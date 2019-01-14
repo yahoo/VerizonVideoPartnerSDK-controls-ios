@@ -75,6 +75,6 @@ platform :ios do
   lane :lint_current_podspec do
     lint_podspec(
       podspec_path: './podspec/PlayerControls.podspec',
-      sources_repo: 'https://github.com/VerizonAdPlatforms/OneMobileSDK-releases-iOS')
+      sources_repo: 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-releases-iOS')
   end
 end

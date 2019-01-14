@@ -4,4 +4,4 @@
 <!-- Remove this if there is no ticket for this PR. -->
 [JIRA Ticket](xxx)
 
-@OathAdPlatforms/mobile-sdk-developers: Please review.
+@VerizonAdPlatforms/mobile-sdk-developers: Please review.

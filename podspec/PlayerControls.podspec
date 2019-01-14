@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PlayerControls'
-  s.version          = '1.27'
+  s.version          = '1.28'
   s.summary          = 'Data-driven player controls for content and advertisement videos.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
 
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   Player controls include design (layout and assets) and data structures that describe player controls.
 DESC
 
-  s.homepage         = 'https://github.com/VerizonAdPlatforms/OneMobileSDK-controls-ios'
+  s.homepage         = 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios'
   s.authors          = {
     'Andrey Moskvin' => 'andrey.moskvin@oath.com',
     'Roman Tysiachnik' => 'roman.tysiachnik@oath.com',
@@ -19,7 +19,7 @@ DESC
   }
 
   s.source = { 
-    :git => 'https://github.com/VerizonAdPlatforms/OneMobileSDK-controls-ios.git',
+    :git => 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios.git',
     :tag => s.version.to_s,
     :submodules => true 
   }   
