@@ -2,27 +2,27 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "sm-ad-icon-skip.png",
+      "filename" : "ad-skip-btn.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "sm-ad-icon-skip@2x.png",
+      "filename" : "ad-skip-btn@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "sm-ad-icon-skip@3x.png",
+      "filename" : "ad-skip-btn@3x.png",
       "scale" : "3x"
     },
     {
       "idiom" : "ipad",
-      "filename" : "ad-icon-skip.png",
+      "filename" : "ad-skip-btn-ipad.png",
       "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "filename" : "ad-icon-skip@2x.png",
+      "filename" : "ad-skip-btn@2x-ipad.png",
       "scale" : "2x"
     }
   ],
