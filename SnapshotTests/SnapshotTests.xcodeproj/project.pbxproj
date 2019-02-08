@@ -446,7 +446,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 95F456P57Y;
+				DEVELOPMENT_TEAM = KYF8QFK3G9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -467,7 +467,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 95F456P57Y;
+				DEVELOPMENT_TEAM = KYF8QFK3G9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
