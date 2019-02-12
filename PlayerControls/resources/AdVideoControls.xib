@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdVideoControls" customModule="PlayerControls" customModuleProvider="target">
             <connections>
+                <outlet property="adSkipButton" destination="5ug-VD-17T" id="YdJ-dl-3Kv"/>
                 <outlet property="airplayActiveView" destination="Qev-Mi-7eg" id="ehT-lX-0XI"/>
                 <outlet property="containerView" destination="qIL-ei-EYl" id="L12-FM-W5p"/>
                 <outlet property="loadingImageView" destination="EKe-z8-rXd" id="eHq-Ft-TPG"/>
@@ -19,7 +20,6 @@
                 <outlet property="playButton" destination="ZdZ-pr-J12" id="mDx-rg-za2"/>
                 <outlet property="remainingPlayTimeLabel" destination="8JH-hm-H4n" id="bPJ-YQ-afD"/>
                 <outlet property="seekerView" destination="OkK-Gw-Woe" id="yMm-3u-3MF"/>
-                <outlet property="skipButton" destination="5ug-VD-17T" id="ygd-HP-dn9"/>
                 <outlet property="titleLabel" destination="unl-Sw-N45" id="dWD-6h-eAd"/>
                 <outlet property="view" destination="GG0-Gw-iIe" id="udv-Yi-jiW"/>
             </connections>
@@ -91,24 +91,36 @@
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-VD-17T">
                     <rect key="frame" x="301" y="651" width="103" height="35"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Skip in 10" backgroundImage="ad-icon-skip"/>
-                    <state key="selected" backgroundImage="ad-icon-skip"/>
-                    <state key="highlighted" backgroundImage="ad-icon-skip"/>
+                    <state key="normal" title="Skip in 99" backgroundImage="ad-icon-skip">
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" backgroundImage="ad-icon-skip">
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="ad-icon-skip">
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="13"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <variation key="widthClass=regular">
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
-                    </variation>
+                    <connections>
+                        <action selector="adSkipButtonTouched" destination="-1" eventType="touchUpInside" id="wmW-oj-hid"/>
+                        <action selector="highlightButton:" destination="-1" eventType="touchDown" id="mx6-wW-UHl"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpInside" id="fG8-Vg-fsh"/>
+                        <action selector="normaliseButton:" destination="-1" eventType="touchUpOutside" id="usb-pI-LMH"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqW-yt-m6i" userLabel="Pause">
                     <rect key="frame" x="10" y="701" width="30" height="30"/>

@@ -17,13 +17,11 @@ platform :ios do
       )
     scan(
       fail_build: true,
-      skip_build: true,
       scheme: 'Verify Snapshots',
       device: 'iPhone 8 Plus' 
       )
     scan(
       fail_build: true,
-      skip_build: true,
       scheme: 'Verify Snapshots',
       device: 'iPad Pro (12.9-inch)' 
       )

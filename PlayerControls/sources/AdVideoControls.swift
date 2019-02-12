@@ -22,8 +22,10 @@ public final class AdVideoControls: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     /// Skip button. Not yet implemented, hidden by default.
     @IBOutlet private var skipButton: UIButton!
-    /// AirPlay active view. Shows when AirPlay is active
+    /// AirPlay active view. Shows when AirPlay is active.
     @IBOutlet private var airplayActiveView: AirPlayActiveView!
+    /// Ad Skip button to skip an active ad.
+    @IBOutlet private var adSkipButton: UIButton!
     
     @IBOutlet public weak var containerView: UIView!
     
@@ -31,7 +33,8 @@ public final class AdVideoControls: UIViewController {
                                     seeker: nil,
                                     click: .nop,
                                     isLoading: true,
-                                    airplayActiveViewHidden: true) {
+                                    airplayActiveViewHidden: true,
+                                    adSkipState: .unavailable) {
         didSet {
             guard isViewLoaded else { return }
             view.setNeedsLayout()
@@ -64,6 +67,20 @@ public final class AdVideoControls: UIViewController {
         seekerView.accessibilityLabel = props.seeker?.accessibilityLabel ?? ""
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
         airplayActiveView.isHidden = props.airplayActiveViewHidden
+        
+        adSkipButton.isHidden = props.adSkipState.isUnavailable
+        
+        adSkipButton.isEnabled = props.adSkipState.available != nil
+        
+        switch props.adSkipState {
+        case .unavailable: break
+        case .available:
+            adSkipButton.titleLabel?.alpha = 1
+            adSkipButton.setTitle("Skip", for: .normal)
+        case .awaiting(let time):
+            adSkipButton.titleLabel?.alpha = 0.5
+            adSkipButton.setTitle("Skip in \(time)", for: .normal)
+        }
     }
     
     public struct Props: Codable {
@@ -71,16 +88,22 @@ public final class AdVideoControls: UIViewController {
                                             seeker: nil,
                                             click: .nop,
                                             isLoading: true,
-                                            airplayActiveViewHidden: true)
+                                            airplayActiveViewHidden: true,
+                                            adSkipState: .unavailable)
         public let mainAction: MainAction
         public let seeker: Seeker?
         public let click: CommandWith<SFSafariViewControllerDelegate>
         public let isLoading: Bool
         public let airplayActiveViewHidden: Bool
+        public let adSkipState: AdSkipState
         
         public enum MainAction: Prism, AutoCodable {
             case play(Command)
             case pause(Command)
+        }
+        
+        public enum AdSkipState: Prism, AutoCodable {
+            case unavailable, available(Command), awaiting(Int)
         }
         
         public struct Seeker: Codable {
@@ -98,12 +121,14 @@ public final class AdVideoControls: UIViewController {
                     seeker: Seeker?,
                     click: CommandWith<SFSafariViewControllerDelegate>,
                     isLoading: Bool,
-                    airplayActiveViewHidden: Bool) {
+                    airplayActiveViewHidden: Bool,
+                    adSkipState: AdSkipState) {
             self.mainAction = mainAction
             self.seeker = seeker
             self.click = click
             self.isLoading = isLoading
             self.airplayActiveViewHidden = airplayActiveViewHidden
+            self.adSkipState = adSkipState
         }
     }
     
@@ -126,18 +151,26 @@ public final class AdVideoControls: UIViewController {
         props.mainAction.pause?.perform()
     }
     
+    /// Ad Clickthrough command.
     @IBAction private func viewTouched() {
         props.click.perform(with: self)
+    }
+    
+    /// Ad Skip button command.
+    @IBAction private func adSkipButtonTouched() {
+        props.adSkipState.available?.perform()
     }
 }
 
 extension AdVideoControls {
     @IBAction func highlightButton(_ button: UIButton) {
         button.tintColor = view.tintColor
+        button.setTitleColor(view.tintColor, for: .highlighted)
     }
     
     @IBAction func normaliseButton(_ button: UIButton) {
         button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
     }
 }
 
