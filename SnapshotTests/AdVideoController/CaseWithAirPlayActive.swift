@@ -18,7 +18,9 @@ class CaseWithAirPlayActive: SnapshotTest {
                 currentValue: 0.5,
                 accessibilityLabel: ""),
             click: .nop,
-            isLoading: false, airplayActiveViewHidden: false)
+            isLoading: false,
+            airplayActiveViewHidden: false,
+            adSkipState: .available(.nop))
         return controller
     }
     

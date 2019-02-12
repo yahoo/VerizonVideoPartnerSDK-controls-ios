@@ -18,7 +18,9 @@ class CaseWithAdLoading: SnapshotTest {
                 currentValue: 0,
                 accessibilityLabel: ""),
             click: .nop,
-            isLoading: true, airplayActiveViewHidden: true)
+            isLoading: true,
+            airplayActiveViewHidden: true,
+            adSkipState: .awaiting(10))
         return controller
     }
     
