@@ -6,15 +6,16 @@ import MediaPlayer
 /// You can replace commands with your own
 /// and customise controls according to your needs.
 public final class DefaultControlsViewController: ContentControlsViewController {
+    let defaultNibName = "DefaultControlsViewController"
     public init() {
-        super.init(nibName: "DefaultControlsViewController",
-                   bundle: Bundle(for: type(of: self)))
+        super.init(nibName: defaultNibName,
+                   bundle: controlsBundle(for: type(of: self)))
         setupVisibilityController()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        super.init(nibName: "DefaultControlsViewController",
-                   bundle: Bundle(for: type(of: self)))
+        super.init(nibName: defaultNibName,
+                   bundle: controlsBundle(for: type(of: self)))
         setupVisibilityController()
     }
     
@@ -785,9 +786,9 @@ public final class DefaultControlsViewController: ContentControlsViewController 
         
         airPlayView.props = AirPlayView.Props(
             icons: AirPlayView.Props.Icons(
-                normal: UIImage.init(named: "icon-airplay", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
-                selected: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!,
-                highlighted: UIImage.init(named: "icon-airplay-active", in: Bundle(for: AirPlayView.self), compatibleWith: nil)!)
+                normal: UIImage.init(named: "icon-airplay", in: controlsBundle(for: AirPlayView.self), compatibleWith: nil)!,
+                selected: UIImage.init(named: "icon-airplay-active", in: controlsBundle(for: AirPlayView.self), compatibleWith: nil)!,
+                highlighted: UIImage.init(named: "icon-airplay-active", in: controlsBundle(for: AirPlayView.self), compatibleWith: nil)!)
         )
         
         renderShadowView()
