@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PlayerControls'
-  s.version          = '1.28'
+  s.version          = '1.29'
   s.summary          = 'Data-driven player controls for content and advertisement videos.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
 
