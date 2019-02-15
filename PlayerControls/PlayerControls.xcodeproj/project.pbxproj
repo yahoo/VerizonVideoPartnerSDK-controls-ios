@@ -33,6 +33,7 @@
 		50582FAA1E65DC1600B18908 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F831E65CA5F00B18908 /* FormatterTests.swift */; };
 		50582FAB1E65DC1600B18908 /* SideBarViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582F761E65C8CC00B18908 /* SideBarViewTests.swift */; };
 		50582FB21E65DEF800B18908 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50582FB11E65DEF800B18908 /* Recorder.swift */; };
+		509D42562216DF9100A8C7BD /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D42552216DF9100A8C7BD /* BundleHelper.swift */; };
 		50A5A5B51E6F13A900C15E12 /* PlayerUIControls.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */; };
 		50F471351F5958E900C35AEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F471341F5958E900C35AEF /* SettingsViewController.swift */; };
 		50F471371F59590B00C35AEF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F471361F59590B00C35AEF /* SettingsViewController.xib */; };
@@ -102,6 +103,7 @@
 		50582F9E1E65D78C00B18908 /* PlayerControlsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayerControlsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50582FA21E65D78C00B18908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		50582FB11E65DEF800B18908 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recorder.swift; path = tests/Recorder.swift; sourceTree = SOURCE_ROOT; };
+		509D42552216DF9100A8C7BD /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		50A5A5B41E6F13A900C15E12 /* PlayerUIControls.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = PlayerUIControls.xcassets; path = resources/PlayerUIControls.xcassets; sourceTree = SOURCE_ROOT; };
 		50F471341F5958E900C35AEF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		50F471361F59590B00C35AEF /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = resources/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -293,6 +295,7 @@
 				0696270C1FD188A50098494A /* Command.swift */,
 				50582FB11E65DEF800B18908 /* Recorder.swift */,
 				4222DD60204F0F180008E763 /* Props+Autogeneratable.swift */,
+				509D42552216DF9100A8C7BD /* BundleHelper.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				50582F6F1E65C64B00B18908 /* DefaultControlsViewController.swift in Sources */,
 				427DA9131FFBA1E700698438 /* Defaultable.swift in Sources */,
 				50582F741E65C79D00B18908 /* Utils.swift in Sources */,
+				509D42562216DF9100A8C7BD /* BundleHelper.swift in Sources */,
 				DA070BB11F8B776A007F407D /* AirPlayView.swift in Sources */,
 				50582F771E65C8CC00B18908 /* SideBarView.swift in Sources */,
 				06EE6C8F21CAB688005A8329 /* LoadingImageView.swift in Sources */,

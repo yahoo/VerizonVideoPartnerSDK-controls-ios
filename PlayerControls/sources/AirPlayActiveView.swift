@@ -18,9 +18,8 @@ class AirPlayActiveView: UIView {
     }
     
     private func commonInit() {
-        Bundle(for: type(of: self)).loadNibNamed("AirPlayActiveView",
-                                                 owner: self,
-                                                 options: nil)
+        controlsBundle(for: type(of: self))
+            .loadNibNamed("AirPlayActiveView", owner: self, options: nil)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(contentView)

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PlayerControls'
-  s.version          = '1.29'
+  s.version          = '1.30'
   s.summary          = 'Data-driven player controls for content and advertisement videos.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
 
@@ -24,7 +24,7 @@ DESC
     :submodules => true 
   }   
   s.source_files     = 'PlayerControls/**/*.swift'
-  s.resources        = 'PlayerControls/resources/*'
+  s.resource_bundle  = { 'PlayerControls' => 'PlayerControls/resources/**/*.{xcassets,xib}' }
   s.exclude_files    = 'PlayerControls/tests/*'
   
   s.ios.deployment_target = '9.0'

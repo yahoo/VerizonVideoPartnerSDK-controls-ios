@@ -43,7 +43,7 @@ public final class AdVideoControls: UIViewController {
     
     public init() {
         super.init(nibName: "AdVideoControls",
-                   bundle: Bundle(for: type(of: self)))
+                   bundle: controlsBundle(for: type(of: self)))
     }
     
     required public init?(coder aDecoder: NSCoder) {

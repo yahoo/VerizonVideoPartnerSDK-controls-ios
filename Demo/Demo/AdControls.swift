@@ -15,7 +15,8 @@ extension Controls {
                             accessibilityLabel: ""),
                          click: .nop,
                          isLoading: false,
-                         airplayActiveViewHidden: true)
+                         airplayActiveViewHidden: true,
+                         adSkipState: .unavailable)
         return vc
     }()
 }
