@@ -70,15 +70,13 @@ public final class AdVideoControls: UIViewController {
         
         adSkipButton.isHidden = props.adSkipState.isUnavailable
         
-        adSkipButton.isEnabled = props.adSkipState.available != nil
-        
         switch props.adSkipState {
         case .unavailable: break
         case .available:
-            adSkipButton.titleLabel?.alpha = 1
+            adSkipButton.alpha = 1
             adSkipButton.setTitle("Skip", for: .normal)
         case .awaiting(let time):
-            adSkipButton.titleLabel?.alpha = 0.5
+            adSkipButton.alpha = 0.5
             adSkipButton.setTitle("Skip in \(time)", for: .normal)
         }
     }
@@ -164,6 +162,7 @@ public final class AdVideoControls: UIViewController {
 
 extension AdVideoControls {
     @IBAction func highlightButton(_ button: UIButton) {
+        guard button.isEnabled, button.alpha == 1 else { return }
         button.tintColor = view.tintColor
         button.setTitleColor(view.tintColor, for: .highlighted)
     }
