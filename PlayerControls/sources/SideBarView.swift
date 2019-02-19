@@ -55,8 +55,11 @@ public final class SideBarView: UIView {
             public var label: String?
             /// Corresponds to UIButton 'accessibilityHint' property.
             public var hint: String?
-            /// Corresponds to UIButton 'accessibilityTraits' property.
-            public var traits: UIAccessibilityTraits = UIAccessibilityTraits.button
+            
+            public init(label: String? = nil, hint: String? = nil) {
+                self.label = label
+                self.hint = hint
+            }
         }
         
         /// Touch handler for button.
@@ -135,7 +138,7 @@ public final class SideBarView: UIView {
                 button.setImage(prop.icons.highlighted, for: .highlighted)
                 button.accessibilityLabel = prop.accessibility.label
                 button.accessibilityHint = prop.accessibility.hint
-                button.accessibilityTraits = prop.accessibility.traits
+                button.accessibilityTraits = UIAccessibilityTraits.button
                 button.sizeToFit()
             } else {
                 remove(button: button)
