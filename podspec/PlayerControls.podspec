@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PlayerControls'
-  s.version          = '1.30'
+  s.version          = '2.0'
   s.summary          = 'Data-driven player controls for content and advertisement videos.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
 
@@ -13,9 +13,9 @@ DESC
 
   s.homepage         = 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios'
   s.authors          = {
-    'Andrey Moskvin' => 'andrey.moskvin@oath.com',
-    'Roman Tysiachnik' => 'roman.tysiachnik@oath.com',
-    'Vladyslav Anokhin' => 'vladyslav.anokhin@oath.com'
+    'Andrey Moskvin' => 'andrey.moskvin@verizonmedia.com',
+    'Roman Tysiachnik' => 'roman.tysiachnik@verizonmedia.com',
+    'Vladyslav Anokhin' => 'vladyslav.anokhin@verizonmedia.com'
   }
 
   s.source = { 
@@ -25,7 +25,8 @@ DESC
   }   
   s.source_files     = 'PlayerControls/**/*.swift'
   s.resource_bundle  = { 'PlayerControls' => 'PlayerControls/resources/**/*.{xcassets,xib}' }
-  s.exclude_files    = 'PlayerControls/tests/*'
+  s.exclude_files    = 'PlayerControls/tests/*', 
+                       'PlayerControls/resources/SeekerControlPlayground.xib'
   
   s.ios.deployment_target = '9.0'
 
