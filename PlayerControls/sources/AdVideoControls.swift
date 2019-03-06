@@ -75,9 +75,15 @@ public final class AdVideoControls: UIViewController {
         case .available:
             adSkipButton.alpha = 1
             adSkipButton.setTitle("Skip", for: .normal)
+            let accessibilityText = "Skip advertisement"
+            adSkipButton.accessibilityLabel = accessibilityText
+            adSkipButton.accessibilityIdentifier = accessibilityText
         case .awaiting(let time):
             adSkipButton.alpha = 0.5
             adSkipButton.setTitle("Skip in \(time)", for: .normal)
+            let accessibilityText = "Skip will be available in \(time)"
+            adSkipButton.accessibilityLabel = accessibilityText
+            adSkipButton.accessibilityIdentifier = accessibilityText
         }
     }
     
