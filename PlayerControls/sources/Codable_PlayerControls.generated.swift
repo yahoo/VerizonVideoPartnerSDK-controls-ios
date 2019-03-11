@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -34,9 +34,9 @@ public init(from decoder: Decoder) throws {
     case .unavailable:
             self = .unavailable
     case .available:
-                        self = .available( try values.decode( CommandWith.self, forKey: .value))
+                    self = .available(try values.decode(Command.self, forKey: .value))
     case .awaiting:
-                        self = .awaiting( try values.decode(Int.self, forKey: .value))
+                    self = .awaiting(try values.decode(Int.self, forKey: .value))
 }
 return
 }
@@ -71,9 +71,9 @@ public init(from decoder: Decoder) throws {
     let `case` = try values.decode(Cases.self, forKey: .case)
     switch `case` {
     case .play:
-                        self = .play( try values.decode( CommandWith.self, forKey: .value))
+                    self = .play(try values.decode(Command.self, forKey: .value))
     case .pause:
-                        self = .pause( try values.decode( CommandWith.self, forKey: .value))
+                    self = .pause(try values.decode(Command.self, forKey: .value))
 }
 return
 }
