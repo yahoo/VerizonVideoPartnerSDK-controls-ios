@@ -66,6 +66,7 @@ public final class AdVideoControls: UIViewController {
         seekerView.isCurrentTimeEnabled = false
         seekerView.accessibilityLabel = props.seeker?.accessibilityLabel ?? ""
         remainingPlayTimeLabel.text = props.seeker?.remainingPlayTime
+        remainingPlayTimeLabel.accessibilityLabel = props.seeker?.remainingPlayTime
         airplayActiveView.isHidden = props.airplayActiveViewHidden
         
         adSkipButton.isHidden = props.adSkipState.isUnavailable

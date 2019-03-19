@@ -107,7 +107,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVE-Q8-zOG">
                             <rect key="frame" x="192.5" y="112.5" width="95" height="95"/>
-                            <accessibility key="accessibilityConfiguration" label="Replay content video"/>
+                            <accessibility key="accessibilityConfiguration" label="Replay video"/>
                             <state key="normal" image="icon-replay"/>
                             <state key="highlighted" image="icon-replay-glow"/>
                             <connections>
