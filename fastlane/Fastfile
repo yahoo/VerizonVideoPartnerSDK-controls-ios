@@ -72,7 +72,7 @@ platform :ios do
   desc 'Lint current podspec'
   lane :lint_current_podspec do
     lint_podspec(
-      podspec_path: './podspec/PlayerControls.podspec',
+      podspec_path: './PlayerControls.podspec',
       sources_repo: 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-releases-iOS')
   end
 end
