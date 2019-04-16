@@ -1,6 +1,14 @@
 # Change Log
 
-## [2.0.2](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/tree/2.0.2) (2019-04-05)
+## [2.0.3](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/tree/2.0.3) (2019-04-16)
+[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/compare/2.0.2...2.0.3)
+
+**Merged pull requests:**
+
+- Moved side bar in controls view hierarchy [\#162](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/162) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Player Controls 2.0.2 release [\#161](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/161) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+
+## [2.0.2](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/tree/2.0.2) (2019-04-11)
 [Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/compare/2.0.1...2.0.2)
 
 **Merged pull requests:**
@@ -94,6 +102,10 @@
 ## [1.23](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/tree/1.23) (2018-08-22)
 [Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/compare/1.22...1.23)
 
+**Fixed bugs:**
+
+- Added fix for crash with constraints  [\#110](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/110) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+
 **Merged pull requests:**
 
 - Added Defaultable for Seekbar colors [\#129](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/129) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
@@ -115,7 +127,6 @@
 - Turned off animations when seeking started [\#113](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/113) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
 - Added fixes to default controls layout [\#112](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/112) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
 - Added pull request template [\#111](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/111) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
-- Added fix for crash with constraints  [\#110](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/110) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
 - Organization name update for template files [\#109](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/109) ([AndriiMoskvin](https://github.com/AndriiMoskvin))
 - Updated iPhone X snapshot testing [\#108](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/108) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
 - Added timer for Demo that changes props every 0.2 sec [\#107](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios/pull/107) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
