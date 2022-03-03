@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   Player controls include design (layout and assets) and data structures that describe player controls.
 DESC
 
-  s.homepage         = 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios'
+  s.homepage         = 'https://github.com/yahoo/VerizonVideoPartnerSDK-controls-ios'
   s.authors          = {
     'Andrey Moskvin' => 'andrey.moskvin@verizonmedia.com',
     'Roman Tysiachnik' => 'roman.tysiachnik@verizonmedia.com',
@@ -19,7 +19,7 @@ DESC
   }
 
   s.source = { 
-    :git => 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-controls-ios.git',
+    :git => 'https://github.com/yahoo/VerizonVideoPartnerSDK-controls-ios.git',
     :tag => s.version.to_s,
     :submodules => true 
   }   
